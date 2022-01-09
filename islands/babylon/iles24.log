@@ -1,0 +1,652 @@
+Exporter version: 2.80.1, Blender version: 2.91.0
+========= Conversion from Blender to Babylon.js =========
+	Scene settings used :
+		Inline textures     :  false
+		Material Type       :  PBR
+		Positions Precision :  4
+		Normals Precision   :  3
+		UVs Precision       :  3
+		Vert Color Precision:  3
+		Mat Weight Precision:  2
+		Keep Z-up r-handed  :  no
+		Texture directory   :  C:\wamp64\www\mondesvirtuels\iles\v14_reduce\babylon\
+	Python World class constructor completed
+	WARNING: The following object (type - CURVE) is not currently exportable thus ignored: BezierCircle
+	processing begun of camera (UniversalCamera):  Camera1
+	processing begun of camera (UniversalCamera):  Camera2
+	processing begun of mesh:  musicPanelPlay
+		processing begun of material:  stone
+		processing begun of material:  grass
+		processing begun of material:  bark
+		processing begun of material:  white
+		processing begun of material:  leaves
+		processing begun of material:  rock
+		processing begun of material:  wood
+		processing begun of material:  skin
+		processing begun of material:  leather
+		processing begun of material:  hardWood
+		processing begun of material:  material_10
+		processing begun of material:  red
+		processing begun of material:  black
+		processing begun of material:  material_13
+		processing begun of material:  blackWood
+		processing begun of material:  music
+		processing begun of material:  material_16
+		processing begun of material:  material_17
+		processing begun of material:  material_18
+			processing texture _04
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture _01
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture _07
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture _06
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture _03
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture _00
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture _05
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture _02
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture _08
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture _10
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture _11
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture _09
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture _12
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture _13
+				texture type:  diffuseTexture, mapped using: "UVMap"
+		processing begun of multimaterial:  iles24.Multimaterial#0
+		Custom split normals with tangents being used
+		num positions      :  32
+		num normals        :  32
+		num tangents       :  128
+		num uvs            :  64
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  16
+	processing begun of mesh:  musicPanelStop
+		processing begun of material:  stone
+		processing begun of material:  grass
+		processing begun of material:  bark
+		processing begun of material:  white
+		processing begun of material:  leaves
+		processing begun of material:  rock
+		processing begun of material:  wood
+		processing begun of material:  skin
+		processing begun of material:  leather
+		processing begun of material:  hardWood
+		processing begun of material:  material_10
+		processing begun of material:  red
+		processing begun of material:  black
+		processing begun of material:  material_13
+		processing begun of material:  blackWood
+		processing begun of material:  music
+		processing begun of material:  material_16
+		processing begun of material:  material_17
+		processing begun of material:  material_18
+		registered as also a user of material:  stone
+		registered as also a user of material:  grass
+		registered as also a user of material:  bark
+		registered as also a user of material:  white
+		registered as also a user of material:  leaves
+		registered as also a user of material:  rock
+		registered as also a user of material:  wood
+		registered as also a user of material:  skin
+		registered as also a user of material:  leather
+		registered as also a user of material:  hardWood
+		registered as also a user of material:  material_10
+		registered as also a user of material:  red
+		registered as also a user of material:  black
+		registered as also a user of material:  material_13
+		registered as also a user of material:  blackWood
+		registered as also a user of material:  music
+		registered as also a user of material:  material_16
+		registered as also a user of material:  material_17
+		registered as also a user of material:  material_18
+		processing begun of multimaterial:  iles24.Multimaterial#1
+		Custom split normals with tangents being used
+		num positions      :  20
+		num normals        :  20
+		num tangents       :  80
+		num uvs            :  40
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  10
+	processing begun of mesh:  musicPanel
+		processing begun of material:  wood
+		processing begun of material:  blackWood
+		processing begun of material:  music
+		registered as also a user of material:  wood
+		registered as also a user of material:  blackWood
+		registered as also a user of material:  music
+		processing begun of multimaterial:  iles24.Multimaterial#2
+		Custom split normals with tangents being used
+		num positions      :  91
+		num normals        :  91
+		num tangents       :  364
+		num uvs            :  182
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  52
+	processing begun of mesh:  zeppelin1
+		animation processing begun
+			processing action zeppelin1Action.001:  in[0 - 250], out[0 - 250]
+		processing begun of material:  skin
+		processing begun of material:  leather
+		processing begun of material:  hardWood
+		processing begun of material:  black
+		registered as also a user of material:  skin
+		registered as also a user of material:  leather
+		registered as also a user of material:  hardWood
+		registered as also a user of material:  black
+		processing begun of multimaterial:  iles24.Multimaterial#3
+		Custom split normals with tangents being used
+		num positions      :  450
+		num normals        :  450
+		num tangents       :  1800
+		num uvs            :  900
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  356
+	processing begun of mesh:  zeppelin5
+		animation processing begun
+			processing action zeppelin1Action.002:  in[0 - 250], out[0 - 250]
+		processing begun of material:  skin
+		processing begun of material:  leather
+		processing begun of material:  hardWood
+		processing begun of material:  black
+		registered as also a user of material:  skin
+		registered as also a user of material:  leather
+		registered as also a user of material:  hardWood
+		registered as also a user of material:  black
+		processing begun of multimaterial:  iles24.Multimaterial#4
+		Custom split normals with tangents being used
+		num positions      :  446
+		num normals        :  446
+		num tangents       :  1784
+		num uvs            :  892
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  356
+	processing begun of mesh:  zeppelin6
+		animation processing begun
+			processing action zeppelin1Action.003:  in[0 - 250], out[0 - 250]
+		processing begun of material:  skin
+		processing begun of material:  leather
+		processing begun of material:  hardWood
+		processing begun of material:  black
+		registered as also a user of material:  skin
+		registered as also a user of material:  leather
+		registered as also a user of material:  hardWood
+		registered as also a user of material:  black
+		processing begun of multimaterial:  iles24.Multimaterial#5
+		Custom split normals with tangents being used
+		num positions      :  445
+		num normals        :  445
+		num tangents       :  1780
+		num uvs            :  890
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  356
+	processing begun of mesh:  zeppelin3
+		animation processing begun
+			processing action zeppelin1Action.004:  in[0 - 250], out[0 - 250]
+		processing begun of material:  skin
+		processing begun of material:  leather
+		processing begun of material:  hardWood
+		processing begun of material:  black
+		registered as also a user of material:  skin
+		registered as also a user of material:  leather
+		registered as also a user of material:  hardWood
+		registered as also a user of material:  black
+		processing begun of multimaterial:  iles24.Multimaterial#6
+		Custom split normals with tangents being used
+		num positions      :  450
+		num normals        :  450
+		num tangents       :  1800
+		num uvs            :  900
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  356
+	processing begun of mesh:  zeppelin2
+		animation processing begun
+			processing action Action:  in[1 - 250], out[0 - 250]
+		processing begun of material:  skin
+		processing begun of material:  leather
+		processing begun of material:  hardWood
+		processing begun of material:  black
+		registered as also a user of material:  skin
+		registered as also a user of material:  leather
+		registered as also a user of material:  hardWood
+		registered as also a user of material:  black
+		processing begun of multimaterial:  iles24.Multimaterial#7
+		Custom split normals with tangents being used
+		num positions      :  450
+		num normals        :  450
+		num tangents       :  1800
+		num uvs            :  900
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  356
+	processing begun of mesh:  island1
+		processing begun of material:  stone
+		processing begun of material:  grass
+		registered as also a user of material:  stone
+		registered as also a user of material:  grass
+		processing begun of multimaterial:  iles24.Multimaterial#8
+		Custom split normals with tangents being used
+		num positions      :  112
+		num normals        :  112
+		num tangents       :  448
+		num uvs            :  224
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  62
+	processing begun of mesh:  island2
+		mesh is an instance of :  island1.  Processing halted.
+	processing begun of mesh:  island3
+		mesh is an instance of :  island1.  Processing halted.
+	processing begun of mesh:  island4
+		mesh is an instance of :  island1.  Processing halted.
+	processing begun of mesh:  island5
+		mesh is an instance of :  island1.  Processing halted.
+	processing begun of mesh:  pontoon1
+		processing begun of material:  wood
+		registered as also a user of material:  wood
+		Custom split normals with tangents being used
+		num positions      :  17
+		num normals        :  17
+		num tangents       :  68
+		num uvs            :  34
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  pontoon2
+		mesh is an instance of :  pontoon1.  Processing halted.
+	processing begun of mesh:  bridge1
+		processing begun of material:  wood
+		registered as also a user of material:  wood
+		Custom split normals with tangents being used
+		num positions      :  198
+		num normals        :  198
+		num tangents       :  792
+		num uvs            :  396
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  132
+	processing begun of mesh:  bridge2
+		processing begun of material:  wood
+		registered as also a user of material:  wood
+		Custom split normals with tangents being used
+		num positions      :  198
+		num normals        :  198
+		num tangents       :  792
+		num uvs            :  396
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  132
+	processing begun of mesh:  bridge3
+		processing begun of material:  wood
+		registered as also a user of material:  wood
+		Custom split normals with tangents being used
+		num positions      :  187
+		num normals        :  187
+		num tangents       :  748
+		num uvs            :  374
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  132
+	processing begun of mesh:  bridge4
+		processing begun of material:  wood
+		registered as also a user of material:  wood
+		Custom split normals with tangents being used
+		num positions      :  614
+		num normals        :  614
+		num tangents       :  2456
+		num uvs            :  1228
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  420
+	processing begun of mesh:  bookSupport
+		processing begun of material:  wood
+		registered as also a user of material:  wood
+		Custom split normals with tangents being used
+		num positions      :  41
+		num normals        :  41
+		num tangents       :  164
+		num uvs            :  82
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  24
+	processing begun of mesh:  goldenBook
+		processing begun of material:  white
+		processing begun of material:  red
+		processing begun of material:  black
+		registered as also a user of material:  white
+		registered as also a user of material:  red
+		registered as also a user of material:  black
+		processing begun of multimaterial:  iles24.Multimaterial#9
+		Custom split normals with tangents being used
+		num positions      :  44
+		num normals        :  44
+		num tangents       :  176
+		num uvs            :  88
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  36
+	processing begun of mesh:  informationPanel
+		processing begun of material:  wood
+		processing begun of material:  blackWood
+		registered as also a user of material:  wood
+		registered as also a user of material:  blackWood
+		processing begun of multimaterial:  iles24.Multimaterial#10
+		Custom split normals with tangents being used
+		num positions      :  118
+		num normals        :  118
+		num tangents       :  472
+		num uvs            :  236
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  61
+		WARNING: # of 0 area faces found:  11
+	processing begun of mesh:  informationPanel1Url
+		processing begun of material:  arbres
+			processing texture arbres
+				texture type:  diffuseTexture, mapped using: "UVMap"
+		Custom split normals with tangents being used
+		num positions      :  4
+		num normals        :  4
+		num tangents       :  16
+		num uvs            :  8
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of mesh:  informationPanel2
+		mesh is an instance of :  informationPanel.  Processing halted.
+	processing begun of mesh:  informationPanel2Url
+		processing begun of material:  hall
+			processing texture hall
+				texture type:  diffuseTexture, mapped using: "UVMap"
+		Custom split normals with tangents being used
+		num positions      :  4
+		num normals        :  4
+		num tangents       :  16
+		num uvs            :  8
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of mesh:  tree
+		processing begun of material:  bark
+		processing begun of material:  leaves
+		registered as also a user of material:  bark
+		registered as also a user of material:  leaves
+		processing begun of multimaterial:  iles24.Multimaterial#11
+		Custom split normals with tangents being used
+		num positions      :  95
+		num normals        :  95
+		num tangents       :  380
+		num uvs            :  190
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  50
+	processing begun of mesh:  tree2
+		mesh is an instance of :  tree.  Processing halted.
+	processing begun of mesh:  tree3
+		mesh is an instance of :  tree.  Processing halted.
+	processing begun of mesh:  tree4
+		mesh is an instance of :  tree.  Processing halted.
+	processing begun of mesh:  tree5
+		mesh is an instance of :  tree.  Processing halted.
+	processing begun of mesh:  tree6
+		mesh is an instance of :  tree.  Processing halted.
+	processing begun of mesh:  tree7
+		mesh is an instance of :  tree.  Processing halted.
+	processing begun of mesh:  tree8
+		mesh is an instance of :  tree.  Processing halted.
+	processing begun of mesh:  tree9
+		mesh is an instance of :  tree.  Processing halted.
+	processing begun of mesh:  tree10
+		mesh is an instance of :  tree.  Processing halted.
+	processing begun of mesh:  tree11
+		mesh is an instance of :  tree.  Processing halted.
+	processing begun of mesh:  tree12
+		mesh is an instance of :  tree.  Processing halted.
+	processing begun of mesh:  tree13
+		mesh is an instance of :  tree.  Processing halted.
+	processing begun of mesh:  tree14
+		mesh is an instance of :  tree.  Processing halted.
+	processing begun of mesh:  tree15
+		mesh is an instance of :  tree.  Processing halted.
+	processing begun of mesh:  tree16
+		mesh is an instance of :  tree.  Processing halted.
+	processing begun of mesh:  tree17
+		mesh is an instance of :  tree.  Processing halted.
+	processing begun of mesh:  tree18
+		mesh is an instance of :  tree.  Processing halted.
+	processing begun of mesh:  tree19
+		mesh is an instance of :  tree.  Processing halted.
+	processing begun of mesh:  tree22
+		mesh is an instance of :  tree.  Processing halted.
+	processing begun of mesh:  tree20
+		mesh is an instance of :  tree.  Processing halted.
+	processing begun of mesh:  tree21
+		mesh is an instance of :  tree.  Processing halted.
+	processing begun of mesh:  tree23
+		mesh is an instance of :  tree.  Processing halted.
+	processing begun of mesh:  tree24
+		mesh is an instance of :  tree.  Processing halted.
+	processing begun of mesh:  tree25
+		mesh is an instance of :  tree.  Processing halted.
+	processing begun of mesh:  tree26
+		mesh is an instance of :  tree.  Processing halted.
+	processing begun of mesh:  tree27
+		mesh is an instance of :  tree.  Processing halted.
+	processing begun of mesh:  tree30
+		mesh is an instance of :  tree.  Processing halted.
+	processing begun of mesh:  tree29
+		mesh is an instance of :  tree.  Processing halted.
+	processing begun of mesh:  tree28
+		mesh is an instance of :  tree.  Processing halted.
+	processing begun of mesh:  rock
+		processing begun of material:  rock
+		registered as also a user of material:  rock
+		Custom split normals with tangents being used
+		num positions      :  72
+		num normals        :  72
+		num tangents       :  288
+		num uvs            :  144
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  36
+	processing begun of mesh:  rock2
+		mesh is an instance of :  rock.  Processing halted.
+	processing begun of mesh:  rock3
+		mesh is an instance of :  rock.  Processing halted.
+	processing begun of mesh:  rock4
+		mesh is an instance of :  rock.  Processing halted.
+	processing begun of mesh:  rock5
+		mesh is an instance of :  rock.  Processing halted.
+	processing begun of mesh:  rock6
+		mesh is an instance of :  rock.  Processing halted.
+	processing begun of mesh:  rock7
+		mesh is an instance of :  rock.  Processing halted.
+	processing begun of mesh:  rock8
+		mesh is an instance of :  rock.  Processing halted.
+	processing begun of mesh:  rock9
+		mesh is an instance of :  rock.  Processing halted.
+	processing begun of mesh:  rock10
+		mesh is an instance of :  rock.  Processing halted.
+	processing begun of mesh:  rock11
+		mesh is an instance of :  rock.  Processing halted.
+	processing begun of mesh:  rock12
+		mesh is an instance of :  rock.  Processing halted.
+	processing begun of mesh:  rock13
+		mesh is an instance of :  rock.  Processing halted.
+	processing begun of mesh:  rock14
+		mesh is an instance of :  rock.  Processing halted.
+	processing begun of mesh:  rock15
+		mesh is an instance of :  rock.  Processing halted.
+	processing begun of mesh:  rock16
+		mesh is an instance of :  rock.  Processing halted.
+	processing begun of mesh:  rock17
+		mesh is an instance of :  rock.  Processing halted.
+	processing begun of mesh:  rock18
+		mesh is an instance of :  rock.  Processing halted.
+	processing begun of mesh:  rock20
+		mesh is an instance of :  rock.  Processing halted.
+	processing begun of mesh:  rock19
+		mesh is an instance of :  rock.  Processing halted.
+	processing begun of mesh:  rock21
+		mesh is an instance of :  rock.  Processing halted.
+	processing begun of mesh:  rock22
+		mesh is an instance of :  rock.  Processing halted.
+	processing begun of mesh:  rock23
+		mesh is an instance of :  rock.  Processing halted.
+	processing begun of mesh:  rock24
+		mesh is an instance of :  rock.  Processing halted.
+	processing begun of mesh:  rock25
+		mesh is an instance of :  rock.  Processing halted.
+	processing begun of mesh:  sheep
+		processing begun of material:  white
+		processing begun of material:  black
+		registered as also a user of material:  white
+		registered as also a user of material:  black
+		processing begun of multimaterial:  iles24.Multimaterial#12
+		Custom split normals with tangents being used
+		num positions      :  114
+		num normals        :  114
+		num tangents       :  456
+		num uvs            :  228
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  168
+	processing begun of mesh:  sheep2
+		mesh is an instance of :  sheep.  Processing halted.
+	processing begun of mesh:  sheep3
+		mesh is an instance of :  sheep.  Processing halted.
+	processing begun of mesh:  sheep4
+		mesh is an instance of :  sheep.  Processing halted.
+	processing begun of mesh:  stake1
+		processing begun of material:  wood
+		registered as also a user of material:  wood
+		Custom split normals with tangents being used
+		num positions      :  17
+		num normals        :  17
+		num tangents       :  68
+		num uvs            :  34
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  stake2
+		mesh is an instance of :  stake1.  Processing halted.
+	processing begun of mesh:  stake3
+		mesh is an instance of :  stake1.  Processing halted.
+	processing begun of mesh:  stake4
+		mesh is an instance of :  stake1.  Processing halted.
+	processing begun of mesh:  stake5
+		mesh is an instance of :  stake1.  Processing halted.
+	processing begun of mesh:  stake6
+		mesh is an instance of :  stake1.  Processing halted.
+	processing begun of mesh:  stake7
+		mesh is an instance of :  stake1.  Processing halted.
+	processing begun of mesh:  stake8
+		mesh is an instance of :  stake1.  Processing halted.
+	processing begun of mesh:  stake9
+		mesh is an instance of :  stake1.  Processing halted.
+	processing begun of mesh:  stake10
+		mesh is an instance of :  stake1.  Processing halted.
+	processing begun of mesh:  stake11
+		mesh is an instance of :  stake1.  Processing halted.
+	processing begun of mesh:  stake12
+		mesh is an instance of :  stake1.  Processing halted.
+	processing begun of mesh:  stake13
+		mesh is an instance of :  stake1.  Processing halted.
+	processing begun of mesh:  stake14
+		mesh is an instance of :  stake1.  Processing halted.
+	processing begun of mesh:  stake15
+		mesh is an instance of :  stake1.  Processing halted.
+	processing begun of mesh:  stake16
+		mesh is an instance of :  stake1.  Processing halted.
+	processing begun of mesh:  bridgeHelper
+		processing begun of material:  white
+		registered as also a user of material:  white
+		Custom split normals with tangents being used
+		num positions      :  27
+		num normals        :  27
+		num tangents       :  108
+		num uvs            :  54
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  20
+	processing begun of mesh:  bridgeHelper2
+		processing begun of material:  white
+		registered as also a user of material:  white
+		Custom split normals with tangents being used
+		num positions      :  47
+		num normals        :  47
+		num tangents       :  188
+		num uvs            :  94
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  28
+	processing begun of mesh:  bridgeHelper3
+		processing begun of material:  white
+		registered as also a user of material:  white
+		Custom split normals with tangents being used
+		num positions      :  15
+		num normals        :  15
+		num tangents       :  60
+		num uvs            :  30
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  bridgeHelper4
+		processing begun of material:  white
+		registered as also a user of material:  white
+		Custom split normals with tangents being used
+		num positions      :  62
+		num normals        :  62
+		num tangents       :  248
+		num uvs            :  124
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  100
+	processing begun of light (POINT):  Light
+========= Writing of JSON file started =========
+	writing mesh:  musicPanelPlay
+	writing mesh:  musicPanelStop
+	writing mesh:  musicPanel
+	writing mesh:  zeppelin1
+	writing mesh:  zeppelin5
+	writing mesh:  zeppelin6
+	writing mesh:  zeppelin3
+	writing mesh:  zeppelin2
+	writing mesh:  island1
+	writing mesh:  pontoon1
+	writing mesh:  bridge1
+	writing mesh:  bridge2
+	writing mesh:  bridge3
+	writing mesh:  bridge4
+	writing mesh:  bookSupport
+	writing mesh:  goldenBook
+	writing mesh:  informationPanel
+	writing mesh:  informationPanel1Url
+	writing mesh:  informationPanel2Url
+	writing mesh:  tree
+	writing mesh:  rock
+	writing mesh:  sheep
+	writing mesh:  stake1
+	writing mesh:  bridgeHelper
+	writing mesh:  bridgeHelper2
+	writing mesh:  bridgeHelper3
+	writing mesh:  bridgeHelper4
+========= Writing of JSON file completed =========
+========= end of processing =========
+elapsed time:  0 min, 0.5436 secs

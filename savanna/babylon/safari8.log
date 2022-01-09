@@ -1,0 +1,473 @@
+Exporter version: 2.80.1, Blender version: 2.92.0
+========= Conversion from Blender to Babylon.js =========
+	Scene settings used :
+		Inline textures     :  false
+		Material Type       :  PBR
+		Positions Precision :  4
+		Normals Precision   :  3
+		UVs Precision       :  3
+		Vert Color Precision:  3
+		Mat Weight Precision:  2
+		Keep Z-up r-handed  :  no
+		Texture directory   :  D:\wamp64\www\beta\safari\v4_actions\babylon\
+	Python World class constructor completed
+	WARNING: The following object (type - CURVE) is not currently exportable thus ignored: BezierCircle
+	processing begun of camera (UniversalCamera):  Camera
+	processing begun of mesh:  safari
+		processing begun of material:  grass2
+		processing begun of material:  grass
+		processing begun of material:  rock
+		processing begun of material:  water
+			processing texture _01
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture _02
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture _06
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture _05
+				texture type:  diffuseTexture, mapped using: "UVMap"
+		processing begun of multimaterial:  safari8.Multimaterial#0
+		Custom split normals with tangents being used
+		num positions      :  2079
+		num normals        :  2079
+		num tangents       :  8316
+		num uvs            :  4158
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  972
+	processing begun of mesh:  water
+		processing begun of material:  water
+		registered as also a user of material:  water
+		Custom split normals with tangents being used
+		num positions      :  6
+		num normals        :  6
+		num tangents       :  24
+		num uvs            :  12
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  4
+	processing begun of mesh:  car
+		processing begun of material:  black
+		processing begun of material:  logo
+		processing begun of material:  tire
+		processing begun of material:  glass
+			processing texture _12
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture _13
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture _14
+				texture type:  diffuseTexture, mapped using: "UVMap"
+		processing begun of multimaterial:  safari8.Multimaterial#1
+		Custom split normals with tangents being used
+		num positions      :  607
+		num normals        :  607
+		num tangents       :  2428
+		num uvs            :  1214
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  346
+	processing begun of mesh:  glass
+		processing begun of material:  black
+		processing begun of material:  logo
+		processing begun of material:  tire
+		processing begun of material:  glass
+		registered as also a user of material:  black
+		registered as also a user of material:  logo
+		registered as also a user of material:  tire
+		registered as also a user of material:  glass
+		processing begun of multimaterial:  safari8.Multimaterial#2
+		Custom split normals with tangents being used
+		num positions      :  8
+		num normals        :  8
+		num tangents       :  32
+		num uvs            :  16
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  4
+	processing begun of mesh:  bookSupport
+		processing begun of material:  wood
+			processing texture _11
+				texture type:  diffuseTexture, mapped using: "UVMap"
+		Custom split normals with tangents being used
+		num positions      :  42
+		num normals        :  42
+		num tangents       :  168
+		num uvs            :  84
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  24
+	processing begun of mesh:  goldenBook
+		processing begun of material:  black
+		processing begun of material:  white
+		processing begun of material:  red
+		registered as also a user of material:  black
+		processing begun of multimaterial:  safari8.Multimaterial#3
+		Custom split normals with tangents being used
+		num positions      :  52
+		num normals        :  52
+		num tangents       :  208
+		num uvs            :  104
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  36
+	processing begun of mesh:  house1
+		processing begun of material:  wall
+		processing begun of material:  roof
+			processing texture _03
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture _04
+				texture type:  diffuseTexture, mapped using: "UVMap"
+		processing begun of multimaterial:  safari8.Multimaterial#4
+		Custom split normals with tangents being used
+		num positions      :  118
+		num normals        :  118
+		num tangents       :  472
+		num uvs            :  236
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  58
+	processing begun of mesh:  house2
+		mesh is an instance of :  house1.  Processing halted.
+	processing begun of mesh:  house3
+		mesh is an instance of :  house1.  Processing halted.
+	processing begun of mesh:  house4
+		mesh is an instance of :  house1.  Processing halted.
+	processing begun of mesh:  house5
+		mesh is an instance of :  house1.  Processing halted.
+	processing begun of mesh:  tree1
+		processing begun of material:  roof
+		processing begun of material:  leaves
+		registered as also a user of material:  roof
+			processing texture _07
+				texture type:  diffuseTexture, mapped using: "UVMap"
+		processing begun of multimaterial:  safari8.Multimaterial#5
+		Custom split normals with tangents being used
+		num positions      :  210
+		num normals        :  210
+		num tangents       :  840
+		num uvs            :  420
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  116
+	processing begun of mesh:  tree2
+		mesh is an instance of :  tree1.  Processing halted.
+	processing begun of mesh:  tree3
+		mesh is an instance of :  tree1.  Processing halted.
+	processing begun of mesh:  tree5
+		mesh is an instance of :  tree1.  Processing halted.
+	processing begun of mesh:  tree6
+		mesh is an instance of :  tree1.  Processing halted.
+	processing begun of mesh:  tree4
+		mesh is an instance of :  tree1.  Processing halted.
+	processing begun of mesh:  tree7
+		mesh is an instance of :  tree1.  Processing halted.
+	processing begun of mesh:  tree8
+		mesh is an instance of :  tree1.  Processing halted.
+	processing begun of mesh:  tree9
+		mesh is an instance of :  tree1.  Processing halted.
+	processing begun of mesh:  tree10
+		mesh is an instance of :  tree1.  Processing halted.
+	processing begun of mesh:  tree11
+		mesh is an instance of :  tree1.  Processing halted.
+	processing begun of mesh:  tree12
+		mesh is an instance of :  tree1.  Processing halted.
+	processing begun of mesh:  tree13
+		mesh is an instance of :  tree1.  Processing halted.
+	processing begun of mesh:  tree14
+		mesh is an instance of :  tree1.  Processing halted.
+	processing begun of mesh:  tree15
+		mesh is an instance of :  tree1.  Processing halted.
+	processing begun of mesh:  tree16
+		mesh is an instance of :  tree1.  Processing halted.
+	processing begun of mesh:  tree18
+		mesh is an instance of :  tree1.  Processing halted.
+	processing begun of mesh:  tree17
+		mesh is an instance of :  tree1.  Processing halted.
+	processing begun of mesh:  tree19
+		mesh is an instance of :  tree1.  Processing halted.
+	processing begun of mesh:  ostrich1
+		processing begun of material:  autruche01
+		processing begun of material:  autruche02
+		processing begun of material:  autruche03
+		processing begun of material:  autruche04
+			processing texture autruche_01
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture autruche_02
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture autruche_03
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture autruche_04
+				texture type:  diffuseTexture, mapped using: "UVMap"
+		processing begun of multimaterial:  safari8.Multimaterial#6
+		Custom split normals with tangents being used
+		num positions      :  708
+		num normals        :  708
+		num tangents       :  2832
+		num uvs            :  1416
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  324
+	processing begun of mesh:  ostrich2
+		mesh is an instance of :  ostrich1.  Processing halted.
+	processing begun of mesh:  wildebeest1
+		processing begun of material:  gnou04
+		processing begun of material:  gnou02
+		processing begun of material:  gnou03
+		processing begun of material:  gnou01
+		processing begun of material:  gnou05
+			processing texture gnou_04
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture gnou_02
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture gnou_03
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture gnou_01
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture gnou_05
+				texture type:  diffuseTexture, mapped using: "UVMap"
+		processing begun of multimaterial:  safari8.Multimaterial#7
+		Custom split normals with tangents being used
+		num positions      :  1292
+		num normals        :  1292
+		num tangents       :  5168
+		num uvs            :  2584
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  648
+	processing begun of mesh:  wildebeest2
+		mesh is an instance of :  wildebeest1.  Processing halted.
+	processing begun of mesh:  wildebeest1.001
+		processing begun of material:  gnou04
+		processing begun of material:  gnou02
+		processing begun of material:  gnou03
+		processing begun of material:  gnou01
+		processing begun of material:  gnou05
+		registered as also a user of material:  gnou04
+		registered as also a user of material:  gnou02
+		registered as also a user of material:  gnou03
+		registered as also a user of material:  gnou01
+		registered as also a user of material:  gnou05
+		processing begun of multimaterial:  safari8.Multimaterial#8
+		Custom split normals with tangents being used
+		num positions      :  1289
+		num normals        :  1289
+		num tangents       :  5156
+		num uvs            :  2578
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  648
+	processing begun of mesh:  cheetath
+		processing begun of material:  guepard01
+		processing begun of material:  guepard02
+		processing begun of material:  guepard03
+			processing texture guepard_01
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture guepard_02
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture guepard_03
+				texture type:  diffuseTexture, mapped using: "UVMap"
+		processing begun of multimaterial:  safari8.Multimaterial#9
+		Custom split normals with tangents being used
+		num positions      :  1177
+		num normals        :  1177
+		num tangents       :  4708
+		num uvs            :  2354
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  588
+	processing begun of mesh:  giraffe1
+		processing begun of material:  girafe01
+		processing begun of material:  girafe01_gif
+		processing begun of material:  girafe02_gif
+			processing texture girafe_01
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture girafe_01
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture girafe_02
+				texture type:  diffuseTexture, mapped using: "UVMap"
+		processing begun of multimaterial:  safari8.Multimaterial#10
+		Custom split normals with tangents being used
+		num positions      :  919
+		num normals        :  919
+		num tangents       :  3676
+		num uvs            :  1838
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  490
+	processing begun of mesh:  giraffe2
+		mesh is an instance of :  giraffe1.  Processing halted.
+	processing begun of mesh:  rhinoceros
+		processing begun of material:  rhino01
+		processing begun of material:  rhino04
+		processing begun of material:  rhino02
+		processing begun of material:  rhino03
+			processing texture rhino_01
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture rhino_04
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture rhino_02
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture rhino_03
+				texture type:  diffuseTexture, mapped using: "UVMap"
+		processing begun of multimaterial:  safari8.Multimaterial#11
+		Custom split normals with tangents being used
+		num positions      :  2514
+		num normals        :  2514
+		num tangents       :  10056
+		num uvs            :  5028
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  1468
+	processing begun of mesh:  elephant1
+		processing begun of material:  elephant01
+		processing begun of material:  elephant02
+		processing begun of material:  elephant03
+		processing begun of material:  elephant04
+		processing begun of material:  elephant06
+			processing texture elephant_01
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture elephant_02
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture elephant_03
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture elephant_04
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture elephant_05
+				texture type:  diffuseTexture, mapped using: "UVMap"
+		processing begun of multimaterial:  safari8.Multimaterial#12
+		Custom split normals with tangents being used
+		num positions      :  1414
+		num normals        :  1414
+		num tangents       :  5656
+		num uvs            :  2828
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  720
+	processing begun of mesh:  elephant2
+		mesh is an instance of :  elephant1.  Processing halted.
+	processing begun of mesh:  crocodile1
+		processing begun of material:  croco1
+		processing begun of material:  croco2
+			processing texture croco_01
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture croco_02
+				texture type:  diffuseTexture, mapped using: "UVMap"
+		processing begun of multimaterial:  safari8.Multimaterial#13
+		Custom split normals with tangents being used
+		num positions      :  864
+		num normals        :  864
+		num tangents       :  3456
+		num uvs            :  1728
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  504
+	processing begun of mesh:  crocodile2
+		mesh is an instance of :  crocodile1.  Processing halted.
+	processing begun of mesh:  hippopotamus
+		processing begun of material:  hippo01
+		processing begun of material:  hippo02
+		processing begun of material:  hippo03
+			processing texture hippo_01
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture hippo_02
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture hippo_03
+				texture type:  diffuseTexture, mapped using: "UVMap"
+		processing begun of multimaterial:  safari8.Multimaterial#14
+		Custom split normals with tangents being used
+		num positions      :  1510
+		num normals        :  1510
+		num tangents       :  6040
+		num uvs            :  3020
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  854
+	processing begun of mesh:  lion
+		processing begun of material:  lion01
+		processing begun of material:  lion02
+		processing begun of material:  lion03
+		processing begun of material:  lion04
+		processing begun of material:  lion05
+			processing texture lion_01
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture lion_02
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture lion_03
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture lion_04
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture lion_05
+				texture type:  diffuseTexture, mapped using: "UVMap"
+		processing begun of multimaterial:  safari8.Multimaterial#15
+		Custom split normals with tangents being used
+		num positions      :  1358
+		num normals        :  1358
+		num tangents       :  5432
+		num uvs            :  2716
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  592
+	processing begun of mesh:  hyena1
+		processing begun of material:  hyene01
+		processing begun of material:  hyne02
+		processing begun of material:  hyene03
+			processing texture hyene_01
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture hyene_02
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture hyene_03
+				texture type:  diffuseTexture, mapped using: "UVMap"
+		processing begun of multimaterial:  safari8.Multimaterial#16
+		Custom split normals with tangents being used
+		num positions      :  1966
+		num normals        :  1966
+		num tangents       :  7864
+		num uvs            :  3932
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  928
+	processing begun of mesh:  hyena2
+		mesh is an instance of :  hyena1.  Processing halted.
+	processing begun of mesh:  vulture
+		animation processing begun
+			processing action Action:  in[0 - 250], out[0 - 250]
+		processing begun of material:  vautour01
+		processing begun of material:  vautour02
+			processing texture vautour_01
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture vautour_02
+				texture type:  diffuseTexture, mapped using: "UVMap"
+		processing begun of multimaterial:  safari8.Multimaterial#17
+		Custom split normals with tangents being used
+		num positions      :  1016
+		num normals        :  1016
+		num tangents       :  4064
+		num uvs            :  2032
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  448
+	processing begun of light (POINT):  Light
+========= Writing of JSON file started =========
+	writing mesh:  safari
+	writing mesh:  water
+	writing mesh:  car
+	writing mesh:  glass
+	writing mesh:  bookSupport
+	writing mesh:  goldenBook
+	writing mesh:  house1
+	writing mesh:  tree1
+	writing mesh:  ostrich1
+	writing mesh:  wildebeest1
+	writing mesh:  wildebeest1.001
+	writing mesh:  cheetath
+	writing mesh:  giraffe1
+	writing mesh:  rhinoceros
+	writing mesh:  elephant1
+	writing mesh:  crocodile1
+	writing mesh:  hippopotamus
+	writing mesh:  lion
+	writing mesh:  hyena1
+	writing mesh:  vulture
+========= Writing of JSON file completed =========
+========= end of processing =========
+elapsed time:  0 min, 1.5991 secs

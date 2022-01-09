@@ -1,0 +1,717 @@
+Exporter version: 2.80.1, Blender version: 2.91.0
+========= Conversion from Blender to Babylon.js =========
+	Scene settings used :
+		Inline textures     :  false
+		Material Type       :  PBR
+		Positions Precision :  4
+		Normals Precision   :  3
+		UVs Precision       :  3
+		Vert Color Precision:  3
+		Mat Weight Precision:  2
+		Keep Z-up r-handed  :  no
+		Texture directory   :  C:\wamp64\www\mondesvirtuels\arbres\v7_html\
+	Python World class constructor completed
+	processing begun of mesh:  Plane
+		processing begun of material:  Material
+		num positions      :  4
+		num normals        :  4
+		num tangents       :  0
+		num uvs            :  8
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of camera (UniversalCamera):  Camera
+	processing begun of mesh:  sky
+		processing begun of material:  woodBark
+		processing begun of material:  material_1
+		processing begun of material:  material_2
+		processing begun of material:  material_3
+		processing begun of material:  leaves
+		processing begun of material:  stumpGround
+		processing begun of material:  woodPlank
+		processing begun of material:  material_7
+		processing begun of material:  material_8
+		processing begun of material:  material_9
+		processing begun of material:  woodBarkLight
+		processing begun of material:  woodPlankLight
+		processing begun of material:  material_12
+		processing begun of material:  material_13
+		processing begun of material:  material_14
+			processing texture _04
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture _00
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture _01
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture _09
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture _07
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture _06
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture _05
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture _08
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture _11
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture _10
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture _12
+				texture type:  diffuseTexture, mapped using: "UVMap"
+		processing begun of multimaterial:  arbres16.Multimaterial#0
+		Custom split normals with tangents being used
+		num positions      :  18
+		num normals        :  18
+		num tangents       :  72
+		num uvs            :  36
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  14
+	processing begun of mesh:  bridgeConnected
+		processing begun of material:  woodPlank
+		registered as also a user of material:  woodPlank
+		Custom split normals with tangents being used
+		num positions      :  213
+		num normals        :  213
+		num tangents       :  852
+		num uvs            :  426
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  108
+	processing begun of mesh:  bridgeConnected2
+		mesh is an instance of :  bridgeConnected.  Processing halted.
+	processing begun of mesh:  bridgeSimple
+		processing begun of material:  woodPlank
+		registered as also a user of material:  woodPlank
+		Custom split normals with tangents being used
+		num positions      :  274
+		num normals        :  274
+		num tangents       :  1096
+		num uvs            :  548
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  132
+	processing begun of mesh:  bridgeSimple2
+		mesh is an instance of :  bridgeSimple.  Processing halted.
+	processing begun of mesh:  bridgeSimple3
+		mesh is an instance of :  bridgeSimple.  Processing halted.
+	processing begun of mesh:  bridgeSimple4
+		mesh is an instance of :  bridgeSimple.  Processing halted.
+	processing begun of mesh:  bridgeSimple5
+		mesh is an instance of :  bridgeSimple.  Processing halted.
+	processing begun of mesh:  bridgeConnected3
+		mesh is an instance of :  bridgeConnected.  Processing halted.
+	processing begun of mesh:  bridgeSimple6
+		mesh is an instance of :  bridgeSimple.  Processing halted.
+	processing begun of mesh:  bridgeConnected4
+		mesh is an instance of :  bridgeConnected.  Processing halted.
+	processing begun of mesh:  bridgeSimple7
+		mesh is an instance of :  bridgeSimple.  Processing halted.
+	processing begun of mesh:  bridgeConnected5
+		mesh is an instance of :  bridgeConnected.  Processing halted.
+	processing begun of mesh:  bridgeSimple8
+		mesh is an instance of :  bridgeSimple.  Processing halted.
+	processing begun of mesh:  bridgeSimple9
+		mesh is an instance of :  bridgeSimple.  Processing halted.
+	processing begun of mesh:  bridgeConnected6
+		mesh is an instance of :  bridgeConnected.  Processing halted.
+	processing begun of mesh:  bridgeSimple2.001
+		mesh is an instance of :  bridgeSimple.  Processing halted.
+	processing begun of mesh:  bridgeSimple.001
+		mesh is an instance of :  bridgeSimple.  Processing halted.
+	processing begun of mesh:  stump
+		processing begun of material:  woodBark
+		processing begun of material:  stumpGround
+		registered as also a user of material:  woodBark
+		registered as also a user of material:  stumpGround
+		processing begun of multimaterial:  arbres16.Multimaterial#1
+		Custom split normals with tangents being used
+		num positions      :  75
+		num normals        :  75
+		num tangents       :  300
+		num uvs            :  150
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  42
+	processing begun of mesh:  stump2
+		mesh is an instance of :  stump.  Processing halted.
+	processing begun of mesh:  stump3
+		mesh is an instance of :  stump.  Processing halted.
+	processing begun of mesh:  stump4
+		mesh is an instance of :  stump.  Processing halted.
+	processing begun of mesh:  stump5
+		mesh is an instance of :  stump.  Processing halted.
+	processing begun of mesh:  stump6
+		mesh is an instance of :  stump.  Processing halted.
+	processing begun of mesh:  leaves
+		processing begun of material:  leaves
+		registered as also a user of material:  leaves
+		Custom split normals with tangents being used
+		num positions      :  96
+		num normals        :  96
+		num tangents       :  384
+		num uvs            :  192
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  38
+	processing begun of mesh:  leaves6
+		mesh is an instance of :  leaves.  Processing halted.
+	processing begun of mesh:  leaves5
+		mesh is an instance of :  leaves.  Processing halted.
+	processing begun of mesh:  leaves4
+		mesh is an instance of :  leaves.  Processing halted.
+	processing begun of mesh:  leaves2
+		mesh is an instance of :  leaves.  Processing halted.
+	processing begun of mesh:  leaves3
+		mesh is an instance of :  leaves.  Processing halted.
+	processing begun of mesh:  middleTrunk
+		processing begun of material:  woodBark
+		registered as also a user of material:  woodBark
+		Custom split normals with tangents being used
+		num positions      :  59
+		num normals        :  59
+		num tangents       :  236
+		num uvs            :  118
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  34
+	processing begun of mesh:  middleTrunk2
+		mesh is an instance of :  middleTrunk.  Processing halted.
+	processing begun of mesh:  middleTrunk3
+		mesh is an instance of :  middleTrunk.  Processing halted.
+	processing begun of mesh:  middleTrunk4
+		mesh is an instance of :  middleTrunk.  Processing halted.
+	processing begun of mesh:  middleTrunk5
+		processing begun of material:  woodBark
+		registered as also a user of material:  woodBark
+		Custom split normals with tangents being used
+		num positions      :  48
+		num normals        :  48
+		num tangents       :  192
+		num uvs            :  96
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  28
+	processing begun of mesh:  middleTrunk6
+		mesh is an instance of :  middleTrunk5.  Processing halted.
+	processing begun of mesh:  topTrunk
+		processing begun of material:  woodBark
+		registered as also a user of material:  woodBark
+		Custom split normals with tangents being used
+		num positions      :  77
+		num normals        :  77
+		num tangents       :  308
+		num uvs            :  154
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  46
+	processing begun of mesh:  topTrunk2
+		mesh is an instance of :  topTrunk.  Processing halted.
+	processing begun of mesh:  topTrunk3
+		processing begun of material:  woodBark
+		registered as also a user of material:  woodBark
+		Custom split normals with tangents being used
+		num positions      :  78
+		num normals        :  78
+		num tangents       :  312
+		num uvs            :  156
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  46
+	processing begun of mesh:  topTrunk4
+		mesh is an instance of :  topTrunk3.  Processing halted.
+	processing begun of mesh:  topTrunk5
+		mesh is an instance of :  topTrunk3.  Processing halted.
+	processing begun of mesh:  topTrunk6
+		processing begun of material:  woodBark
+		registered as also a user of material:  woodBark
+		Custom split normals with tangents being used
+		num positions      :  56
+		num normals        :  56
+		num tangents       :  224
+		num uvs            :  112
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  34
+	processing begun of mesh:  paltform2
+		processing begun of material:  woodPlank
+		registered as also a user of material:  woodPlank
+		Custom split normals with tangents being used
+		num positions      :  381
+		num normals        :  381
+		num tangents       :  1524
+		num uvs            :  762
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  208
+	processing begun of mesh:  paltform
+		mesh is an instance of :  paltform2.  Processing halted.
+	processing begun of mesh:  platform3
+		processing begun of material:  woodPlank
+		registered as also a user of material:  woodPlank
+		Custom split normals with tangents being used
+		num positions      :  329
+		num normals        :  329
+		num tangents       :  1316
+		num uvs            :  658
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  172
+	processing begun of mesh:  paltform4
+		processing begun of material:  woodPlank
+		registered as also a user of material:  woodPlank
+		Custom split normals with tangents being used
+		num positions      :  380
+		num normals        :  380
+		num tangents       :  1520
+		num uvs            :  760
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  196
+	processing begun of mesh:  paltform5
+		mesh is an instance of :  paltform2.  Processing halted.
+	processing begun of mesh:  platform7
+		processing begun of material:  woodPlank
+		registered as also a user of material:  woodPlank
+		Custom split normals with tangents being used
+		num positions      :  376
+		num normals        :  376
+		num tangents       :  1504
+		num uvs            :  752
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  200
+	processing begun of mesh:  paltform8
+		processing begun of material:  woodPlank.001
+			processing texture _06
+				texture type:  diffuseTexture, mapped using: "UVMap"
+		Custom split normals with tangents being used
+		num positions      :  364
+		num normals        :  364
+		num tangents       :  1456
+		num uvs            :  728
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  196
+	processing begun of mesh:  platform10
+		processing begun of material:  woodPlank
+		registered as also a user of material:  woodPlank
+		Custom split normals with tangents being used
+		num positions      :  364
+		num normals        :  364
+		num tangents       :  1456
+		num uvs            :  728
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  186
+	processing begun of mesh:  platform9
+		mesh is an instance of :  platform10.  Processing halted.
+	processing begun of mesh:  paltform6
+		mesh is an instance of :  paltform2.  Processing halted.
+	processing begun of mesh:  paltform4.001
+		mesh is an instance of :  paltform4.  Processing halted.
+	processing begun of mesh:  house6
+		processing begun of material:  woodBark
+		processing begun of material:  leaves
+		processing begun of material:  woodPlank
+		processing begun of material:  woodBarkLight
+		processing begun of material:  woodPlankLight
+		registered as also a user of material:  woodBark
+		registered as also a user of material:  leaves
+		registered as also a user of material:  woodPlank
+		registered as also a user of material:  woodBarkLight
+		registered as also a user of material:  woodPlankLight
+		processing begun of multimaterial:  arbres16.Multimaterial#2
+		Custom split normals with tangents being used
+		num positions      :  1101
+		num normals        :  1101
+		num tangents       :  4404
+		num uvs            :  2202
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  576
+	processing begun of mesh:  house
+		mesh is an instance of :  house6.  Processing halted.
+	processing begun of mesh:  house2
+		mesh is an instance of :  house6.  Processing halted.
+	processing begun of mesh:  house5
+		mesh is an instance of :  house6.  Processing halted.
+	processing begun of mesh:  house4
+		mesh is an instance of :  house6.  Processing halted.
+	processing begun of mesh:  goldenBook
+		processing begun of material:  woodBark
+		processing begun of material:  woodBarkLight
+		processing begun of material:  material_1
+		processing begun of material:  material_9
+		registered as also a user of material:  woodBark
+		registered as also a user of material:  woodBarkLight
+		registered as also a user of material:  material_1
+		registered as also a user of material:  material_9
+		processing begun of multimaterial:  arbres16.Multimaterial#3
+		Custom split normals with tangents being used
+		num positions      :  89
+		num normals        :  89
+		num tangents       :  356
+		num uvs            :  178
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  60
+	processing begun of mesh:  goldenBook2
+		mesh is an instance of :  goldenBook.  Processing halted.
+	processing begun of mesh:  informationPanel
+		processing begun of material:  woodBark
+		processing begun of material:  material_3
+		processing begun of material:  iles.001
+		registered as also a user of material:  woodBark
+		registered as also a user of material:  material_3
+			processing texture iles
+				texture type:  diffuseTexture, mapped using: "UVMap"
+		processing begun of multimaterial:  arbres16.Multimaterial#4
+		Custom split normals with tangents being used
+		num positions      :  123
+		num normals        :  123
+		num tangents       :  492
+		num uvs            :  246
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  76
+	processing begun of mesh:  informationPanel1Url
+		processing begun of material:  woodBark
+		processing begun of material:  material_3
+		processing begun of material:  iles
+		registered as also a user of material:  woodBark
+		registered as also a user of material:  material_3
+			processing texture iles
+				texture type:  diffuseTexture, mapped using: "UVMap"
+		processing begun of multimaterial:  arbres16.Multimaterial#5
+		Custom split normals with tangents being used
+		num positions      :  4
+		num normals        :  4
+		num tangents       :  16
+		num uvs            :  8
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of mesh:  informationPanel2
+		mesh is an instance of :  informationPanel.  Processing halted.
+	processing begun of mesh:  informationPanel2Url
+		processing begun of material:  woodBark
+		processing begun of material:  material_3
+		processing begun of material:  atlantide
+		registered as also a user of material:  woodBark
+		registered as also a user of material:  material_3
+			processing texture atlantide
+				texture type:  diffuseTexture, mapped using: "UVMap"
+		processing begun of multimaterial:  arbres16.Multimaterial#6
+		Custom split normals with tangents being used
+		num positions      :  4
+		num normals        :  4
+		num tangents       :  16
+		num uvs            :  8
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of mesh:  bridgeHelper1
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  bridgeHelper1.001
+		mesh is an instance of :  bridgeHelper1.  Processing halted.
+	processing begun of mesh:  bridgeHelper1.002
+		mesh is an instance of :  bridgeHelper1.  Processing halted.
+	processing begun of mesh:  bridgeHelper2
+		mesh is an instance of :  bridgeHelper1.  Processing halted.
+	processing begun of mesh:  platformHelper
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  platformHelper.001
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper2
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper3
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper4
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper4.001
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper4.002
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper4.003
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper4.004
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper4.005
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper4.006
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  bridgeHelper1.003
+		mesh is an instance of :  bridgeHelper1.  Processing halted.
+	processing begun of mesh:  bridgeHelper1.004
+		mesh is an instance of :  bridgeHelper1.  Processing halted.
+	processing begun of mesh:  platformHelper.002
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper.003
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper2.001
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper3.001
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper4.007
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper.004
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper3.002
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper4.008
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper4.009
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  bridgeHelper1.005
+		mesh is an instance of :  bridgeHelper1.  Processing halted.
+	processing begun of mesh:  bridgeHelper1.006
+		mesh is an instance of :  bridgeHelper1.  Processing halted.
+	processing begun of mesh:  platformHelper3.003
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper2.002
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper.005
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper.006
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper.007
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper3.004
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper4.010
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper4.011
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper4.012
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper4.013
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper.008
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper.009
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper.010
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper3.005
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper2.003
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper.011
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper3.006
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper4.014
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper4.015
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper.012
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper.013
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper2.004
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper.014
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper2.005
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper3.007
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper4.016
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper4.017
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  bridgeHelper1.007
+		mesh is an instance of :  bridgeHelper1.  Processing halted.
+	processing begun of mesh:  bridgeHelper1.008
+		mesh is an instance of :  bridgeHelper1.  Processing halted.
+	processing begun of mesh:  platformHelper4.018
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper4.019
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper.015
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper.016
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper4.020
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper4.021
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper2.006
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper.017
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper2.007
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper3.008
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper4.022
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  bridgeHelper1.009
+		mesh is an instance of :  bridgeHelper1.  Processing halted.
+	processing begun of mesh:  bridgeHelper2.001
+		mesh is an instance of :  bridgeHelper1.  Processing halted.
+	processing begun of mesh:  platformHelper4.023
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper.018
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper.019
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper2.008
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper4.024
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper4.025
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper4.026
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper4.027
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper4.028
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper4.029
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  bridgeHelper1.010
+		mesh is an instance of :  bridgeHelper1.  Processing halted.
+	processing begun of mesh:  bridgeHelper2.002
+		mesh is an instance of :  bridgeHelper1.  Processing halted.
+	processing begun of mesh:  platformHelper.020
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper.021
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper3.009
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper2.009
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper.022
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper.023
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper2.010
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper4.030
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper4.031
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  bridgeHelper1.011
+		mesh is an instance of :  bridgeHelper1.  Processing halted.
+	processing begun of mesh:  bridgeHelper1.012
+		mesh is an instance of :  bridgeHelper1.  Processing halted.
+	processing begun of mesh:  platformHelper.024
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper.025
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper3.010
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper2.011
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper.026
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper2.012
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper4.032
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper4.033
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper4.034
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper4.035
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  bridgeHelper1.013
+		mesh is an instance of :  bridgeHelper1.  Processing halted.
+	processing begun of mesh:  bridgeHelper1.014
+		mesh is an instance of :  bridgeHelper1.  Processing halted.
+	processing begun of mesh:  platformHelper2.013
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper.027
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper.028
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper3.011
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper2.014
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper.029
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper4.036
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper4.037
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper4.038
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper4.039
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  bridgeHelper1.015
+		mesh is an instance of :  bridgeHelper1.  Processing halted.
+	processing begun of mesh:  bridgeHelper2.003
+		mesh is an instance of :  bridgeHelper1.  Processing halted.
+	processing begun of mesh:  platformHelper2.015
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper4.040
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper.030
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper3.012
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper3.013
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper2.016
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper3.014
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper4.041
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper4.042
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  bridgeHelper1.016
+		mesh is an instance of :  bridgeHelper1.  Processing halted.
+	processing begun of mesh:  bridgeHelper2.004
+		mesh is an instance of :  bridgeHelper1.  Processing halted.
+	processing begun of mesh:  platformHelper4.043
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of mesh:  platformHelper4.044
+		mesh is an instance of :  platformHelper.  Processing halted.
+	processing begun of light (POINT):  Light
+========= Writing of JSON file started =========
+	writing mesh:  Plane
+	writing mesh:  sky
+	writing mesh:  bridgeConnected
+	writing mesh:  bridgeSimple
+	writing mesh:  stump
+	writing mesh:  leaves
+	writing mesh:  middleTrunk
+	writing mesh:  middleTrunk5
+	writing mesh:  topTrunk
+	writing mesh:  topTrunk3
+	writing mesh:  topTrunk6
+	writing mesh:  paltform2
+	writing mesh:  platform3
+	writing mesh:  paltform4
+	writing mesh:  platform7
+	writing mesh:  paltform8
+	writing mesh:  platform10
+	writing mesh:  house6
+	writing mesh:  goldenBook
+	writing mesh:  informationPanel
+	writing mesh:  informationPanel1Url
+	writing mesh:  informationPanel2Url
+	writing mesh:  bridgeHelper1
+	writing mesh:  platformHelper
+========= Writing of JSON file completed =========
+========= end of processing =========
+elapsed time:  0 min, 0.3323 secs

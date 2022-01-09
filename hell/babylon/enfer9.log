@@ -1,0 +1,697 @@
+Exporter version: 2.80.1, Blender version: 2.92.0
+========= Conversion from Blender to Babylon.js =========
+	Scene settings used :
+		Inline textures     :  false
+		Material Type       :  PBR
+		Positions Precision :  4
+		Normals Precision   :  3
+		UVs Precision       :  3
+		Vert Color Precision:  3
+		Mat Weight Precision:  2
+		Keep Z-up r-handed  :  no
+		Texture directory   :  D:\wamp64\www\beta\enfer\v9_instances\babylon\
+	Python World class constructor completed
+	processing begun of camera (UniversalCamera):  Camera
+	processing begun of mesh:  tree
+		processing begun of material:  redStone.001
+		processing begun of material:  white
+		processing begun of material:  redSkin
+		processing begun of material:  black
+		processing begun of material:  material_4
+		processing begun of material:  red
+		processing begun of material:  material_6
+		processing begun of material:  material_7
+		processing begun of material:  angel
+		processing begun of material:  wood
+		processing begun of material:  darkwood
+		processing begun of material:  lava
+		processing begun of material:  tormentRoomDoor
+		processing begun of material:  grass
+		processing begun of material:  darkgrass
+		processing begun of material:  stone
+		processing begun of material:  violet
+		processing begun of material:  purple
+		processing begun of material:  skin
+		processing begun of material:  pink2
+		processing begun of material:  gold
+		processing begun of material:  material_21
+		processing begun of material:  leaves
+		processing begun of material:  bark
+		processing begun of material:  cloud
+		processing begun of material:  imp
+		processing begun of material:  lightrock
+		processing begun of material:  darkrock
+		processing begun of material:  lightpink
+		processing begun of material:  pink
+		processing begun of material:  grey
+		processing begun of material:  blue
+		processing begun of material:  material_32
+		processing begun of material:  material_33
+		processing begun of material:  material_34
+		processing begun of material:  material_35
+		processing begun of material:  water
+			processing texture redStone
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture redSkin
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture _18
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture wood
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture _19
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture lava
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture tormentRoomDoor
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture grass
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture _08
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture stone
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture _10
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture _11
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture _12
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture _13
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture _14
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture _17
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture rock
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture _02
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture _10
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture _10
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture _15
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture water
+				texture type:  diffuseTexture, mapped using: "UVMap"
+		processing begun of multimaterial:  enfer9.Multimaterial#0
+		Custom split normals with tangents being used
+		num positions      :  64
+		num normals        :  64
+		num tangents       :  256
+		num uvs            :  128
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  32
+	processing begun of mesh:  angel1
+		processing begun of material:  white
+		processing begun of material:  black
+		processing begun of material:  purple
+		processing begun of material:  gold
+		processing begun of material:  lightpink
+		processing begun of material:  pink
+		processing begun of material:  grey
+		processing begun of material:  blue
+		registered as also a user of material:  white
+		registered as also a user of material:  black
+		registered as also a user of material:  purple
+		registered as also a user of material:  gold
+		registered as also a user of material:  lightpink
+		registered as also a user of material:  pink
+		registered as also a user of material:  grey
+		registered as also a user of material:  blue
+		processing begun of multimaterial:  enfer9.Multimaterial#1
+		Custom split normals with tangents being used
+		num positions      :  547
+		num normals        :  547
+		num tangents       :  2188
+		num uvs            :  1094
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  436
+	processing begun of mesh:  bookSupport
+		processing begun of material:  wood
+		registered as also a user of material:  wood
+		Custom split normals with tangents being used
+		num positions      :  45
+		num normals        :  45
+		num tangents       :  180
+		num uvs            :  90
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  24
+	processing begun of mesh:  goldenBook
+		processing begun of material:  white
+		processing begun of material:  black
+		processing begun of material:  red
+		processing begun of material:  material_35
+		registered as also a user of material:  white
+		registered as also a user of material:  black
+		registered as also a user of material:  red
+		registered as also a user of material:  material_35
+		processing begun of multimaterial:  enfer9.Multimaterial#2
+		Custom split normals with tangents being used
+		num positions      :  46
+		num normals        :  46
+		num tangents       :  184
+		num uvs            :  92
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  36
+	processing begun of mesh:  informationPanel1
+		processing begun of material:  wood
+		processing begun of material:  darkwood
+		registered as also a user of material:  wood
+		registered as also a user of material:  darkwood
+		processing begun of multimaterial:  enfer9.Multimaterial#3
+		Custom split normals with tangents being used
+		num positions      :  131
+		num normals        :  131
+		num tangents       :  524
+		num uvs            :  262
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  82
+	processing begun of mesh:  saintPeter
+		processing begun of material:  white
+		processing begun of material:  black
+		processing begun of material:  violet
+		processing begun of material:  purple
+		processing begun of material:  skin
+		processing begun of material:  pink2
+		processing begun of material:  gold
+		registered as also a user of material:  white
+		registered as also a user of material:  black
+		registered as also a user of material:  violet
+		registered as also a user of material:  purple
+		registered as also a user of material:  skin
+		registered as also a user of material:  pink2
+		registered as also a user of material:  gold
+		processing begun of multimaterial:  enfer9.Multimaterial#4
+		Custom split normals with tangents being used
+		num positions      :  558
+		num normals        :  558
+		num tangents       :  2232
+		num uvs            :  1116
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  480
+	processing begun of mesh:  toHellPannel
+		processing begun of material:  wood
+		processing begun of material:  imp
+		registered as also a user of material:  wood
+		registered as also a user of material:  imp
+		processing begun of multimaterial:  enfer9.Multimaterial#5
+		Custom split normals with tangents being used
+		num positions      :  125
+		num normals        :  125
+		num tangents       :  500
+		num uvs            :  250
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  54
+	processing begun of mesh:  water
+		processing begun of material:  water
+		registered as also a user of material:  water
+		Custom split normals with tangents being used
+		num positions      :  6
+		num normals        :  6
+		num tangents       :  24
+		num uvs            :  12
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of mesh:  informationPanel1Url
+		processing begun of material:  picture
+			processing texture atlantide
+				texture type:  diffuseTexture, mapped using: "UVMap"
+		Custom split normals with tangents being used
+		num positions      :  4
+		num normals        :  4
+		num tangents       :  16
+		num uvs            :  8
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of mesh:  angel2
+		mesh is an instance of :  angel1.  Processing halted.
+	processing begun of mesh:  clouds
+		processing begun of material:  cloud
+		processing begun of material:  water
+		registered as also a user of material:  cloud
+		registered as also a user of material:  water
+		processing begun of multimaterial:  enfer9.Multimaterial#6
+		Custom split normals with tangents being used
+		num positions      :  735
+		num normals        :  735
+		num tangents       :  2940
+		num uvs            :  1470
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  346
+	processing begun of mesh:  land
+		processing begun of material:  grass
+		processing begun of material:  darkgrass
+		registered as also a user of material:  grass
+		registered as also a user of material:  darkgrass
+		processing begun of multimaterial:  enfer9.Multimaterial#7
+		Custom split normals with tangents being used
+		num positions      :  44
+		num normals        :  44
+		num tangents       :  176
+		num uvs            :  88
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  38
+	processing begun of mesh:  portal
+		processing begun of material:  stone
+		registered as also a user of material:  stone
+		Custom split normals with tangents being used
+		num positions      :  38
+		num normals        :  38
+		num tangents       :  152
+		num uvs            :  76
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  24
+	processing begun of mesh:  portalLeft
+		animation processing begun
+			processing action portalLeftAction:  in[0 - 250], out[0 - 250]
+		processing begun of material:  black
+		processing begun of material:  gold
+		registered as also a user of material:  black
+		registered as also a user of material:  gold
+		processing begun of multimaterial:  enfer9.Multimaterial#8
+		Custom split normals with tangents being used
+		num positions      :  64
+		num normals        :  64
+		num tangents       :  256
+		num uvs            :  128
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  96
+	processing begun of mesh:  portalRight
+		animation processing begun
+			processing action portalRightAction:  in[0 - 250], out[0 - 250]
+		processing begun of material:  black
+		processing begun of material:  gold
+		registered as also a user of material:  black
+		registered as also a user of material:  gold
+		processing begun of multimaterial:  enfer9.Multimaterial#9
+		Custom split normals with tangents being used
+		num positions      :  64
+		num normals        :  64
+		num tangents       :  256
+		num uvs            :  128
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  96
+	processing begun of mesh:  informationPanel1Url.001
+		animation processing begun
+			processing action informationPanel1UrlAction:  in[2 - 2], out[0 - 2]
+		processing begun of material:  material_0.001
+		processing begun of material:  material_12.001
+		processing begun of material:  material_2.001
+		processing begun of material:  material_3.001
+		processing begun of material:  material_4.001
+		processing begun of material:  material_5.001
+		processing begun of material:  material_6.001
+		processing begun of material:  material_7.001
+		processing begun of material:  material_8.001
+		processing begun of material:  material_9.001
+		processing begun of material:  material_10.001
+		processing begun of material:  material_11.001
+			processing texture _00
+				WARNING: Exception during copy:
+					[Errno 2] No such file or directory: 'D:\\wamp64\\www\\mondesvirtuels\\atlantide\\v1_export\\00.jpg'
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture iles
+				WARNING: Exception during copy:
+					[Errno 2] No such file or directory: 'D:\\wamp64\\www\\mondesvirtuels\\atlantide\\v2_transparency\\iles.jpg'
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture _03
+				WARNING: Exception during copy:
+					[Errno 2] No such file or directory: 'D:\\wamp64\\www\\mondesvirtuels\\atlantide\\v1_export\\03.jpg'
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture _09
+				WARNING: Exception during copy:
+					[Errno 2] No such file or directory: 'D:\\wamp64\\www\\mondesvirtuels\\atlantide\\v1_export\\09.jpg'
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture _04
+				WARNING: Exception during copy:
+					[Errno 2] No such file or directory: 'D:\\wamp64\\www\\mondesvirtuels\\atlantide\\v1_export\\04.jpg'
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture _01
+				WARNING: Exception during copy:
+					[Errno 2] No such file or directory: 'D:\\wamp64\\www\\mondesvirtuels\\atlantide\\v1_export\\01.jpg'
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture _07
+				WARNING: Exception during copy:
+					[Errno 2] No such file or directory: 'D:\\wamp64\\www\\mondesvirtuels\\atlantide\\v1_export\\07.jpg'
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture _05
+				WARNING: Exception during copy:
+					[Errno 2] No such file or directory: 'D:\\wamp64\\www\\mondesvirtuels\\atlantide\\v1_export\\05.jpg'
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture _06
+				WARNING: Exception during copy:
+					[Errno 2] No such file or directory: 'D:\\wamp64\\www\\mondesvirtuels\\atlantide\\v1_export\\06.jpg'
+				texture type:  diffuseTexture, mapped using: "UVMap"
+		processing begun of multimaterial:  enfer9.Multimaterial#10
+		Custom split normals with tangents being used
+		num positions      :  9
+		num normals        :  9
+		num tangents       :  36
+		num uvs            :  18
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  4
+	processing begun of mesh:  multirock1
+		processing begun of material:  lightrock
+		processing begun of material:  darkrock
+		registered as also a user of material:  lightrock
+		registered as also a user of material:  darkrock
+		processing begun of multimaterial:  enfer9.Multimaterial#11
+		Custom split normals with tangents being used
+		num positions      :  69
+		num normals        :  69
+		num tangents       :  276
+		num uvs            :  138
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  44
+	processing begun of mesh:  multirock2
+		mesh is an instance of :  multirock1.  Processing halted.
+	processing begun of mesh:  multirock3
+		mesh is an instance of :  multirock1.  Processing halted.
+	processing begun of mesh:  rock1
+		processing begun of material:  lightrock
+		processing begun of material:  darkrock
+		registered as also a user of material:  lightrock
+		registered as also a user of material:  darkrock
+		processing begun of multimaterial:  enfer9.Multimaterial#12
+		Custom split normals with tangents being used
+		num positions      :  50
+		num normals        :  50
+		num tangents       :  200
+		num uvs            :  100
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  40
+	processing begun of mesh:  rock2
+		mesh is an instance of :  rock1.  Processing halted.
+	processing begun of mesh:  rock3
+		mesh is an instance of :  rock1.  Processing halted.
+	processing begun of mesh:  tree1
+		processing begun of material:  leaves
+		processing begun of material:  bark
+		registered as also a user of material:  leaves
+		registered as also a user of material:  bark
+		processing begun of multimaterial:  enfer9.Multimaterial#13
+		Custom split normals with tangents being used
+		num positions      :  64
+		num normals        :  64
+		num tangents       :  256
+		num uvs            :  128
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  32
+	processing begun of mesh:  tree2
+		mesh is an instance of :  tree1.  Processing halted.
+	processing begun of mesh:  tree3
+		mesh is an instance of :  tree1.  Processing halted.
+	processing begun of mesh:  tree4
+		mesh is an instance of :  tree1.  Processing halted.
+	processing begun of mesh:  tree5
+		mesh is an instance of :  tree1.  Processing halted.
+	processing begun of mesh:  tree6
+		mesh is an instance of :  tree1.  Processing halted.
+	processing begun of mesh:  tree7
+		mesh is an instance of :  tree1.  Processing halted.
+	processing begun of mesh:  tree8
+		mesh is an instance of :  tree1.  Processing halted.
+	processing begun of mesh:  tree9
+		mesh is an instance of :  tree1.  Processing halted.
+	processing begun of mesh:  tree10
+		mesh is an instance of :  tree1.  Processing halted.
+	processing begun of mesh:  tree11
+		mesh is an instance of :  tree1.  Processing halted.
+	processing begun of mesh:  tree12
+		mesh is an instance of :  tree1.  Processing halted.
+	processing begun of mesh:  tree13
+		mesh is an instance of :  tree1.  Processing halted.
+	processing begun of mesh:  tree14
+		mesh is an instance of :  tree1.  Processing halted.
+	processing begun of mesh:  tree15
+		mesh is an instance of :  tree1.  Processing halted.
+	processing begun of mesh:  tree16
+		mesh is an instance of :  tree1.  Processing halted.
+	processing begun of mesh:  tree17
+		mesh is an instance of :  tree1.  Processing halted.
+	processing begun of mesh:  tree18
+		mesh is an instance of :  tree1.  Processing halted.
+	processing begun of mesh:  tree19
+		mesh is an instance of :  tree1.  Processing halted.
+	processing begun of mesh:  enfer
+		processing begun of material:  redStone.002
+		processing begun of material:  lava
+			processing texture redStone
+				texture type:  diffuseTexture, mapped using: "UVMap"
+		registered as also a user of material:  lava
+		processing begun of multimaterial:  enfer9.Multimaterial#14
+		Custom split normals with tangents being used
+		num positions      :  1299
+		num normals        :  1299
+		num tangents       :  5196
+		num uvs            :  2598
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  618
+	processing begun of mesh:  toParadisePannel
+		processing begun of material:  angel
+		processing begun of material:  wood
+		registered as also a user of material:  angel
+		registered as also a user of material:  wood
+		processing begun of multimaterial:  enfer9.Multimaterial#15
+		Custom split normals with tangents being used
+		num positions      :  117
+		num normals        :  117
+		num tangents       :  468
+		num uvs            :  234
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  54
+	processing begun of mesh:  tormentRoom1
+		processing begun of material:  redStone.001
+		processing begun of material:  tormentRoomDoor
+		registered as also a user of material:  redStone.001
+		registered as also a user of material:  tormentRoomDoor
+		processing begun of multimaterial:  enfer9.Multimaterial#16
+		Custom split normals with tangents being used
+		num positions      :  78
+		num normals        :  78
+		num tangents       :  312
+		num uvs            :  156
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  48
+	processing begun of mesh:  lava
+		animation processing begun
+			processing action lavaAction:  in[0 - 250], out[0 - 250]
+		processing begun of material:  lava
+		registered as also a user of material:  lava
+		Custom split normals with tangents being used
+		num positions      :  4
+		num normals        :  4
+		num tangents       :  16
+		num uvs            :  8
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of mesh:  tormentRoom2
+		mesh is an instance of :  tormentRoom1.  Processing halted.
+	processing begun of mesh:  tormentRoom3
+		mesh is an instance of :  tormentRoom1.  Processing halted.
+	processing begun of mesh:  informationPanel2
+		processing begun of material:  wood
+		processing begun of material:  darkwood
+		registered as also a user of material:  wood
+		registered as also a user of material:  darkwood
+		processing begun of multimaterial:  enfer9.Multimaterial#17
+		Custom split normals with tangents being used
+		num positions      :  135
+		num normals        :  135
+		num tangents       :  540
+		num uvs            :  270
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  82
+	processing begun of mesh:  informationPanel2Url
+		processing begun of material:  picture2
+			processing texture hall
+				texture type:  diffuseTexture, mapped using: "UVMap"
+		Custom split normals with tangents being used
+		num positions      :  4
+		num normals        :  4
+		num tangents       :  16
+		num uvs            :  8
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of mesh:  peak1
+		processing begun of material:  redStone.002
+		processing begun of material:  lava
+		registered as also a user of material:  redStone.002
+		registered as also a user of material:  lava
+		processing begun of multimaterial:  enfer9.Multimaterial#18
+		Custom split normals with tangents being used
+		num positions      :  42
+		num normals        :  42
+		num tangents       :  168
+		num uvs            :  84
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  38
+	processing begun of mesh:  peak2
+		mesh is an instance of :  peak1.  Processing halted.
+	processing begun of mesh:  peak4
+		mesh is an instance of :  peak1.  Processing halted.
+	processing begun of mesh:  peak5
+		mesh is an instance of :  peak1.  Processing halted.
+	processing begun of mesh:  peak6
+		mesh is an instance of :  peak1.  Processing halted.
+	processing begun of mesh:  peak7
+		mesh is an instance of :  peak1.  Processing halted.
+	processing begun of mesh:  peak9
+		mesh is an instance of :  peak1.  Processing halted.
+	processing begun of mesh:  peak10
+		mesh is an instance of :  peak1.  Processing halted.
+	processing begun of mesh:  peak11
+		mesh is an instance of :  peak1.  Processing halted.
+	processing begun of mesh:  peak12
+		mesh is an instance of :  peak1.  Processing halted.
+	processing begun of mesh:  peak13
+		mesh is an instance of :  peak1.  Processing halted.
+	processing begun of mesh:  peak14
+		mesh is an instance of :  peak1.  Processing halted.
+	processing begun of mesh:  peak15
+		mesh is an instance of :  peak1.  Processing halted.
+	processing begun of mesh:  peak16
+		mesh is an instance of :  peak1.  Processing halted.
+	processing begun of mesh:  peak17
+		mesh is an instance of :  peak1.  Processing halted.
+	processing begun of mesh:  peak18
+		mesh is an instance of :  peak1.  Processing halted.
+	processing begun of mesh:  peak19
+		mesh is an instance of :  peak1.  Processing halted.
+	processing begun of mesh:  peak20
+		mesh is an instance of :  peak1.  Processing halted.
+	processing begun of mesh:  peak21
+		mesh is an instance of :  peak1.  Processing halted.
+	processing begun of mesh:  peak23
+		mesh is an instance of :  peak1.  Processing halted.
+	processing begun of mesh:  peak24
+		mesh is an instance of :  peak1.  Processing halted.
+	processing begun of mesh:  peak25
+		mesh is an instance of :  peak1.  Processing halted.
+	processing begun of mesh:  peak26
+		mesh is an instance of :  peak1.  Processing halted.
+	processing begun of mesh:  peak27
+		mesh is an instance of :  peak1.  Processing halted.
+	processing begun of mesh:  peak28
+		mesh is an instance of :  peak1.  Processing halted.
+	processing begun of mesh:  peak29
+		mesh is an instance of :  peak1.  Processing halted.
+	processing begun of mesh:  peak30
+		mesh is an instance of :  peak1.  Processing halted.
+	processing begun of mesh:  peak31
+		mesh is an instance of :  peak1.  Processing halted.
+	processing begun of mesh:  peak32
+		mesh is an instance of :  peak1.  Processing halted.
+	processing begun of mesh:  peak33
+		mesh is an instance of :  peak1.  Processing halted.
+	processing begun of mesh:  peak34
+		mesh is an instance of :  peak1.  Processing halted.
+	processing begun of mesh:  peak35
+		mesh is an instance of :  peak1.  Processing halted.
+	processing begun of mesh:  peak36
+		mesh is an instance of :  peak1.  Processing halted.
+	processing begun of mesh:  peak37
+		mesh is an instance of :  peak1.  Processing halted.
+	processing begun of mesh:  peak38
+		mesh is an instance of :  peak1.  Processing halted.
+	processing begun of mesh:  peak39
+		mesh is an instance of :  peak1.  Processing halted.
+	processing begun of mesh:  peak40
+		mesh is an instance of :  peak1.  Processing halted.
+	processing begun of mesh:  peak41
+		mesh is an instance of :  peak1.  Processing halted.
+	processing begun of mesh:  peak42
+		mesh is an instance of :  peak1.  Processing halted.
+	processing begun of mesh:  peak43
+		mesh is an instance of :  peak1.  Processing halted.
+	processing begun of mesh:  peak44
+		mesh is an instance of :  peak1.  Processing halted.
+	processing begun of mesh:  peak45
+		mesh is an instance of :  peak1.  Processing halted.
+	processing begun of mesh:  peak8
+		mesh is an instance of :  peak1.  Processing halted.
+	processing begun of mesh:  peak22
+		mesh is an instance of :  peak1.  Processing halted.
+	processing begun of mesh:  imp1
+		processing begun of material:  redSkin
+		processing begun of material:  black
+		processing begun of material:  red
+		registered as also a user of material:  redSkin
+		registered as also a user of material:  black
+		registered as also a user of material:  red
+		processing begun of multimaterial:  enfer9.Multimaterial#19
+		Custom split normals with tangents being used
+		num positions      :  492
+		num normals        :  492
+		num tangents       :  1968
+		num uvs            :  984
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  324
+	processing begun of mesh:  imp2
+		mesh is an instance of :  imp1.  Processing halted.
+	processing begun of mesh:  imp3
+		mesh is an instance of :  imp1.  Processing halted.
+	processing begun of mesh:  imp4
+		mesh is an instance of :  imp1.  Processing halted.
+	processing begun of mesh:  imp5
+		mesh is an instance of :  imp1.  Processing halted.
+	processing begun of mesh:  imp6
+		mesh is an instance of :  imp1.  Processing halted.
+	processing begun of light (POINT):  Light
+========= Writing of JSON file started =========
+	writing mesh:  tree
+	writing mesh:  angel1
+	writing mesh:  bookSupport
+	writing mesh:  goldenBook
+	writing mesh:  informationPanel1
+	writing mesh:  saintPeter
+	writing mesh:  toHellPannel
+	writing mesh:  water
+	writing mesh:  informationPanel1Url
+	writing mesh:  clouds
+	writing mesh:  land
+	writing mesh:  portal
+	writing mesh:  portalLeft
+	writing mesh:  portalRight
+	writing mesh:  informationPanel1Url.001
+	writing mesh:  multirock1
+	writing mesh:  rock1
+	writing mesh:  tree1
+	writing mesh:  enfer
+	writing mesh:  toParadisePannel
+	writing mesh:  tormentRoom1
+	writing mesh:  lava
+	writing mesh:  informationPanel2
+	writing mesh:  informationPanel2Url
+	writing mesh:  peak1
+	writing mesh:  imp1
+========= Writing of JSON file completed =========
+========= end of processing =========
+elapsed time:  0 min, 0.6737 secs

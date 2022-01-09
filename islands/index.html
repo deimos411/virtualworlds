@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<meta name="author" content="Josquin BERNARD">
+		<meta name="description" content="Discover the floating islands in a virtual 3D world directly from your browser on Computer / Mobile / Console.">
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:site" content="@virtualworldsfr" />
+		<meta name="twitter:creator" content="@virtualworldsfr" />
+		<meta property="og:url" content="https://virtualworlds.fun/islands/" />
+		<meta property="og:title" content="Floating Islands" />
+		<meta property="og:description" content="Discover the floating islands in a virtual 3D world directly from your browser on Computer / Mobile / Console." />
+		<meta property="og:type" content="website" />
+		<meta property="og:image" content="https://virtualworlds.fun/islands/card/islands.png" />
+
+        <title>Floating islands</title>
+		<link rel="stylesheet" href="css/iles.css">
+		<link rel="shortcut icon" type="image/png" href="images/favico-iles-32.png"/>
+		
+        <!-- Babylon.js -->
+		
+		<!-- Preview mode babylon 5--> 
+		
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.6.2/dat.gui.min.js"></script>        
+        <script src="https://preview.babylonjs.com/earcut.min.js"></script>
+        <script src="https://preview.babylonjs.com/babylon.js"></script>
+        <script src="https://preview.babylonjs.com/materialsLibrary/babylonjs.materials.min.js"></script>
+        <script src="https://preview.babylonjs.com/proceduralTexturesLibrary/babylonjs.proceduralTextures.min.js"></script>
+        <script src="https://preview.babylonjs.com/postProcessesLibrary/babylonjs.postProcess.min.js"></script>
+        <script src="https://preview.babylonjs.com/loaders/babylonjs.loaders.js"></script>
+        <script src="https://preview.babylonjs.com/serializers/babylonjs.serializers.min.js"></script>
+        <script src="https://preview.babylonjs.com/gui/babylon.gui.min.js"></script>
+        <script src="https://preview.babylonjs.com/inspector/babylon.inspector.bundle.js"></script>
+		
+		
+		<!-- Production mode babylon v4.2.0 -->		
+		
+		<!-- 
+		<script src="https://cdn.babylonjs.com/babylon.js"></script>
+		<script src="https://cdn.babylonjs.com/gui/babylon.gui.min.js"></script>
+		-->
+		<script src="js/virtualstick.js"></script>
+		
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+	    <script async src="https://www.googletagmanager.com/gtag/js?id=G-963287X5WE"></script>
+	    <script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+
+			gtag('config', 'G-963287X5WE');
+		</script>
+
+
+    </head>
+<body>
+    
+	<!-- butons -->
+	<div id="buttons" class="hideButtons">
+		<div id="fps">0</div>
+		
+		<div id="fullscreen">			
+			<input type="image" id="btnFullScreen" alt="Full screen (X)" title="Full Screen (X)" src="images/expand.png" width="32" height="32">
+		</div>
+		
+		<div id="camera">
+			<input type="image" id="btnCamera" alt="Change camera (C)" title="Change camera (C)" src="images/camera.png" width="32" height="32">	
+		</div>
+		
+		<div id="navigation">
+			<input type="image" id="btnNavigation" alt="Fly (F)" title="Fly (F)" src="images/walk.png" width="32" height="32">
+		</div>
+	</div>
+
+	
+	<canvas id="renderCanvas"></canvas>
+
+    <script>
+
+		var canvas = document.getElementById("renderCanvas");
+		var adt = null;
+		var engine = null;
+		var scene = null;
+		var sceneToRender = null;
+		var createDefaultEngine = function() {
+			return new BABYLON.Engine(canvas, true, {
+				preserveDrawingBuffer: true,
+				stencil: true,
+				disableWebGL2Support: false
+			});
+		};		
+
+		/**
+		 * Essential data
+		 */
+		const WORLD_FILE = 'babylon/iles24.babylon';		
+		const GRAVITY_FORCE = -0.55; // default -0.98
+		const SPEED = 0.7;
+		const ANGULAR_SENSIBILTY = 5000; // default 2000
+		const FLY_MODE = 1;
+		const WALK_MODE = 2;
+		
+		/**
+		 * Cameras
+		 */
+
+		// Start camera
+		const CAMERA1_POSITION = new BABYLON.Vector3(-26.17,14.69,-53.13);
+		const CAMERA1_ROTATION = new BABYLON.Vector3(-0.02,0.58, 0);
+		
+		// Harbor camera
+		const CAMERA2_POSITION = new BABYLON.Vector3(-15.29,11.19,-103.58);
+		const CAMERA2_ROTATION = new BABYLON.Vector3(-0.11,0.38, 0);
+		
+		// Top island camera
+		const CAMERA3_POSITION = new BABYLON.Vector3(26.19,33.40,-35.90);
+		const CAMERA3_ROTATION = new BABYLON.Vector3(-0.06,-6.07, 0);
+		
+		// Island of sheeps camera
+		const CAMERA4_POSITION = new BABYLON.Vector3(73.43,9.16,51.44);
+		const CAMERA4_ROTATION = new BABYLON.Vector3(0.04,-2.55, 0);
+		
+		/**
+		 * Lights
+		 */
+		const LIGHT_INTENSITY = 2;
+		
+		let isUserGesture = false;
+		let isCollision = true;	
+		let isMobile = false;
+		let isGravity = true;
+		let respawn = false;
+		let activeCamera = null;
+		let isLoading = true;
+
+		let numCamera = 1;
+		let typeNavigation = WALK_MODE;	
+		let isSoundsPlayed = false;
+		
+		let buttons = document.getElementById("buttons");
+
+		// fps 
+		let divFps = document.getElementById("fps");
+
+		// fullscreen
+		let btnFullScreen = document.getElementById("btnFullScreen");
+		let btnCamera = document.getElementById("btnCamera");
+
+		// navigation
+		let btnNavigation = document.getElementById("btnNavigation");		
+
+		/** 
+		 * Listeners 
+		 */
+		 btnFullScreen.addEventListener('pointerdown',
+			ev => { 					
+				toggleScreenMode();			
+			}
+		);
+
+		btnCamera.addEventListener('pointerdown',
+			ev => { 	
+				changeCamera();
+				
+			}
+		);	
+
+		btnNavigation.addEventListener('pointerdown',
+			ev => { 												
+				toggleNavigation();				
+			}
+		);
+
+		// pointer is down, user make a gesture, so audio context can be resume
+		canvas.addEventListener('pointerdown',
+  			ev => { 			  
+			  userMakeGesture();
+			}
+		);
+
+		/**
+		 * Exit full screen Listener
+		 */
+		 document.addEventListener('fullscreenchange', exitHandler);
+		document.addEventListener('webkitfullscreenchange', exitHandler);
+		document.addEventListener('mozfullscreenchange', exitHandler);
+		document.addEventListener('MSFullscreenChange', exitHandler);
+
+		/** 
+		 * Exit full screen event handler
+		 **/
+		function exitHandler() {
+			if (!document.fullscreenElement && !document.webkitIsFullScreen && !document.mozFullScreen && !document.msFullscreenElement) {
+				exitFullScreen();
+			}
+		}  
+
+
+		// gestion des touches
+		canvas.addEventListener("keydown", event => {
+			
+			if (event.defaultPrevented) {
+				return; // Ne devrait rien faire si l'événement de la touche était déjà consommé.
+			}
+
+			switch (event.code) {
+				
+				// Press "C" to change camera
+				case "KeyC": 	
+							console.log('change camera ');
+							changeCamera();
+							break;
+
+				// Press "P" to debug
+				case "KeyP": 
+							scene.debugLayer.show();									
+							break;
+
+				// Press "F" to fly
+				case "KeyF": 
+							typeNavigation = WALK_MODE			
+							fly();			
+							toggleNavigation();
+													
+							break;
+				
+				// Press "H" to hide/show buttons
+				case "KeyH": 
+							toggleButtons();										
+							break;
+
+				// Press "P" to get camera position
+				case "KeyP": 
+							showCameraInfo();													
+							break;
+
+				// Press "W" to walk
+				case "KeyZ": 
+							typeNavigation = FLY_MODE			
+							walk();			
+							toggleNavigation();												
+							break;
+
+				// Press "X" to go fullscreen
+				case "KeyX": 
+							console.log('go fullscreen');			
+							toggleScreenMode();						
+							break;
+
+			
+	
+				default:    return; // Quitter lorsque cela ne gère pas l'événement touche.
+ 			}
+
+			// Annuler l'action par défaut pour éviter qu'elle ne soit traitée deux fois.
+			event.preventDefault();
+		}, true);
+
+		/**
+		 * Toggle screen mode
+		 */
+		 function toggleScreenMode() {
+			
+			if (!document.fullscreenElement) {
+				document.documentElement.requestFullscreen();
+				goFullScreen();
+															
+			} else {
+				if (document.exitFullscreen) {
+					document.exitFullscreen();
+					exitFullScreen();
+																						
+				}
+			}
+		}
+
+		/**
+		 * Switch to full Screen mode
+		 */
+		 function goFullScreen() {		
+			btnFullScreen.setAttribute("src", "images/collapse.png");
+			btnFullScreen.setAttribute("title", "Exit full screen (Echap)");			
+		}
+
+		/**
+		 * After exit full screen mode
+		 **/
+		function exitFullScreen() {
+			btnFullScreen.setAttribute("src", "images/expand.png");
+			btnFullScreen.setAttribute("title", "Full screen (X)");
+		}
+
+		/**
+		 * Walk / Fly mode navigation
+		 */
+		function toggleNavigation() {
+			console.log('toggle navigation');
+			if(typeNavigation == WALK_MODE){
+				btnNavigation.setAttribute("src", "images/fly.png");
+				btnNavigation.setAttribute("title", "Walk (W)");				
+				fly();
+				typeNavigation = FLY_MODE;
+			} else {
+				btnNavigation.setAttribute("src", "images/walk.png");
+				btnNavigation.setAttribute("title", "Fly (F)");	
+				walk();
+				typeNavigation = WALK_MODE;
+			}		
+		}
+
+		/**
+		 * Show / Hide help buttons
+		 * */ 
+		 function toggleButtons(){
+			if(buttons.classList.contains("hideButtons")){
+				buttons.classList.remove("hideButtons");
+			} else {
+				buttons.classList.add("hideButtons");	
+			}				
+		 }
+
+		 
+		/**
+		 *	Change camera 
+		**/
+		function changeCamera(){
+		
+			numCamera++;
+			if(numCamera > 6) numCamera = 1;
+
+			switch(numCamera){ 
+				case 1: goToCamera1();
+						break;
+				case 2: goToCamera2();
+						break;
+				case 3: goToCamera3();
+						break;
+				case 4: goToCamera4();
+						break;
+				case 5: goToCamera5();
+						break;
+				case 6: goToCamera6();
+						break;
+			}			
+
+		 }
+
+
+		/**
+		 * Resume audio context if a gesture have been made by user
+		 * https://github.com/BabylonJS/Babylon.js/issues/4354
+		 * */
+		function checkAudioContext(){
+			let ready = false;
+
+			if(BABYLON.Engine.audioEngine.audioContext.state == "running"){
+				ready = true;
+			}
+
+			// resume only if a gesture have been made
+			if(BABYLON.Engine.audioEngine.audioContext.state != "running" && isUserGesture){
+				BABYLON.Engine.audioEngine.audioContext.resume();
+				ready = true;
+			}
+		
+			return ready;
+		}
+
+		function userMakeGesture(){			
+			isUserGesture = true;
+		}
+
+		function showThumb(isMobile){
+			leftThumbContainer.isVisible = isMobile;
+			rightThumbContainer.isVisible = isMobile;
+		}
+
+		/**
+		 * Helper to copy paste camera position/rotation
+		 */
+		function showCameraInfo(){
+			const camera = scene.getCameraByName("UniversalCamera"); 
+			console.log('camera position : const CAMERAX_POSITION = new BABYLON.Vector3('+camera.position.x.toFixed(3)+','+camera.position.y.toFixed(3)+','+camera.position.z.toFixed(3)+');');
+			console.log('camera rotation : const CAMERAX_ROTATION = new BABYLON.Vector3('+camera.rotation.x.toFixed(3)+','+camera.rotation.y.toFixed(3)+','+camera.rotation.z.toFixed(3)+');');
+		}
+
+		function goToCamera1(){	
+
+			const camera = scene.getCameraByName("UniversalCamera"); 			
+
+			camera.position = new BABYLON.Vector3(CAMERA1_POSITION.x, CAMERA1_POSITION.y, CAMERA1_POSITION.z);
+			camera.rotation = new BABYLON.Vector3(CAMERA1_ROTATION.x, CAMERA1_ROTATION.y, CAMERA1_ROTATION.z);
+
+			scene.activeCamera = camera;
+
+		}
+
+		function goToCamera2(){
+
+			const camera = scene.getCameraByName("UniversalCamera"); 
+
+			camera.position = new BABYLON.Vector3(CAMERA2_POSITION.x, CAMERA2_POSITION.y, CAMERA2_POSITION.z);
+			camera.rotation = new BABYLON.Vector3(CAMERA2_ROTATION.x, CAMERA2_ROTATION.y, CAMERA2_ROTATION.z);
+
+			scene.activeCamera = camera;
+		}
+
+		function goToCamera3(){
+
+			const camera = scene.getCameraByName("UniversalCamera"); 
+
+			camera.position = new BABYLON.Vector3(CAMERA3_POSITION.x, CAMERA3_POSITION.y, CAMERA3_POSITION.z);
+			camera.rotation = new BABYLON.Vector3(CAMERA3_ROTATION.x, CAMERA3_ROTATION.y, CAMERA3_ROTATION.z);
+
+			scene.activeCamera = camera;
+		}
+
+		function goToCamera4(){
+
+			const camera = scene.getCameraByName("UniversalCamera"); 
+
+			camera.position = new BABYLON.Vector3(CAMERA4_POSITION.x, CAMERA4_POSITION.y, CAMERA4_POSITION.z);
+			camera.rotation = new BABYLON.Vector3(CAMERA4_ROTATION.x, CAMERA4_ROTATION.y, CAMERA4_ROTATION.z);
+
+
+			scene.activeCamera = camera;
+		}
+		
+		function goToCamera5(){
+
+			const camera = scene.getCameraByName("FollowCamera"); 
+
+			camera.lockedTarget = scene.getMeshByName('zeppelin2');
+
+			scene.activeCamera = camera;
+		}
+
+		function goToCamera6(){
+
+			const camera = scene.getCameraByName("FollowCamera"); 
+
+			camera.lockedTarget = scene.getMeshByName('zeppelin3');
+
+			scene.activeCamera = camera;
+		}
+
+		function fly(){		
+
+			console.log('fly mode');	
+
+			const camera = scene.getCameraByName("UniversalCamera"); 
+
+			isGravity = false;
+			isCollision = true;
+			camera.applyGravity = isGravity;
+			camera.checkCollisions = isCollision;		
+
+		}
+
+		function walk(){		
+
+			console.log('walk mode');	
+
+			const camera = scene.getCameraByName("UniversalCamera"); 
+
+			isGravity = true;
+			isCollision = true;
+			camera.applyGravity = isGravity;
+			camera.checkCollisions = isCollision;	
+
+		}
+
+		/**
+		* Loading Screen from SometimesIMakeThings 
+		* https://forum.babylonjs.com/t/change-the-standard-loading-screen/964/12
+		*/
+
+		let loadingContainer = new BABYLON.GUI.Container();
+		loadingContainer.zIndex = 1000;
+		
+		let loadingBG = new BABYLON.GUI.Rectangle();
+		loadingBG.width = 1.0;
+		loadingBG.height = 1.0;
+		loadingBG.color = '#4185b7';;
+		loadingBG.background = '#4185b7';;
+
+		let loadingText = new BABYLON.GUI.TextBlock();
+		loadingText.text = "Loading...";
+		loadingText.left = 0.5;
+		loadingText.top = 0.7;
+		loadingText.color = "white";
+
+		let dot1 = new BABYLON.GUI.Ellipse();
+		dot1.top = "-100px";
+		dot1.left = "-50px";
+		dot1.width = "50px"
+		dot1.height = "50px";
+		dot1.color = "white";
+		dot1.thickness = 1;
+		dot1.background = "white";
+
+		let dot2 = new BABYLON.GUI.Ellipse();
+		dot2.top = "-100px";
+		dot2.left = "0px";
+		dot2.width = "50px"
+		dot2.height = "50px";
+		dot2.color = "white";
+		dot2.thickness = 1;
+		dot2.background = "white";
+
+		let dot3 = new BABYLON.GUI.Ellipse();
+		dot3.top = "-100px";
+		dot3.left = "50px";
+		dot3.width = "50px"
+		dot3.height = "50px";
+		dot3.color = "white";
+		dot3.thickness = 1;
+		dot3.background = "white";
+
+		loadingContainer.addControl(loadingBG);
+		loadingContainer.addControl(loadingText);
+		loadingContainer.addControl(dot1);
+		loadingContainer.addControl(dot2);
+		loadingContainer.addControl(dot3);
+
+		function loadingAnimation()
+		{
+			let deltaTime = scene.getEngine().getDeltaTime();
+			
+			dot1.rotation += 0.001 * deltaTime;
+
+			dot1.top = -100 + Math.sin(dot1.rotation*10)*50;
+			dot2.top = -100 + Math.cos(dot1.rotation*10)*50;
+			dot3.top = -100 - Math.sin(dot1.rotation*10)*50;
+		}
+
+		function fadeLoadingScreen(){
+			let deltaTime = scene.getEngine().getDeltaTime();
+			loadingContainer.alpha -= 0.001 * deltaTime;
+
+			if(loadingContainer.alpha <= 0.0)
+			{
+				unregisterLoadingScreen();
+			}
+		}
+
+		function showLoadingScreen() {
+			loadingContainer.alpha = 1.0;
+		}
+
+		function unregisterLoadingScreen() {
+			scene.unregisterBeforeRender(loadingAnimation);
+			scene.unregisterBeforeRender(fadeLoadingScreen);
+			loadingContainer.alpha = 0.0; //Make sure the loading screen isn't visible
+			buttons.classList.remove("hideButtons");
+		}
+
+		function hideLoadingScreen(){
+			scene.registerBeforeRender(fadeLoadingScreen);			
+		}
+
+		var createScene = function() {
+			
+			var scene = new BABYLON.Scene(engine);		
+		
+			if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+			  // true for mobile device
+			  isMobile = true;
+			  console.log('mobile device')
+			}else{
+			  // false for not mobile device
+			  isMobile = false;
+			  console.log('not mobile device')
+			}			
+
+			//--------------------------------------------------------------------------------------------
+			// Loading screen 
+			var fullscreenGUI = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("FullscreenUI", true);
+			fullscreenGUI.addControl(loadingContainer); //Add loading screen to the camera
+
+			showLoadingScreen(); //Show the loading screen		
+			
+			scene.executeWhenReady(function () { //When everything is done loading
+        		hideLoadingScreen();
+   			});    
+			
+			
+			/*setTimeout(function(){
+				hideLoadingScreen();
+			}, 10000);
+			*/
+			
+			
+			// Sounds 
+			var sheepSound = new BABYLON.Sound("sheep", "sound/01.wav", scene);	
+			var musicSound = null;
+
+			// Lights
+
+			// This creates a light, aiming 0,1,0 - to the sky (non-mesh)
+			var light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0), scene);
+
+			// Default intensity is 1. Let's dim the light a small amount
+			light.intensity = LIGHT_INTENSITY;
+
+			// Universal camera to enabled gamepad controller and camera for collisions
+			let universalCamera = new BABYLON.UniversalCamera("UniversalCamera", new BABYLON.Vector3(CAMERA1_POSITION.x, CAMERA1_POSITION.y, CAMERA1_POSITION.z), scene);
+			universalCamera.rotation = new BABYLON.Vector3(CAMERA1_ROTATION.x,CAMERA1_ROTATION.y,CAMERA1_ROTATION.z);
+			
+			// Follow camera to follow zeppelin
+			let followCamera = new BABYLON.FollowCamera("FollowCamera", new BABYLON.Vector3(CAMERA1_POSITION.x, CAMERA1_POSITION.y, CAMERA1_POSITION.z), scene, null);
+			followCamera.attachControl(canvas, true);	
+
+			// Speed of camera ( 2 by default )
+			universalCamera.speed = SPEED;
+			// Angular sensibility ( 2000 by default )
+			universalCamera.angularSensibility = ANGULAR_SENSIBILTY;
+			
+			
+			// Sky material
+			var skyboxMaterial = new BABYLON.SkyMaterial("skyMaterial", scene);
+			skyboxMaterial.backFaceCulling = false;
+			//skyboxMaterial._cachedDefines.FOG = true;
+
+			// Sky mesh (box)
+			var skybox = BABYLON.Mesh.CreateBox("skyBox", 1000.0, scene);
+			skybox.material = skyboxMaterial;
+			
+			
+			
+			// azimut 0.2
+			// luminance 1
+			// inclinaison 0.2
+			// mieCoefficient : 0.005
+			// mieDirectionalG : 0.8
+			// rayleigh : 1.8
+			
+			
+			/*
+			* Keys:
+			* - 1: Day
+			* - 2: Evening
+			* - 3: Increase Luminance
+			* - 4: Decrease Luminance
+			* - 5: Increase Turbidity
+			* - 6: Decrease Turbidity
+			* - 7: Move horizon to -50
+			* - 8: Restore horizon to 0
+			* - 9 : Increase inclinaison
+			* - 0 : Decrease inclinaison
+			*/
+			var setSkyConfig = function (property, from, to) {
+				var keys = [
+					{ frame: 0, value: from },
+					{ frame: 100, value: to }
+				];
+				
+				var animation = new BABYLON.Animation("animation", property, 100, BABYLON.Animation.ANIMATIONTYPE_FLOAT, BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT);
+				animation.setKeys(keys);
+				
+				scene.stopAnimation(skybox);
+				scene.beginDirectAnimation(skybox, [animation], 0, 100, false, 1);
+			};
+			
+			let luminance = 1;
+			let turbidity = 40;
+			let inclinaison = 0;
+		
+			// Set to Day
+			setSkyConfig("material.inclination", skyboxMaterial.inclination, 0);
+		
+			
+			// Load meshes 
+			BABYLON.SceneLoader.ImportMeshAsync(null, "", WORLD_FILE, scene).then(function(result) {							
+				
+				// sheeps
+				let sheeps = scene.getMeshesByTags("sheep");
+				for (sheep of sheeps) {
+					sheep.isPickable = true;
+					sheep.actionManager = new BABYLON.ActionManager(scene);
+					sheep.actionManager.registerAction(new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, function () {									
+						
+						let ready = checkAudioContext();	
+
+						if(ready) {
+							sheepSound.stop();
+							sheepSound.play();						
+						}
+									
+					}));	
+				}
+
+				// bridge helpers
+				let bridgeHelpers = scene.getMeshesByTags("bridgeHelper");							
+				for (bridgeHelper of bridgeHelpers) {
+					// turn bridge helper to be invisible
+					bridgeHelper.isVisible = false;						
+				}	
+							
+				// browse all meshes
+				for(i = 0; i < result.meshes.length; i++){					
+					
+					let rootMesh = result.meshes[i];								
+					
+					// zeppelins 
+					
+					if(rootMesh.name.includes('zeppelin1')){
+												
+						// animations
+						scene.beginAnimation(rootMesh, 0, 250, true, 0.75);						
+					}
+					
+					if(rootMesh.name.includes('zeppelin2')){
+
+						rootMesh.isPickable =  true;
+						
+						// animations
+						scene.beginAnimation(rootMesh, 0, 250, true, 0.125);	
+						
+						rootMesh.actionManager = new BABYLON.ActionManager(scene);
+						rootMesh.actionManager.registerAction(new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, function () {
+							console.log('zeppelin2 clicked');							
+							followCamera.lockedTarget = scene.getMeshByName('zeppelin2');	
+							//followCamera.radius = 10;	
+							scene.activeCamera = followCamera;
+							
+						}));	
+					}
+					
+					if(rootMesh.name.includes('zeppelin3')){		
+						
+						rootMesh.isPickable =  true;
+						
+						// animations
+						scene.beginAnimation(rootMesh, 0, 250, true, 0.125);
+
+						rootMesh.actionManager = new BABYLON.ActionManager(scene);
+						rootMesh.actionManager.registerAction(new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, function () {
+							console.log('zeppelin3 clicked');							
+							followCamera.lockedTarget = scene.getMeshByName('zeppelin3');
+							//followCamera.radius = 10;								
+							scene.activeCamera = followCamera;
+							
+						}));			
+					}
+					
+					if(rootMesh.name.includes('zeppelin5')){	
+										
+						// animations
+						scene.beginAnimation(rootMesh, 0, 250, true, 2.0);	
+					}
+					
+					
+					if(rootMesh.name.includes('zeppelin6')){						
+						
+						// animations
+						scene.beginAnimation(rootMesh, 0, 250, true, 2.0);	
+					}
+					
+					
+					// music panel play
+					if(rootMesh.name.includes('musicPanelPlay')){						
+						// this mesh can be clicked
+						rootMesh.isPickable =  true;					
+						
+						// add action manager to the music play button 
+						rootMesh.actionManager = new BABYLON.ActionManager(scene);
+						rootMesh.actionManager.registerAction(new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, function () {														
+							
+							let ready = checkAudioContext();	
+							
+							if(ready) {
+								
+								// Music not loaded yet
+								if(musicSound == null){							
+									
+									musicSound = new BABYLON.Sound("music", "music/01.mp3", scene, function() {
+										// Sound has been downloaded & decoded
+										musicSound.loop = true;
+										musicSound.play();
+									});								
+									
+								} else {									
+									// stop and play
+									musicSound.stop();
+									musicSound.play();
+								}
+							}						
+						}));			
+						
+					}	
+					
+					// music panel stop
+					if(rootMesh.name.includes('musicPanelStop')){
+						// this mesh can be clicked
+						rootMesh.isPickable =  true;					
+						
+						// add action manager to the music play button 
+						rootMesh.actionManager = new BABYLON.ActionManager(scene);
+						rootMesh.actionManager.registerAction(new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, function () {
+							
+							if(musicSound != null){
+								musicSound.stop();
+							}
+						}));			
+						
+					}		
+
+					// information panel 
+					if(rootMesh.name.includes('informationPanel1Url')){
+						
+						// this mesh can be clicked
+						rootMesh.isPickable =  true;					
+						
+						// add action manager 
+						rootMesh.actionManager = new BABYLON.ActionManager(scene);
+						rootMesh.actionManager.registerAction(new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, function () {
+							console.log('informationPanel1Url clicked');							
+							window.open('../trees/','_self');
+						}));	
+						
+					}
+					
+					// information panel 
+					if(rootMesh.name.includes('informationPanel2Url')){										
+					
+						// this mesh can be clicked
+						rootMesh.isPickable =  true;					
+						
+						// add action manager 
+						rootMesh.actionManager = new BABYLON.ActionManager(scene);
+						rootMesh.actionManager.registerAction(new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, function () {
+							console.log('informationPanel2Url clicked');							
+							window.open('../greathall/','_self');
+						}));	
+						
+					}
+
+					// golden book
+					if(rootMesh.name.includes('goldenBook')){						
+						// this mesh can be clicked
+						rootMesh.isPickable =  true;					
+						
+						// add action manager to the music play button 
+						rootMesh.actionManager = new BABYLON.ActionManager(scene);
+						rootMesh.actionManager.registerAction(new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, function () {													
+							window.open('https://virtualworlds.fun/');
+						}));					
+						
+					}			
+				}
+
+			}); 
+			
+			
+			//Set gravity for the scene (G force like, on Y-axis)
+			scene.gravity = new BABYLON.Vector3(0, GRAVITY_FORCE, 0);
+
+			// Enable Collisions
+			scene.collisionsEnabled = true;
+
+			//Then apply collisions and gravity to the active universal camera
+			universalCamera.checkCollisions = isCollision;
+			universalCamera.applyGravity = isGravity;
+
+			//Set the ellipsoid around the universal camera (e.g. your player's size)
+			universalCamera.ellipsoid = new BABYLON.Vector3(1, 1.5, 1.2);			
+			
+			// Virtual Sticks for mobile navigation
+			
+			adt = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
+			virtualJoystick.initVirtualStick(adt);
+			virtualJoystick.resize(canvas);			
+			
+
+			//camera.attachControl(canvas, true);
+
+			scene.registerBeforeRender(function(){
+					  
+				divFps.innerHTML = engine.getFps().toFixed() + " fps";
+
+				// virtual sticks
+				if(scene.activeCamera.id == 'UniversalCamera' ){					
+					virtualJoystick.transform(universalCamera);
+				}				
+				
+				
+				loadingAnimation();
+			
+				// virtuals sticks 
+				/*
+				if(scene.activeCamera.id == 'UniversalCamera' ){
+					translateTransform = BABYLON.Vector3.TransformCoordinates(new BABYLON.Vector3(xAddPos/3000, 0, yAddPos/3000), BABYLON.Matrix.RotationY(universalCamera.rotation.y));
+					universalCamera.cameraDirection.addInPlace(translateTransform);
+					universalCamera.cameraRotation.y += xAddRot/30000*-1;
+					universalCamera.cameraRotation.x += yAddRot/30000*-1;
+				}
+				
+				if(scene.activeCamera.id == 'FollowCamera' ){
+					translateTransform = BABYLON.Vector3.TransformCoordinates(new BABYLON.Vector3(xAddPos/300, 0, yAddPos/300), BABYLON.Matrix.RotationY(followCamera.rotation.y));
+					followCamera.cameraDirection.addInPlace(translateTransform);
+					followCamera.cameraRotation.y += xAddRot/300*1;
+					followCamera.cameraRotation.x += yAddRot/300*1;
+				}
+				*/
+				
+				// respawn needed
+				if(universalCamera.position.y < -15 && respawn == false){
+					respawn = true; 
+					console.log('respawn!!!!');					    
+				}
+				
+				if(respawn){	
+				
+					universalCamera.applyGravity = false;
+				
+					// smoothly move to original position of the camera
+					universalCamera.position = BABYLON.Vector3.Lerp(universalCamera.position,new BABYLON.Vector3(CAMERA1_POSITION.x, CAMERA1_POSITION.y,CAMERA1_POSITION.z),0.05);						
+									
+					if( Math.abs(universalCamera.position.x.toFixed(2)-CAMERA1_POSITION.x.toFixed(2)) < 0.2
+							&& Math.abs(universalCamera.position.y.toFixed(2)-CAMERA1_POSITION.y.toFixed(2)) < 0.2
+							&& Math.abs(universalCamera.position.z.toFixed(2)-CAMERA1_POSITION.z.toFixed(2)) < 0.2){
+						console.log('fin respawn');
+						universalCamera.applyGravity = true;
+						respawn= false;							
+					}
+				}	
+			}); 
+
+							
+			
+			// hide virtual sticks if not mobile device
+			virtualJoystick.setVisible(isMobile);			
+					
+			scene.activeCamera = universalCamera;			
+			// alternative navigation inputs ( WASD for qwerty keyboard and ZQSD for azerty keyboard )
+			scene.activeCamera.keysUp.push(90); 
+			scene.activeCamera.keysDown.push(83);
+			scene.activeCamera.keysLeft.push(81);
+			scene.activeCamera.keysRight.push(68);
+
+			universalCamera.attachControl(canvas, true);
+
+			return scene;
+		}
+
+		var engine;
+		var scene;
+		
+		initFunction = async function() {
+			var asyncEngineCreation = async function() {
+				try {
+					return createDefaultEngine();
+				} catch (e) {
+					console.log("the available createEngine function failed. Creating the default engine instead");
+					return createDefaultEngine();
+				}
+			}
+
+			engine = await asyncEngineCreation();
+			if (!engine) throw 'engine should not be null.';
+			scene = createScene();
+
+		};
+
+		initFunction().then(() => {
+			sceneToRender = scene
+			engine.runRenderLoop(function() {
+				if (sceneToRender && sceneToRender.activeCamera) {
+					sceneToRender.render();
+				}
+			});
+		});
+
+		// Resize
+		window.addEventListener("resize", function() {
+			engine.resize();
+			virtualJoystick.resize(canvas);
+		});
+    </script>
+</body>
+</html>

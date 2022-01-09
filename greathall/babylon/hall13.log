@@ -1,0 +1,539 @@
+Exporter version: 2.80.1, Blender version: 2.92.0
+========= Conversion from Blender to Babylon.js =========
+	Scene settings used :
+		Inline textures     :  false
+		Material Type       :  PBR
+		Positions Precision :  4
+		Normals Precision   :  3
+		UVs Precision       :  3
+		Vert Color Precision:  3
+		Mat Weight Precision:  2
+		Keep Z-up r-handed  :  no
+		Texture directory   :  D:\wamp64\www\mondesvirtuels\hall\v6_html\babylon\
+	Python World class constructor completed
+	processing begun of camera (UniversalCamera):  Camera
+	processing begun of mesh:  sky
+		animation processing begun
+			processing action skyAction.003:  in[0 - 250], out[0 - 250]
+		processing begun of material:  sky
+			processing texture _04
+				texture type:  diffuseTexture, mapped using: "UVMap"
+		Custom split normals with tangents being used
+		num positions      :  12
+		num normals        :  12
+		num tangents       :  48
+		num uvs            :  24
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  fortification
+		processing begun of material:  stone
+		processing begun of material:  stoneTorch
+		processing begun of material:  stoneLight
+			processing texture _05
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture _10
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture _03
+				texture type:  diffuseTexture, mapped using: "UVMap"
+		processing begun of multimaterial:  hall13.Multimaterial#0
+		Custom split normals with tangents being used
+		num positions      :  1868
+		num normals        :  1868
+		num tangents       :  7472
+		num uvs            :  3736
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  1024
+	processing begun of mesh:  towerRoof4
+		processing begun of material:  slate
+		processing begun of material:  black
+			processing texture _16
+				texture type:  diffuseTexture, mapped using: "UVMap"
+		processing begun of multimaterial:  hall13.Multimaterial#1
+		Custom split normals with tangents being used
+		num positions      :  111
+		num normals        :  111
+		num tangents       :  444
+		num uvs            :  222
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  38
+	processing begun of mesh:  towerRoof6
+		mesh is an instance of :  towerRoof4.  Processing halted.
+	processing begun of mesh:  towerRoof5
+		mesh is an instance of :  towerRoof4.  Processing halted.
+	processing begun of mesh:  towerRoof1
+		mesh is an instance of :  towerRoof4.  Processing halted.
+	processing begun of mesh:  towerRoo2
+		mesh is an instance of :  towerRoof4.  Processing halted.
+	processing begun of mesh:  towerRoo3
+		mesh is an instance of :  towerRoof4.  Processing halted.
+	processing begun of mesh:  torch10
+		processing begun of material:  wood
+		processing begun of material:  fire
+		processing begun of material:  black
+			processing texture _08
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture _09
+				texture type:  diffuseTexture, mapped using: "UVMap"
+		registered as also a user of material:  black
+		processing begun of multimaterial:  hall13.Multimaterial#2
+		Custom split normals with tangents being used
+		num positions      :  60
+		num normals        :  60
+		num tangents       :  240
+		num uvs            :  120
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  38
+	processing begun of mesh:  torch9
+		mesh is an instance of :  torch10.  Processing halted.
+	processing begun of mesh:  torch8
+		mesh is an instance of :  torch10.  Processing halted.
+	processing begun of mesh:  torch7
+		mesh is an instance of :  torch10.  Processing halted.
+	processing begun of mesh:  torch6
+		mesh is an instance of :  torch10.  Processing halted.
+	processing begun of mesh:  torch4
+		mesh is an instance of :  torch10.  Processing halted.
+	processing begun of mesh:  torch5
+		mesh is an instance of :  torch10.  Processing halted.
+	processing begun of mesh:  torch11
+		mesh is an instance of :  torch10.  Processing halted.
+	processing begun of mesh:  torch12
+		mesh is an instance of :  torch10.  Processing halted.
+	processing begun of mesh:  torch13
+		mesh is an instance of :  torch10.  Processing halted.
+	processing begun of mesh:  torch14
+		mesh is an instance of :  torch10.  Processing halted.
+	processing begun of mesh:  torch15
+		mesh is an instance of :  torch10.  Processing halted.
+	processing begun of mesh:  plane1
+		WARNING: No materials have been assigned: 
+		num positions      :  4
+		num normals        :  4
+		num tangents       :  0
+		num uvs            :  8
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of mesh:  plane2
+		WARNING: No materials have been assigned: 
+		num positions      :  4
+		num normals        :  4
+		num tangents       :  0
+		num uvs            :  8
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of mesh:  floor
+		processing begun of material:  ground
+			processing texture _02
+				texture type:  diffuseTexture, mapped using: "UVMap"
+		Custom split normals with tangents being used
+		num positions      :  6
+		num normals        :  6
+		num tangents       :  24
+		num uvs            :  12
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  4
+	processing begun of mesh:  plane3
+		WARNING: No materials have been assigned: 
+		num positions      :  4
+		num normals        :  4
+		num tangents       :  0
+		num uvs            :  8
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of mesh:  house1
+		processing begun of material:  stone
+		processing begun of material:  woodBeam
+		processing begun of material:  slate
+		processing begun of material:  windows
+		registered as also a user of material:  stone
+			processing texture _11
+				texture type:  diffuseTexture, mapped using: "UVMap"
+		registered as also a user of material:  slate
+			processing texture _15
+				texture type:  diffuseTexture, mapped using: "UVMap"
+		processing begun of multimaterial:  hall13.Multimaterial#3
+		Custom split normals with tangents being used
+		num positions      :  450
+		num normals        :  450
+		num tangents       :  1800
+		num uvs            :  900
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  214
+	processing begun of mesh:  house2
+		processing begun of material:  stone
+		processing begun of material:  woodBeam
+		processing begun of material:  slate
+		processing begun of material:  windows
+		registered as also a user of material:  stone
+		registered as also a user of material:  woodBeam
+		registered as also a user of material:  slate
+		registered as also a user of material:  windows
+		processing begun of multimaterial:  hall13.Multimaterial#4
+		Custom split normals with tangents being used
+		num positions      :  414
+		num normals        :  414
+		num tangents       :  1656
+		num uvs            :  828
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  208
+	processing begun of mesh:  bookSupport
+		processing begun of material:  woodPanel
+			processing texture _00
+				texture type:  diffuseTexture, mapped using: "UVMap"
+		Custom split normals with tangents being used
+		num positions      :  49
+		num normals        :  49
+		num tangents       :  196
+		num uvs            :  98
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  24
+	processing begun of mesh:  goldenBook
+		processing begun of material:  black
+		processing begun of material:  paper
+		processing begun of material:  red
+		registered as also a user of material:  black
+		processing begun of multimaterial:  hall13.Multimaterial#5
+		Custom split normals with tangents being used
+		num positions      :  48
+		num normals        :  48
+		num tangents       :  192
+		num uvs            :  96
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  36
+	processing begun of mesh:  beer1
+		processing begun of material:  fire
+		processing begun of material:  glass
+		processing begun of material:  redLight
+		registered as also a user of material:  fire
+		processing begun of multimaterial:  hall13.Multimaterial#6
+		Custom split normals with tangents being used
+		num positions      :  78
+		num normals        :  78
+		num tangents       :  312
+		num uvs            :  156
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  64
+	processing begun of mesh:  sign
+		processing begun of material:  wood
+		processing begun of material:  black
+		processing begun of material:  hamletPanel
+		processing begun of material:  woodBeam
+		registered as also a user of material:  wood
+		registered as also a user of material:  black
+			processing texture _23
+				texture type:  diffuseTexture, mapped using: "UVMap"
+		registered as also a user of material:  woodBeam
+		processing begun of multimaterial:  hall13.Multimaterial#7
+		Custom split normals with tangents being used
+		num positions      :  223
+		num normals        :  223
+		num tangents       :  892
+		num uvs            :  446
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  312
+	processing begun of mesh:  chair1
+		processing begun of material:  wood
+		registered as also a user of material:  wood
+		Custom split normals with tangents being used
+		num positions      :  157
+		num normals        :  157
+		num tangents       :  628
+		num uvs            :  314
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  72
+	processing begun of mesh:  door1
+		processing begun of material:  black
+		processing begun of material:  woodBurn
+		processing begun of material:  woodBeam
+		processing begun of material:  crepiYellow
+		registered as also a user of material:  black
+			processing texture _12
+				texture type:  diffuseTexture, mapped using: "UVMap"
+		registered as also a user of material:  woodBeam
+			processing texture _14
+				texture type:  diffuseTexture, mapped using: "UVMap"
+		processing begun of multimaterial:  hall13.Multimaterial#8
+		Custom split normals with tangents being used
+		num positions      :  31
+		num normals        :  31
+		num tangents       :  124
+		num uvs            :  62
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  24
+	processing begun of mesh:  door2
+		processing begun of material:  black
+		processing begun of material:  woodBurn
+		processing begun of material:  woodBeam
+		processing begun of material:  crepiYellow
+		registered as also a user of material:  black
+		registered as also a user of material:  woodBurn
+		registered as also a user of material:  woodBeam
+		registered as also a user of material:  crepiYellow
+		processing begun of multimaterial:  hall13.Multimaterial#9
+		Custom split normals with tangents being used
+		num positions      :  35
+		num normals        :  35
+		num tangents       :  140
+		num uvs            :  70
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  24
+	processing begun of mesh:  tavern
+		processing begun of material:  woodTorch
+		processing begun of material:  black
+		processing begun of material:  woodBurn
+		processing begun of material:  woodBeam
+		processing begun of material:  slate
+		processing begun of material:  stoneLight
+		processing begun of material:  windows
+		processing begun of material:  crepiBlue
+		processing begun of material:  crepiYellow
+			processing texture _08
+				texture type:  diffuseTexture, mapped using: "UVMap"
+		registered as also a user of material:  black
+		registered as also a user of material:  woodBurn
+		registered as also a user of material:  woodBeam
+		registered as also a user of material:  slate
+		registered as also a user of material:  stoneLight
+		registered as also a user of material:  windows
+			processing texture _13
+				texture type:  diffuseTexture, mapped using: "UVMap"
+		registered as also a user of material:  crepiYellow
+		processing begun of multimaterial:  hall13.Multimaterial#10
+		Custom split normals with tangents being used
+		num positions      :  2202
+		num normals        :  2202
+		num tangents       :  8808
+		num uvs            :  4404
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  1098
+	processing begun of mesh:  bar2
+		processing begun of material:  wood
+		registered as also a user of material:  wood
+		num positions      :  67
+		num normals        :  67
+		num tangents       :  0
+		num uvs            :  134
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  24
+	processing begun of mesh:  chair2
+		mesh is an instance of :  chair1.  Processing halted.
+	processing begun of mesh:  chair4
+		mesh is an instance of :  chair1.  Processing halted.
+	processing begun of mesh:  chair3
+		mesh is an instance of :  chair1.  Processing halted.
+	processing begun of mesh:  chair5
+		mesh is an instance of :  chair1.  Processing halted.
+	processing begun of mesh:  chair6
+		mesh is an instance of :  chair1.  Processing halted.
+	processing begun of mesh:  table1
+		processing begun of material:  wood
+		registered as also a user of material:  wood
+		Custom split normals with tangents being used
+		num positions      :  106
+		num normals        :  106
+		num tangents       :  424
+		num uvs            :  212
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  60
+	processing begun of mesh:  table2
+		mesh is an instance of :  table1.  Processing halted.
+	processing begun of mesh:  beer3
+		mesh is an instance of :  beer1.  Processing halted.
+	processing begun of mesh:  beer2
+		mesh is an instance of :  beer1.  Processing halted.
+	processing begun of mesh:  torch3
+		mesh is an instance of :  torch10.  Processing halted.
+	processing begun of mesh:  torch2
+		mesh is an instance of :  torch10.  Processing halted.
+	processing begun of mesh:  torch1
+		mesh is an instance of :  torch10.  Processing halted.
+	processing begun of mesh:  musicPanel
+		processing begun of material:  panel
+		processing begun of material:  musicPanel
+		processing begun of material:  woodBlue
+		processing begun of material:  playPanel
+		processing begun of material:  stopPanel
+			processing texture _19
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture _22
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture _18
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture _20
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture _21
+				texture type:  diffuseTexture, mapped using: "UVMap"
+		processing begun of multimaterial:  hall13.Multimaterial#11
+		Custom split normals with tangents being used
+		num positions      :  28
+		num normals        :  28
+		num tangents       :  112
+		num uvs            :  56
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  14
+	processing begun of mesh:  musicPanelPlay
+		processing begun of material:  playPanel
+		registered as also a user of material:  playPanel
+		Custom split normals with tangents being used
+		num positions      :  4
+		num normals        :  4
+		num tangents       :  16
+		num uvs            :  8
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of mesh:  musicPanelStop
+		processing begun of material:  stopPanel
+		registered as also a user of material:  stopPanel
+		Custom split normals with tangents being used
+		num positions      :  4
+		num normals        :  4
+		num tangents       :  16
+		num uvs            :  8
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of mesh:  informationPanel
+		processing begun of material:  panel
+		processing begun of material:  musicPanel
+		processing begun of material:  woodBlue
+		processing begun of material:  playPanel
+		processing begun of material:  stopPanel
+		registered as also a user of material:  panel
+		registered as also a user of material:  musicPanel
+		registered as also a user of material:  woodBlue
+		registered as also a user of material:  playPanel
+		registered as also a user of material:  stopPanel
+		processing begun of multimaterial:  hall13.Multimaterial#12
+		Custom split normals with tangents being used
+		num positions      :  106
+		num normals        :  106
+		num tangents       :  424
+		num uvs            :  212
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  60
+	processing begun of mesh:  informationPanel1
+		processing begun of material:  panel
+		processing begun of material:  musicPanel
+		processing begun of material:  woodBlue
+		processing begun of material:  playPanel
+		processing begun of material:  stopPanel
+		processing begun of material:  iles
+		registered as also a user of material:  panel
+		registered as also a user of material:  musicPanel
+		registered as also a user of material:  woodBlue
+		registered as also a user of material:  playPanel
+		registered as also a user of material:  stopPanel
+			processing texture iles
+				texture type:  diffuseTexture, mapped using: "UVMap"
+		processing begun of multimaterial:  hall13.Multimaterial#13
+		Custom split normals with tangents being used
+		num positions      :  119
+		num normals        :  119
+		num tangents       :  476
+		num uvs            :  238
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  66
+		WARNING: # of 0 area faces found:  18
+	processing begun of mesh:  informationPanel1Url
+		processing begun of material:  panel
+		processing begun of material:  musicPanel
+		processing begun of material:  woodBlue
+		processing begun of material:  playPanel
+		processing begun of material:  stopPanel
+		processing begun of material:  iles
+		registered as also a user of material:  panel
+		registered as also a user of material:  musicPanel
+		registered as also a user of material:  woodBlue
+		registered as also a user of material:  playPanel
+		registered as also a user of material:  stopPanel
+		registered as also a user of material:  iles
+		processing begun of multimaterial:  hall13.Multimaterial#14
+		Custom split normals with tangents being used
+		num positions      :  4
+		num normals        :  4
+		num tangents       :  16
+		num uvs            :  8
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of mesh:  informationPanel2
+		mesh is an instance of :  informationPanel1.  Processing halted.
+	processing begun of mesh:  informationPanel2Url
+		processing begun of material:  panel
+		processing begun of material:  musicPanel
+		processing begun of material:  woodBlue
+		processing begun of material:  playPanel
+		processing begun of material:  stopPanel
+		processing begun of material:  enfer
+		registered as also a user of material:  panel
+		registered as also a user of material:  musicPanel
+		registered as also a user of material:  woodBlue
+		registered as also a user of material:  playPanel
+		registered as also a user of material:  stopPanel
+			processing texture enfer
+				texture type:  diffuseTexture, mapped using: "UVMap"
+		processing begun of multimaterial:  hall13.Multimaterial#15
+		Custom split normals with tangents being used
+		num positions      :  4
+		num normals        :  4
+		num tangents       :  16
+		num uvs            :  8
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of light (POINT):  Light
+========= Writing of JSON file started =========
+	writing mesh:  sky
+	writing mesh:  fortification
+	writing mesh:  towerRoof4
+	writing mesh:  torch10
+	writing mesh:  plane1
+	writing mesh:  plane2
+	writing mesh:  floor
+	writing mesh:  plane3
+	writing mesh:  house1
+	writing mesh:  house2
+	writing mesh:  bookSupport
+	writing mesh:  goldenBook
+	writing mesh:  beer1
+	writing mesh:  sign
+	writing mesh:  chair1
+	writing mesh:  door1
+	writing mesh:  door2
+	writing mesh:  tavern
+	writing mesh:  bar2
+	writing mesh:  table1
+	writing mesh:  musicPanel
+	writing mesh:  musicPanelPlay
+	writing mesh:  musicPanelStop
+	writing mesh:  informationPanel
+	writing mesh:  informationPanel1
+	writing mesh:  informationPanel1Url
+	writing mesh:  informationPanel2Url
+========= Writing of JSON file completed =========
+========= end of processing =========
+elapsed time:  0 min, 0.6342 secs

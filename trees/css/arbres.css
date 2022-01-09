@@ -1,0 +1,66 @@
+html, body {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#renderCanvas {
+    width: 100%;
+    height: 100%;
+    touch-action: none;
+}
+
+.hideButtons {
+    display: none;
+}
+
+
+#fps {
+    position: absolute;
+    /* background-color: black; */
+    /*border: 2px solid red;*/
+    text-align: center;
+    font-size: 16px;
+    color: white;
+    top: 15px;
+    right: 10px;
+    width: 60px;
+    height: 20px;
+}
+#fullscreen {
+    position: absolute;
+    text-align: center;               
+    bottom: 15px;
+    right: 10px;                
+}
+#camera {
+    position: absolute;
+    text-align: center;               
+    bottom: 55px;
+    right: 10px;                
+}
+#navigation {
+    position: absolute;
+    text-align: center;               
+    bottom: 95px;
+    right: 10px;                
+}
+
+#navigationInfo {
+    position: absolute;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;               
+    background-color: black; 
+    border: 2px solid black;   
+    font-size: 16px;
+    color: white;
+    width: 200px;
+    height: 20px;             
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
