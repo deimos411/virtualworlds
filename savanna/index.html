@@ -42,6 +42,7 @@
 		<script src="https://cdn.babylonjs.com/gui/babylon.gui.min.js"></script>
 		-->
 		<script src="js/virtualstick.js"></script>
+		<script src="js/gui.js"></script>
 		
 		<!-- Google Analytics snippet added by Site Kit -->
 		<script src='https://www.googletagmanager.com/gtag/js?id=UA-214534786-1' id='google_gtagjs-js' async></script>
@@ -64,15 +65,15 @@
 		<div id="fps">0</div>
 
 		<div id="fullscreen">			
-			<input type="image" id="btnFullScreen" alt="Full screen (X)" title="Full Screen (X)" src="images/expand.png" width="32" height="32">
+			<input type="image" id="btnFullScreen" alt="Full screen (X)" title="Full Screen (X)" src="images/expand.png">
 		</div>
 		
 		<div id="camera">
-			<input type="image" id="btnCamera" alt="Change camera (C)" title="Change camera (C)" src="images/camera2.png" width="32" height="32">	
+			<input type="image" id="btnCamera" alt="Change camera (C)" title="Change camera (C)" src="images/camera2.png">	
 		</div>
 		
 		<div id="navigation">
-			<input type="image" id="btnNavigation" alt="Fly (F)" title="Fly (F)" src="images/walk.png" width="32" height="32">
+			<input type="image" id="btnNavigation" alt="Fly (F)" title="Fly (F)" src="images/walk.png">
 		</div>
 
 	</div>
@@ -891,6 +892,10 @@
 			adt = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
 			virtualJoystick.initVirtualStick(adt);
 			virtualJoystick.resize(canvas);			
+
+			// GUI for mobile devices
+			gui.init();
+			gui.resize(canvas);
 			
 			let delta = 0;
 			let alpha = 0;
@@ -1007,7 +1012,8 @@
 	window.addEventListener("resize", function() {
 		engine.resize();
 						
-		virtualJoystick.resize(canvas);				
+		virtualJoystick.resize(canvas);			
+		gui.resize(canvas);	
 	});
     </script>
 </body>

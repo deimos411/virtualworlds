@@ -43,6 +43,8 @@
 		
 		<script src="https://cdn.babylonjs.com/babylon.js"></script>
 		<script src="https://cdn.babylonjs.com/gui/babylon.gui.min.js"></script>
+
+		<script src="js/gui.js"></script>
 		
 		<!-- Google Analytics snippet added by Site Kit -->
 		<script src='https://www.googletagmanager.com/gtag/js?id=UA-214534786-1' id='google_gtagjs-js' async></script>
@@ -65,15 +67,15 @@
 		<div id="fps">0</div>
 		
 		<div id="fullscreen">			
-			<input type="image" id="btnFullScreen" alt="Show full screen" title="Show full screen" src="images/expand.png" width="32" height="32">
+			<input type="image" id="btnFullScreen" alt="Show full screen" title="Show full screen" src="images/expand.png">
 		</div>
 		
 		<div id="camera">
-			<input type="image" id="btnCamera" alt="Change camera" title="Change camera" src="images/camera.png" width="32" height="32">	
+			<input type="image" id="btnCamera" alt="Change camera" title="Change camera" src="images/camera.png">	
 		</div>
 		
 		<div id="navigation">
-			<input type="image" id="btnNavigation" alt="Change to fly" title="Change to fly" src="images/walk.png" width="32" height="32">
+			<input type="image" id="btnNavigation" alt="Change to fly" title="Change to fly" src="images/walk.png">
 		</div>
 	</div>
 
@@ -966,6 +968,10 @@
 			rightThumbContainer.addControl(rightInnerThumbContainer);
 			rightThumbContainer.addControl(rightPuck);
 			rightPuck.isVisible = false;
+
+			// GUI for mobile devices
+			gui.init();
+			gui.resize(canvas);
 	
 			let delta = 0;
 			let lightningDelta = 0;
@@ -1157,6 +1163,7 @@
 		// Resize
 		window.addEventListener("resize", function() {
 			engine.resize();
+			gui.resize(canvas);
 		});
     </script>
 </body>

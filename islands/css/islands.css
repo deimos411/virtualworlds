@@ -12,15 +12,12 @@ html, body {
     touch-action: none;
 }
 
-
 .hideButtons {
     display: none;
 }
 
 #fps {
     position: absolute;
-    /* background-color: black; */
-    /*border: 2px solid red;*/
     text-align: center;
     font-size: 16px;
     color: white;
@@ -28,24 +25,32 @@ html, body {
     right: 10px;
     width: 60px;
     height: 20px;
+    user-select: none;
 }
-#fullscreen {
+
+#btnFullScreen {
     position: absolute;
     text-align: center;               
     bottom: 15px;
-    right: 10px;                
+    right: 10px;       
+    width: 32px;
+    height: 32px;         
 }
-#camera {
+#btnCamera {
     position: absolute;
     text-align: center;               
     bottom: 55px;
-    right: 10px;                
+    right: 10px;   
+    width: 32px;
+    height: 32px;             
 }
-#navigation {
+#btnNavigation  {
     position: absolute;
     text-align: center;               
     bottom: 95px;
-    right: 10px;                
+    right: 10px;  
+    width: 32px;
+    height: 32px;              
 }
 
 #navigationInfo {
@@ -63,4 +68,44 @@ html, body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+@media all and (max-device-width: 480px)
+{
+    /*Rules for mobiles */
+  
+    #fps {
+        position: absolute;
+        text-align: center;
+        font-size: 32px;
+        color: white;
+        top: 15px;
+        left: 10px;
+        width: 120px;
+        height: 20px;
+    }
+    
+    #btnNavigation  {          
+        top: 55px;
+        right: 10px;  
+        width: 96px;
+        height: 96px;              
+    }
+
+    #btnCamera {             
+        top: 175px;
+        right: 10px;   
+        width: 96px;
+        height: 96px;             
+    }
+
+    #btnFullScreen {           
+        top: 295px;
+        right: 10px;       
+        width: 96px;
+        height: 96px;         
+    }
+    
+
+   
 }

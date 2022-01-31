@@ -40,20 +40,22 @@
 		<!-- Production mode babylon v4.2.0 -->		 
 		<script src="https://cdn.babylonjs.com/babylon.js"></script>
 		<script src="https://cdn.babylonjs.com/gui/babylon.gui.min.js"></script>
+
+		<script src="js/gui.js"></script>
+		
 		
 		<!-- Google Analytics snippet added by Site Kit -->
-		<script src='https://www.googletagmanager.com/gtag/js?id=UA-214534786-1' id='google_gtagjs-js' async></script>
+		<script src='https://www.googletagmanager.com/gtag/js?id=UA-16584131-1' id='google_gtagjs-js' async></script>
 		<script id='google_gtagjs-js-after'>
 			window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}
-			gtag('set', 'linker', {"domains":["virtualworlds.fun"]} );
+			gtag('set', 'linker', {"domains":["mondesvirtuels.com"]} );
 			gtag("js", new Date());
 			gtag("set", "developer_id.dZTNiMT", true);
-			gtag("config", "UA-214534786-1", {"anonymize_ip":true});
-			gtag("config", "G-963287X5WE");
+			gtag("config", "UA-16584131-1", {"anonymize_ip":true});
+			gtag("config", "G-1P3CVXY9KX");
 		</script>
+
 		<!-- End Google Analytics snippet added by Site Kit -->
-
-
       
     </head>
 	<body>
@@ -63,15 +65,15 @@
 		<div id="fps">0</div>
 		
 		<div id="fullscreen">			
-			<input type="image" id="btnFullScreen" alt="Show full screen" title="Show full screen" src="images/expand.png" width="32" height="32">
+			<input type="image" id="btnFullScreen" alt="Show full screen" title="Show full screen" src="images/expand.png">
 		</div>
 		
 		<div id="camera">
-			<input type="image" id="btnCamera" alt="Change camera" title="Change camera" src="images/camera.png" width="32" height="32">	
+			<input type="image" id="btnCamera" alt="Change camera" title="Change camera" src="images/camera.png">	
 		</div>
 		
 		<div id="navigation">
-			<input type="image" id="btnNavigation" alt="Change to fly" title="Change to fly" src="images/walk.png" width="32" height="32">
+			<input type="image" id="btnNavigation" alt="Change to fly" title="Change to fly" src="images/walk.png">
 		</div>
 	</div>
 
@@ -1015,6 +1017,10 @@
 			rightThumbContainer.addControl(rightPuck);
 			rightPuck.isVisible = false;
 
+			// GUI for mobile devices
+			gui.init();
+			gui.resize(canvas);
+
 			//camera.attachControl(canvas, true);		
 
 			scene.registerBeforeRender(function(){
@@ -1119,6 +1125,7 @@
 		// Resize
 		window.addEventListener("resize", function() {
 			engine.resize();
+			gui.resize(canvas);
 		});
     </script>
 </body>
