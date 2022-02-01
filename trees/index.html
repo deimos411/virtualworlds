@@ -1011,6 +1011,7 @@
 	// Resize
 	window.addEventListener("resize", function() {
 		engine.resize();
+		virtualJoystick.resize(canvas);
 		gui.resize(canvas);
 	});
     </script>

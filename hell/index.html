@@ -41,10 +41,13 @@
 		<script src="https://cdn.babylonjs.com/babylon.js"></script>
 		<script src="https://cdn.babylonjs.com/gui/babylon.gui.min.js"></script>
 
+		<script src="js/virtualstick.js"></script>
 		<script src="js/gui.js"></script>
 		
 		
+		
 		<!-- Google Analytics snippet added by Site Kit -->
+		
 		<script src='https://www.googletagmanager.com/gtag/js?id=UA-16584131-1' id='google_gtagjs-js' async></script>
 		<script id='google_gtagjs-js-after'>
 			window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}
@@ -54,8 +57,10 @@
 			gtag("config", "UA-16584131-1", {"anonymize_ip":true});
 			gtag("config", "G-1P3CVXY9KX");
 		</script>
-
+	
 		<!-- End Google Analytics snippet added by Site Kit -->
+
+
       
     </head>
 	<body>
@@ -65,15 +70,15 @@
 		<div id="fps">0</div>
 		
 		<div id="fullscreen">			
-			<input type="image" id="btnFullScreen" alt="Show full screen" title="Show full screen" src="images/expand.png">
+			<input type="image" id="btnFullScreen" alt="FullScreen (X)" title="FullScreen (X)" src="images/expand.png">
 		</div>
 		
 		<div id="camera">
-			<input type="image" id="btnCamera" alt="Change camera" title="Change camera" src="images/camera.png">	
+			<input type="image" id="btnCamera" alt="Change camera (C)" title="Change camera (C)" src="images/camera.png">	
 		</div>
 		
 		<div id="navigation">
-			<input type="image" id="btnNavigation" alt="Change to fly" title="Change to fly" src="images/walk.png">
+			<input type="image" id="btnNavigation" alt="Fly (F)" title="Fly (F)" src="images/walk.png">
 		</div>
 	</div>
 
@@ -98,6 +103,9 @@
 		const WORLD_FILE = 'babylon/enfer9.babylon';		
 		const GRAVITY_FORCE = -0.55; // default -0.98
 		const SPEED = 0.7;
+		const ANGULAR_SENSIBILTY = 5000; // default 2000
+		const FLY_MODE = 1;
+		const WALK_MODE = 2;	
 		
 		/**
 		 * Cameras
@@ -130,9 +138,13 @@
 		let isGravity = true;
 		let respawn = false;
 		let activeCamera = null;
+		let isLoading = true;			
 
-		let numCamera = 1;
-		let typeNavigation = 1;
+		let numCamera = 1;		
+		let typeNavigation = WALK_MODE;
+		let isSoundsPlayed = false;
+
+		let buttons = document.getElementById("buttons");
 
 		// fps 
 		let divFps = document.getElementById("fps");
@@ -149,25 +161,13 @@
 		 */
 		 btnFullScreen.addEventListener('pointerdown',
 			ev => { 					
-				toggleFullScreen();				
+				toggleScreenMode();				
 			}
 		);
 
 		btnCamera.addEventListener('pointerdown',
 			ev => { 	
-				numCamera++;
-				if(numCamera > 4) numCamera = 1;
-
-				switch(numCamera){ 
-					case 1: goToCamera1();
-							break;
-					case 2: goToCamera2();
-							break;
-					case 3: goToCamera3();
-							break;
-					case 4: goToCamera4();
-							break;					
-				}
+				changeCamera();
 			}
 		);	
 
@@ -184,155 +184,174 @@
 			}
 		);
 
-		// key listener
+		/**
+		 * Exit full screen Listener
+		 */
+		document.addEventListener('fullscreenchange', exitHandler);
+		document.addEventListener('webkitfullscreenchange', exitHandler);
+		document.addEventListener('mozfullscreenchange', exitHandler);
+		document.addEventListener('MSFullscreenChange', exitHandler);
+
+		/** 
+		 * Exit full screen event handler
+		 **/
+		function exitHandler() {
+			if (!document.fullscreenElement && !document.webkitIsFullScreen && !document.mozFullScreen && !document.msFullscreenElement) {
+				exitFullScreen();
+			}
+		}  
+		
+		
+		// gestion des touches
 		canvas.addEventListener("keydown", event => {
-						
-			if (event.defaultPrevented) {
-				return; // Do nothing if event already handled
-			}
-
-			if (event.isComposing || event.keyCode === 229) {
-				return;
-			}
 			
-			switch(event.code){				
+			if (event.defaultPrevented) {
+				return; // Ne devrait rien faire si l'événement de la touche était déjà consommé.
+			}
 
-				// Press "1" to move to camera1
-				case "Digit1" : 
-							console.log('camera 1');
-							goToCamera1();
-							universalCamera.fov = 0.8;
-							break;
-
-				// Press "2" to move to camera2
-				case "Digit2" : 
-							console.log('camera 2');
-							goToCamera2();
-							universalCamera.fov = 0.8;
-							break;
-
-				// Press "3" to move to camera3
-				case "Digit3" : 
-							console.log('camera 3');
-							goToCamera3();
-							//universalCamera.fov = 1.57;
-							break;		
-				// Press "4" to move to camera3
-				case "Digit4" : 
-							console.log('camera 4');
-							goToCamera4();
-							//universalCamera.fov = 1.57;
-							break;				
-				
-				// Press "C" to set/unset collision
+			switch (event.code) {
+			
+			
+				// Press "C" to change camera
 				case "KeyC": 	
-							console.log('collision :' + isCollision);
-							isCollision = !isCollision;
-							universalCamera.checkCollisions = isCollision;					
-							console.log('collision :' + isCollision);
-								
+							console.log('change camera ');
+							changeCamera();
 							break;
 
-				// Press "D" to debug
-				case "KeyD": 
-							scene.debugLayer.show();									
+				// Press "P" to debug
+				case "KeyP": 
+							scene.debugLayer.show();			
 							break;
 
 				// Press "F" to fly
 				case "KeyF": 
-							fly();						
+							typeNavigation = WALK_MODE			
+							fly();			
+							toggleNavigation();
+													
 							break;
 				
-				// Press "G" to set/unset gravity
-				case "KeyG": 
-							isGravity = !isGravity;
-							universalCamera.applyGravity = isGravity;					
-							console.log('gravity :' + isGravity);							
-							break;
-
-				// Press "M" to switch mobile mode
-				case "KeyM": 
-					
-							isMobile = !isMobile;
-							console.log('isMobile : ' + isMobile);
-							leftThumbContainer.isVisible = isMobile;
-							rightThumbContainer.isVisible = isMobile;
-							break;
+				// Press "H" to hide/show buttons
+				case "KeyH": 
+							toggleButtons();
+							break;			 
 
 				// Press "P" to get camera position
 				case "KeyP": 
-							showCameraInfo();													
-							break;
-			
-				// Press "R" to respawn
-				case "KeyR": console.log('respawn');
-							console.log('respawn');
-							console.log('before camera position : ' + universalCamera.position);
-							
-							universalCamera.position = new BABYLON.Vector3(CAMERA1_POSITION.x, CAMERA1_POSITION.y, CAMERA1_POSITION.z);
-							universalCamera.orientation = new BABYLON.Vector3(CAMERA1_ROTATION.x,CAMERA1_ROTATION.y,CAMERA1_ROTATION.z);
-							console.log('after camera position : ' + universalCamera.position);
+							showCameraInfo();
 							break;
 
 				// Press "W" to walk
 				case "KeyZ": 
-							walk();													
+							typeNavigation = FLY_MODE			
+							walk();			
+							toggleNavigation();												
 							break;
 
 				// Press "X" to go fullscreen
 				case "KeyX": 
 							console.log('go fullscreen');			
-							toggleFullScreen();						
-							break;
-			
-			}
-			
-			// Consume the event so it doesn't get handled twice
-			event.preventDefault();
+							toggleScreenMode();						
+							break;		
+	
+				default:    return; // Quitter lorsque cela ne gère pas l'événement touche.
+ 			}
 
-		});
+			// Annuler l'action par défaut pour éviter qu'elle ne soit traitée deux fois.
+			event.preventDefault();
+		}, true);
 
 		/**
-		 * Full Screen mode
+		 * Toggle screen mode
 		 */
-		 function toggleFullScreen() {
-		
+		 function toggleScreenMode() {
+			
 			if (!document.fullscreenElement) {
 				document.documentElement.requestFullscreen();
-				btnFullScreen.setAttribute("src", "images/collapse.png");
-				btnFullScreen.setAttribute("title", "Exit full screen");
+				goFullScreen();
+															
 			} else {
 				if (document.exitFullscreen) {
 					document.exitFullscreen();
-					btnFullScreen.setAttribute("src", "images/expand.png");
-					btnFullScreen.setAttribute("title", "Show full screen");
+					exitFullScreen();
+																						
 				}
 			}
 		}
 
 		/**
+		 * Switch to full Screen mode
+		 */
+		 function goFullScreen() {		
+			btnFullScreen.setAttribute("src", "images/collapse.png");
+			btnFullScreen.setAttribute("title", "Exit full screen (Echap)");			
+		}
+
+		/**
+		 * After exit full screen mode
+		 **/
+		function exitFullScreen() {
+			btnFullScreen.setAttribute("src", "images/expand.png");
+			btnFullScreen.setAttribute("title", "Full screen (X)");
+		}
+
+		/**					   
 		 * Walk / Fly mode navigation
 		 */
-		function toggleNavigation() {
+		 function toggleNavigation() {
 			console.log('toggle navigation');
-			if(typeNavigation == 1){
+			if(typeNavigation == WALK_MODE){
 				btnNavigation.setAttribute("src", "images/fly.png");
-				btnNavigation.setAttribute("title", "Change to walk");				
+				btnNavigation.setAttribute("title", "Walk (W)");				
 				fly();
-				typeNavigation = 2;
+				typeNavigation = FLY_MODE;
 			} else {
 				btnNavigation.setAttribute("src", "images/walk.png");
-				btnNavigation.setAttribute("title", "Change to fly");	
+				btnNavigation.setAttribute("title", "Fly (F)");	
 				walk();
-				typeNavigation = 1;
+				typeNavigation = WALK_MODE;
 			}		
-		}
+	 	}
+		
+		/**
+		 * Show / Hide help buttons
+		 * */ 
+		 function toggleButtons(){
+			if(buttons.classList.contains("hideButtons")){
+				buttons.classList.remove("hideButtons");
+			} else {
+				buttons.classList.add("hideButtons");	
+			}				
+		 }
+
+		/**
+		 *	Change camera 
+		**/
+		function changeCamera(){
+		
+		numCamera++;
+		if(numCamera > 4) numCamera = 1;
+
+		switch(numCamera){ 
+			case 1: goToCamera1();
+					break;
+			case 2: goToCamera2();
+					break;
+			case 3: goToCamera3();
+					break;
+			case 4: goToCamera4();
+					break;			
+		}			
+
+	 }
+	 
+
 
 		/**
 		 * Resume audio context if a gesture have been made by user
 		 * https://github.com/BabylonJS/Babylon.js/issues/4354
 		 * */
-			function checkAudioContext(){
+		 function checkAudioContext(){
 			let ready = false;
 
 			if(BABYLON.Engine.audioEngine.audioContext.state == "running"){
@@ -351,6 +370,12 @@
 		function userMakeGesture(){			
 			isUserGesture = true;
 		}
+	   
+	   function showThumb(isMobile){
+			leftThumbContainer.isVisible = isMobile;
+			rightThumbContainer.isVisible = isMobile;
+		}
+		
 
 		/**
 		 * Helper to copy paste camera position/rotation
@@ -407,23 +432,7 @@
 			scene.activeCamera = camera;
 		}
 		
-		function goToCamera5(){
-
-			const camera = scene.getCameraByName("FollowCamera"); 
-
-			camera.lockedTarget = scene.getMeshByName('zeppelin2');
-
-			scene.activeCamera = camera;
-		}
-
-		function goToCamera6(){
-
-			const camera = scene.getCameraByName("FollowCamera"); 
-
-			camera.lockedTarget = scene.getMeshByName('zeppelin3');
-
-			scene.activeCamera = camera;
-		}
+		
 
 		function fly(){		
 
@@ -566,13 +575,7 @@
         		hideLoadingScreen();
    			});    
 			
-			
-			/*setTimeout(function(){
-				hideLoadingScreen();
-			}, 10000);
-			*/
-
-			
+						
 			// Sounds 
 			let scream1Sound = new BABYLON.Sound("scream1", "sound/01.wav", scene);	
 			let scream2Sound = new BABYLON.Sound("scream1", "sound/02.wav", scene);	
@@ -594,8 +597,10 @@
 			let universalCamera = new BABYLON.UniversalCamera("UniversalCamera", new BABYLON.Vector3(CAMERA1_POSITION.x, CAMERA1_POSITION.y, CAMERA1_POSITION.z), scene);
 			universalCamera.rotation = new BABYLON.Vector3(CAMERA1_ROTATION.x,CAMERA1_ROTATION.y,CAMERA1_ROTATION.z);
 
-			// Speed of camera ( 2 by default )
-			universalCamera.speed = SPEED;				
+		    // Speed of camera ( 2 by default )
+			universalCamera.speed = SPEED;
+			// Angular sensibility ( 2000 by default )
+			universalCamera.angularSensibility = ANGULAR_SENSIBILTY;				
 			
 			// sky background
 			// The box creation
@@ -618,10 +623,7 @@
 			
 			// Load meshes 
 			BABYLON.SceneLoader.ImportMeshAsync(null, "", WORLD_FILE, scene).then(function(result) {
-						
-				
-			
-				
+
 				// Materials
 				
 				let material_water = new BABYLON.StandardMaterial('watermat', scene);
@@ -636,7 +638,7 @@
 					//material_lava.emissiveColor = new BABYLON.Color3(0.5,0.5,0.5);
 					material_lava.alpha = 0.6;		
 
-				
+
 				// imps
 				var imps = scene.getMeshesByTags("imp");
 				for (imp of imps) {
@@ -687,7 +689,6 @@
 				
 				// browse all meshes
 				for(i = 0; i < result.meshes.length; i++){
-					// console.log('result.meshes[i].name : ' + result.meshes[i].name);
 					
 					let rootMesh = result.meshes[i];	
 
@@ -818,8 +819,8 @@
 						// add action manager 
 						rootMesh.actionManager = new BABYLON.ActionManager(scene);
 						rootMesh.actionManager.registerAction(new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, function () {
-							console.log('informationPanel1Url clicked');							
-							window.open('../atlantis/','_self');
+													
+							window.open('../atlantide/','_self');
 						}));	
 						
 					}
@@ -833,8 +834,8 @@
 						// add action manager 
 						rootMesh.actionManager = new BABYLON.ActionManager(scene);
 						rootMesh.actionManager.registerAction(new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, function () {
-							console.log('informationPanel2Url clicked');							
-							window.open('../greathall/','_self');
+												
+							window.open('../hall/','_self');
 						}));	
 						
 					}
@@ -849,7 +850,7 @@
 						// add action manager to the music play button 
 						rootMesh.actionManager = new BABYLON.ActionManager(scene);
 						rootMesh.actionManager.registerAction(new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, function () {
-							console.log('golden book clicked');							
+													
 							window.open('https://virtualworlds.fun/');
 						}));					
 						
@@ -884,138 +885,8 @@
 			// Virtual Sticks for mobile navigation
 			
 			let adt = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
-			let xAddPos = 0;
-			let yAddPos = 0;
-			let xAddRot = 0;
-			let yAddRot = 0;
-			let sideJoystickOffset = 150;
-			let bottomJoystickOffset = -50;
-			let translateTransform; 
-			
-
-
-		  let leftThumbContainer = makeThumbArea("leftThumb", 2, "blue", null);
-			  leftThumbContainer.height = "200px";
-			  leftThumbContainer.width = "200px";
-			  leftThumbContainer.isPointerBlocker = true;
-			  leftThumbContainer.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
-			  leftThumbContainer.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_BOTTOM;
-			  leftThumbContainer.alpha = 0.4;
-			  leftThumbContainer.left = sideJoystickOffset;
-			  leftThumbContainer.top = bottomJoystickOffset;
-
-		  let leftInnerThumbContainer = makeThumbArea("leftInnterThumb", 4, "blue", null);
-			  leftInnerThumbContainer.height = "80px";
-			  leftInnerThumbContainer.width = "80px";
-			  leftInnerThumbContainer.isPointerBlocker = true;
-			  leftInnerThumbContainer.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_CENTER;
-			  leftInnerThumbContainer.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_CENTER;
-
-
-		  let leftPuck = makeThumbArea("leftPuck",0, "blue", "blue");
-				  leftPuck.height = "60px";
-				  leftPuck.width = "60px";
-				  leftPuck.isPointerBlocker = true;
-				  leftPuck.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_CENTER;
-				  leftPuck.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_CENTER;
-
-
-			  leftThumbContainer.onPointerDownObservable.add(function(coordinates) {
-				  leftPuck.isVisible = true;
-				  leftPuck.floatLeft = coordinates.x-(leftThumbContainer._currentMeasure.width*.5)-sideJoystickOffset;
-				  leftPuck.left = leftPuck.floatLeft;
-				  leftPuck.floatTop = adt._canvas.height - coordinates.y-(leftThumbContainer._currentMeasure.height*.5)+bottomJoystickOffset;
-				  leftPuck.top = leftPuck.floatTop*-1;
-				  leftPuck.isDown = true;
-				  leftThumbContainer.alpha = 0.9;
-			  });
-
-			  leftThumbContainer.onPointerUpObservable.add(function(coordinates) {
-				  xAddPos = 0;
-				  yAddPos = 0;
-				  leftPuck.isDown = false;
-				  leftPuck.isVisible = false;
-				  leftThumbContainer.alpha = 0.4;
-			  });
-
-
-			  leftThumbContainer.onPointerMoveObservable.add(function(coordinates) {
-				  if (leftPuck.isDown) {
-					  xAddPos = coordinates.x-(leftThumbContainer._currentMeasure.width*.5)-sideJoystickOffset;
-					  yAddPos = adt._canvas.height - coordinates.y-(leftThumbContainer._currentMeasure.height*.5)+bottomJoystickOffset;
-					  leftPuck.floatLeft = xAddPos;
-					  leftPuck.floatTop = yAddPos*-1;
-					  leftPuck.left = leftPuck.floatLeft;
-					  leftPuck.top = leftPuck.floatTop;
-					  }
-			  });
-
-		   adt.addControl(leftThumbContainer);
-		   leftThumbContainer.addControl(leftInnerThumbContainer);
-		   leftThumbContainer.addControl(leftPuck);
-		   leftPuck.isVisible = false;
-
-		   let rightThumbContainer = makeThumbArea("rightThumb", 2, "red", null);
-			   rightThumbContainer.height = "200px";
-			   rightThumbContainer.width = "200px";
-			   rightThumbContainer.isPointerBlocker = true;
-			   rightThumbContainer.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT;
-			   rightThumbContainer.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_BOTTOM;
-			   rightThumbContainer.alpha = 0.4;
-			   rightThumbContainer.left = -sideJoystickOffset;
-			   rightThumbContainer.top = bottomJoystickOffset;
-
-		   let rightInnerThumbContainer = makeThumbArea("rightInnterThumb", 4, "red", null);
-			   rightInnerThumbContainer.height = "80px";
-			   rightInnerThumbContainer.width = "80px";
-			   rightInnerThumbContainer.isPointerBlocker = true;
-			   rightInnerThumbContainer.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_CENTER;
-			   rightInnerThumbContainer.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_CENTER;
-
-
-		   let rightPuck = makeThumbArea("rightPuck",0, "red", "red");
-				   rightPuck.height = "60px";
-				   rightPuck.width = "60px";
-				   rightPuck.isPointerBlocker = true;
-				   rightPuck.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_CENTER;
-				   rightPuck.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_CENTER;
-
-
-			   rightThumbContainer.onPointerDownObservable.add(function(coordinates) {
-				   rightPuck.isVisible = true;
-				   rightPuck.floatLeft = adt._canvas.width - coordinates.x-(rightThumbContainer._currentMeasure.width*.5)-sideJoystickOffset;
-				   rightPuck.left = rightPuck.floatLeft*-1;
-				   rightPuck.floatTop = adt._canvas.height - coordinates.y-(rightThumbContainer._currentMeasure.height*.5)+bottomJoystickOffset;
-				   rightPuck.top = rightPuck.floatTop*-1;
-				   rightPuck.isDown = true;
-				   rightThumbContainer.alpha = 0.9;
-			   });
-
-			   rightThumbContainer.onPointerUpObservable.add(function(coordinates) {
-				   xAddRot = 0;
-				   yAddRot = 0;
-				   rightPuck.isDown = false;
-				   rightPuck.isVisible = false;
-				   rightThumbContainer.alpha = 0.4;
-			   });
-
-
-			   rightThumbContainer.onPointerMoveObservable.add(function(coordinates) {
-				   if (rightPuck.isDown) {
-					   xAddRot = adt._canvas.width - coordinates.x-(rightThumbContainer._currentMeasure.width*.5)-sideJoystickOffset;
-					   yAddRot = adt._canvas.height - coordinates.y-(rightThumbContainer._currentMeasure.height*.5)+bottomJoystickOffset;
-					   rightPuck.floatLeft = xAddRot*-1;
-					   rightPuck.floatTop = yAddRot*-1;
-					   rightPuck.left = rightPuck.floatLeft;
-					   rightPuck.top = rightPuck.floatTop;
-					   }
-			   });
-
-			//leftThumbContainer.left = 50;
-			adt.addControl(rightThumbContainer);
-			rightThumbContainer.addControl(rightInnerThumbContainer);
-			rightThumbContainer.addControl(rightPuck);
-			rightPuck.isVisible = false;
+			virtualJoystick.initVirtualStick(adt);
+			virtualJoystick.resize(canvas);		
 
 			// GUI for mobile devices
 			gui.init();
@@ -1028,58 +899,27 @@
 				divFps.innerHTML = engine.getFps().toFixed() + " fps";
 
 				loadingAnimation();
-
-				// virtuals sticks 
-				if(scene.activeCamera.id == 'UniversalCamera' ){
-					translateTransform = BABYLON.Vector3.TransformCoordinates(new BABYLON.Vector3(xAddPos/1500, 0, yAddPos/1500), BABYLON.Matrix.RotationY(universalCamera.rotation.y));
-					universalCamera.cameraDirection.addInPlace(translateTransform);
-					universalCamera.cameraRotation.y += xAddRot/30000*-1;
-					universalCamera.cameraRotation.x += yAddRot/30000*-1;
-				}	  					  
 				
-				// respawn needed
-				if(universalCamera.position.y < -1500 && respawn == false){
-					respawn = true; 
-					console.log('respawn!!!!');					    
-				}
-				
-				if(respawn){	
-				
-				universalCamera.applyGravity = false;
-				
-				// smoothly move to original position of the camera
-				universalCamera.position = BABYLON.Vector3.Lerp(universalCamera.position,new BABYLON.Vector3(CAMERA1_POSITION.x, CAMERA1_POSITION.y,CAMERA1_POSITION.z),0.05);						
-									
-				if( Math.abs(universalCamera.position.x.toFixed(2)-CAMERA1_POSITION.x.toFixed(2)) < 0.2
-						&& Math.abs(universalCamera.position.y.toFixed(2)-CAMERA1_POSITION.y.toFixed(2)) < 0.2
-						&& Math.abs(universalCamera.position.z.toFixed(2)-CAMERA1_POSITION.z.toFixed(2)) < 0.2){
-					console.log('fin respawn');
-					universalCamera.applyGravity = true;
-					respawn= false;							
-					}
+				// virtual sticks
+				if(scene.activeCamera.id == 'UniversalCamera' ){					
+					virtualJoystick.transform(universalCamera);
 				}	
+				
 			}); 
 
-			function makeThumbArea(name, thickness, color, background, curves){
-			   let rect = new BABYLON.GUI.Ellipse();
-				   rect.name = name;
-				   rect.thickness = thickness;
-				   rect.color = color;
-				   rect.background = background;
-				   rect.paddingLeft = "0px";
-				   rect.paddingRight = "0px";
-				   rect.paddingTop = "0px";
-				   rect.paddingBottom = "0px";
-				   
-				   
-			   return rect;
-			}					
+					
 			
 			// hide virtual sticks if not mobile device
-			leftThumbContainer.isVisible = isMobile;
-			rightThumbContainer.isVisible = isMobile;					
-					
-			scene.activeCamera = universalCamera;			
+			virtualJoystick.setVisible(isMobile);	
+
+			scene.activeCamera = universalCamera;	
+			
+			// alternative navigation inputs ( WASD for qwerty keyboard and ZQSD for azerty keyboard )
+			scene.activeCamera.keysUp.push(90); 
+			scene.activeCamera.keysDown.push(83);
+			scene.activeCamera.keysLeft.push(81);
+			scene.activeCamera.keysRight.push(68);
+
 			universalCamera.attachControl(canvas, true);
 
 			// effet de flou
@@ -1088,10 +928,12 @@
 			//var postProcess1 = new BABYLON.BlurPostProcess("Vertical blur", new BABYLON.Vector2(0, 1.0), kernel, 1.0, universalCamera);
 			//var postProcess = new BABYLON.HighlightsPostProcess("highlights", 0.5, universalCamera);
 	
+
 			// Function to generate random number 
 			function randomNumber(min, max) { 
 				return Math.ceil(Math.random() * (max - min) + min);
 			} 
+
 
 			return scene;
 		}
@@ -1125,6 +967,7 @@
 		// Resize
 		window.addEventListener("resize", function() {
 			engine.resize();
+			virtualJoystick.resize(canvas);
 			gui.resize(canvas);
 		});
     </script>
