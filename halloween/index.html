@@ -19,28 +19,11 @@
 		<link rel="stylesheet" href="css/halloween.css">
 		<link rel="shortcut icon" type="image/png" href="images/favico-halloween.png"/>
 		
-        <!-- Babylon.js -->
+        <!-- Babylon.js v5 -->
 		
-		<!-- Preview mode babylon 5--> 
-			
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.6.2/dat.gui.min.js"></script>
-		<script src="https://preview.babylonjs.com/earcut.min.js"></script>
-		<script src="https://preview.babylonjs.com/babylon.js"></script>
-		<script src="https://preview.babylonjs.com/materialsLibrary/babylonjs.materials.min.js"></script>
-		<script src="https://preview.babylonjs.com/proceduralTexturesLibrary/babylonjs.proceduralTextures.min.js"></script>
-		<script src="https://preview.babylonjs.com/postProcessesLibrary/babylonjs.postProcess.min.js"></script>
-		<script src="https://preview.babylonjs.com/loaders/babylonjs.loaders.js"></script>
-		<script src="https://preview.babylonjs.com/serializers/babylonjs.serializers.min.js"></script>
-		<script src="https://preview.babylonjs.com/gui/babylon.gui.min.js"></script>
-		<script src="https://preview.babylonjs.com/inspector/babylon.inspector.bundle.js"></script>
-	
-	
-		<!-- Production mode babylon v4.2.0 -->		
-	
-		<!-- 
 		<script src="https://cdn.babylonjs.com/babylon.js"></script>
 		<script src="https://cdn.babylonjs.com/gui/babylon.gui.min.js"></script>
-		-->
+		
 		<script src="js/virtualstick.js"></script>
 		<script src="js/gui.js"></script>
 		
@@ -114,10 +97,6 @@
 		// Start position		
 		const CAMERA1_POSITION = new BABYLON.Vector3(-75.220,-16.060,-67.056);
 		const CAMERA1_ROTATION = new BABYLON.Vector3(-0.103,-36.984,0.000);
-
-		// camera testing transparent tree.babylon
-		//const CAMERA1_POSITION =new BABYLON.Vector3(5.260,-0.055,7.028);
-		//const CAMERA1_ROTATION = new BABYLON.Vector3(-0.061,-27.198,0.000);
 
 		// Inside Manor
 
@@ -246,8 +225,8 @@
 							changeCamera();
 							break;
 
-				// Press "I" to debug
-				case "KeyI": 
+				// Press "L" open scene explorer + inspector
+				case "KeyL": 
 							scene.debugLayer.show();									
 							break;
 
@@ -264,20 +243,13 @@
 							toggleButtons();										
 							break;
 
-				// Press "C" to change camera
-				case "KeyM": 	
-											console.log('create forest');
-											createForest(scene);
-											break;
-
-
 				// Press "N" to get camera position
 				case "KeyN": 
 							showCameraInfo();													
 							break;
 
-				// Press "W" to walk
-				case "KeyZ": 
+				// Press "M" to walk
+				case "Semicolon": 
 							typeNavigation = FLY_MODE			
 							walk();			
 							toggleNavigation();												
@@ -336,7 +308,7 @@
 			console.log('toggle navigation');
 			if(typeNavigation == WALK_MODE){
 				btnNavigation.setAttribute("src", "images/fly.png");
-				btnNavigation.setAttribute("title", "Walk (W)");				
+				btnNavigation.setAttribute("title", "Walk (M)");				
 				fly();
 				typeNavigation = FLY_MODE;
 			} else {
@@ -723,14 +695,13 @@
 				
 				let material_beam = new BABYLON.StandardMaterial('beammat', scene);
 				material_beam.diffuseTexture = new BABYLON.Texture("beam.png", scene);
-				material_beam.diffuseTexture.hasAlpha = true;
-				//material_lava.emissiveColor = new BABYLON.Color3(0.5,0.5,0.5);
+				material_beam.diffuseTexture.hasAlpha = true;				
 				material_beam.alpha = 0.6;
 
 				// beams
 				let beams = scene.getMeshesByTags("beam");
 				for (beam of beams) {
-					console.log('beam!!!!');
+					
 					beams.checkCollisions = false;
 					beam.material = material_beam;				
 				}
@@ -740,9 +711,9 @@
 				 **/
 				let shelfs = scene.getMeshesByTags("shelf");
 				let numBook = 0;
-				console.log('before shelf book clicked : ' + tabBooks[numBook]);
+				
 				for (shelf of shelfs) {
-					console.log('shelf');						
+					
 					shelf.isPickable =  true;
 					// add action manager to the shelf 
 					shelf.actionManager = new BABYLON.ActionManager(scene);
@@ -774,7 +745,7 @@
 
 				// browse all meshes
 				for(i = 0; i < result.meshes.length; i++){
-					// console.log('result.meshes[i].name : ' + result.meshes[i].name);
+					
 					
 					let rootMesh = result.meshes[i];
 
@@ -825,7 +796,7 @@
 						rootMesh.actionManager = new BABYLON.ActionManager(scene);
 						rootMesh.actionManager.registerAction(new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, function () {
 							console.log('informationPanel1Url clicked');							
-							window.open('../iles/','_self');
+							window.open('../islands/','_self');
 						}));	
 						
 					}
@@ -840,7 +811,7 @@
 						rootMesh.actionManager = new BABYLON.ActionManager(scene);
 						rootMesh.actionManager.registerAction(new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, function () {
 							console.log('informationPanel2Url clicked');							
-							window.open('../atlantide/','_self');
+							window.open('../atlantis/','_self');
 						}));	
 						
 					}
@@ -887,19 +858,17 @@
 
 				delta++;
 				
-				if(delta > 1000){
-					console.log('delta > 700');
+				if(delta > 1000){					
 
-					let r = randomNumber(1,5);
-					console.log(('r: '+ r));
+					let r = randomNumber(1,5);					
 					
 					// door open
 					if(r === 2){
 						
 						let ready = checkAudioContext();
-						console.log('ready? '+ ready);
+						
 						if(ready) {
-							console.log('play sounds');	
+							
 							doorOpenSound.stop();
 							doorOpenSound.play();							
 							
@@ -910,9 +879,9 @@
 					if(r === 3){
 						
 						let ready = checkAudioContext();
-						console.log('ready? '+ ready);
+						
 						if(ready) {
-							console.log('play sounds');								
+														
 							
 							doorSqueakSound.stop();
 							doorSqueakSound.play();						
@@ -934,9 +903,9 @@
 					if(r === 3){
 						
 						let ready = checkAudioContext();
-						console.log('ready? '+ ready);
+						
 						if(ready) {
-							console.log('play wolf sound');	
+							
 							wolfSound.stop();
 							wolfSound.play();						
 						}
@@ -986,7 +955,6 @@
 	 * Open a book
 	 */
 	openBook = function(numBook){
-		console.log('open book : ' + numBook);
 		window.open(tabBooks[numBook]);
 	}
 

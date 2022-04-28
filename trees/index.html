@@ -19,26 +19,7 @@
 		<link rel="stylesheet" href="css/trees.css">
 		<link rel="shortcut icon" type="image/png" href="images/favico_trees.png"/>
 		
-        <!-- Babylon.js -->
-		
-		<!-- Preview mode babylon 5--> 
-		<!--
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.6.2/dat.gui.min.js"></script>
-        <script src="https://preview.babylonjs.com/ammo.js"></script>
-        <script src="https://preview.babylonjs.com/cannon.js"></script>
-        <script src="https://preview.babylonjs.com/Oimo.js"></script>
-        <script src="https://preview.babylonjs.com/earcut.min.js"></script>
-        <script src="https://preview.babylonjs.com/babylon.js"></script>
-        <script src="https://preview.babylonjs.com/materialsLibrary/babylonjs.materials.min.js"></script>
-        <script src="https://preview.babylonjs.com/proceduralTexturesLibrary/babylonjs.proceduralTextures.min.js"></script>
-        <script src="https://preview.babylonjs.com/postProcessesLibrary/babylonjs.postProcess.min.js"></script>
-        <script src="https://preview.babylonjs.com/loaders/babylonjs.loaders.js"></script>
-        <script src="https://preview.babylonjs.com/serializers/babylonjs.serializers.min.js"></script>
-        <script src="https://preview.babylonjs.com/gui/babylon.gui.min.js"></script>
-        <script src="https://preview.babylonjs.com/inspector/babylon.inspector.bundle.js"></script>
-		
-		-->
-		<!-- Production mode babylon v4.2.0 -->		
+        <!-- Babylon.js v5 -->
 		
 		<script src="https://cdn.babylonjs.com/babylon.js"></script>
 		<script src="https://cdn.babylonjs.com/gui/babylon.gui.min.js"></script>
@@ -233,8 +214,8 @@
 		
 							break;
 
-				// Press "P" to debug
-				case "KeyP": 
+				// Press "L" open scene explorer + inspector
+				case "KeyL": 
 							scene.debugLayer.show();			
 							break;
 
@@ -250,13 +231,14 @@
 				case "KeyH": 
 							toggleButtons();
 							break;
-				// Press "P" to get camera position
-				case "KeyP": 
+
+				// Press "N" to get camera position
+				case "KeyN": 
 							showCameraInfo();								 
 							break;
 
-				// Press "W" to walk
-				case "KeyZ": 
+				// Press "M" to walk
+				case "Semicolon": 
 							typeNavigation = FLY_MODE			
 							walk();			
 							toggleNavigation();												
@@ -317,7 +299,7 @@
 			console.log('toggle navigation');
 			if(typeNavigation == WALK_MODE){
 				btnNavigation.setAttribute("src", "images/fly.png");
-				btnNavigation.setAttribute("title", "Walk (W)");				
+				btnNavigation.setAttribute("title", "Walk (M)");				
 				fly();
 				typeNavigation = FLY_MODE;
 			} else {
@@ -663,7 +645,7 @@
 					
 				}
 
-				console.log('nbtrees : ' + nbTrees);
+				
 				tree.thinInstanceAdd(treeArray);
 			});
 
@@ -690,7 +672,7 @@
 					fallingArray.push(matrix);
 					
 				}
-				console.log('nb falling trees : ' + nbFalling);
+				
 				falling.thinInstanceAdd(fallingArray);
 			});
 
@@ -726,7 +708,7 @@
 					rockArray.push(matrix);
 					
 				}
-				console.log('nbrock : ' + nbRock);
+				
 				rock.thinInstanceAdd(rockArray);
 			});
 			
@@ -753,7 +735,7 @@
 					
 				}
 
-				console.log('nbStump : ' + nbStump);
+				
 				stump.thinInstanceAdd(stumpArray);
 			});
 
@@ -807,8 +789,7 @@
 				}
 				
 				// browse all meshes
-				for(i = 0; i < result.meshes.length; i++){
-					// console.log('result.meshes[i].name : ' + result.meshes[i].name);
+				for(i = 0; i < result.meshes.length; i++){					
 					
 					let rootMesh = result.meshes[i];	
 
@@ -916,9 +897,9 @@
 					if(r === 5){
 						
 						let ready = checkAudioContext();
-						console.log('ready? '+ ready);
+						
 						if(ready) {
-							console.log('play sound');	
+							
 							woodPeckerSound.stop();
 							woodPeckerSound.play();						
 						}
@@ -931,7 +912,7 @@
 				
 				if(randomNumber(1,100) > 99){
 					acceleration = Math.abs(Math.sin(delta));
-					//console.log('acceleration : ' + acceleration);
+					
 					if(acceleration < 0.5){
 						acceleration = 0.5;
 					}

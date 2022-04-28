@@ -21,26 +21,10 @@
 		
         <!-- Babylon.js -->
 		
-		<!-- Preview mode babylon 5--> 
-		
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.6.2/dat.gui.min.js"></script>        
-        <script src="https://preview.babylonjs.com/earcut.min.js"></script>
-        <script src="https://preview.babylonjs.com/babylon.js"></script>
-        <script src="https://preview.babylonjs.com/materialsLibrary/babylonjs.materials.min.js"></script>
-        <script src="https://preview.babylonjs.com/proceduralTexturesLibrary/babylonjs.proceduralTextures.min.js"></script>
-        <script src="https://preview.babylonjs.com/postProcessesLibrary/babylonjs.postProcess.min.js"></script>
-        <script src="https://preview.babylonjs.com/loaders/babylonjs.loaders.js"></script>
-        <script src="https://preview.babylonjs.com/serializers/babylonjs.serializers.min.js"></script>
-        <script src="https://preview.babylonjs.com/gui/babylon.gui.min.js"></script>
-        <script src="https://preview.babylonjs.com/inspector/babylon.inspector.bundle.js"></script>
-		
-		
-		<!-- Production mode babylon v4.2.0 -->		
-		
-		<!-- 
 		<script src="https://cdn.babylonjs.com/babylon.js"></script>
 		<script src="https://cdn.babylonjs.com/gui/babylon.gui.min.js"></script>
-		-->
+		<script src="https://cdn.babylonjs.com/materialsLibrary/babylonjs.materials.min.js"></script>
+	
 		<script src="js/virtualstick.js"></script>
 		<script src="js/gui.js"></script>
 		
@@ -216,8 +200,8 @@
 							changeCamera();
 							break;
 
-				// Press "P" to debug
-				case "KeyP": 
+				// Press "L" open scene explorer + inspector
+				case "KeyL": 
 							scene.debugLayer.show();									
 							break;
 
@@ -234,13 +218,13 @@
 							toggleButtons();										
 							break;
 
-				// Press "P" to get camera position
-				case "KeyP": 
+				// Press "N" to get camera position
+				case "KeyN": 
 							showCameraInfo();													
 							break;
 
-				// Press "W" to walk
-				case "KeyZ": 
+				// Press "M" to walk
+				case "Semicolon": 
 							typeNavigation = FLY_MODE			
 							walk();			
 							toggleNavigation();												
@@ -302,7 +286,7 @@
 			console.log('toggle navigation');
 			if(typeNavigation == WALK_MODE){
 				btnNavigation.setAttribute("src", "images/fly.png");
-				btnNavigation.setAttribute("title", "Walk (W)");				
+				btnNavigation.setAttribute("title", "Walk (M)");				
 				fly();
 				typeNavigation = FLY_MODE;
 			} else {
@@ -724,7 +708,7 @@
 						
 						rootMesh.actionManager = new BABYLON.ActionManager(scene);
 						rootMesh.actionManager.registerAction(new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, function () {
-							console.log('zeppelin2 clicked');							
+													
 							followCamera.lockedTarget = scene.getMeshByName('zeppelin2');	
 							//followCamera.radius = 10;	
 							scene.activeCamera = followCamera;
@@ -741,7 +725,7 @@
 
 						rootMesh.actionManager = new BABYLON.ActionManager(scene);
 						rootMesh.actionManager.registerAction(new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, function () {
-							console.log('zeppelin3 clicked');							
+													
 							followCamera.lockedTarget = scene.getMeshByName('zeppelin3');
 							//followCamera.radius = 10;								
 							scene.activeCamera = followCamera;
@@ -893,29 +877,11 @@
 				}				
 				
 				
-				loadingAnimation();
-			
-				// virtuals sticks 
-				/*
-				if(scene.activeCamera.id == 'UniversalCamera' ){
-					translateTransform = BABYLON.Vector3.TransformCoordinates(new BABYLON.Vector3(xAddPos/3000, 0, yAddPos/3000), BABYLON.Matrix.RotationY(universalCamera.rotation.y));
-					universalCamera.cameraDirection.addInPlace(translateTransform);
-					universalCamera.cameraRotation.y += xAddRot/30000*-1;
-					universalCamera.cameraRotation.x += yAddRot/30000*-1;
-				}
-				
-				if(scene.activeCamera.id == 'FollowCamera' ){
-					translateTransform = BABYLON.Vector3.TransformCoordinates(new BABYLON.Vector3(xAddPos/300, 0, yAddPos/300), BABYLON.Matrix.RotationY(followCamera.rotation.y));
-					followCamera.cameraDirection.addInPlace(translateTransform);
-					followCamera.cameraRotation.y += xAddRot/300*1;
-					followCamera.cameraRotation.x += yAddRot/300*1;
-				}
-				*/
+				loadingAnimation();				
 				
 				// respawn needed
 				if(universalCamera.position.y < -15 && respawn == false){
-					respawn = true; 
-					console.log('respawn!!!!');					    
+					respawn = true; 									    
 				}
 				
 				if(respawn){	
@@ -927,8 +893,7 @@
 									
 					if( Math.abs(universalCamera.position.x.toFixed(2)-CAMERA1_POSITION.x.toFixed(2)) < 0.2
 							&& Math.abs(universalCamera.position.y.toFixed(2)-CAMERA1_POSITION.y.toFixed(2)) < 0.2
-							&& Math.abs(universalCamera.position.z.toFixed(2)-CAMERA1_POSITION.z.toFixed(2)) < 0.2){
-						console.log('fin respawn');
+							&& Math.abs(universalCamera.position.z.toFixed(2)-CAMERA1_POSITION.z.toFixed(2)) < 0.2){						
 						universalCamera.applyGravity = true;
 						respawn= false;							
 					}

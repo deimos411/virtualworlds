@@ -19,28 +19,11 @@
 		<link rel="stylesheet" href="css/savanna.css">
 		<link rel="shortcut icon" type="image/png" href="images/favico_savanna.png"/>
 		
-        <!-- Babylon.js -->
-		
-		<!-- Preview mode babylon 5--> 
-			
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.6.2/dat.gui.min.js"></script>
-		<script src="https://preview.babylonjs.com/earcut.min.js"></script>
-		<script src="https://preview.babylonjs.com/babylon.js"></script>
-		<script src="https://preview.babylonjs.com/materialsLibrary/babylonjs.materials.min.js"></script>
-		<script src="https://preview.babylonjs.com/proceduralTexturesLibrary/babylonjs.proceduralTextures.min.js"></script>
-		<script src="https://preview.babylonjs.com/postProcessesLibrary/babylonjs.postProcess.min.js"></script>
-		<script src="https://preview.babylonjs.com/loaders/babylonjs.loaders.js"></script>
-		<script src="https://preview.babylonjs.com/serializers/babylonjs.serializers.min.js"></script>
-		<script src="https://preview.babylonjs.com/gui/babylon.gui.min.js"></script>
-		<script src="https://preview.babylonjs.com/inspector/babylon.inspector.bundle.js"></script>
-	
-	
-		<!-- Production mode babylon v4.2.0 -->		
-	
-		<!-- 
+        <!-- Babylon.js v5 -->
 		<script src="https://cdn.babylonjs.com/babylon.js"></script>
 		<script src="https://cdn.babylonjs.com/gui/babylon.gui.min.js"></script>
-		-->
+		<script src="https://cdn.babylonjs.com/materialsLibrary/babylonjs.materials.min.js"></script>
+		
 		<script src="js/virtualstick.js"></script>
 		<script src="js/gui.js"></script>
 		
@@ -212,8 +195,8 @@
 							changeCamera();
 							break;
 
-				// Press "P" to debug
-				case "KeyP": 
+				// Press "L" open scene explorer + inspector
+				case "KeyL": 
 							scene.debugLayer.show();									
 							break;
 
@@ -230,13 +213,13 @@
 							toggleButtons();										
 							break;
 
-				// Press "P" to get camera position
-				case "KeyP": 
+				// Press "N" to get camera position
+				case "KeyN": 
 							showCameraInfo();													
 							break;
 
-				// Press "W" to walk
-				case "KeyZ": 
+				// Press "M" to walk
+				case "Semicolon": 
 							typeNavigation = FLY_MODE			
 							walk();			
 							toggleNavigation();												
@@ -294,7 +277,7 @@
 			console.log('toggle navigation');
 			if(typeNavigation == WALK_MODE){
 				btnNavigation.setAttribute("src", "images/fly.png");
-				btnNavigation.setAttribute("title", "Walk (W)");				
+				btnNavigation.setAttribute("title", "Walk (M)");				
 				fly();
 				typeNavigation = FLY_MODE;
 			} else {
@@ -667,7 +650,7 @@
 					ostrich.actionManager = new BABYLON.ActionManager(scene);
 					ostrich.actionManager.registerAction(new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, function () {									
 						
-						console.log('ostrich clicked');							
+												
 						window.open('https://web.archive.org/web/19990507052959/http://www.montparnasse.net/afrique/pagespeces/autruch.htm');
 									
 					}));	
@@ -680,7 +663,7 @@
 					wildebeest.actionManager = new BABYLON.ActionManager(scene);
 					wildebeest.actionManager.registerAction(new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, function () {									
 						
-						console.log('wildebeest clicked');							
+											
 						window.open('https://web.archive.org/web/20010214062012/http://www.montparnasse.net/afrique/pagespeces/gnou.htm');
 									
 					}));	
@@ -693,7 +676,7 @@
 					cheetah.actionManager = new BABYLON.ActionManager(scene);
 					cheetah.actionManager.registerAction(new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, function () {									
 						
-						console.log('cheetah clicked');							
+											
 						window.open('https://web.archive.org/web/20010211130931/http://www.montparnasse.net/afrique/pagespeces/guepard.htm');
 									
 					}));	
@@ -706,7 +689,7 @@
 					giraffe.actionManager = new BABYLON.ActionManager(scene);
 					giraffe.actionManager.registerAction(new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, function () {									
 						
-						console.log('giraffe clicked');							
+											
 						window.open('https://web.archive.org/web/20010211124042/http://www.montparnasse.net/afrique/pagespeces/girafe.htm');
 									
 					}));	
@@ -719,7 +702,7 @@
 					rhinoceros.actionManager = new BABYLON.ActionManager(scene);
 					rhinoceros.actionManager.registerAction(new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, function () {									
 						
-						console.log('rhinoceros clicked');							
+												
 						window.open('https://web.archive.org/web/20010214072700/http://www.montparnasse.net/afrique/pagespeces/rhino.htm');
 									
 					}));	
@@ -732,7 +715,7 @@
 					elephant.actionManager = new BABYLON.ActionManager(scene);
 					elephant.actionManager.registerAction(new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, function () {									
 						
-						console.log('elephant clicked');							
+												
 						window.open('https://web.archive.org/web/20010211122938/http://www.montparnasse.net/afrique/pagespeces/elephant.htm');
 									
 					}));	
@@ -745,7 +728,7 @@
 					crocodile.actionManager = new BABYLON.ActionManager(scene);
 					crocodile.actionManager.registerAction(new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, function () {									
 						
-						console.log('crocodile clicked');							
+													
 						window.open('https://web.archive.org/web/20010214061402/http://www.montparnasse.net/afrique/pagespeces/croco.htm');
 									
 					}));	
@@ -758,7 +741,7 @@
 					hippopotamus.actionManager = new BABYLON.ActionManager(scene);
 					hippopotamus.actionManager.registerAction(new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, function () {									
 						
-						console.log('hippopotamus clicked');							
+											
 						window.open('https://web.archive.org/web/20010214065057/http://www.montparnasse.net/afrique/pagespeces/hippo.htm');
 									
 					}));	
@@ -771,7 +754,7 @@
 					lion.actionManager = new BABYLON.ActionManager(scene);
 					lion.actionManager.registerAction(new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, function () {									
 						
-						console.log('lion clicked');							
+												
 						window.open('https://web.archive.org/web/20010214071550/http://www.montparnasse.net/afrique/pagespeces/lion.htm');
 									
 					}));	
@@ -784,7 +767,7 @@
 					hyena.actionManager = new BABYLON.ActionManager(scene);
 					hyena.actionManager.registerAction(new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, function () {									
 						
-						console.log('hyena clicked');							
+													
 						window.open('https://web.archive.org/web/20010214070502/http://www.montparnasse.net/afrique/pagespeces/hyene.htm');
 									
 					}));	
@@ -797,7 +780,7 @@
 					vulture.actionManager = new BABYLON.ActionManager(scene);
 					vulture.actionManager.registerAction(new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, function () {									
 						
-						console.log('vulture clicked');							
+										
 									
 					}));	
 				}
@@ -820,8 +803,7 @@
 
 
 				// browse all meshes
-				for(i = 0; i < result.meshes.length; i++){
-					// console.log('result.meshes[i].name : ' + result.meshes[i].name);
+				for(i = 0; i < result.meshes.length; i++){					
 					
 					let rootMesh = result.meshes[i];
 
@@ -914,12 +896,12 @@
 				delta++;
 				
 				if(delta > 200 && !isSoundsPlayed){
-					console.log('delta > 200');
+					
 
 					let ready = checkAudioContext();
-						console.log('ready? '+ ready);
+						
 						if(ready) {
-							console.log('play sounds');	
+							
 							instrumentSound.stop();
 							instrumentSound.play();	
 							
@@ -944,9 +926,9 @@
 					if(r === 3){
 						
 						let ready = checkAudioContext();
-						console.log('ready? '+ ready);
+						
 						if(ready) {
-							console.log('play bird sound');	
+							
 							birdSound.stop();
 							birdSound.play();						
 						}
