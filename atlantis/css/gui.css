@@ -1,0 +1,219 @@
+html, body {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;   
+}
+
+.centered {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+
+
+.hidden {
+    display: none !important;
+}
+
+.modal {   
+    padding:20px;
+    background-color: #004a9e;
+    border-color: #3978c0;
+    border-radius: 25px;
+    border-width: 2px;
+    border-style: solid;
+    color: white;
+}
+
+#renderCanvas {
+    width: 100%;
+    height: 100%;
+    touch-action: none;
+}
+
+/* gui buttons */ 
+
+#gui {
+    display: none;
+}
+
+#fps {
+    position: absolute;
+    text-align: center;
+    font-size: 16px;
+    color: white;
+    top: 15px;
+    right: 10px;
+    width: 60px;
+    height: 20px;
+    user-select: none;
+}
+
+#btnFullScreen {
+    position: absolute;
+    text-align: center;               
+    bottom: 15px;
+    right: 10px;       
+    width: 32px;
+    height: 32px;         
+}
+#btnCamera {
+    position: absolute;
+    text-align: center;               
+    bottom: 55px;
+    right: 10px;   
+    width: 32px;
+    height: 32px;             
+}
+#btnNavigation  {
+    position: absolute;
+    text-align: center;               
+    bottom: 95px;
+    right: 10px;  
+    width: 32px;
+    height: 32px;              
+}
+
+#btnHelp  {
+    position: absolute;
+    text-align: center;               
+    bottom: 135px;
+    right: 10px;  
+    width: 32px;
+    height: 32px;              
+}
+
+#navigationInfo {
+    position: absolute;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;               
+    background-color: black; 
+    border: 2px solid black;   
+    font-size: 16px;
+    color: white;
+    width: 200px;
+    height: 20px;             
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Help */ 
+
+#helpMobile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+}
+
+#helpComputer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+}
+
+#btnHelpClose {
+    width:50%;
+}
+
+/* gamepad */
+
+#gamepad span {
+    color: white;
+    font-size: 22px;
+    user-select: none;   
+          
+    width: 32px;
+    height: 32px; 
+}
+
+#gamepad img {
+    vertical-align: middle;
+    padding-bottom: 4px;
+    padding-right: 10px;
+}
+
+#gamepadStatus span {
+    color: white;
+    font-size: 22px;
+    user-select: none;   
+          
+    width: 32px;
+    height: 32px; 
+}
+
+#gamepadStatus img {
+    vertical-align: middle;
+    padding-bottom:6px;
+    padding-right: 10px;
+}
+
+#screenTarget {    
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.382);
+    width: 15px;
+    height: 15px;
+}
+
+#screenPoint {    
+    background-color: rgba(255, 255, 255, 0.382);
+    
+    width: 2px;
+    height: 2px;
+}
+  
+
+@media all and (max-device-width: 480px)
+{
+    /*Rules for mobiles */
+  
+    #fps {
+        position: absolute;
+        text-align: center;
+        font-size: 32px;
+        color: white;
+        top: 15px;
+        left: 10px;
+        width: 120px;
+        height: 20px;
+    }
+    
+    #btnNavigation  {          
+        top: 55px;
+        right: 10px;  
+        width: 96px;
+        height: 96px;              
+    }
+
+    #btnCamera {             
+        top: 175px;
+        right: 10px;   
+        width: 96px;
+        height: 96px;             
+    }
+
+    #btnFullScreen {           
+        top: 295px;
+        right: 10px;       
+        width: 96px;
+        height: 96px;         
+    }   
+
+    #btnHelp  { 
+        top: 415px;
+        right: 10px;  
+        width: 96px;
+        height: 96px;              
+    }
+}

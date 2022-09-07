@@ -1,4 +1,4 @@
-Exporter version: 2.80.1, Blender version: 2.92.0
+Exporter version: 2.93.4, Blender version: 3.0.0
 ========= Conversion from Blender to Babylon.js =========
 	Scene settings used :
 		Inline textures     :  false
@@ -9,7 +9,7 @@ Exporter version: 2.80.1, Blender version: 2.92.0
 		Vert Color Precision:  3
 		Mat Weight Precision:  2
 		Keep Z-up r-handed  :  no
-		Texture directory   :  D:\wamp64\www\beta\safari\v4_actions\babylon\
+		Texture directory   :  D:\wamp64\www\beta\safari\v6_panels\babylon\
 	Python World class constructor completed
 	WARNING: The following object (type - CURVE) is not currently exportable thus ignored: BezierCircle
 	processing begun of camera (UniversalCamera):  Camera
@@ -446,6 +446,59 @@ Exporter version: 2.80.1, Blender version: 2.92.0
 		num uvs2           :  0
 		num colors         :  0
 		num triangles      :  448
+	processing begun of mesh:  informationPanel2
+		processing begun of material:  wood
+		processing begun of material:  darkWood
+		registered as also a user of material:  wood
+			processing texture _19
+				texture type:  diffuseTexture, mapped using: "UVMap"
+		processing begun of multimaterial:  safari8.Multimaterial#18
+		Custom split normals with tangents being used
+		num positions      :  147
+		num normals        :  147
+		num tangents       :  588
+		num uvs            :  294
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  82
+	processing begun of mesh:  informationPanel2Url
+		processing begun of material:  picture2
+			processing texture hall
+				texture type:  diffuseTexture, mapped using: "UVMap"
+		Custom split normals with tangents being used
+		num positions      :  4
+		num normals        :  4
+		num tangents       :  16
+		num uvs            :  8
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of mesh:  informationPanel1
+		processing begun of material:  wood
+		processing begun of material:  darkWood
+		registered as also a user of material:  wood
+		registered as also a user of material:  darkWood
+		processing begun of multimaterial:  safari8.Multimaterial#19
+		Custom split normals with tangents being used
+		num positions      :  137
+		num normals        :  137
+		num tangents       :  548
+		num uvs            :  274
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  82
+	processing begun of mesh:  informationPanel1Url
+		processing begun of material:  picture2.001
+			processing texture enfer
+				texture type:  diffuseTexture, mapped using: "UVMap"
+		Custom split normals with tangents being used
+		num positions      :  4
+		num normals        :  4
+		num tangents       :  16
+		num uvs            :  8
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
 	processing begun of light (POINT):  Light
 ========= Writing of JSON file started =========
 	writing mesh:  safari
@@ -468,6 +521,10 @@ Exporter version: 2.80.1, Blender version: 2.92.0
 	writing mesh:  lion
 	writing mesh:  hyena1
 	writing mesh:  vulture
+	writing mesh:  informationPanel2
+	writing mesh:  informationPanel2Url
+	writing mesh:  informationPanel1
+	writing mesh:  informationPanel1Url
 ========= Writing of JSON file completed =========
 ========= end of processing =========
-elapsed time:  0 min, 1.5991 secs
+elapsed time:  0 min, 1.9023 secs

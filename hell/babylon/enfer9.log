@@ -1,4 +1,4 @@
-Exporter version: 2.80.1, Blender version: 2.92.0
+Exporter version: 2.93.4, Blender version: 3.0.0
 ========= Conversion from Blender to Babylon.js =========
 	Scene settings used :
 		Inline textures     :  false
@@ -9,7 +9,7 @@ Exporter version: 2.80.1, Blender version: 2.92.0
 		Vert Color Precision:  3
 		Mat Weight Precision:  2
 		Keep Z-up r-handed  :  no
-		Texture directory   :  D:\wamp64\www\beta\enfer\v9_instances\babylon\
+		Texture directory   :  D:\wamp64\www\beta\enfer\v10_panels\babylon\
 	Python World class constructor completed
 	processing begun of camera (UniversalCamera):  Camera
 	processing begun of mesh:  tree
@@ -158,20 +158,6 @@ Exporter version: 2.80.1, Blender version: 2.92.0
 		num uvs2           :  0
 		num colors         :  0
 		num triangles      :  36
-	processing begun of mesh:  informationPanel1
-		processing begun of material:  wood
-		processing begun of material:  darkwood
-		registered as also a user of material:  wood
-		registered as also a user of material:  darkwood
-		processing begun of multimaterial:  enfer9.Multimaterial#3
-		Custom split normals with tangents being used
-		num positions      :  131
-		num normals        :  131
-		num tangents       :  524
-		num uvs            :  262
-		num uvs2           :  0
-		num colors         :  0
-		num triangles      :  82
 	processing begun of mesh:  saintPeter
 		processing begun of material:  white
 		processing begun of material:  black
@@ -187,7 +173,7 @@ Exporter version: 2.80.1, Blender version: 2.92.0
 		registered as also a user of material:  skin
 		registered as also a user of material:  pink2
 		registered as also a user of material:  gold
-		processing begun of multimaterial:  enfer9.Multimaterial#4
+		processing begun of multimaterial:  enfer9.Multimaterial#3
 		Custom split normals with tangents being used
 		num positions      :  558
 		num normals        :  558
@@ -201,7 +187,7 @@ Exporter version: 2.80.1, Blender version: 2.92.0
 		processing begun of material:  imp
 		registered as also a user of material:  wood
 		registered as also a user of material:  imp
-		processing begun of multimaterial:  enfer9.Multimaterial#5
+		processing begun of multimaterial:  enfer9.Multimaterial#4
 		Custom split normals with tangents being used
 		num positions      :  125
 		num normals        :  125
@@ -221,18 +207,6 @@ Exporter version: 2.80.1, Blender version: 2.92.0
 		num uvs2           :  0
 		num colors         :  0
 		num triangles      :  2
-	processing begun of mesh:  informationPanel1Url
-		processing begun of material:  picture
-			processing texture atlantide
-				texture type:  diffuseTexture, mapped using: "UVMap"
-		Custom split normals with tangents being used
-		num positions      :  4
-		num normals        :  4
-		num tangents       :  16
-		num uvs            :  8
-		num uvs2           :  0
-		num colors         :  0
-		num triangles      :  2
 	processing begun of mesh:  angel2
 		mesh is an instance of :  angel1.  Processing halted.
 	processing begun of mesh:  clouds
@@ -240,7 +214,7 @@ Exporter version: 2.80.1, Blender version: 2.92.0
 		processing begun of material:  water
 		registered as also a user of material:  cloud
 		registered as also a user of material:  water
-		processing begun of multimaterial:  enfer9.Multimaterial#6
+		processing begun of multimaterial:  enfer9.Multimaterial#5
 		Custom split normals with tangents being used
 		num positions      :  735
 		num normals        :  735
@@ -254,7 +228,7 @@ Exporter version: 2.80.1, Blender version: 2.92.0
 		processing begun of material:  darkgrass
 		registered as also a user of material:  grass
 		registered as also a user of material:  darkgrass
-		processing begun of multimaterial:  enfer9.Multimaterial#7
+		processing begun of multimaterial:  enfer9.Multimaterial#6
 		Custom split normals with tangents being used
 		num positions      :  44
 		num normals        :  44
@@ -281,7 +255,7 @@ Exporter version: 2.80.1, Blender version: 2.92.0
 		processing begun of material:  gold
 		registered as also a user of material:  black
 		registered as also a user of material:  gold
-		processing begun of multimaterial:  enfer9.Multimaterial#8
+		processing begun of multimaterial:  enfer9.Multimaterial#7
 		Custom split normals with tangents being used
 		num positions      :  64
 		num normals        :  64
@@ -297,7 +271,7 @@ Exporter version: 2.80.1, Blender version: 2.92.0
 		processing begun of material:  gold
 		registered as also a user of material:  black
 		registered as also a user of material:  gold
-		processing begun of multimaterial:  enfer9.Multimaterial#9
+		processing begun of multimaterial:  enfer9.Multimaterial#8
 		Custom split normals with tangents being used
 		num positions      :  64
 		num normals        :  64
@@ -357,7 +331,7 @@ Exporter version: 2.80.1, Blender version: 2.92.0
 				WARNING: Exception during copy:
 					[Errno 2] No such file or directory: 'D:\\wamp64\\www\\mondesvirtuels\\atlantide\\v1_export\\06.jpg'
 				texture type:  diffuseTexture, mapped using: "UVMap"
-		processing begun of multimaterial:  enfer9.Multimaterial#10
+		processing begun of multimaterial:  enfer9.Multimaterial#9
 		Custom split normals with tangents being used
 		num positions      :  9
 		num normals        :  9
@@ -371,7 +345,7 @@ Exporter version: 2.80.1, Blender version: 2.92.0
 		processing begun of material:  darkrock
 		registered as also a user of material:  lightrock
 		registered as also a user of material:  darkrock
-		processing begun of multimaterial:  enfer9.Multimaterial#11
+		processing begun of multimaterial:  enfer9.Multimaterial#10
 		Custom split normals with tangents being used
 		num positions      :  69
 		num normals        :  69
@@ -389,7 +363,7 @@ Exporter version: 2.80.1, Blender version: 2.92.0
 		processing begun of material:  darkrock
 		registered as also a user of material:  lightrock
 		registered as also a user of material:  darkrock
-		processing begun of multimaterial:  enfer9.Multimaterial#12
+		processing begun of multimaterial:  enfer9.Multimaterial#11
 		Custom split normals with tangents being used
 		num positions      :  50
 		num normals        :  50
@@ -407,7 +381,7 @@ Exporter version: 2.80.1, Blender version: 2.92.0
 		processing begun of material:  bark
 		registered as also a user of material:  leaves
 		registered as also a user of material:  bark
-		processing begun of multimaterial:  enfer9.Multimaterial#13
+		processing begun of multimaterial:  enfer9.Multimaterial#12
 		Custom split normals with tangents being used
 		num positions      :  64
 		num normals        :  64
@@ -458,7 +432,7 @@ Exporter version: 2.80.1, Blender version: 2.92.0
 			processing texture redStone
 				texture type:  diffuseTexture, mapped using: "UVMap"
 		registered as also a user of material:  lava
-		processing begun of multimaterial:  enfer9.Multimaterial#14
+		processing begun of multimaterial:  enfer9.Multimaterial#13
 		Custom split normals with tangents being used
 		num positions      :  1299
 		num normals        :  1299
@@ -472,7 +446,7 @@ Exporter version: 2.80.1, Blender version: 2.92.0
 		processing begun of material:  wood
 		registered as also a user of material:  angel
 		registered as also a user of material:  wood
-		processing begun of multimaterial:  enfer9.Multimaterial#15
+		processing begun of multimaterial:  enfer9.Multimaterial#14
 		Custom split normals with tangents being used
 		num positions      :  117
 		num normals        :  117
@@ -486,7 +460,7 @@ Exporter version: 2.80.1, Blender version: 2.92.0
 		processing begun of material:  tormentRoomDoor
 		registered as also a user of material:  redStone.001
 		registered as also a user of material:  tormentRoomDoor
-		processing begun of multimaterial:  enfer9.Multimaterial#16
+		processing begun of multimaterial:  enfer9.Multimaterial#15
 		Custom split normals with tangents being used
 		num positions      :  78
 		num normals        :  78
@@ -517,7 +491,7 @@ Exporter version: 2.80.1, Blender version: 2.92.0
 		processing begun of material:  darkwood
 		registered as also a user of material:  wood
 		registered as also a user of material:  darkwood
-		processing begun of multimaterial:  enfer9.Multimaterial#17
+		processing begun of multimaterial:  enfer9.Multimaterial#16
 		Custom split normals with tangents being used
 		num positions      :  135
 		num normals        :  135
@@ -528,7 +502,33 @@ Exporter version: 2.80.1, Blender version: 2.92.0
 		num triangles      :  82
 	processing begun of mesh:  informationPanel2Url
 		processing begun of material:  picture2
-			processing texture hall
+			processing texture halloween
+				texture type:  diffuseTexture, mapped using: "UVMap"
+		Custom split normals with tangents being used
+		num positions      :  4
+		num normals        :  4
+		num tangents       :  16
+		num uvs            :  8
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of mesh:  informationPanel1
+		processing begun of material:  wood
+		processing begun of material:  darkwood
+		registered as also a user of material:  wood
+		registered as also a user of material:  darkwood
+		processing begun of multimaterial:  enfer9.Multimaterial#17
+		Custom split normals with tangents being used
+		num positions      :  131
+		num normals        :  131
+		num tangents       :  524
+		num uvs            :  262
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  82
+	processing begun of mesh:  informationPanel1Url
+		processing begun of material:  picture
+			processing texture safari
 				texture type:  diffuseTexture, mapped using: "UVMap"
 		Custom split normals with tangents being used
 		num positions      :  4
@@ -670,11 +670,9 @@ Exporter version: 2.80.1, Blender version: 2.92.0
 	writing mesh:  angel1
 	writing mesh:  bookSupport
 	writing mesh:  goldenBook
-	writing mesh:  informationPanel1
 	writing mesh:  saintPeter
 	writing mesh:  toHellPannel
 	writing mesh:  water
-	writing mesh:  informationPanel1Url
 	writing mesh:  clouds
 	writing mesh:  land
 	writing mesh:  portal
@@ -690,8 +688,10 @@ Exporter version: 2.80.1, Blender version: 2.92.0
 	writing mesh:  lava
 	writing mesh:  informationPanel2
 	writing mesh:  informationPanel2Url
+	writing mesh:  informationPanel1
+	writing mesh:  informationPanel1Url
 	writing mesh:  peak1
 	writing mesh:  imp1
 ========= Writing of JSON file completed =========
 ========= end of processing =========
-elapsed time:  0 min, 0.6737 secs
+elapsed time:  0 min, 0.775 secs

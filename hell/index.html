@@ -1,964 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		
-		<meta name="author" content="Josquin BERNARD">
-		<meta name="description" content="Discover the hell & paradise in a virtual 3D world directly from your browser on Computer / Mobile / Console.">
-		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:site" content="@virtualworldsfr" />
-		<meta name="twitter:creator" content="@virtualworldsfr" />
-		<meta property="og:url" content="https://virtualworlds.fun/hell/" />
-		<meta property="og:title" content="Hell & Paradise" />
-		<meta property="og:description" content="Discover the hell & paradise in a virtual 3D world directly from your browser on Computer / Mobile / Console." />
-		<meta property="og:type" content="website" />
-		<meta property="og:image" content="https://virtualworlds.fun/hell/card/hell.png" />
-
-        <title>Hell & Paradise</title>
-		<link rel="stylesheet" href="css/hell.css">
-		<link rel="shortcut icon" type="image/png" href="images/favico-hell-32.png"/>
-
- 		<!-- Babylon.js latest -->					 
-		<!--<script src="https://cdn.babylonjs.com/babylon.js"></script>-->
-		<!--<script src="https://cdn.babylonjs.com/gui/babylon.gui.min.js"></script>-->
-		
-		<!--BabylonJS 4.2.2 -->
-		<!-- <script src="https://cdn.jsdelivr.net/npm/babylonjs@4.2.2/babylon.js"></script> -->
-		<!-- <script src="https://cdn.jsdelivr.net/npm/babylonjs-gui@4.2.2/babylon.gui.min.js"></script>-->
-		
-		<!--BabylonJS 5.8.0, not working after that revision -->
-		<script src="https://cdn.jsdelivr.net/npm/babylonjs@5.8.0/babylon.js"></script>		
-		<script src="https://cdn.jsdelivr.net/npm/babylonjs-gui@5.8.0/babylon.gui.min.js"></script>
-
-		<script src="js/virtualstick.js"></script>
-		<script src="js/gui.js"></script>
-		
-		
-		
-		<!-- Google Analytics snippet added by Site Kit -->
-		
-		<script src='https://www.googletagmanager.com/gtag/js?id=UA-16584131-1' id='google_gtagjs-js' async></script>
-		<script id='google_gtagjs-js-after'>
-			window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}
-			gtag('set', 'linker', {"domains":["mondesvirtuels.com"]} );
-			gtag("js", new Date());
-			gtag("set", "developer_id.dZTNiMT", true);
-			gtag("config", "UA-16584131-1", {"anonymize_ip":true});
-			gtag("config", "G-1P3CVXY9KX");
-		</script>
-	
-		<!-- End Google Analytics snippet added by Site Kit -->
-
-
-      
-    </head>
-	<body>
-
-	<!-- butons -->
-	<div id="buttons" class="hideButtons">
-		<div id="fps">0</div>
-		
-		<div id="fullscreen">			
-			<input type="image" id="btnFullScreen" alt="FullScreen (X)" title="FullScreen (X)" src="images/expand.png">
-		</div>
-		
-		<div id="camera">
-			<input type="image" id="btnCamera" alt="Change camera (C)" title="Change camera (C)" src="images/camera.png">	
-		</div>
-		
-		<div id="navigation">
-			<input type="image" id="btnNavigation" alt="Fly (F)" title="Fly (F)" src="images/walk.png">
-		</div>
-	</div>
-
-    <canvas id="renderCanvas"></canvas>
-    <script>
-		var canvas = document.getElementById("renderCanvas");
-
-		var engine = null;
-		var scene = null;
-		var sceneToRender = null;
-		var createDefaultEngine = function() {
-			return new BABYLON.Engine(canvas, true, {
-				preserveDrawingBuffer: true,
-				stencil: true,
-				disableWebGL2Support: false
-			});
-		};	
-
-		/**
-		 * Essential data
-		 */
-		const WORLD_FILE = 'babylon/enfer9.babylon';		
-		const GRAVITY_FORCE = -0.55; // default -0.98
-		const SPEED = 0.7;
-		const ANGULAR_SENSIBILTY = 5000; // default 2000
-		const FLY_MODE = 1;
-		const WALK_MODE = 2;	
-		
-		/**
-		 * Cameras
-		 */
-
-		// Start camera Paradise
-		const CAMERA1_POSITION = new BABYLON.Vector3(30.88,547.97,2.50);
-		const CAMERA1_ROTATION = new BABYLON.Vector3(-0.05,4.65, 0);		
-
-		// Hell 
-		const CAMERA2_POSITION = new BABYLON.Vector3(-11.21,-20.00,-88.43);
-		const CAMERA2_ROTATION = new BABYLON.Vector3(-0.04,6.18, 0);	
-		
-		// Vision of Paradise
-		const CAMERA3_POSITION = new BABYLON.Vector3(30.88,547.97,2.50);
-		const CAMERA3_ROTATION = new BABYLON.Vector3(-0.05,4.65, 0);		
-		
-		// Vision of Hell
-		const CAMERA4_POSITION = new BABYLON.Vector3(-11.21,-20.00,-88.43);
-		const CAMERA4_ROTATION = new BABYLON.Vector3(-0.04,6.18, 0);	
-
-		/**
-		 * Lights
-		 */
-	    const LIGHT_INTENSITY = 2;
-
-		let isUserGesture = false;
-		let isCollision = true;	
-		let isMobile = false;
-		let isGravity = true;
-		let respawn = false;
-		let activeCamera = null;
-		let isLoading = true;			
-
-		let numCamera = 1;		
-		let typeNavigation = WALK_MODE;
-		let isSoundsPlayed = false;
-
-		let buttons = document.getElementById("buttons");
-
-		// fps 
-		let divFps = document.getElementById("fps");
-
-		// fullscreen
-		let btnFullScreen = document.getElementById("btnFullScreen");
-		let btnCamera = document.getElementById("btnCamera");
-
-		// navigation
-		let btnNavigation = document.getElementById("btnNavigation");		
-
-		/** 
-		 * Listeners 
-		 */
-		 btnFullScreen.addEventListener('pointerdown',
-			ev => { 					
-				toggleScreenMode();				
-			}
-		);
-
-		btnCamera.addEventListener('pointerdown',
-			ev => { 	
-				changeCamera();
-			}
-		);	
-
-		btnNavigation.addEventListener('pointerdown',
-			ev => { 												
-				toggleNavigation();				
-			}
-		);
-
-		// pointer is down, user make a gesture, so audio context can be resume
-		canvas.addEventListener('pointerdown',
-  			ev => { 			  
-			  userMakeGesture();
-			}
-		);
-
-		/**
-		 * Exit full screen Listener
-		 */
-		document.addEventListener('fullscreenchange', exitHandler);
-		document.addEventListener('webkitfullscreenchange', exitHandler);
-		document.addEventListener('mozfullscreenchange', exitHandler);
-		document.addEventListener('MSFullscreenChange', exitHandler);
-
-		/** 
-		 * Exit full screen event handler
-		 **/
-		function exitHandler() {
-			if (!document.fullscreenElement && !document.webkitIsFullScreen && !document.mozFullScreen && !document.msFullscreenElement) {
-				exitFullScreen();
-			}
-		}  
-		
-		
-		// gestion des touches
-		canvas.addEventListener("keydown", event => {
-			
-			if (event.defaultPrevented) {
-				return; // Ne devrait rien faire si l'événement de la touche était déjà consommé.
-			}
-
-			switch (event.code) {
-			
-			
-				// Press "C" to change camera
-				case "KeyC": 	
-							console.log('change camera ');
-							changeCamera();
-							break;
-
-				// Press "L" open scene explorer + inspector
-				case "KeyL": 
-							scene.debugLayer.show();			
-							break;
-
-				// Press "F" to fly
-				case "KeyF": 
-							typeNavigation = WALK_MODE			
-							fly();			
-							toggleNavigation();
-													
-							break;
-				
-				// Press "H" to hide/show buttons
-				case "KeyH": 
-							toggleButtons();
-							break;			 
-
-				// Press "N" to get camera position
-				case "KeyN": 
-							showCameraInfo();
-							break;
-
-				// Press "M" to walk
-				case "Semicolon": 
-							typeNavigation = FLY_MODE			
-							walk();			
-							toggleNavigation();												
-							break;
-
-				// Press "X" to go fullscreen
-				case "KeyX": 
-							console.log('go fullscreen');			
-							toggleScreenMode();						
-							break;		
-	
-				default:    return; // Quitter lorsque cela ne gère pas l'événement touche.
- 			}
-
-			// Annuler l'action par défaut pour éviter qu'elle ne soit traitée deux fois.
-			event.preventDefault();
-		}, true);
-
-		/**
-		 * Toggle screen mode
-		 */
-		 function toggleScreenMode() {
-			
-			if (!document.fullscreenElement) {
-				document.documentElement.requestFullscreen();
-				goFullScreen();
-															
-			} else {
-				if (document.exitFullscreen) {
-					document.exitFullscreen();
-					exitFullScreen();
-																						
-				}
-			}
-		}
-
-		/**
-		 * Switch to full Screen mode
-		 */
-		 function goFullScreen() {		
-			btnFullScreen.setAttribute("src", "images/collapse.png");
-			btnFullScreen.setAttribute("title", "Exit full screen (Echap)");			
-		}
-
-		/**
-		 * After exit full screen mode
-		 **/
-		function exitFullScreen() {
-			btnFullScreen.setAttribute("src", "images/expand.png");
-			btnFullScreen.setAttribute("title", "Full screen (X)");
-		}
-
-		/**					   
-		 * Walk / Fly mode navigation
-		 */
-		 function toggleNavigation() {
-			console.log('toggle navigation');
-			if(typeNavigation == WALK_MODE){
-				btnNavigation.setAttribute("src", "images/fly.png");
-				btnNavigation.setAttribute("title", "Walk (M)");				
-				fly();
-				typeNavigation = FLY_MODE;
-			} else {
-				btnNavigation.setAttribute("src", "images/walk.png");
-				btnNavigation.setAttribute("title", "Fly (F)");	
-				walk();
-				typeNavigation = WALK_MODE;
-			}		
-	 	}
-		
-		/**
-		 * Show / Hide help buttons
-		 * */ 
-		 function toggleButtons(){
-			if(buttons.classList.contains("hideButtons")){
-				buttons.classList.remove("hideButtons");
-			} else {
-				buttons.classList.add("hideButtons");	
-			}				
-		 }
-
-		/**
-		 *	Change camera 
-		**/
-		function changeCamera(){
-		
-		numCamera++;
-		if(numCamera > 4) numCamera = 1;
-
-		switch(numCamera){ 
-			case 1: goToCamera1();
-					break;
-			case 2: goToCamera2();
-					break;
-			case 3: goToCamera3();
-					break;
-			case 4: goToCamera4();
-					break;			
-		}			
-
-	 }
-	 
-
-
-		/**
-		 * Resume audio context if a gesture have been made by user
-		 * https://github.com/BabylonJS/Babylon.js/issues/4354
-		 * */
-		 function checkAudioContext(){
-			let ready = false;
-
-			if(BABYLON.Engine.audioEngine.audioContext.state == "running"){
-				ready = true;
-			}
-
-			// resume only if a gesture have been made
-			if(BABYLON.Engine.audioEngine.audioContext.state != "running" && isUserGesture){
-				BABYLON.Engine.audioEngine.audioContext.resume();
-				ready = true;
-			}
-		
-			return ready;
-		}
-
-		function userMakeGesture(){			
-			isUserGesture = true;
-		}
-	   
-	   function showThumb(isMobile){
-			leftThumbContainer.isVisible = isMobile;
-			rightThumbContainer.isVisible = isMobile;
-		}
-		
-
-		/**
-		 * Helper to copy paste camera position/rotation
-		 */
-		function showCameraInfo(){
-			const camera = scene.getCameraByName("UniversalCamera"); 
-			console.log('camera position : const CAMERAX_POSITION = new BABYLON.Vector3('+camera.position.x.toFixed(3)+','+camera.position.y.toFixed(3)+','+camera.position.z.toFixed(3)+');');
-			console.log('camera rotation : const CAMERAX_ROTATION = new BABYLON.Vector3('+camera.rotation.x.toFixed(3)+','+camera.rotation.y.toFixed(3)+','+camera.rotation.z.toFixed(3)+');');
-		}
-
-		function goToCamera1(){	
-
-			const camera = scene.getCameraByName("UniversalCamera"); 
-			camera.fov = 0.8;
-
-			camera.position = new BABYLON.Vector3(CAMERA1_POSITION.x, CAMERA1_POSITION.y, CAMERA1_POSITION.z);
-			camera.rotation = new BABYLON.Vector3(CAMERA1_ROTATION.x, CAMERA1_ROTATION.y, CAMERA1_ROTATION.z);
-
-			scene.activeCamera = camera;
-
-		}
-
-		function goToCamera2(){
-
-			const camera = scene.getCameraByName("UniversalCamera"); 
-			camera.fov = 0.8;
-
-			camera.position = new BABYLON.Vector3(CAMERA2_POSITION.x, CAMERA2_POSITION.y, CAMERA2_POSITION.z);
-			camera.rotation = new BABYLON.Vector3(CAMERA2_ROTATION.x, CAMERA2_ROTATION.y, CAMERA2_ROTATION.z);
-
-			scene.activeCamera = camera;
-		}
-
-		function goToCamera3(){
-
-			const camera = scene.getCameraByName("UniversalCamera"); 
-			camera.fov = 2.1;
-
-			camera.position = new BABYLON.Vector3(CAMERA3_POSITION.x, CAMERA3_POSITION.y, CAMERA3_POSITION.z);
-			camera.rotation = new BABYLON.Vector3(CAMERA3_ROTATION.x, CAMERA3_ROTATION.y, CAMERA3_ROTATION.z);
-
-			scene.activeCamera = camera;
-		}
-
-		function goToCamera4(){
-
-			const camera = scene.getCameraByName("UniversalCamera"); 
-			camera.fov = 2.1;
-
-			camera.position = new BABYLON.Vector3(CAMERA4_POSITION.x, CAMERA4_POSITION.y, CAMERA4_POSITION.z);
-			camera.rotation = new BABYLON.Vector3(CAMERA4_ROTATION.x, CAMERA4_ROTATION.y, CAMERA4_ROTATION.z);
-
-
-			scene.activeCamera = camera;
-		}
-		
-		
-
-		function fly(){		
-
-			console.log('fly mode');	
-
-			const camera = scene.getCameraByName("UniversalCamera"); 
-
-			isGravity = false;
-			isCollision = true;
-			camera.applyGravity = isGravity;
-			camera.checkCollisions = isCollision;		
-
-		}
-
-		function walk(){		
-
-			console.log('walk mode');	
-
-			const camera = scene.getCameraByName("UniversalCamera"); 
-
-			isGravity = true;
-			isCollision = true;
-			camera.applyGravity = isGravity;
-			camera.checkCollisions = isCollision;	
-
-		}
-
-		/**
-		* Loading Screen from SometimesIMakeThings 
-		* https://forum.babylonjs.com/t/change-the-standard-loading-screen/964/12
-		*/
-
-		let loadingContainer = new BABYLON.GUI.Container();
-		loadingContainer.zIndex = 1000;
-		
-		let loadingBG = new BABYLON.GUI.Rectangle();
-		loadingBG.width = 1.0;
-		loadingBG.height = 1.0;
-		loadingBG.color = '#653470';;
-		loadingBG.background = '#653470';;
-
-		let loadingText = new BABYLON.GUI.TextBlock();
-		loadingText.text = "Loading...";
-		loadingText.left = 0.5;
-		loadingText.top = 0.7;
-		loadingText.color = "white";
-
-		let dot1 = new BABYLON.GUI.Ellipse();
-		dot1.top = "-100px";
-		dot1.left = "-50px";
-		dot1.width = "50px"
-		dot1.height = "50px";
-		dot1.color = "white";
-		dot1.thickness = 1;
-		dot1.background = "white";
-
-		let dot2 = new BABYLON.GUI.Ellipse();
-		dot2.top = "-100px";
-		dot2.left = "0px";
-		dot2.width = "50px"
-		dot2.height = "50px";
-		dot2.color = "white";
-		dot2.thickness = 1;
-		dot2.background = "white";
-
-		let dot3 = new BABYLON.GUI.Ellipse();
-		dot3.top = "-100px";
-		dot3.left = "50px";
-		dot3.width = "50px"
-		dot3.height = "50px";
-		dot3.color = "white";
-		dot3.thickness = 1;
-		dot3.background = "white";
-
-		loadingContainer.addControl(loadingBG);
-		loadingContainer.addControl(loadingText);
-		loadingContainer.addControl(dot1);
-		loadingContainer.addControl(dot2);
-		loadingContainer.addControl(dot3);
-
-		function loadingAnimation()
-		{
-			let deltaTime = scene.getEngine().getDeltaTime();
-			
-			dot1.rotation += 0.001 * deltaTime;
-
-			dot1.top = -100 + Math.sin(dot1.rotation*10)*50;
-			dot2.top = -100 + Math.cos(dot1.rotation*10)*50;
-			dot3.top = -100 - Math.sin(dot1.rotation*10)*50;
-		}
-
-		function fadeLoadingScreen(){
-			let deltaTime = scene.getEngine().getDeltaTime();
-			loadingContainer.alpha -= 0.001 * deltaTime;
-
-			if(loadingContainer.alpha <= 0.0)
-			{
-				unregisterLoadingScreen();
-			}
-		}
-
-		function showLoadingScreen() {
-			loadingContainer.alpha = 1.0;
-		}
-
-		function unregisterLoadingScreen() {
-			scene.unregisterBeforeRender(loadingAnimation);
-			scene.unregisterBeforeRender(fadeLoadingScreen);
-			loadingContainer.alpha = 0.0; //Make sure the loading screen isn't visible
-			buttons.classList.remove("hideButtons");
-		}
-
-		function hideLoadingScreen(){
-			scene.registerBeforeRender(fadeLoadingScreen);			
-		}
-
-
-		var createScene = function() {
-			
-			var scene = new BABYLON.Scene(engine);				
-		
-			if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
-			  // true for mobile device
-			  isMobile = true;
-			  console.log('mobile device')
-			}else{
-			  // false for not mobile device
-			  isMobile = false;
-			  console.log('not mobile device')
-			}		
-
-			//--------------------------------------------------------------------------------------------
-			// Loading screen 
-			var fullscreenGUI = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("FullscreenUI", true);
-			fullscreenGUI.addControl(loadingContainer); //Add loading screen to the camera
-
-			showLoadingScreen(); //Show the loading screen		
-			
-			scene.executeWhenReady(function () { //When everything is done loading
-        		hideLoadingScreen();
-   			});    
-			
-						
-			// Sounds 
-			let scream1Sound = new BABYLON.Sound("scream1", "sound/01.wav", scene);	
-			let scream2Sound = new BABYLON.Sound("scream1", "sound/02.wav", scene);	
-			let scream3Sound = new BABYLON.Sound("scream1", "sound/03.wav", scene);	
-			let saintPeterSound = new BABYLON.Sound("saintPeter", "sound/04.wav", scene);	
-			let impSound = new BABYLON.Sound("imp", "sound/05.wav", scene);	
-			let portalSound = new BABYLON.Sound("portal", "sound/06.wav", scene);	
-			let teleportSound = new BABYLON.Sound("teleport", "sound/07.wav", scene);				
-
-			// Lights
-
-			// This creates a light, aiming 0,1,0 - to the sky (non-mesh)
-			var light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0), scene);
-
-			// Default intensity is 1. Let's dim the light a small amount
-			light.intensity = LIGHT_INTENSITY;
-
-			// Universal camera to enabled gamepad controller and camera for collisions
-			let universalCamera = new BABYLON.UniversalCamera("UniversalCamera", new BABYLON.Vector3(CAMERA1_POSITION.x, CAMERA1_POSITION.y, CAMERA1_POSITION.z), scene);
-			universalCamera.rotation = new BABYLON.Vector3(CAMERA1_ROTATION.x,CAMERA1_ROTATION.y,CAMERA1_ROTATION.z);
-
-		    // Speed of camera ( 2 by default )
-			universalCamera.speed = SPEED;
-			// Angular sensibility ( 2000 by default )
-			universalCamera.angularSensibility = ANGULAR_SENSIBILTY;				
-			
-			// sky background
-			// The box creation
-			var skybox = BABYLON.Mesh.CreateBox("skyBox", 1500.0, scene);
-
-			// The sky creation ( gradient shader from @Temechon https://www.html5gamedevs.com/topic/8160-gradient-shader ) 
-			BABYLON.Effect.ShadersStore.gradientVertexShader = "precision mediump float;attribute vec3 position;attribute vec3 normal;attribute vec2 uv;uniform mat4 worldViewProjection;varying vec4 vPosition;varying vec3 vNormal;void main(){vec4 p = vec4(position,1.);vPosition = p;vNormal = normal;gl_Position = worldViewProjection * p;}";
-
-			BABYLON.Effect.ShadersStore.gradientPixelShader = "precision mediump float;uniform mat4 worldView;varying vec4 vPosition;varying vec3 vNormal;uniform float offset;uniform vec3 topColor;uniform vec3 bottomColor;void main(void){float h = normalize(vPosition+offset).y;gl_FragColor = vec4(mix(bottomColor,topColor,max(pow(max(h,0.0),0.6),0.0)),1.0);}";
-
-			var shader = new BABYLON.ShaderMaterial("gradient", scene, "gradient", {});
-			shader.setFloat("offset", -320);
-			shader.setColor3("topColor", BABYLON.Color3.FromInts(0,119,255));
-			shader.setColor3("bottomColor", BABYLON.Color3.FromInts(180,0, 0));
-
-			shader.backFaceCulling = false;
-
-			// box + sky = skybox !
-			skybox.material = shader;				
-			
-			// Load meshes 
-			BABYLON.SceneLoader.ImportMeshAsync(null, "", WORLD_FILE, scene).then(function(result) {
-
-				// Materials
-				
-				let material_water = new BABYLON.StandardMaterial('watermat', scene);
-					material_water.diffuseTexture = new BABYLON.Texture("water.jpg", scene);
-					material_water.diffuseTexture.hasAlpha = true;
-					//material_water.emissiveColor = new BABYLON.Color3(0.5,0.5,0.5);
-					material_water.alpha = 0.6;				
-				
-				let material_lava = new BABYLON.StandardMaterial('watermat', scene);
-					material_lava.diffuseTexture = new BABYLON.Texture("lava.jpg", scene);
-					material_lava.diffuseTexture.hasAlpha = true;
-					//material_lava.emissiveColor = new BABYLON.Color3(0.5,0.5,0.5);
-					material_lava.alpha = 0.6;		
-
-
-				// imps
-				var imps = scene.getMeshesByTags("imp");
-				for (imp of imps) {
-					imp.isPickable = true;
-					imp.actionManager = new BABYLON.ActionManager(scene);
-					imp.actionManager.registerAction(new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, function () {									
-						
-						let ready = checkAudioContext();	
-
-						if(ready) {
-							impSound.stop();
-							impSound.play();						
-						}
-									
-					}));	
-				}
-
-				// door
-				var doors = scene.getMeshesByTags("door");
-				for (door of doors) {
-					door.isPickable = true;
-					door.actionManager = new BABYLON.ActionManager(scene);
-					door.actionManager.registerAction(new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, function () {									
-						
-						let ready = checkAudioContext();	
-
-						if(ready) {
-							
-							// play randomly one of three torment sound
-							rand =  randomNumber(0,3);							
-							switch (rand) {
-								case 1: scream1Sound.stop();
-										scream1Sound.play();	
-										break;
-								case 2: scream2Sound.stop();
-										scream2Sound.play();	
-										break;
-								case 3: scream3Sound.stop();
-										scream3Sound.play();	
-										break;
-							}
-												
-						}
-									
-					}));	
-				}
-
-				
-				// browse all meshes
-				for(i = 0; i < result.meshes.length; i++){
-					
-					let rootMesh = result.meshes[i];	
-
-					// repositionning								
-					rootMesh.scaling.scaleInPlace(1);							
-					
-					// water 
-					if(rootMesh.name.includes('water')){									
-						rootMesh.material = material_water;
-					}
-
-						
-					// water 
-					if(rootMesh.name.includes('lava')){							
-						rootMesh.material = material_lava;
-
-						scene.beginAnimation(scene.getMeshByName('lava'), 0, 250, true, 0.125);	
-					}	
-					
-					
-					if(rootMesh.name.includes('saintPeter')){											
-						
-						// this mesh can be clicked
-						rootMesh.isPickable =  true;									
-						
-						rootMesh.actionManager = new BABYLON.ActionManager(scene);
-						rootMesh.actionManager.registerAction(new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, function () {									
-							
-							let ready = checkAudioContext();
-							
-							if(ready) {
-								saintPeterSound.stop();
-								saintPeterSound.play();
-							}							
-							
-						}));	
-					}
-
-					if(rootMesh.name.includes('portalLeft')){					
-						
-						
-						// this mesh can be clicked
-						rootMesh.isPickable =  true;									
-						
-						
-
-						rootMesh.actionManager = new BABYLON.ActionManager(scene);
-						rootMesh.actionManager.registerAction(new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, function () {
-						
-							animatePortal();
-
-							let ready = checkAudioContext();
-							
-							if(ready) {
-								portalSound.stop();
-								portalSound.play();	
-							}
-							
-						}));	
-					}
-
-					if(rootMesh.name.includes('portalRight')){	
-						
-						// this mesh can be clicked
-						rootMesh.isPickable =  true;									
-						
-						rootMesh.actionManager = new BABYLON.ActionManager(scene);
-						rootMesh.actionManager.registerAction(new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, function () {
-											
-							animatePortal();
-							let ready = checkAudioContext();
-							
-							if(ready) {
-								portalSound.stop();
-								portalSound.play();
-							}
-						}));	
-					}
-					
-					if(rootMesh.name.includes('toHellPannel')){		
-
-						// this mesh can be clicked
-						rootMesh.isPickable =  true;									
-						
-						rootMesh.actionManager = new BABYLON.ActionManager(scene);
-						rootMesh.actionManager.registerAction(new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, function () {
-											
-							let ready = checkAudioContext();
-							
-							if(ready) {
-								teleportSound.stop();
-								teleportSound.play();
-							}
-															
-							goToCamera2();	
-							
-						}));	
-					}
-					
-					if(rootMesh.name.includes('toParadisePannel')){
-						
-
-						// this mesh can be clicked
-						rootMesh.isPickable =  true;									
-						
-						rootMesh.actionManager = new BABYLON.ActionManager(scene);
-						rootMesh.actionManager.registerAction(new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, function () {
-							
-							let ready = checkAudioContext();
-							
-							if(ready) {
-								teleportSound.stop();
-								teleportSound.play();
-							}
-															
-							goToCamera1();	
-							
-						}));	
-					}		
-
-					
-					// information panel 
-					if(rootMesh.name.includes('informationPanel1Url')){											
-						
-						// this mesh can be clicked
-						rootMesh.isPickable =  true;					
-						
-						// add action manager 
-						rootMesh.actionManager = new BABYLON.ActionManager(scene);
-						rootMesh.actionManager.registerAction(new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, function () {
-													
-							window.open('../atlantis/','_self');
-						}));	
-						
-					}
-					
-					// information panel 
-					if(rootMesh.name.includes('informationPanel2Url')){										
-						
-						// this mesh can be clicked
-						rootMesh.isPickable =  true;					
-						
-						// add action manager 
-						rootMesh.actionManager = new BABYLON.ActionManager(scene);
-						rootMesh.actionManager.registerAction(new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, function () {
-												
-							window.open('../greathall/','_self');
-						}));	
-						
-					}
-					
-					
-					// golden book
-					if(rootMesh.name.includes('goldenBook') || rootMesh.name.includes('bookSupport')){
-						
-						// this mesh can be clicked
-						rootMesh.isPickable =  true;					
-						
-						// add action manager to the music play button 
-						rootMesh.actionManager = new BABYLON.ActionManager(scene);
-						rootMesh.actionManager.registerAction(new BABYLON.ExecuteCodeAction(BABYLON.ActionManager.OnPickTrigger, function () {
-													
-							window.open('https://virtualworlds.fun/');
-						}));					
-						
-					}
-				}
-
-			}); 
-			
-			
-			//Set gravity for the scene (G force like, on Y-axis)
-			scene.gravity = new BABYLON.Vector3(0, GRAVITY_FORCE, 0);
-
-			// Enable Collisions
-			scene.collisionsEnabled = true;
-
-			//Then apply collisions and gravity to the active universal camera
-			universalCamera.checkCollisions = true;
-			universalCamera.applyGravity = isGravity;
-
-			//Set the ellipsoid around the universal camera (e.g. your player's size)
-			universalCamera.ellipsoid = new BABYLON.Vector3(1, 1.5, 1.2);
-
-			
-			function animatePortal(){
-
-				// animations
-				scene.beginAnimation(scene.getMeshByName('portalLeft'), 0, 250, false, 2);	
-				scene.beginAnimation(scene.getMeshByName('portalRight'), 0, 250, false, 2);	
-
-			}
-			
-			// Virtual Sticks for mobile navigation
-			
-			let adt = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
-			virtualJoystick.initVirtualStick(adt);
-			virtualJoystick.resize(canvas);		
-
-			// GUI for mobile devices
-			gui.init();
-			gui.resize(canvas);
-
-			//camera.attachControl(canvas, true);		
-
-			scene.registerBeforeRender(function(){
-						
-				divFps.innerHTML = engine.getFps().toFixed() + " fps";
-
-				loadingAnimation();
-				
-				// virtual sticks
-				if(scene.activeCamera.id == 'UniversalCamera' ){					
-					virtualJoystick.transform(universalCamera);
-				}	
-				
-			}); 
-
-					
-			
-			// hide virtual sticks if not mobile device
-			virtualJoystick.setVisible(isMobile);	
-
-			scene.activeCamera = universalCamera;	
-			
-			// alternative navigation inputs ( WASD for qwerty keyboard and ZQSD for azerty keyboard )
-			scene.activeCamera.keysUp.push(90); 
-			scene.activeCamera.keysDown.push(83);
-			scene.activeCamera.keysLeft.push(81);
-			scene.activeCamera.keysRight.push(68);
-
-			universalCamera.attachControl(canvas, true);
-
-			// effet de flou
-			//var kernel = 16.0;	
-			//var postProcess0 = new BABYLON.BlurPostProcess("Horizontal blur", new BABYLON.Vector2(1.0, 0), kernel, 1.0, universalCamera);
-			//var postProcess1 = new BABYLON.BlurPostProcess("Vertical blur", new BABYLON.Vector2(0, 1.0), kernel, 1.0, universalCamera);
-			//var postProcess = new BABYLON.HighlightsPostProcess("highlights", 0.5, universalCamera);
-	
-
-			// Function to generate random number 
-			function randomNumber(min, max) { 
-				return Math.ceil(Math.random() * (max - min) + min);
-			} 
-
-
-			return scene;
-		}
-		var engine;
-		var scene;
-
-		initFunction = async function() {
-			var asyncEngineCreation = async function() {
-				try {
-					return createDefaultEngine();
-				} catch (e) {
-					console.log("the available createEngine function failed. Creating the default engine instead");
-					return createDefaultEngine();
-				}
-			}
-
-			engine = await asyncEngineCreation();
-			if (!engine) throw 'engine should not be null.';
-			scene = createScene();
-		};
-
-		initFunction().then(() => {
-			sceneToRender = scene
-			engine.runRenderLoop(function() {
-				if (sceneToRender && sceneToRender.activeCamera) {
-					sceneToRender.render();
-				}
-			});
-		});
-
-		// Resize
-		window.addEventListener("resize", function() {
-			engine.resize();
-			virtualJoystick.resize(canvas);
-			gui.resize(canvas);
-		});
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <meta name="author" content="Josquin BERNARD" />
+    <meta
+      name="description"
+      content="Discover the hell & paradise in a virtual 3D world directly from your browser on Computer / Mobile / XBox."
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@virtualworldsfr" />
+    <meta name="twitter:creator" content="@virtualworldsfr" />
+    <meta property="og:url" content="https://virtualworlds.fun/hell/" />
+    <meta property="og:title" content="Hell & Paradise" />
+    <meta
+      property="og:description"
+      content="Discover the hell & paradise in a virtual 3D world directly from your browser on Computer / Mobile / XBox."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="https://virtualworlds.fun/hell/card/hell.jpg"
+    />
+
+    <title>Hell & Paradise</title>
+
+    <link rel="stylesheet" href="css/loader.css" />
+    <link rel="stylesheet" href="css/world.css" />
+    <link rel="stylesheet" href="css/gui.css" />
+
+    <link rel="shortcut icon" type="image/png" href="images/favico_hell.png" />
+
+    <!-- Google Analytics snippet added by Site Kit -->
+
+    <script
+      src="https://www.googletagmanager.com/gtag/js?id=UA-16584131-1"
+      id="google_gtagjs-js"
+      async
+    ></script>
+    <script id="google_gtagjs-js-after">
+      window.dataLayer = window.dataLayer || []
+      function gtag() {
+        dataLayer.push(arguments)
+      }
+      gtag('set', 'linker', { domains: ['mondesvirtuels.com'] })
+      gtag('js', new Date())
+      gtag('set', 'developer_id.dZTNiMT', true)
+      gtag('config', 'UA-16584131-1', { anonymize_ip: true })
+      gtag('config', 'G-1P3CVXY9KX')
     </script>
-</body>
+
+    <!-- End Google Analytics snippet added by Site Kit -->
+  </head>
+
+  <body>
+    <!-- loading -->
+    <section id="loader" class="centered">
+      <div class="trigger"></div>
+      <span class="centered">Loading...</span>
+    </section>
+
+    <!-- gamepad screen pointer -->
+    <section id="screenTarget" class="centered hidden">
+      <div id="screenPoint" class="centered"></div>
+    </section>
+
+    <!-- gamepad action -->
+    <section id="gamepad" class="centered modal hidden">
+      <img src="images/button_xbox_x.png" />
+      <span></span>
+    </section>
+
+    <!-- gamepad status -->
+    <section id="gamepadStatus" class="centered modal hidden">
+      <!-- https://www.shareicon.net/author/yun-liu -->
+      <img src="images/gamepad.png" />
+      <span>GamePad connected!</span>
+    </section>
+
+    <!-- buttons -->
+    <section id="gui">
+      <div id="fps">0 fps</div>
+
+      <div id="fullscreen">
+        <input
+          type="image"
+          id="btnFullScreen"
+          alt="Full screen (X)"
+          title="Full screen (X)"
+          src="images/expand.png"
+        />
+      </div>
+
+      <div id="camera">
+        <input
+          type="image"
+          id="btnCamera"
+          alt="Change camera (C)"
+          title="Change camera (C)"
+          src="images/camera.png"
+        />
+      </div>
+
+      <div id="navigation">
+        <input
+          type="image"
+          id="btnNavigation"
+          alt="Fly (F)"
+          title="Fly (F)"
+          src="images/walk.png"
+        />
+      </div>
+
+      <div id="help">
+        <input
+          type="image"
+          id="btnHelp"
+          alt="Help (H)"
+          title="Help (H)"
+          src="images/help.png"
+        />
+      </div>
+    </section>
+
+    <!-- help -->
+    <section id="help">
+      <div id="helpComputer" class="centered modal hidden">
+        <img src="images/computer_help_en.png" />
+        <input
+          type="image"
+          class="btnHelpClose"
+          src="images/help_close_button_en.png"
+        />
+      </div>
+      <div id="helpMobile" class="centered modal hidden">
+        <img id="imgHelpMobile" src="images/mobile_help_en.png" />
+        <img class="btnHelpClose" src="images/help_close_button_en.png" />
+      </div>
+      <div id="helpGamePad" class="centered modal hidden">
+        <img src="images/gamepad_xbox_help_en.png" />
+      </div>
+    </section>
+
+    <!-- 3d canvas -->
+    <canvas id="renderCanvas"></canvas>
+
+    <!-- main script -->
+    <script src="js/main.js" type="module"></script>
+
+    <!-- virtual joystick -->
+    <script src="js/virtualstick.js" type="module"></script>
+
+    <!-- gamepad -->
+    <script src="js/gamepad.js" type="module"></script>
+
+    <!-- gui -->
+    <script src="js/gui.js" type="module"></script>
+
+    <!-- world -->
+    <script src="js/world.js" type="module"></script>
+
+    <!-- an now where the magic is possible... -->
+
+    <!-- BabylonJS 3D Framework ( babylonjs.com )-->
+    <!--BabylonJS 5.8.0, mobile virtual joystick not working after that revision -->
+    <!--<script src="https://cdn.jsdelivr.net/npm/babylonjs@5.8.0/babylon.js"></script>-->
+    <!--<script src="https://cdn.jsdelivr.net/npm/babylonjs-gui@5.8.0/babylon.gui.min.js"></script>-->
+    <!--<script src="https://cdn.jsdelivr.net/npm/babylonjs-materials@5.8.0/babylon.skyMaterial.js"></script>-->
+
+    <!-- Babylon.js latest -->
+    <script src="https://cdn.babylonjs.com/babylon.js"></script>
+    <script src="https://cdn.babylonjs.com/gui/babylon.gui.min.js"></script>
+    <script src="https://cdn.babylonjs.com/materialsLibrary/babylonjs.materials.min.js"></script>
+  </body>
 </html>

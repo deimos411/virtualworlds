@@ -1,4 +1,4 @@
-Exporter version: 2.80.1, Blender version: 2.91.0
+Exporter version: 2.93.4, Blender version: 3.0.0
 ========= Conversion from Blender to Babylon.js =========
 	Scene settings used :
 		Inline textures     :  false
@@ -9,38 +9,16 @@ Exporter version: 2.80.1, Blender version: 2.91.0
 		Vert Color Precision:  3
 		Mat Weight Precision:  2
 		Keep Z-up r-handed  :  no
-		Texture directory   :  C:\wamp64\www\mondesvirtuels\atlantide\v5_html\
+		Texture directory   :  D:\wamp64\www\beta\atlantide\v8_panels\babylon\
 	Python World class constructor completed
 	WARNING: The following object (type - CURVE) is not currently exportable thus ignored: BezierCircle
 	processing begun of camera (UniversalCamera):  Camera
 	processing begun of mesh:  atlantide
 		processing begun of material:  material_0
-		processing begun of material:  material_1
-		processing begun of material:  material_2
-		processing begun of material:  material_3
-		processing begun of material:  material_4
-		processing begun of material:  material_5
-		processing begun of material:  material_6
-		processing begun of material:  material_7
 		processing begun of material:  material_8
-		processing begun of material:  material_9
-		processing begun of material:  material_10
-		processing begun of material:  material_11
 			processing texture _00
 				texture type:  diffuseTexture, mapped using: "UVMap"
-			processing texture _03
-				texture type:  diffuseTexture, mapped using: "UVMap"
-			processing texture _09
-				texture type:  diffuseTexture, mapped using: "UVMap"
-			processing texture _04
-				texture type:  diffuseTexture, mapped using: "UVMap"
 			processing texture _01
-				texture type:  diffuseTexture, mapped using: "UVMap"
-			processing texture _07
-				texture type:  diffuseTexture, mapped using: "UVMap"
-			processing texture _05
-				texture type:  diffuseTexture, mapped using: "UVMap"
-			processing texture _06
 				texture type:  diffuseTexture, mapped using: "UVMap"
 		processing begun of multimaterial:  atlantide6.Multimaterial#0
 		Custom split normals with tangents being used
@@ -54,30 +32,12 @@ Exporter version: 2.80.1, Blender version: 2.91.0
 	processing begun of mesh:  fishes1
 		animation processing begun
 			processing action fishes1Action.001:  in[1 - 250], out[0 - 250]
-		processing begun of material:  material_0
-		processing begun of material:  material_1
 		processing begun of material:  material_2
-		processing begun of material:  material_3
-		processing begun of material:  material_4
-		processing begun of material:  material_5
-		processing begun of material:  material_6
 		processing begun of material:  material_7
-		processing begun of material:  material_8
-		processing begun of material:  material_9
-		processing begun of material:  material_10
-		processing begun of material:  material_11
-		registered as also a user of material:  material_0
-		registered as also a user of material:  material_1
-		registered as also a user of material:  material_2
-		registered as also a user of material:  material_3
-		registered as also a user of material:  material_4
-		registered as also a user of material:  material_5
-		registered as also a user of material:  material_6
-		registered as also a user of material:  material_7
-		registered as also a user of material:  material_8
-		registered as also a user of material:  material_9
-		registered as also a user of material:  material_10
-		registered as also a user of material:  material_11
+			processing texture _03
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture _04
+				texture type:  diffuseTexture, mapped using: "UVMap"
 		processing begun of multimaterial:  atlantide6.Multimaterial#1
 		Custom split normals with tangents being used
 		num positions      :  412
@@ -90,30 +50,10 @@ Exporter version: 2.80.1, Blender version: 2.91.0
 	processing begun of mesh:  fishes2
 		animation processing begun
 			processing action fishes2Action:  in[1 - 250], out[0 - 250]
-		processing begun of material:  material_0
-		processing begun of material:  material_1
 		processing begun of material:  material_2
-		processing begun of material:  material_3
-		processing begun of material:  material_4
-		processing begun of material:  material_5
-		processing begun of material:  material_6
 		processing begun of material:  material_7
-		processing begun of material:  material_8
-		processing begun of material:  material_9
-		processing begun of material:  material_10
-		processing begun of material:  material_11
-		registered as also a user of material:  material_0
-		registered as also a user of material:  material_1
 		registered as also a user of material:  material_2
-		registered as also a user of material:  material_3
-		registered as also a user of material:  material_4
-		registered as also a user of material:  material_5
-		registered as also a user of material:  material_6
 		registered as also a user of material:  material_7
-		registered as also a user of material:  material_8
-		registered as also a user of material:  material_9
-		registered as also a user of material:  material_10
-		registered as also a user of material:  material_11
 		processing begun of multimaterial:  atlantide6.Multimaterial#2
 		Custom split normals with tangents being used
 		num positions      :  412
@@ -126,65 +66,22 @@ Exporter version: 2.80.1, Blender version: 2.91.0
 	processing begun of mesh:  mantaRay
 		animation processing begun
 			processing action Action.002:  in[0 - 250], out[0 - 250]
-		processing begun of material:  material_0
-		processing begun of material:  material_1
 		processing begun of material:  material_2
-		processing begun of material:  material_3
-		processing begun of material:  material_4
-		processing begun of material:  material_5
-		processing begun of material:  material_6
 		processing begun of material:  material_7
-		processing begun of material:  material_8
-		processing begun of material:  material_9
-		processing begun of material:  material_10
-		processing begun of material:  material_11
-		registered as also a user of material:  material_0
-		registered as also a user of material:  material_1
 		registered as also a user of material:  material_2
-		registered as also a user of material:  material_3
-		registered as also a user of material:  material_4
-		registered as also a user of material:  material_5
-		registered as also a user of material:  material_6
 		registered as also a user of material:  material_7
-		registered as also a user of material:  material_8
-		registered as also a user of material:  material_9
-		registered as also a user of material:  material_10
-		registered as also a user of material:  material_11
 		processing begun of multimaterial:  atlantide6.Multimaterial#3
 		Custom split normals with tangents being used
-		num positions      :  764
-		num normals        :  764
-		num tangents       :  3056
-		num uvs            :  1528
+		num positions      :  759
+		num normals        :  759
+		num tangents       :  3036
+		num uvs            :  1518
 		num uvs2           :  0
 		num colors         :  0
 		num triangles      :  354
 	processing begun of mesh:  rock
 		processing begun of material:  material_0
-		processing begun of material:  material_1
-		processing begun of material:  material_2
-		processing begun of material:  material_3
-		processing begun of material:  material_4
-		processing begun of material:  material_5
-		processing begun of material:  material_6
-		processing begun of material:  material_7
-		processing begun of material:  material_8
-		processing begun of material:  material_9
-		processing begun of material:  material_10
-		processing begun of material:  material_11
 		registered as also a user of material:  material_0
-		registered as also a user of material:  material_1
-		registered as also a user of material:  material_2
-		registered as also a user of material:  material_3
-		registered as also a user of material:  material_4
-		registered as also a user of material:  material_5
-		registered as also a user of material:  material_6
-		registered as also a user of material:  material_7
-		registered as also a user of material:  material_8
-		registered as also a user of material:  material_9
-		registered as also a user of material:  material_10
-		registered as also a user of material:  material_11
-		processing begun of multimaterial:  atlantide6.Multimaterial#4
 		Custom split normals with tangents being used
 		num positions      :  83
 		num normals        :  83
@@ -196,31 +93,9 @@ Exporter version: 2.80.1, Blender version: 2.91.0
 	processing begun of mesh:  bubble1
 		animation processing begun
 			processing action bubble1Action:  in[0 - 250], out[0 - 250]
-		processing begun of material:  material_0
-		processing begun of material:  material_1
-		processing begun of material:  material_2
-		processing begun of material:  material_3
-		processing begun of material:  material_4
-		processing begun of material:  material_5
-		processing begun of material:  material_6
-		processing begun of material:  material_7
-		processing begun of material:  material_8
 		processing begun of material:  material_9
-		processing begun of material:  material_10
-		processing begun of material:  material_11
-		registered as also a user of material:  material_0
-		registered as also a user of material:  material_1
-		registered as also a user of material:  material_2
-		registered as also a user of material:  material_3
-		registered as also a user of material:  material_4
-		registered as also a user of material:  material_5
-		registered as also a user of material:  material_6
-		registered as also a user of material:  material_7
-		registered as also a user of material:  material_8
-		registered as also a user of material:  material_9
-		registered as also a user of material:  material_10
-		registered as also a user of material:  material_11
-		processing begun of multimaterial:  atlantide6.Multimaterial#5
+			processing texture _07
+				texture type:  diffuseTexture, mapped using: "UVMap"
 		Custom split normals with tangents being used
 		num positions      :  84
 		num normals        :  84
@@ -232,31 +107,8 @@ Exporter version: 2.80.1, Blender version: 2.91.0
 	processing begun of mesh:  bubble2
 		animation processing begun
 			processing action bubble2Action:  in[0 - 250], out[0 - 250]
-		processing begun of material:  material_0
-		processing begun of material:  material_1
-		processing begun of material:  material_2
-		processing begun of material:  material_3
-		processing begun of material:  material_4
-		processing begun of material:  material_5
-		processing begun of material:  material_6
-		processing begun of material:  material_7
-		processing begun of material:  material_8
 		processing begun of material:  material_9
-		processing begun of material:  material_10
-		processing begun of material:  material_11
-		registered as also a user of material:  material_0
-		registered as also a user of material:  material_1
-		registered as also a user of material:  material_2
-		registered as also a user of material:  material_3
-		registered as also a user of material:  material_4
-		registered as also a user of material:  material_5
-		registered as also a user of material:  material_6
-		registered as also a user of material:  material_7
-		registered as also a user of material:  material_8
 		registered as also a user of material:  material_9
-		registered as also a user of material:  material_10
-		registered as also a user of material:  material_11
-		processing begun of multimaterial:  atlantide6.Multimaterial#6
 		Custom split normals with tangents being used
 		num positions      :  84
 		num normals        :  84
@@ -268,31 +120,8 @@ Exporter version: 2.80.1, Blender version: 2.91.0
 	processing begun of mesh:  bubble3
 		animation processing begun
 			processing action bubble3Action:  in[0 - 250], out[0 - 250]
-		processing begun of material:  material_0
-		processing begun of material:  material_1
-		processing begun of material:  material_2
-		processing begun of material:  material_3
-		processing begun of material:  material_4
-		processing begun of material:  material_5
-		processing begun of material:  material_6
-		processing begun of material:  material_7
-		processing begun of material:  material_8
 		processing begun of material:  material_9
-		processing begun of material:  material_10
-		processing begun of material:  material_11
-		registered as also a user of material:  material_0
-		registered as also a user of material:  material_1
-		registered as also a user of material:  material_2
-		registered as also a user of material:  material_3
-		registered as also a user of material:  material_4
-		registered as also a user of material:  material_5
-		registered as also a user of material:  material_6
-		registered as also a user of material:  material_7
-		registered as also a user of material:  material_8
 		registered as also a user of material:  material_9
-		registered as also a user of material:  material_10
-		registered as also a user of material:  material_11
-		processing begun of multimaterial:  atlantide6.Multimaterial#7
 		Custom split normals with tangents being used
 		num positions      :  84
 		num normals        :  84
@@ -304,31 +133,8 @@ Exporter version: 2.80.1, Blender version: 2.91.0
 	processing begun of mesh:  bubble4
 		animation processing begun
 			processing action bubble4Action:  in[0 - 250], out[0 - 250]
-		processing begun of material:  material_0
-		processing begun of material:  material_1
-		processing begun of material:  material_2
-		processing begun of material:  material_3
-		processing begun of material:  material_4
-		processing begun of material:  material_5
-		processing begun of material:  material_6
-		processing begun of material:  material_7
-		processing begun of material:  material_8
 		processing begun of material:  material_9
-		processing begun of material:  material_10
-		processing begun of material:  material_11
-		registered as also a user of material:  material_0
-		registered as also a user of material:  material_1
-		registered as also a user of material:  material_2
-		registered as also a user of material:  material_3
-		registered as also a user of material:  material_4
-		registered as also a user of material:  material_5
-		registered as also a user of material:  material_6
-		registered as also a user of material:  material_7
-		registered as also a user of material:  material_8
 		registered as also a user of material:  material_9
-		registered as also a user of material:  material_10
-		registered as also a user of material:  material_11
-		processing begun of multimaterial:  atlantide6.Multimaterial#8
 		Custom split normals with tangents being used
 		num positions      :  84
 		num normals        :  84
@@ -340,31 +146,8 @@ Exporter version: 2.80.1, Blender version: 2.91.0
 	processing begun of mesh:  bubble5
 		animation processing begun
 			processing action bubble5Action:  in[0 - 250], out[0 - 250]
-		processing begun of material:  material_0
-		processing begun of material:  material_1
-		processing begun of material:  material_2
-		processing begun of material:  material_3
-		processing begun of material:  material_4
-		processing begun of material:  material_5
-		processing begun of material:  material_6
-		processing begun of material:  material_7
-		processing begun of material:  material_8
 		processing begun of material:  material_9
-		processing begun of material:  material_10
-		processing begun of material:  material_11
-		registered as also a user of material:  material_0
-		registered as also a user of material:  material_1
-		registered as also a user of material:  material_2
-		registered as also a user of material:  material_3
-		registered as also a user of material:  material_4
-		registered as also a user of material:  material_5
-		registered as also a user of material:  material_6
-		registered as also a user of material:  material_7
-		registered as also a user of material:  material_8
 		registered as also a user of material:  material_9
-		registered as also a user of material:  material_10
-		registered as also a user of material:  material_11
-		processing begun of multimaterial:  atlantide6.Multimaterial#9
 		Custom split normals with tangents being used
 		num positions      :  84
 		num normals        :  84
@@ -376,31 +159,8 @@ Exporter version: 2.80.1, Blender version: 2.91.0
 	processing begun of mesh:  bubble6
 		animation processing begun
 			processing action bubble6Action:  in[0 - 250], out[0 - 250]
-		processing begun of material:  material_0
-		processing begun of material:  material_1
-		processing begun of material:  material_2
-		processing begun of material:  material_3
-		processing begun of material:  material_4
-		processing begun of material:  material_5
-		processing begun of material:  material_6
-		processing begun of material:  material_7
-		processing begun of material:  material_8
 		processing begun of material:  material_9
-		processing begun of material:  material_10
-		processing begun of material:  material_11
-		registered as also a user of material:  material_0
-		registered as also a user of material:  material_1
-		registered as also a user of material:  material_2
-		registered as also a user of material:  material_3
-		registered as also a user of material:  material_4
-		registered as also a user of material:  material_5
-		registered as also a user of material:  material_6
-		registered as also a user of material:  material_7
-		registered as also a user of material:  material_8
 		registered as also a user of material:  material_9
-		registered as also a user of material:  material_10
-		registered as also a user of material:  material_11
-		processing begun of multimaterial:  atlantide6.Multimaterial#10
 		Custom split normals with tangents being used
 		num positions      :  84
 		num normals        :  84
@@ -412,31 +172,8 @@ Exporter version: 2.80.1, Blender version: 2.91.0
 	processing begun of mesh:  bubble7
 		animation processing begun
 			processing action bubble7Action:  in[0 - 250], out[0 - 250]
-		processing begun of material:  material_0
-		processing begun of material:  material_1
-		processing begun of material:  material_2
-		processing begun of material:  material_3
-		processing begun of material:  material_4
-		processing begun of material:  material_5
-		processing begun of material:  material_6
-		processing begun of material:  material_7
-		processing begun of material:  material_8
 		processing begun of material:  material_9
-		processing begun of material:  material_10
-		processing begun of material:  material_11
-		registered as also a user of material:  material_0
-		registered as also a user of material:  material_1
-		registered as also a user of material:  material_2
-		registered as also a user of material:  material_3
-		registered as also a user of material:  material_4
-		registered as also a user of material:  material_5
-		registered as also a user of material:  material_6
-		registered as also a user of material:  material_7
-		registered as also a user of material:  material_8
 		registered as also a user of material:  material_9
-		registered as also a user of material:  material_10
-		registered as also a user of material:  material_11
-		processing begun of multimaterial:  atlantide6.Multimaterial#11
 		Custom split normals with tangents being used
 		num positions      :  84
 		num normals        :  84
@@ -448,31 +185,8 @@ Exporter version: 2.80.1, Blender version: 2.91.0
 	processing begun of mesh:  bubble8
 		animation processing begun
 			processing action bubble8Action:  in[0 - 250], out[0 - 250]
-		processing begun of material:  material_0
-		processing begun of material:  material_1
-		processing begun of material:  material_2
-		processing begun of material:  material_3
-		processing begun of material:  material_4
-		processing begun of material:  material_5
-		processing begun of material:  material_6
-		processing begun of material:  material_7
-		processing begun of material:  material_8
 		processing begun of material:  material_9
-		processing begun of material:  material_10
-		processing begun of material:  material_11
-		registered as also a user of material:  material_0
-		registered as also a user of material:  material_1
-		registered as also a user of material:  material_2
-		registered as also a user of material:  material_3
-		registered as also a user of material:  material_4
-		registered as also a user of material:  material_5
-		registered as also a user of material:  material_6
-		registered as also a user of material:  material_7
-		registered as also a user of material:  material_8
 		registered as also a user of material:  material_9
-		registered as also a user of material:  material_10
-		registered as also a user of material:  material_11
-		processing begun of multimaterial:  atlantide6.Multimaterial#12
 		Custom split normals with tangents being used
 		num positions      :  84
 		num normals        :  84
@@ -484,31 +198,8 @@ Exporter version: 2.80.1, Blender version: 2.91.0
 	processing begun of mesh:  bubble9
 		animation processing begun
 			processing action bubble9Action:  in[1 - 250], out[0 - 250]
-		processing begun of material:  material_0
-		processing begun of material:  material_1
-		processing begun of material:  material_2
-		processing begun of material:  material_3
-		processing begun of material:  material_4
-		processing begun of material:  material_5
-		processing begun of material:  material_6
-		processing begun of material:  material_7
-		processing begun of material:  material_8
 		processing begun of material:  material_9
-		processing begun of material:  material_10
-		processing begun of material:  material_11
-		registered as also a user of material:  material_0
-		registered as also a user of material:  material_1
-		registered as also a user of material:  material_2
-		registered as also a user of material:  material_3
-		registered as also a user of material:  material_4
-		registered as also a user of material:  material_5
-		registered as also a user of material:  material_6
-		registered as also a user of material:  material_7
-		registered as also a user of material:  material_8
 		registered as also a user of material:  material_9
-		registered as also a user of material:  material_10
-		registered as also a user of material:  material_11
-		processing begun of multimaterial:  atlantide6.Multimaterial#13
 		Custom split normals with tangents being used
 		num positions      :  84
 		num normals        :  84
@@ -520,31 +211,8 @@ Exporter version: 2.80.1, Blender version: 2.91.0
 	processing begun of mesh:  bubble10
 		animation processing begun
 			processing action bubble10Action:  in[0 - 250], out[0 - 250]
-		processing begun of material:  material_0
-		processing begun of material:  material_1
-		processing begun of material:  material_2
-		processing begun of material:  material_3
-		processing begun of material:  material_4
-		processing begun of material:  material_5
-		processing begun of material:  material_6
-		processing begun of material:  material_7
-		processing begun of material:  material_8
 		processing begun of material:  material_9
-		processing begun of material:  material_10
-		processing begun of material:  material_11
-		registered as also a user of material:  material_0
-		registered as also a user of material:  material_1
-		registered as also a user of material:  material_2
-		registered as also a user of material:  material_3
-		registered as also a user of material:  material_4
-		registered as also a user of material:  material_5
-		registered as also a user of material:  material_6
-		registered as also a user of material:  material_7
-		registered as also a user of material:  material_8
 		registered as also a user of material:  material_9
-		registered as also a user of material:  material_10
-		registered as also a user of material:  material_11
-		processing begun of multimaterial:  atlantide6.Multimaterial#14
 		Custom split normals with tangents being used
 		num positions      :  84
 		num normals        :  84
@@ -554,31 +222,9 @@ Exporter version: 2.80.1, Blender version: 2.91.0
 		num colors         :  0
 		num triangles      :  36
 	processing begun of mesh:  bookSupport
-		processing begun of material:  material_0
-		processing begun of material:  material_1
-		processing begun of material:  material_2
 		processing begun of material:  material_3
-		processing begun of material:  material_4
-		processing begun of material:  material_5
-		processing begun of material:  material_6
-		processing begun of material:  material_7
-		processing begun of material:  material_8
-		processing begun of material:  material_9
-		processing begun of material:  material_10
-		processing begun of material:  material_11
-		registered as also a user of material:  material_0
-		registered as also a user of material:  material_1
-		registered as also a user of material:  material_2
-		registered as also a user of material:  material_3
-		registered as also a user of material:  material_4
-		registered as also a user of material:  material_5
-		registered as also a user of material:  material_6
-		registered as also a user of material:  material_7
-		registered as also a user of material:  material_8
-		registered as also a user of material:  material_9
-		registered as also a user of material:  material_10
-		registered as also a user of material:  material_11
-		processing begun of multimaterial:  atlantide6.Multimaterial#15
+			processing texture _09
+				texture type:  diffuseTexture, mapped using: "UVMap"
 		Custom split normals with tangents being used
 		num positions      :  45
 		num normals        :  45
@@ -588,31 +234,11 @@ Exporter version: 2.80.1, Blender version: 2.91.0
 		num colors         :  0
 		num triangles      :  24
 	processing begun of mesh:  goldenBook
-		processing begun of material:  material_0
 		processing begun of material:  material_1
-		processing begun of material:  material_2
-		processing begun of material:  material_3
 		processing begun of material:  material_4
 		processing begun of material:  material_5
 		processing begun of material:  material_6
-		processing begun of material:  material_7
-		processing begun of material:  material_8
-		processing begun of material:  material_9
-		processing begun of material:  material_10
-		processing begun of material:  material_11
-		registered as also a user of material:  material_0
-		registered as also a user of material:  material_1
-		registered as also a user of material:  material_2
-		registered as also a user of material:  material_3
-		registered as also a user of material:  material_4
-		registered as also a user of material:  material_5
-		registered as also a user of material:  material_6
-		registered as also a user of material:  material_7
-		registered as also a user of material:  material_8
-		registered as also a user of material:  material_9
-		registered as also a user of material:  material_10
-		registered as also a user of material:  material_11
-		processing begun of multimaterial:  atlantide6.Multimaterial#16
+		processing begun of multimaterial:  atlantide6.Multimaterial#4
 		Custom split normals with tangents being used
 		num positions      :  60
 		num normals        :  60
@@ -623,30 +249,10 @@ Exporter version: 2.80.1, Blender version: 2.91.0
 		num triangles      :  36
 	processing begun of mesh:  informationPanel1
 		processing begun of material:  material_0
-		processing begun of material:  material_1
 		processing begun of material:  material_2
-		processing begun of material:  material_3
-		processing begun of material:  material_4
-		processing begun of material:  material_5
-		processing begun of material:  material_6
-		processing begun of material:  material_7
-		processing begun of material:  material_8
-		processing begun of material:  material_9
-		processing begun of material:  material_10
-		processing begun of material:  material_11
 		registered as also a user of material:  material_0
-		registered as also a user of material:  material_1
 		registered as also a user of material:  material_2
-		registered as also a user of material:  material_3
-		registered as also a user of material:  material_4
-		registered as also a user of material:  material_5
-		registered as also a user of material:  material_6
-		registered as also a user of material:  material_7
-		registered as also a user of material:  material_8
-		registered as also a user of material:  material_9
-		registered as also a user of material:  material_10
-		registered as also a user of material:  material_11
-		processing begun of multimaterial:  atlantide6.Multimaterial#17
+		processing begun of multimaterial:  atlantide6.Multimaterial#5
 		Custom split normals with tangents being used
 		num positions      :  132
 		num normals        :  132
@@ -656,32 +262,9 @@ Exporter version: 2.80.1, Blender version: 2.91.0
 		num colors         :  0
 		num triangles      :  80
 	processing begun of mesh:  informationPanel1Url
-		processing begun of material:  material_0
 		processing begun of material:  arbres
-		processing begun of material:  material_2
-		processing begun of material:  material_3
-		processing begun of material:  material_4
-		processing begun of material:  material_5
-		processing begun of material:  material_6
-		processing begun of material:  material_7
-		processing begun of material:  material_8
-		processing begun of material:  material_9
-		processing begun of material:  material_10
-		processing begun of material:  material_11
-		registered as also a user of material:  material_0
 			processing texture arbres
 				texture type:  diffuseTexture, mapped using: "UVMap"
-		registered as also a user of material:  material_2
-		registered as also a user of material:  material_3
-		registered as also a user of material:  material_4
-		registered as also a user of material:  material_5
-		registered as also a user of material:  material_6
-		registered as also a user of material:  material_7
-		registered as also a user of material:  material_8
-		registered as also a user of material:  material_9
-		registered as also a user of material:  material_10
-		registered as also a user of material:  material_11
-		processing begun of multimaterial:  atlantide6.Multimaterial#18
 		Custom split normals with tangents being used
 		num positions      :  9
 		num normals        :  9
@@ -693,34 +276,9 @@ Exporter version: 2.80.1, Blender version: 2.91.0
 	processing begun of mesh:  informationPanel2
 		mesh is an instance of :  informationPanel1.  Processing halted.
 	processing begun of mesh:  informationPanel2Url
-		processing begun of material:  material_0
-		processing begun of material:  arbres
-		processing begun of material:  material_2
-		processing begun of material:  material_3
-		processing begun of material:  material_4
-		processing begun of material:  material_5
-		processing begun of material:  material_6
-		processing begun of material:  material_7
-		processing begun of material:  material_8
-		processing begun of material:  material_9
-		processing begun of material:  material_10
-		processing begun of material:  material_11
 		processing begun of material:  enfer
-		registered as also a user of material:  material_0
-		registered as also a user of material:  arbres
-		registered as also a user of material:  material_2
-		registered as also a user of material:  material_3
-		registered as also a user of material:  material_4
-		registered as also a user of material:  material_5
-		registered as also a user of material:  material_6
-		registered as also a user of material:  material_7
-		registered as also a user of material:  material_8
-		registered as also a user of material:  material_9
-		registered as also a user of material:  material_10
-		registered as also a user of material:  material_11
-			processing texture enfer
+			processing texture halloween
 				texture type:  diffuseTexture, mapped using: "UVMap"
-		processing begun of multimaterial:  atlantide6.Multimaterial#19
 		Custom split normals with tangents being used
 		num positions      :  9
 		num normals        :  9
@@ -731,30 +289,12 @@ Exporter version: 2.80.1, Blender version: 2.91.0
 		num triangles      :  4
 	processing begun of mesh:  palace
 		processing begun of material:  material_0
-		processing begun of material:  material_1
 		processing begun of material:  material_2
-		processing begun of material:  material_3
-		processing begun of material:  material_4
-		processing begun of material:  material_5
-		processing begun of material:  material_6
 		processing begun of material:  material_7
-		processing begun of material:  material_8
-		processing begun of material:  material_9
-		processing begun of material:  material_10
-		processing begun of material:  material_11
 		registered as also a user of material:  material_0
-		registered as also a user of material:  material_1
 		registered as also a user of material:  material_2
-		registered as also a user of material:  material_3
-		registered as also a user of material:  material_4
-		registered as also a user of material:  material_5
-		registered as also a user of material:  material_6
 		registered as also a user of material:  material_7
-		registered as also a user of material:  material_8
-		registered as also a user of material:  material_9
-		registered as also a user of material:  material_10
-		registered as also a user of material:  material_11
-		processing begun of multimaterial:  atlantide6.Multimaterial#20
+		processing begun of multimaterial:  atlantide6.Multimaterial#6
 		Custom split normals with tangents being used
 		num positions      :  364
 		num normals        :  364
@@ -764,31 +304,9 @@ Exporter version: 2.80.1, Blender version: 2.91.0
 		num colors         :  0
 		num triangles      :  296
 	processing begun of mesh:  crystals
-		processing begun of material:  material_0
-		processing begun of material:  material_1
-		processing begun of material:  material_2
-		processing begun of material:  material_3
-		processing begun of material:  material_4
-		processing begun of material:  material_5
-		processing begun of material:  material_6
-		processing begun of material:  material_7
-		processing begun of material:  material_8
-		processing begun of material:  material_9
-		processing begun of material:  material_10
 		processing begun of material:  material_11
-		registered as also a user of material:  material_0
-		registered as also a user of material:  material_1
-		registered as also a user of material:  material_2
-		registered as also a user of material:  material_3
-		registered as also a user of material:  material_4
-		registered as also a user of material:  material_5
-		registered as also a user of material:  material_6
-		registered as also a user of material:  material_7
-		registered as also a user of material:  material_8
-		registered as also a user of material:  material_9
-		registered as also a user of material:  material_10
-		registered as also a user of material:  material_11
-		processing begun of multimaterial:  atlantide6.Multimaterial#21
+			processing texture _06
+				texture type:  diffuseTexture, mapped using: "UVMap"
 		Custom split normals with tangents being used
 		num positions      :  570
 		num normals        :  570
@@ -798,31 +316,9 @@ Exporter version: 2.80.1, Blender version: 2.91.0
 		num colors         :  0
 		num triangles      :  346
 	processing begun of mesh:  windows1
-		processing begun of material:  material_0
-		processing begun of material:  material_1
-		processing begun of material:  material_2
-		processing begun of material:  material_3
-		processing begun of material:  material_4
-		processing begun of material:  material_5
-		processing begun of material:  material_6
-		processing begun of material:  material_7
-		processing begun of material:  material_8
-		processing begun of material:  material_9
 		processing begun of material:  material_10
-		processing begun of material:  material_11
-		registered as also a user of material:  material_0
-		registered as also a user of material:  material_1
-		registered as also a user of material:  material_2
-		registered as also a user of material:  material_3
-		registered as also a user of material:  material_4
-		registered as also a user of material:  material_5
-		registered as also a user of material:  material_6
-		registered as also a user of material:  material_7
-		registered as also a user of material:  material_8
-		registered as also a user of material:  material_9
-		registered as also a user of material:  material_10
-		registered as also a user of material:  material_11
-		processing begun of multimaterial:  atlantide6.Multimaterial#22
+			processing texture _05
+				texture type:  diffuseTexture, mapped using: "UVMap"
 		Custom split normals with tangents being used
 		num positions      :  43
 		num normals        :  43
@@ -832,31 +328,8 @@ Exporter version: 2.80.1, Blender version: 2.91.0
 		num colors         :  0
 		num triangles      :  40
 	processing begun of mesh:  windows2
-		processing begun of material:  material_0
-		processing begun of material:  material_1
-		processing begun of material:  material_2
-		processing begun of material:  material_3
-		processing begun of material:  material_4
-		processing begun of material:  material_5
-		processing begun of material:  material_6
-		processing begun of material:  material_7
-		processing begun of material:  material_8
-		processing begun of material:  material_9
 		processing begun of material:  material_10
-		processing begun of material:  material_11
-		registered as also a user of material:  material_0
-		registered as also a user of material:  material_1
-		registered as also a user of material:  material_2
-		registered as also a user of material:  material_3
-		registered as also a user of material:  material_4
-		registered as also a user of material:  material_5
-		registered as also a user of material:  material_6
-		registered as also a user of material:  material_7
-		registered as also a user of material:  material_8
-		registered as also a user of material:  material_9
 		registered as also a user of material:  material_10
-		registered as also a user of material:  material_11
-		processing begun of multimaterial:  atlantide6.Multimaterial#23
 		Custom split normals with tangents being used
 		num positions      :  43
 		num normals        :  43
@@ -866,31 +339,8 @@ Exporter version: 2.80.1, Blender version: 2.91.0
 		num colors         :  0
 		num triangles      :  40
 	processing begun of mesh:  windows3
-		processing begun of material:  material_0
-		processing begun of material:  material_1
-		processing begun of material:  material_2
-		processing begun of material:  material_3
-		processing begun of material:  material_4
-		processing begun of material:  material_5
-		processing begun of material:  material_6
-		processing begun of material:  material_7
-		processing begun of material:  material_8
-		processing begun of material:  material_9
 		processing begun of material:  material_10
-		processing begun of material:  material_11
-		registered as also a user of material:  material_0
-		registered as also a user of material:  material_1
-		registered as also a user of material:  material_2
-		registered as also a user of material:  material_3
-		registered as also a user of material:  material_4
-		registered as also a user of material:  material_5
-		registered as also a user of material:  material_6
-		registered as also a user of material:  material_7
-		registered as also a user of material:  material_8
-		registered as also a user of material:  material_9
 		registered as also a user of material:  material_10
-		registered as also a user of material:  material_11
-		processing begun of multimaterial:  atlantide6.Multimaterial#24
 		Custom split normals with tangents being used
 		num positions      :  43
 		num normals        :  43
@@ -900,31 +350,8 @@ Exporter version: 2.80.1, Blender version: 2.91.0
 		num colors         :  0
 		num triangles      :  40
 	processing begun of mesh:  windows4
-		processing begun of material:  material_0
-		processing begun of material:  material_1
-		processing begun of material:  material_2
-		processing begun of material:  material_3
-		processing begun of material:  material_4
-		processing begun of material:  material_5
-		processing begun of material:  material_6
-		processing begun of material:  material_7
-		processing begun of material:  material_8
-		processing begun of material:  material_9
 		processing begun of material:  material_10
-		processing begun of material:  material_11
-		registered as also a user of material:  material_0
-		registered as also a user of material:  material_1
-		registered as also a user of material:  material_2
-		registered as also a user of material:  material_3
-		registered as also a user of material:  material_4
-		registered as also a user of material:  material_5
-		registered as also a user of material:  material_6
-		registered as also a user of material:  material_7
-		registered as also a user of material:  material_8
-		registered as also a user of material:  material_9
 		registered as also a user of material:  material_10
-		registered as also a user of material:  material_11
-		processing begun of multimaterial:  atlantide6.Multimaterial#25
 		Custom split normals with tangents being used
 		num positions      :  36
 		num normals        :  36
@@ -934,31 +361,8 @@ Exporter version: 2.80.1, Blender version: 2.91.0
 		num colors         :  0
 		num triangles      :  34
 	processing begun of mesh:  windows5
-		processing begun of material:  material_0
-		processing begun of material:  material_1
-		processing begun of material:  material_2
-		processing begun of material:  material_3
-		processing begun of material:  material_4
-		processing begun of material:  material_5
-		processing begun of material:  material_6
-		processing begun of material:  material_7
-		processing begun of material:  material_8
-		processing begun of material:  material_9
 		processing begun of material:  material_10
-		processing begun of material:  material_11
-		registered as also a user of material:  material_0
-		registered as also a user of material:  material_1
-		registered as also a user of material:  material_2
-		registered as also a user of material:  material_3
-		registered as also a user of material:  material_4
-		registered as also a user of material:  material_5
-		registered as also a user of material:  material_6
-		registered as also a user of material:  material_7
-		registered as also a user of material:  material_8
-		registered as also a user of material:  material_9
 		registered as also a user of material:  material_10
-		registered as also a user of material:  material_11
-		processing begun of multimaterial:  atlantide6.Multimaterial#26
 		Custom split normals with tangents being used
 		num positions      :  43
 		num normals        :  43
@@ -968,31 +372,8 @@ Exporter version: 2.80.1, Blender version: 2.91.0
 		num colors         :  0
 		num triangles      :  40
 	processing begun of mesh:  windows6
-		processing begun of material:  material_0
-		processing begun of material:  material_1
-		processing begun of material:  material_2
-		processing begun of material:  material_3
-		processing begun of material:  material_4
-		processing begun of material:  material_5
-		processing begun of material:  material_6
-		processing begun of material:  material_7
-		processing begun of material:  material_8
-		processing begun of material:  material_9
 		processing begun of material:  material_10
-		processing begun of material:  material_11
-		registered as also a user of material:  material_0
-		registered as also a user of material:  material_1
-		registered as also a user of material:  material_2
-		registered as also a user of material:  material_3
-		registered as also a user of material:  material_4
-		registered as also a user of material:  material_5
-		registered as also a user of material:  material_6
-		registered as also a user of material:  material_7
-		registered as also a user of material:  material_8
-		registered as also a user of material:  material_9
 		registered as also a user of material:  material_10
-		registered as also a user of material:  material_11
-		processing begun of multimaterial:  atlantide6.Multimaterial#27
 		Custom split normals with tangents being used
 		num positions      :  43
 		num normals        :  43
@@ -1004,67 +385,29 @@ Exporter version: 2.80.1, Blender version: 2.91.0
 	processing begun of mesh:  whale
 		animation processing begun
 			processing action Action:  in[0 - 250], out[0 - 250]
-		processing begun of material:  material_0
-		processing begun of material:  material_1
 		processing begun of material:  material_2
-		processing begun of material:  material_3
-		processing begun of material:  material_4
-		processing begun of material:  material_5
 		processing begun of material:  material_6
 		processing begun of material:  material_7
-		processing begun of material:  material_8
-		processing begun of material:  material_9
-		processing begun of material:  material_10
-		processing begun of material:  material_11
-		registered as also a user of material:  material_0
-		registered as also a user of material:  material_1
 		registered as also a user of material:  material_2
-		registered as also a user of material:  material_3
-		registered as also a user of material:  material_4
-		registered as also a user of material:  material_5
 		registered as also a user of material:  material_6
 		registered as also a user of material:  material_7
-		registered as also a user of material:  material_8
-		registered as also a user of material:  material_9
-		registered as also a user of material:  material_10
-		registered as also a user of material:  material_11
-		processing begun of multimaterial:  atlantide6.Multimaterial#28
+		processing begun of multimaterial:  atlantide6.Multimaterial#7
 		Custom split normals with tangents being used
-		num positions      :  337
-		num normals        :  337
-		num tangents       :  1348
-		num uvs            :  674
+		num positions      :  335
+		num normals        :  335
+		num tangents       :  1340
+		num uvs            :  670
 		num uvs2           :  0
 		num colors         :  0
 		num triangles      :  171
 	processing begun of mesh:  whaleFlipper
 		animation processing begun
 			processing action Action.001:  in[0 - 250], out[0 - 250]
-		processing begun of material:  material_0
-		processing begun of material:  material_1
 		processing begun of material:  material_2
-		processing begun of material:  material_3
-		processing begun of material:  material_4
-		processing begun of material:  material_5
-		processing begun of material:  material_6
 		processing begun of material:  material_7
-		processing begun of material:  material_8
-		processing begun of material:  material_9
-		processing begun of material:  material_10
-		processing begun of material:  material_11
-		registered as also a user of material:  material_0
-		registered as also a user of material:  material_1
 		registered as also a user of material:  material_2
-		registered as also a user of material:  material_3
-		registered as also a user of material:  material_4
-		registered as also a user of material:  material_5
-		registered as also a user of material:  material_6
 		registered as also a user of material:  material_7
-		registered as also a user of material:  material_8
-		registered as also a user of material:  material_9
-		registered as also a user of material:  material_10
-		registered as also a user of material:  material_11
-		processing begun of multimaterial:  atlantide6.Multimaterial#29
+		processing begun of multimaterial:  atlantide6.Multimaterial#8
 		Custom split normals with tangents being used
 		num positions      :  226
 		num normals        :  226
@@ -1107,4 +450,4 @@ Exporter version: 2.80.1, Blender version: 2.91.0
 	writing mesh:  whaleFlipper
 ========= Writing of JSON file completed =========
 ========= end of processing =========
-elapsed time:  0 min, 0.7525 secs
+elapsed time:  0 min, 0.909 secs

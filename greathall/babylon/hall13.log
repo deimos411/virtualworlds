@@ -1,4 +1,4 @@
-Exporter version: 2.80.1, Blender version: 2.92.0
+Exporter version: 2.93.4, Blender version: 3.0.0
 ========= Conversion from Blender to Babylon.js =========
 	Scene settings used :
 		Inline textures     :  false
@@ -9,7 +9,7 @@ Exporter version: 2.80.1, Blender version: 2.92.0
 		Vert Color Precision:  3
 		Mat Weight Precision:  2
 		Keep Z-up r-handed  :  no
-		Texture directory   :  D:\wamp64\www\mondesvirtuels\hall\v6_html\babylon\
+		Texture directory   :  D:\wamp64\www\beta\hall\v8_panels\babylon\
 	Python World class constructor completed
 	processing begun of camera (UniversalCamera):  Camera
 	processing begun of mesh:  sky
@@ -494,7 +494,7 @@ Exporter version: 2.80.1, Blender version: 2.92.0
 		registered as also a user of material:  woodBlue
 		registered as also a user of material:  playPanel
 		registered as also a user of material:  stopPanel
-			processing texture enfer
+			processing texture safari
 				texture type:  diffuseTexture, mapped using: "UVMap"
 		processing begun of multimaterial:  hall13.Multimaterial#15
 		Custom split normals with tangents being used
@@ -536,4 +536,4 @@ Exporter version: 2.80.1, Blender version: 2.92.0
 	writing mesh:  informationPanel2Url
 ========= Writing of JSON file completed =========
 ========= end of processing =========
-elapsed time:  0 min, 0.6342 secs
+elapsed time:  0 min, 0.641 secs

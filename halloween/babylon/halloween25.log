@@ -1,0 +1,2000 @@
+Exporter version: 2.93.4, Blender version: 2.93.4
+========= Conversion from Blender to Babylon.js =========
+	Scene settings used :
+		Inline textures     :  false
+		Material Type       :  PBR
+		Positions Precision :  4
+		Normals Precision   :  3
+		UVs Precision       :  3
+		Vert Color Precision:  3
+		Mat Weight Precision:  2
+		Keep Z-up r-handed  :  no
+		Texture directory   :  D:\wamp64\www\beta\halloween\v6_panels\babylon\
+	Python World class constructor completed
+	processing begun of camera (UniversalCamera):  Camera
+	processing begun of mesh:  Avatar
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  grid1
+		processing begun of material:  grid
+			WARNING: unsupported node type(ShaderNodeNewGeometry) will trigger baking
+			processing texture grid
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			bake time:  0 min, 0.009 secs
+		num positions      :  4
+		num normals        :  4
+		num tangents       :  0
+		num uvs            :  8
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of mesh:  grid2
+		processing begun of material:  grid
+			WARNING: unsupported node type(ShaderNodeNewGeometry) will trigger baking
+			processing texture grid
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			bake time:  0 min, 0.007 secs
+		num positions      :  14
+		num normals        :  14
+		num tangents       :  0
+		num uvs            :  28
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  6
+		WARNING: # of 0 area faces found:  2
+	processing begun of mesh:  cross
+		processing begun of material:  stone
+			processing texture pierre01
+				texture type:  diffuseTexture, mapped using: "UVMap"
+		num positions      :  362
+		num normals        :  362
+		num tangents       :  0
+		num uvs            :  724
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  140
+	processing begun of mesh:  cross.001
+		mesh is an instance of :  cross.  Processing halted.
+	processing begun of mesh:  cross.002
+		mesh is an instance of :  cross.  Processing halted.
+	processing begun of mesh:  cross.003
+		mesh is an instance of :  cross.  Processing halted.
+	processing begun of mesh:  cross.004
+		mesh is an instance of :  cross.  Processing halted.
+	processing begun of mesh:  cross.005
+		mesh is an instance of :  cross.  Processing halted.
+	processing begun of mesh:  cross.006
+		mesh is an instance of :  cross.  Processing halted.
+	processing begun of mesh:  cross.007
+		mesh is an instance of :  cross.  Processing halted.
+	processing begun of mesh:  cross.008
+		mesh is an instance of :  cross.  Processing halted.
+	processing begun of node:  Empty
+	processing begun of mesh:  wall1
+		processing begun of material:  stone
+		registered as also a user of material:  stone
+		Custom split normals with tangents being used
+		num positions      :  30
+		num normals        :  30
+		num tangents       :  120
+		num uvs            :  60
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  wall2
+		processing begun of material:  stone
+		registered as also a user of material:  stone
+		Custom split normals with tangents being used
+		num positions      :  31
+		num normals        :  31
+		num tangents       :  124
+		num uvs            :  62
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  wall4
+		processing begun of material:  stone
+		registered as also a user of material:  stone
+		Custom split normals with tangents being used
+		num positions      :  31
+		num normals        :  31
+		num tangents       :  124
+		num uvs            :  62
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  wall5
+		processing begun of material:  stone
+		registered as also a user of material:  stone
+		Custom split normals with tangents being used
+		num positions      :  32
+		num normals        :  32
+		num tangents       :  128
+		num uvs            :  64
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  wall1.001
+		mesh is an instance of :  wall1.  Processing halted.
+	processing begun of mesh:  statue1
+		processing begun of material:  stone
+		processing begun of material:  eyes
+		registered as also a user of material:  stone
+			processing texture pierre02
+				texture type:  diffuseTexture, mapped using: "UVMap"
+		processing begun of multimaterial:  halloween25.Multimaterial#0
+		Custom split normals with tangents being used
+		num positions      :  1706
+		num normals        :  1706
+		num tangents       :  6824
+		num uvs            :  3412
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  868
+	processing begun of mesh:  statue2
+		mesh is an instance of :  statue1.  Processing halted.
+	processing begun of mesh:  streetlamp1
+		processing begun of material:  metal
+			processing texture metal
+				texture type:  diffuseTexture, mapped using: "UVMap"
+		Custom split normals with tangents being used
+		num positions      :  104
+		num normals        :  104
+		num tangents       :  416
+		num uvs            :  208
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  54
+	processing begun of mesh:  streetlamp2
+		mesh is an instance of :  streetlamp1.  Processing halted.
+	processing begun of mesh:  streetlamp3
+		mesh is an instance of :  streetlamp1.  Processing halted.
+	processing begun of mesh:  streetlamp4
+		mesh is an instance of :  streetlamp1.  Processing halted.
+	processing begun of mesh:  beam1
+		processing begun of material:  beam
+		Custom split normals with tangents being used
+		num positions      :  5
+		num normals        :  5
+		num tangents       :  20
+		num uvs            :  10
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  6
+	processing begun of mesh:  beam2
+		mesh is an instance of :  beam1.  Processing halted.
+	processing begun of mesh:  beam3
+		mesh is an instance of :  beam1.  Processing halted.
+	processing begun of mesh:  beam4
+		mesh is an instance of :  beam1.  Processing halted.
+	processing begun of mesh:  informationPanel
+		processing begun of material:  whitebeam
+		processing begun of material:  woodPlank
+		processing begun of material:  grey
+		processing begun of material:  stone
+			processing texture _00
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture _10
+				texture type:  diffuseTexture, mapped using: "UVMap"
+		registered as also a user of material:  stone
+		processing begun of multimaterial:  halloween25.Multimaterial#1
+		Custom split normals with tangents being used
+		num positions      :  137
+		num normals        :  137
+		num tangents       :  548
+		num uvs            :  274
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  88
+	processing begun of mesh:  informationPanelUrl
+		processing begun of material:  enfer.001
+		processing begun of material:  atlantide
+			processing texture enfer
+				texture type:  diffuseTexture, mapped using: "UVMap"
+		processing begun of multimaterial:  halloween25.Multimaterial#2
+		Custom split normals with tangents being used
+		num positions      :  4
+		num normals        :  4
+		num tangents       :  16
+		num uvs            :  8
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of mesh:  informationPanel2
+		mesh is an instance of :  informationPanel.  Processing halted.
+	processing begun of mesh:  informationPanelUrl2
+		processing begun of material:  enfer.002
+		processing begun of material:  atlantide.001
+			processing texture enfer
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture atlantide
+				texture type:  diffuseTexture, mapped using: "UVMap"
+		processing begun of multimaterial:  halloween25.Multimaterial#3
+		Custom split normals with tangents being used
+		num positions      :  4
+		num normals        :  4
+		num tangents       :  16
+		num uvs            :  8
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of mesh:  land
+		processing begun of material:  landscape
+			processing texture mur03
+				texture type:  diffuseTexture, mapped using: "UVMap"
+		Custom split normals with tangents being used
+		num positions      :  779
+		num normals        :  779
+		num tangents       :  3116
+		num uvs            :  1558
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  384
+	processing begun of mesh:  Tree2.005
+		processing begun of material:  twosidetree2
+			WARNING: unsupported node type(ShaderNodeNewGeometry) will trigger baking
+			processing texture tree2
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			bake time:  0 min, 0.005 secs
+		num positions      :  8
+		num normals        :  8
+		num tangents       :  0
+		num uvs            :  16
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  4
+	processing begun of mesh:  Tree1.008
+		processing begun of material:  twosidetree
+			WARNING: unsupported node type(ShaderNodeNewGeometry) will trigger baking
+			processing texture tree1
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			bake time:  0 min, 0.006 secs
+		num positions      :  8
+		num normals        :  8
+		num tangents       :  0
+		num uvs            :  16
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  4
+	processing begun of mesh:  TreeLeaves
+		processing begun of material:  white
+		processing begun of material:  stone
+		processing begun of material:  leaves
+		processing begun of material:  bark_white
+		registered as also a user of material:  stone
+			processing texture tree1
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture bark_white
+				texture type:  diffuseTexture, mapped using: "UVMap"
+		processing begun of multimaterial:  halloween25.Multimaterial#4
+		num positions      :  600
+		num normals        :  600
+		num tangents       :  0
+		num uvs            :  1200
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  358
+	processing begun of mesh:  TreeLeaves.001
+		mesh is an instance of :  TreeLeaves.  Processing halted.
+	processing begun of mesh:  TreeLeaves.002
+		mesh is an instance of :  TreeLeaves.  Processing halted.
+	processing begun of mesh:  TreeLeaves.003
+		mesh is an instance of :  TreeLeaves.  Processing halted.
+	processing begun of mesh:  TreeLeaves.004
+		mesh is an instance of :  TreeLeaves.  Processing halted.
+	processing begun of mesh:  TreeLeaves.005
+		mesh is an instance of :  TreeLeaves.  Processing halted.
+	processing begun of mesh:  TreeLeaves.006
+		mesh is an instance of :  TreeLeaves.  Processing halted.
+	processing begun of mesh:  TreeLeaves.007
+		mesh is an instance of :  TreeLeaves.  Processing halted.
+	processing begun of mesh:  TreeLeaves.008
+		mesh is an instance of :  TreeLeaves.  Processing halted.
+	processing begun of mesh:  TreeLeaves.009
+		mesh is an instance of :  TreeLeaves.  Processing halted.
+	processing begun of mesh:  treeNudeHD
+		WARNING: No materials have been assigned: 
+		num positions      :  9473
+		num normals        :  9473
+		num tangents       :  0
+		num uvs            :  18946
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  3792
+	processing begun of mesh:  treeNudeLD
+		processing begun of material:  bark_white
+		registered as also a user of material:  bark_white
+		num positions      :  1268
+		num normals        :  1268
+		num tangents       :  0
+		num uvs            :  2536
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  423
+	processing begun of mesh:  treeNudeLD.001
+		mesh is an instance of :  treeNudeLD.  Processing halted.
+	processing begun of mesh:  treeNudeLD.002
+		mesh is an instance of :  treeNudeLD.  Processing halted.
+	processing begun of mesh:  treeNudeLD.003
+		mesh is an instance of :  treeNudeLD.  Processing halted.
+	processing begun of mesh:  treeNudeLD.004
+		mesh is an instance of :  treeNudeLD.  Processing halted.
+	processing begun of mesh:  treeNudeLD.005
+		mesh is an instance of :  treeNudeLD.  Processing halted.
+	processing begun of mesh:  treeNudeLD.006
+		mesh is an instance of :  treeNudeLD.  Processing halted.
+	processing begun of mesh:  treeNudeLD.007
+		mesh is an instance of :  treeNudeLD.  Processing halted.
+	processing begun of mesh:  treeNudeLD.008
+		mesh is an instance of :  treeNudeLD.  Processing halted.
+	processing begun of mesh:  treeNudeLD.009
+		mesh is an instance of :  treeNudeLD.  Processing halted.
+	processing begun of mesh:  treeNudeLD.010
+		mesh is an instance of :  treeNudeLD.  Processing halted.
+	processing begun of mesh:  treeNudeLD.011
+		mesh is an instance of :  treeNudeLD.  Processing halted.
+	processing begun of mesh:  treeNudeLD.012
+		mesh is an instance of :  treeNudeLD.  Processing halted.
+	processing begun of mesh:  treeNudeLD.013
+		mesh is an instance of :  treeNudeLD.  Processing halted.
+	processing begun of mesh:  basement
+		processing begun of material:  wall
+		processing begun of material:  wall_dark
+			processing texture wall
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture wall_dark
+				texture type:  diffuseTexture, mapped using: "UVMap"
+		processing begun of multimaterial:  halloween25.Multimaterial#5
+		Custom split normals with tangents being used
+		num positions      :  32
+		num normals        :  32
+		num tangents       :  128
+		num uvs            :  64
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  16
+	processing begun of mesh:  stairway
+		processing begun of material:  stone
+		registered as also a user of material:  stone
+		Custom split normals with tangents being used
+		num positions      :  240
+		num normals        :  240
+		num tangents       :  960
+		num uvs            :  480
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  147
+	processing begun of mesh:  wallsGroundLevel
+		processing begun of material:  wall_window
+		processing begun of material:  wall_dark_window
+		processing begun of material:  wall
+		processing begun of material:  wall_dark
+			processing texture wall_window
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture wall_dark_window
+				texture type:  diffuseTexture, mapped using: "UVMap"
+		registered as also a user of material:  wall
+		registered as also a user of material:  wall_dark
+		processing begun of multimaterial:  halloween25.Multimaterial#6
+		Custom split normals with tangents being used
+		num positions      :  393
+		num normals        :  393
+		num tangents       :  1572
+		num uvs            :  786
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  188
+	processing begun of mesh:  ground
+		processing begun of material:  wall
+		processing begun of material:  wall_dark
+		registered as also a user of material:  wall
+		registered as also a user of material:  wall_dark
+		processing begun of multimaterial:  halloween25.Multimaterial#7
+		Custom split normals with tangents being used
+		num positions      :  6
+		num normals        :  6
+		num tangents       :  24
+		num uvs            :  12
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of mesh:  shelf1
+		processing begun of material:  books
+			processing texture biblio
+				texture type:  diffuseTexture, mapped using: "UVMap"
+		Custom split normals with tangents being used
+		num positions      :  20
+		num normals        :  20
+		num tangents       :  80
+		num uvs            :  40
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  10
+	processing begun of mesh:  door2
+		processing begun of material:  doorwood
+			processing texture porte
+				texture type:  diffuseTexture, mapped using: "UVMap"
+		Custom split normals with tangents being used
+		num positions      :  8
+		num normals        :  8
+		num tangents       :  32
+		num uvs            :  16
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  4
+	processing begun of mesh:  groundLibrary
+		processing begun of material:  wall
+		processing begun of material:  wall_dark
+		registered as also a user of material:  wall
+		registered as also a user of material:  wall_dark
+		processing begun of multimaterial:  halloween25.Multimaterial#8
+		Custom split normals with tangents being used
+		num positions      :  6
+		num normals        :  6
+		num tangents       :  24
+		num uvs            :  12
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of mesh:  wallLibrary
+		processing begun of material:  wall_window
+		processing begun of material:  wall_dark_window
+		processing begun of material:  wall
+		processing begun of material:  wall_dark
+		registered as also a user of material:  wall_window
+		registered as also a user of material:  wall_dark_window
+		registered as also a user of material:  wall
+		registered as also a user of material:  wall_dark
+		processing begun of multimaterial:  halloween25.Multimaterial#9
+		Custom split normals with tangents being used
+		num positions      :  142
+		num normals        :  142
+		num tangents       :  568
+		num uvs            :  284
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  72
+	processing begun of mesh:  doorLibrary
+		processing begun of material:  doorwood
+		registered as also a user of material:  doorwood
+		Custom split normals with tangents being used
+		num positions      :  8
+		num normals        :  8
+		num tangents       :  32
+		num uvs            :  16
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  4
+	processing begun of mesh:  ceilingLibrary
+		processing begun of material:  wall
+		processing begun of material:  wall_dark
+		registered as also a user of material:  wall
+		registered as also a user of material:  wall_dark
+		processing begun of multimaterial:  halloween25.Multimaterial#10
+		Custom split normals with tangents being used
+		num positions      :  6
+		num normals        :  6
+		num tangents       :  24
+		num uvs            :  12
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of mesh:  shelf2
+		mesh is an instance of :  shelf1.  Processing halted.
+	processing begun of mesh:  shelf3
+		mesh is an instance of :  shelf1.  Processing halted.
+	processing begun of mesh:  shelf4
+		mesh is an instance of :  shelf1.  Processing halted.
+	processing begun of mesh:  shelf5
+		mesh is an instance of :  shelf1.  Processing halted.
+	processing begun of mesh:  helperLibrary1
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  helperLibrary2
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  helperLibrary2.001
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  helperLibrary1.001
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  helperLibrary1.002
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  helperLibrary1.003
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  table
+		processing begun of material:  wood
+			processing texture table
+				texture type:  diffuseTexture, mapped using: "UVMap"
+		Custom split normals with tangents being used
+		num positions      :  107
+		num normals        :  107
+		num tangents       :  428
+		num uvs            :  214
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  48
+	processing begun of mesh:  groundDinningRoom
+		processing begun of material:  wall_dark
+		processing begun of material:  wall
+		registered as also a user of material:  wall_dark
+		registered as also a user of material:  wall
+		processing begun of multimaterial:  halloween25.Multimaterial#11
+		num positions      :  6
+		num normals        :  6
+		num tangents       :  0
+		num uvs            :  12
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of mesh:  candle
+		processing begun of material:  white
+		processing begun of material:  gold
+		registered as also a user of material:  white
+			processing texture laiton
+				texture type:  diffuseTexture, mapped using: "UVMap"
+		processing begun of multimaterial:  halloween25.Multimaterial#12
+		num positions      :  551
+		num normals        :  551
+		num tangents       :  0
+		num uvs            :  1102
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  184
+	processing begun of mesh:  candle.001
+		mesh is an instance of :  candle.  Processing halted.
+	processing begun of mesh:  candle.002
+		mesh is an instance of :  candle.  Processing halted.
+	processing begun of mesh:  mainStariway
+		processing begun of material:  wall_dark
+		processing begun of material:  carpet
+		registered as also a user of material:  wall_dark
+			processing texture tapis
+				texture type:  diffuseTexture, mapped using: "UVMap"
+		processing begun of multimaterial:  halloween25.Multimaterial#13
+		Custom split normals with tangents being used
+		num positions      :  112
+		num normals        :  112
+		num tangents       :  448
+		num uvs            :  224
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  56
+	processing begun of mesh:  door
+		processing begun of material:  doorwood
+		registered as also a user of material:  doorwood
+		Custom split normals with tangents being used
+		num positions      :  8
+		num normals        :  8
+		num tangents       :  32
+		num uvs            :  16
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  4
+	processing begun of mesh:  organ
+		processing begun of material:  wood
+		processing begun of material:  organKeys
+		processing begun of material:  metalOrgan
+		registered as also a user of material:  wood
+			processing texture touches
+				texture type:  diffuseTexture, mapped using: "UVMap"
+			processing texture metal1
+				texture type:  diffuseTexture, mapped using: "UVMap"
+		processing begun of multimaterial:  halloween25.Multimaterial#14
+		Custom split normals with tangents being used
+		num positions      :  397
+		num normals        :  397
+		num tangents       :  1588
+		num uvs            :  794
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  156
+	processing begun of mesh:  wallGroundHelper
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  stairOutdoorHelper
+		WARNING: No materials have been assigned: 
+		num positions      :  33
+		num normals        :  33
+		num tangents       :  0
+		num uvs            :  66
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  groundHelper
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  helperEntrance2
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  wallGroundHelper3
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  wallGroundHelper2
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  wallGroundHelper4
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  stairwayGroundHelper
+		WARNING: No materials have been assigned: 
+		num positions      :  146
+		num normals        :  146
+		num tangents       :  0
+		num uvs            :  292
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  136
+	processing begun of mesh:  Cube
+		WARNING: No materials have been assigned: 
+		num positions      :  92
+		num normals        :  92
+		num tangents       :  0
+		num uvs            :  184
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  36
+	processing begun of mesh:  towerLeft
+		processing begun of material:  wall_window
+		processing begun of material:  wall_dark_window
+		processing begun of material:  wall_dark
+		processing begun of material:  roof
+		registered as also a user of material:  wall_window
+		registered as also a user of material:  wall_dark_window
+		registered as also a user of material:  wall_dark
+			processing texture toit01
+				texture type:  diffuseTexture, mapped using: "UVMap"
+		processing begun of multimaterial:  halloween25.Multimaterial#15
+		Custom split normals with tangents being used
+		num positions      :  230
+		num normals        :  230
+		num tangents       :  920
+		num uvs            :  460
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  96
+	processing begun of mesh:  towerRight
+		processing begun of material:  wall_window
+		processing begun of material:  wall_dark_window
+		processing begun of material:  roof
+		processing begun of material:  wall_dark
+		registered as also a user of material:  wall_window
+		registered as also a user of material:  wall_dark_window
+		registered as also a user of material:  roof
+		registered as also a user of material:  wall_dark
+		processing begun of multimaterial:  halloween25.Multimaterial#16
+		Custom split normals with tangents being used
+		num positions      :  268
+		num normals        :  268
+		num tangents       :  1072
+		num uvs            :  536
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  96
+	processing begun of mesh:  stairwayFirstLevel
+		processing begun of material:  stone
+		processing begun of material:  wall
+		processing begun of material:  wall_dark
+		processing begun of material:  carpet
+		registered as also a user of material:  stone
+		registered as also a user of material:  wall
+		registered as also a user of material:  wall_dark
+		registered as also a user of material:  carpet
+		processing begun of multimaterial:  halloween25.Multimaterial#17
+		Custom split normals with tangents being used
+		num positions      :  256
+		num normals        :  256
+		num tangents       :  1024
+		num uvs            :  512
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  106
+	processing begun of mesh:  wallsFirstLevel
+		processing begun of material:  wall_window
+		processing begun of material:  wall_dark_window
+		processing begun of material:  wall
+		processing begun of material:  wall_dark
+		registered as also a user of material:  wall_window
+		registered as also a user of material:  wall_dark_window
+		registered as also a user of material:  wall
+		registered as also a user of material:  wall_dark
+		processing begun of multimaterial:  halloween25.Multimaterial#18
+		Custom split normals with tangents being used
+		num positions      :  320
+		num normals        :  320
+		num tangents       :  1280
+		num uvs            :  640
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  156
+	processing begun of mesh:  groundBedRoom4
+		processing begun of material:  wall
+		processing begun of material:  wall_dark
+		registered as also a user of material:  wall
+		registered as also a user of material:  wall_dark
+		processing begun of multimaterial:  halloween25.Multimaterial#19
+		Custom split normals with tangents being used
+		num positions      :  6
+		num normals        :  6
+		num tangents       :  24
+		num uvs            :  12
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of mesh:  doorBedRoom4
+		processing begun of material:  doorwood
+		registered as also a user of material:  doorwood
+		Custom split normals with tangents being used
+		num positions      :  8
+		num normals        :  8
+		num tangents       :  32
+		num uvs            :  16
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  4
+	processing begun of mesh:  wallBedRoom4
+		processing begun of material:  wall_window
+		processing begun of material:  wall_dark_window
+		processing begun of material:  wall
+		processing begun of material:  wall_dark
+		registered as also a user of material:  wall_window
+		registered as also a user of material:  wall_dark_window
+		registered as also a user of material:  wall
+		registered as also a user of material:  wall_dark
+		processing begun of multimaterial:  halloween25.Multimaterial#20
+		Custom split normals with tangents being used
+		num positions      :  72
+		num normals        :  72
+		num tangents       :  288
+		num uvs            :  144
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  34
+	processing begun of mesh:  bed4
+		processing begun of material:  carpet
+		processing begun of material:  wood
+		registered as also a user of material:  carpet
+		registered as also a user of material:  wood
+		processing begun of multimaterial:  halloween25.Multimaterial#21
+		Custom split normals with tangents being used
+		num positions      :  159
+		num normals        :  159
+		num tangents       :  636
+		num uvs            :  318
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  96
+	processing begun of mesh:  wardrobe5
+		processing begun of material:  wood
+		registered as also a user of material:  wood
+		Custom split normals with tangents being used
+		num positions      :  91
+		num normals        :  91
+		num tangents       :  364
+		num uvs            :  182
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  60
+	processing begun of mesh:  door5
+		processing begun of material:  doorwood
+		registered as also a user of material:  doorwood
+		Custom split normals with tangents being used
+		num positions      :  8
+		num normals        :  8
+		num tangents       :  32
+		num uvs            :  16
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  4
+	processing begun of mesh:  groundBedRoom3
+		processing begun of material:  wall
+		processing begun of material:  wall_dark
+		registered as also a user of material:  wall
+		registered as also a user of material:  wall_dark
+		processing begun of multimaterial:  halloween25.Multimaterial#22
+		Custom split normals with tangents being used
+		num positions      :  6
+		num normals        :  6
+		num tangents       :  24
+		num uvs            :  12
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of mesh:  wallBedRoom3
+		processing begun of material:  wall_window
+		processing begun of material:  wall_dark_window
+		processing begun of material:  wall
+		processing begun of material:  wall_dark
+		registered as also a user of material:  wall_window
+		registered as also a user of material:  wall_dark_window
+		registered as also a user of material:  wall
+		registered as also a user of material:  wall_dark
+		processing begun of multimaterial:  halloween25.Multimaterial#23
+		Custom split normals with tangents being used
+		num positions      :  34
+		num normals        :  34
+		num tangents       :  136
+		num uvs            :  68
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  20
+	processing begun of mesh:  bed3
+		mesh is an instance of :  bed4.  Processing halted.
+	processing begun of mesh:  wardrobe4
+		mesh is an instance of :  wardrobe5.  Processing halted.
+	processing begun of mesh:  door4
+		processing begun of material:  doorwood
+		registered as also a user of material:  doorwood
+		Custom split normals with tangents being used
+		num positions      :  4
+		num normals        :  4
+		num tangents       :  16
+		num uvs            :  8
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of mesh:  doorBedRoom2
+		processing begun of material:  doorwood
+		registered as also a user of material:  doorwood
+		Custom split normals with tangents being used
+		num positions      :  8
+		num normals        :  8
+		num tangents       :  32
+		num uvs            :  16
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  4
+	processing begun of mesh:  doorBedroom2
+		processing begun of material:  doorwood
+		registered as also a user of material:  doorwood
+		Custom split normals with tangents being used
+		num positions      :  4
+		num normals        :  4
+		num tangents       :  16
+		num uvs            :  8
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of mesh:  groundBedroom2
+		processing begun of material:  wall
+		processing begun of material:  wall_dark
+		registered as also a user of material:  wall
+		registered as also a user of material:  wall_dark
+		processing begun of multimaterial:  halloween25.Multimaterial#24
+		Custom split normals with tangents being used
+		num positions      :  10
+		num normals        :  10
+		num tangents       :  40
+		num uvs            :  20
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  4
+	processing begun of mesh:  wallBedRoom2
+		processing begun of material:  wall
+		processing begun of material:  wall_dark
+		registered as also a user of material:  wall
+		registered as also a user of material:  wall_dark
+		processing begun of multimaterial:  halloween25.Multimaterial#25
+		Custom split normals with tangents being used
+		num positions      :  52
+		num normals        :  52
+		num tangents       :  208
+		num uvs            :  104
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  30
+	processing begun of mesh:  bed2
+		mesh is an instance of :  bed4.  Processing halted.
+	processing begun of mesh:  wardrobe2
+		mesh is an instance of :  wardrobe5.  Processing halted.
+	processing begun of mesh:  wardrobe3
+		mesh is an instance of :  wardrobe5.  Processing halted.
+	processing begun of mesh:  bed1
+		mesh is an instance of :  bed4.  Processing halted.
+	processing begun of mesh:  wardrobe1
+		mesh is an instance of :  wardrobe5.  Processing halted.
+	processing begun of mesh:  door3
+		processing begun of material:  doorwood
+		registered as also a user of material:  doorwood
+		Custom split normals with tangents being used
+		num positions      :  8
+		num normals        :  8
+		num tangents       :  32
+		num uvs            :  16
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  4
+	processing begun of mesh:  groundBedRoom1
+		processing begun of material:  wall
+		processing begun of material:  wall_dark
+		registered as also a user of material:  wall
+		registered as also a user of material:  wall_dark
+		processing begun of multimaterial:  halloween25.Multimaterial#26
+		Custom split normals with tangents being used
+		num positions      :  10
+		num normals        :  10
+		num tangents       :  40
+		num uvs            :  20
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  4
+	processing begun of mesh:  doorBedRoom1.001
+		processing begun of material:  doorwood
+		registered as also a user of material:  doorwood
+		Custom split normals with tangents being used
+		num positions      :  8
+		num normals        :  8
+		num tangents       :  32
+		num uvs            :  16
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  4
+	processing begun of mesh:  wallBedRoom1
+		processing begun of material:  wall_window
+		processing begun of material:  wall_dark_window
+		processing begun of material:  wall
+		processing begun of material:  wall_dark
+		registered as also a user of material:  wall_window
+		registered as also a user of material:  wall_dark_window
+		registered as also a user of material:  wall
+		registered as also a user of material:  wall_dark
+		processing begun of multimaterial:  halloween25.Multimaterial#27
+		Custom split normals with tangents being used
+		num positions      :  32
+		num normals        :  32
+		num tangents       :  128
+		num uvs            :  64
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  20
+	processing begun of mesh:  paintingCorridor1
+		processing begun of material:  painting
+			processing texture peint01
+				texture type:  diffuseTexture, mapped using: "UVMap"
+		Custom split normals with tangents being used
+		num positions      :  4
+		num normals        :  4
+		num tangents       :  16
+		num uvs            :  8
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of mesh:  wallCorridor
+		processing begun of material:  wall
+		processing begun of material:  wall_dark
+		registered as also a user of material:  wall
+		registered as also a user of material:  wall_dark
+		processing begun of multimaterial:  halloween25.Multimaterial#28
+		Custom split normals with tangents being used
+		num positions      :  84
+		num normals        :  84
+		num tangents       :  336
+		num uvs            :  168
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  46
+	processing begun of mesh:  groundCorridor
+		processing begun of material:  carpet
+		registered as also a user of material:  carpet
+		Custom split normals with tangents being used
+		num positions      :  4
+		num normals        :  4
+		num tangents       :  16
+		num uvs            :  8
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of mesh:  paintingCorridor2
+		mesh is an instance of :  paintingCorridor1.  Processing halted.
+	processing begun of mesh:  paintingCorridor3
+		mesh is an instance of :  paintingCorridor1.  Processing halted.
+	processing begun of mesh:  groundFirstLevelHelper2
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  groundFirstLevelHelper1
+		WARNING: No materials have been assigned: 
+		num positions      :  17
+		num normals        :  17
+		num tangents       :  0
+		num uvs            :  34
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  groundFirstLevelHelper3
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  groundFirstLevelHelper4
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  wallFirstLevelHelper1
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  wallFirstLevelHelper2
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  wallFirstLevelHelper10
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  wallFirstLevelHelper9
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  wallFirstLevelHelper3
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  wallFirstLevelHelper4
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  wallFirstLevelHelper5
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  wallFirstLevelHelper6
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  wallFirstLevelHelper7
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  wallFirstLevelHelper8
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  wallFirstLevelHelper5.001
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  wallFirstLevelHelper5.002
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  wallGroundHelper4.003
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  wallGroundHelper4.004
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  wallGroundHelper4.005
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  wallGroundHelper4.006
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  wallGroundHelper4.007
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  wallGroundHelper4.008
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  wallGroundHelper4.009
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  wallGroundHelper4.010
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  wallGroundHelper4.011
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  wallGroundHelper4.012
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  wallGroundHelper4.013
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  wallGroundHelper4.014
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  wallGroundHelper4.016
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  wallGroundHelper4.017
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  wallGroundHelper4.018
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  wallGroundHelper4.019
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  wallGroundHelper4.020
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  wallGroundHelper4.015
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  wallGroundHelper4.001
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  wallGroundHelper4.002
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  groundFirstLevelHelper2.001
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  groundFirstLevelHelper2.002
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  groundFirstLevelHelper2.003
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  groundFirstLevelHelper2.004
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  wallFirstLevelHelper7.001
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  wallFirstLevelHelper7.002
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  groundRoof
+		processing begun of material:  wall
+		processing begun of material:  wall_dark
+		registered as also a user of material:  wall
+		registered as also a user of material:  wall_dark
+		processing begun of multimaterial:  halloween25.Multimaterial#29
+		Custom split normals with tangents being used
+		num positions      :  62
+		num normals        :  62
+		num tangents       :  248
+		num uvs            :  124
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  22
+	processing begun of mesh:  roof
+		processing begun of material:  roof
+		registered as also a user of material:  roof
+		Custom split normals with tangents being used
+		num positions      :  88
+		num normals        :  88
+		num tangents       :  352
+		num uvs            :  176
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  44
+	processing begun of mesh:  roofPoint1
+		processing begun of material:  roof
+		registered as also a user of material:  roof
+		Custom split normals with tangents being used
+		num positions      :  9
+		num normals        :  9
+		num tangents       :  36
+		num uvs            :  18
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  6
+	processing begun of mesh:  roofPoint2
+		processing begun of material:  roof
+		registered as also a user of material:  roof
+		Custom split normals with tangents being used
+		num positions      :  9
+		num normals        :  9
+		num tangents       :  36
+		num uvs            :  18
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  6
+	processing begun of mesh:  roofTowerBack
+		processing begun of material:  wall_window
+		processing begun of material:  wall_dark_window
+		processing begun of material:  wall
+		processing begun of material:  wall_dark
+		processing begun of material:  roof
+		registered as also a user of material:  wall_window
+		registered as also a user of material:  wall_dark_window
+		registered as also a user of material:  wall
+		registered as also a user of material:  wall_dark
+		registered as also a user of material:  roof
+		processing begun of multimaterial:  halloween25.Multimaterial#30
+		Custom split normals with tangents being used
+		num positions      :  195
+		num normals        :  195
+		num tangents       :  780
+		num uvs            :  390
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  96
+	processing begun of mesh:  roofTowerFront
+		processing begun of material:  wall_window
+		processing begun of material:  wall_dark_window
+		processing begun of material:  wall
+		processing begun of material:  wall_dark
+		processing begun of material:  roof
+		registered as also a user of material:  wall_window
+		registered as also a user of material:  wall_dark_window
+		registered as also a user of material:  wall
+		registered as also a user of material:  wall_dark
+		registered as also a user of material:  roof
+		processing begun of multimaterial:  halloween25.Multimaterial#31
+		Custom split normals with tangents being used
+		num positions      :  99
+		num normals        :  99
+		num tangents       :  396
+		num uvs            :  198
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  50
+	processing begun of mesh:  roofTowerLeft
+		processing begun of material:  wall_window
+		processing begun of material:  wall_dark_window
+		processing begun of material:  wall
+		processing begun of material:  wall_dark
+		processing begun of material:  roof
+		registered as also a user of material:  wall_window
+		registered as also a user of material:  wall_dark_window
+		registered as also a user of material:  wall
+		registered as also a user of material:  wall_dark
+		registered as also a user of material:  roof
+		processing begun of multimaterial:  halloween25.Multimaterial#32
+		Custom split normals with tangents being used
+		num positions      :  199
+		num normals        :  199
+		num tangents       :  796
+		num uvs            :  398
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  96
+	processing begun of mesh:  goldenBook
+		processing begun of material:  whitebeam
+		processing begun of material:  woodPlank
+		processing begun of material:  white
+		processing begun of material:  red
+		processing begun of material:  black
+		registered as also a user of material:  whitebeam
+		registered as also a user of material:  woodPlank
+		registered as also a user of material:  white
+		processing begun of multimaterial:  halloween25.Multimaterial#33
+		Custom split normals with tangents being used
+		num positions      :  132
+		num normals        :  132
+		num tangents       :  528
+		num uvs            :  264
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  60
+	processing begun of mesh:  roofTowerRight
+		processing begun of material:  wall_window
+		processing begun of material:  wall_dark_window
+		processing begun of material:  wall
+		processing begun of material:  wall_dark
+		processing begun of material:  roof
+		registered as also a user of material:  wall_window
+		registered as also a user of material:  wall_dark_window
+		registered as also a user of material:  wall
+		registered as also a user of material:  wall_dark
+		registered as also a user of material:  roof
+		processing begun of multimaterial:  halloween25.Multimaterial#34
+		Custom split normals with tangents being used
+		num positions      :  196
+		num normals        :  196
+		num tangents       :  784
+		num uvs            :  392
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  96
+	processing begun of mesh:  roofTowerFront.001
+		processing begun of material:  wall_window
+		processing begun of material:  wall_dark_window
+		processing begun of material:  wall
+		processing begun of material:  wall_dark
+		processing begun of material:  roof
+		registered as also a user of material:  wall_window
+		registered as also a user of material:  wall_dark_window
+		registered as also a user of material:  wall
+		registered as also a user of material:  wall_dark
+		registered as also a user of material:  roof
+		processing begun of multimaterial:  halloween25.Multimaterial#35
+		num positions      :  3
+		num normals        :  3
+		num tangents       :  0
+		num uvs            :  6
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  1
+	processing begun of mesh:  roofTowerFront.002
+		processing begun of material:  wall_window
+		processing begun of material:  wall_dark_window
+		processing begun of material:  wall
+		processing begun of material:  wall_dark
+		processing begun of material:  roof
+		registered as also a user of material:  wall_window
+		registered as also a user of material:  wall_dark_window
+		registered as also a user of material:  wall
+		registered as also a user of material:  wall_dark
+		registered as also a user of material:  roof
+		processing begun of multimaterial:  halloween25.Multimaterial#36
+		num positions      :  3
+		num normals        :  3
+		num tangents       :  0
+		num uvs            :  6
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  1
+	processing begun of mesh:  roofTowerFront.003
+		processing begun of material:  wall_window
+		processing begun of material:  wall_dark_window
+		processing begun of material:  wall
+		processing begun of material:  wall_dark
+		processing begun of material:  roof
+		registered as also a user of material:  wall_window
+		registered as also a user of material:  wall_dark_window
+		registered as also a user of material:  wall
+		registered as also a user of material:  wall_dark
+		registered as also a user of material:  roof
+		processing begun of multimaterial:  halloween25.Multimaterial#37
+		num positions      :  3
+		num normals        :  3
+		num tangents       :  0
+		num uvs            :  6
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  1
+	processing begun of mesh:  roofTowerFront.004
+		processing begun of material:  wall_window
+		processing begun of material:  wall_dark_window
+		processing begun of material:  wall
+		processing begun of material:  wall_dark
+		processing begun of material:  roof
+		registered as also a user of material:  wall_window
+		registered as also a user of material:  wall_dark_window
+		registered as also a user of material:  wall
+		registered as also a user of material:  wall_dark
+		registered as also a user of material:  roof
+		processing begun of multimaterial:  halloween25.Multimaterial#38
+		num positions      :  3
+		num normals        :  3
+		num tangents       :  0
+		num uvs            :  6
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  1
+	processing begun of mesh:  groundFirstLevelHelper1.001
+		WARNING: No materials have been assigned: 
+		num positions      :  17
+		num normals        :  17
+		num tangents       :  0
+		num uvs            :  34
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  groundFirstLevelHelper1.002
+		WARNING: No materials have been assigned: 
+		num positions      :  17
+		num normals        :  17
+		num tangents       :  0
+		num uvs            :  34
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  groundFirstLevelHelper1.003
+		WARNING: No materials have been assigned: 
+		num positions      :  17
+		num normals        :  17
+		num tangents       :  0
+		num uvs            :  34
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  groundFirstLevelHelper1.004
+		WARNING: No materials have been assigned: 
+		num positions      :  17
+		num normals        :  17
+		num tangents       :  0
+		num uvs            :  34
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  wallFirstLevelHelper8.001
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  wallFirstLevelHelper7.003
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  wallGroundHelper4.021
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  wallGroundHelper4.022
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  wallGroundHelper4.023
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  wallGroundHelper4.024
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  wallGroundHelper4.025
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  wallFirstLevelHelper5.003
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  wallFirstLevelHelper5.004
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  wallGroundHelper4.026
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  wallGroundHelper4.029
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  wallGroundHelper4.030
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  wallGroundHelper4.027
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  wallGroundHelper4.028
+		WARNING: No materials have been assigned: 
+		num positions      :  29
+		num normals        :  29
+		num tangents       :  0
+		num uvs            :  58
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  MountainsLP
+		processing begun of material:  Material
+		processing begun of material:  Material.001
+		processing begun of multimaterial:  halloween25.Multimaterial#39
+		num positions      :  11535
+		num normals        :  11535
+		num tangents       :  0
+		num uvs            :  23070
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  21989
+		WARNING: # of 0 area faces found:  16
+	processing begun of light (DIRECTIONAL):  Light
+	processing begun of light (HEMI FROM AREA):  Area
+	processing begun of light (HEMI FROM AREA):  Area.001
+========= Writing of JSON file started =========
+	writing mesh:  Avatar
+	writing mesh:  grid1
+	writing mesh:  grid2
+	writing mesh:  cross
+	writing mesh:  wall1
+	writing mesh:  wall2
+	writing mesh:  wall4
+	writing mesh:  wall5
+	writing mesh:  statue1
+	writing mesh:  streetlamp1
+	writing mesh:  beam1
+	writing mesh:  informationPanel
+	writing mesh:  informationPanelUrl
+	writing mesh:  informationPanelUrl2
+	writing mesh:  land
+	writing mesh:  Tree2.005
+	writing mesh:  Tree1.008
+	writing mesh:  TreeLeaves
+	writing mesh:  treeNudeHD
+	writing mesh:  treeNudeLD
+	writing mesh:  basement
+	writing mesh:  stairway
+	writing mesh:  wallsGroundLevel
+	writing mesh:  ground
+	writing mesh:  shelf1
+	writing mesh:  door2
+	writing mesh:  groundLibrary
+	writing mesh:  wallLibrary
+	writing mesh:  doorLibrary
+	writing mesh:  ceilingLibrary
+	writing mesh:  helperLibrary1
+	writing mesh:  helperLibrary2
+	writing mesh:  helperLibrary2.001
+	writing mesh:  helperLibrary1.001
+	writing mesh:  helperLibrary1.002
+	writing mesh:  helperLibrary1.003
+	writing mesh:  table
+	writing mesh:  groundDinningRoom
+	writing mesh:  candle
+	writing mesh:  mainStariway
+	writing mesh:  door
+	writing mesh:  organ
+	writing mesh:  wallGroundHelper
+	writing mesh:  stairOutdoorHelper
+	writing mesh:  groundHelper
+	writing mesh:  helperEntrance2
+	writing mesh:  wallGroundHelper3
+	writing mesh:  wallGroundHelper2
+	writing mesh:  wallGroundHelper4
+	writing mesh:  stairwayGroundHelper
+	writing mesh:  Cube
+	writing mesh:  towerLeft
+	writing mesh:  towerRight
+	writing mesh:  stairwayFirstLevel
+	writing mesh:  wallsFirstLevel
+	writing mesh:  groundBedRoom4
+	writing mesh:  doorBedRoom4
+	writing mesh:  wallBedRoom4
+	writing mesh:  bed4
+	writing mesh:  wardrobe5
+	writing mesh:  door5
+	writing mesh:  groundBedRoom3
+	writing mesh:  wallBedRoom3
+	writing mesh:  door4
+	writing mesh:  doorBedRoom2
+	writing mesh:  doorBedroom2
+	writing mesh:  groundBedroom2
+	writing mesh:  wallBedRoom2
+	writing mesh:  door3
+	writing mesh:  groundBedRoom1
+	writing mesh:  doorBedRoom1.001
+	writing mesh:  wallBedRoom1
+	writing mesh:  paintingCorridor1
+	writing mesh:  wallCorridor
+	writing mesh:  groundCorridor
+	writing mesh:  groundFirstLevelHelper2
+	writing mesh:  groundFirstLevelHelper1
+	writing mesh:  groundFirstLevelHelper3
+	writing mesh:  groundFirstLevelHelper4
+	writing mesh:  wallFirstLevelHelper1
+	writing mesh:  wallFirstLevelHelper2
+	writing mesh:  wallFirstLevelHelper10
+	writing mesh:  wallFirstLevelHelper9
+	writing mesh:  wallFirstLevelHelper3
+	writing mesh:  wallFirstLevelHelper4
+	writing mesh:  wallFirstLevelHelper5
+	writing mesh:  wallFirstLevelHelper6
+	writing mesh:  wallFirstLevelHelper7
+	writing mesh:  wallFirstLevelHelper8
+	writing mesh:  wallFirstLevelHelper5.001
+	writing mesh:  wallFirstLevelHelper5.002
+	writing mesh:  wallGroundHelper4.003
+	writing mesh:  wallGroundHelper4.004
+	writing mesh:  wallGroundHelper4.005
+	writing mesh:  wallGroundHelper4.006
+	writing mesh:  wallGroundHelper4.007
+	writing mesh:  wallGroundHelper4.008
+	writing mesh:  wallGroundHelper4.009
+	writing mesh:  wallGroundHelper4.010
+	writing mesh:  wallGroundHelper4.011
+	writing mesh:  wallGroundHelper4.012
+	writing mesh:  wallGroundHelper4.013
+	writing mesh:  wallGroundHelper4.014
+	writing mesh:  wallGroundHelper4.016
+	writing mesh:  wallGroundHelper4.017
+	writing mesh:  wallGroundHelper4.018
+	writing mesh:  wallGroundHelper4.019
+	writing mesh:  wallGroundHelper4.020
+	writing mesh:  wallGroundHelper4.015
+	writing mesh:  wallGroundHelper4.001
+	writing mesh:  wallGroundHelper4.002
+	writing mesh:  groundFirstLevelHelper2.001
+	writing mesh:  groundFirstLevelHelper2.002
+	writing mesh:  groundFirstLevelHelper2.003
+	writing mesh:  groundFirstLevelHelper2.004
+	writing mesh:  wallFirstLevelHelper7.001
+	writing mesh:  wallFirstLevelHelper7.002
+	writing mesh:  groundRoof
+	writing mesh:  roof
+	writing mesh:  roofPoint1
+	writing mesh:  roofPoint2
+	writing mesh:  roofTowerBack
+	writing mesh:  roofTowerFront
+	writing mesh:  roofTowerLeft
+	writing mesh:  goldenBook
+	writing mesh:  roofTowerRight
+	writing mesh:  roofTowerFront.001
+	writing mesh:  roofTowerFront.002
+	writing mesh:  roofTowerFront.003
+	writing mesh:  roofTowerFront.004
+	writing mesh:  groundFirstLevelHelper1.001
+	writing mesh:  groundFirstLevelHelper1.002
+	writing mesh:  groundFirstLevelHelper1.003
+	writing mesh:  groundFirstLevelHelper1.004
+	writing mesh:  wallFirstLevelHelper8.001
+	writing mesh:  wallFirstLevelHelper7.003
+	writing mesh:  wallGroundHelper4.021
+	writing mesh:  wallGroundHelper4.022
+	writing mesh:  wallGroundHelper4.023
+	writing mesh:  wallGroundHelper4.024
+	writing mesh:  wallGroundHelper4.025
+	writing mesh:  wallFirstLevelHelper5.003
+	writing mesh:  wallFirstLevelHelper5.004
+	writing mesh:  wallGroundHelper4.026
+	writing mesh:  wallGroundHelper4.029
+	writing mesh:  wallGroundHelper4.030
+	writing mesh:  wallGroundHelper4.027
+	writing mesh:  wallGroundHelper4.028
+	writing mesh:  MountainsLP
+========= Writing of JSON file completed =========
+========= end of processing =========
+elapsed time:  0 min, 3.3263 secs
