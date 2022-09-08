@@ -85,6 +85,43 @@ class World {
     openGreatHall: 'Open great hall',
   }
 
+  ACTIONS_OPEN_BOOK = {
+    en : 'open golden book',
+    fr : 'ouvrir le livre d\'or',
+  }
+
+  ACTIONS_JUMP_TREES = {
+    en : 'jump to city of trees',
+    fr : 'découvrir cité des arbres',
+  }
+
+  ACTIONS_JUMP_HALL = {
+    en : 'jump to great hall',
+    fr : 'découvrir grand hall',
+  }
+
+  ACTIONS_PLAY = {
+    en : 'play',
+    fr : 'jouer',
+  }
+
+  ACTIONS_STOP = {
+    en : 'stop',
+    fr : 'stop',
+  }
+
+  ACTIONS_PET = {
+    en : 'pet',
+    fr : 'caresser',
+  }
+
+  ACTIONS_ZEPPELIN = {
+    en : 'get on  zeppelin',
+    fr : 'monter sur zeppelin',
+  }
+
+
+
   ACTION_MESHES = [
     'musicPanelPlay',
     'musicPanelStop',
@@ -491,7 +528,7 @@ class World {
           ) {
             isGamePadActionVisible = true
             document.dispatchEvent(
-              new CustomEvent('showGamePadAction', { detail: 'play' })
+              new CustomEvent('showGamePadAction', { detail: this.ACTIONS_PLAY[this._lang] })
             )
             this._currentAction = this.ACTIONS.playMusic
           }
@@ -502,7 +539,7 @@ class World {
           ) {
             isGamePadActionVisible = true
             document.dispatchEvent(
-              new CustomEvent('showGamePadAction', { detail: 'stop' })
+              new CustomEvent('showGamePadAction', { detail: this.ACTIONS_STOP[this._lang] })
             )
             this._currentAction = this.ACTIONS.stopMusic
           }
@@ -514,7 +551,7 @@ class World {
             isGamePadActionVisible = true
             document.dispatchEvent(
               new CustomEvent('showGamePadAction', {
-                detail: 'get on zeppelin',
+                detail: this.ACTIONS_ZEPPELIN[this._lang],
               })
             )
             this._currentAction = this.ACTIONS.followZeppelin2
@@ -527,7 +564,7 @@ class World {
             isGamePadActionVisible = true
             document.dispatchEvent(
               new CustomEvent('showGamePadAction', {
-                detail: 'get on zeppelin',
+                detail: this.ACTIONS_ZEPPELIN[this._lang],
               })
             )
             this._currentAction = this.ACTIONS.followZeppelin3
@@ -539,7 +576,7 @@ class World {
           ) {
             isGamePadActionVisible = true
             document.dispatchEvent(
-              new CustomEvent('showGamePadAction', { detail: 'pet' })
+              new CustomEvent('showGamePadAction', { detail: this.ACTIONS_PET[this._lang] })
             )
             this._currentAction = this.ACTIONS.petSheep
           }
@@ -551,7 +588,7 @@ class World {
             isGamePadActionVisible = true
             document.dispatchEvent(
               new CustomEvent('showGamePadAction', {
-                detail: 'open golden book',
+                detail: this.ACTIONS_OPEN_BOOK[this._lang],
               })
             )
             this._currentAction = this.ACTIONS.openGoldenBook
@@ -563,7 +600,7 @@ class World {
             isGamePadActionVisible = true
             document.dispatchEvent(
               new CustomEvent('showGamePadAction', {
-                detail: 'jump to city of trees',
+                detail: this.ACTIONS_JUMP_TREES[this._lang],
               })
             )
             this._currentAction = this.ACTIONS.openCityOfTrees
@@ -575,7 +612,7 @@ class World {
             isGamePadActionVisible = true
             document.dispatchEvent(
               new CustomEvent('showGamePadAction', {
-                detail: 'jump to great hall',
+                detail: this.ACTIONS_JUMP_HALL[this._lang],
               })
             )
             this._currentAction = this.ACTIONS.openGreatHall

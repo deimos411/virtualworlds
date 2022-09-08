@@ -77,6 +77,21 @@ class World {
     openGreatHall: 'Open great hall',
   }
 
+  ACTIONS_OPEN_BOOK = {
+    en : 'open golden book',
+    fr : 'ouvrir le livre d\'or',
+  }
+
+  ACTIONS_JUMP_HELL = {
+    en : 'jump to hell and paradise',
+    fr : 'découvrir enfer et paradis',
+  }
+
+  ACTIONS_JUMP_HALL = {
+    en : 'jump to great hall',
+    fr : 'découvrir grand hall',
+  }
+
   ACTION_MESHES = ['goldenBook', 'informationPanel1Url', 'informationPanel2Url']
 
   constructor(engine, canvas, virtualJoystick, gui) {
@@ -633,7 +648,7 @@ class World {
             isGamePadActionVisible = true
             document.dispatchEvent(
               new CustomEvent('showGamePadAction', {
-                detail: 'open golden book',
+                detail:  this.ACTIONS_OPEN_BOOK[this._lang],
               })
             )
             this._currentAction = this.ACTIONS.openGoldenBook
@@ -646,7 +661,7 @@ class World {
             isGamePadActionVisible = true
             document.dispatchEvent(
               new CustomEvent('showGamePadAction', {
-                detail: 'jump to hell and paradise',
+                detail: this.ACTIONS_JUMP_HELL[this._lang],
               })
             )
             this._currentAction = this.ACTIONS.openHellAndParadise
@@ -659,7 +674,7 @@ class World {
             isGamePadActionVisible = true
             document.dispatchEvent(
               new CustomEvent('showGamePadAction', {
-                detail: 'jump to great hall',
+                detail: this.ACTIONS_JUMP_HALL[this._lang],
               })
             )
             this._currentAction = this.ACTIONS.openGreatHall

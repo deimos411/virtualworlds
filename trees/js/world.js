@@ -91,6 +91,21 @@ class World {
     openAtlantis: 'Open atlantis',
   }
 
+  ACTIONS_OPEN_BOOK = {
+    en : 'open golden book',
+    fr : 'ouvrir le livre d\'or',
+  }
+
+  ACTIONS_JUMP_ATLANTIS = {
+    en : 'jump to atlantis',
+    fr : 'découvrir atlantide',
+  }
+
+  ACTIONS_JUMP_ISLANDS = {
+    en : 'jump to floating islands',
+    fr : 'découvrir iles flottantes',
+  }
+
   ACTION_MESHES = [
     'goldenBook2',
     'informationPanel1Url',
@@ -576,7 +591,7 @@ class World {
             isGamePadActionVisible = true
             document.dispatchEvent(
               new CustomEvent('showGamePadAction', {
-                detail: 'open golden book',
+                detail: this.ACTIONS_OPEN_BOOK[this._lang],
               })
             )
             this._currentAction = this.ACTIONS.openGoldenBook
@@ -588,7 +603,7 @@ class World {
             isGamePadActionVisible = true
             document.dispatchEvent(
               new CustomEvent('showGamePadAction', {
-                detail: 'jump to floating islands',
+                detail: this.ACTIONS_JUMP_ISLANDS[this._lang],
               })
             )
             this._currentAction = this.ACTIONS.openFloatingIslands
@@ -600,7 +615,7 @@ class World {
             isGamePadActionVisible = true
             document.dispatchEvent(
               new CustomEvent('showGamePadAction', {
-                detail: 'jump to atlantis',
+                detail: this.ACTIONS_JUMP_ATLANTIS[this._lang],
               })
             )
             this._currentAction = this.ACTIONS.openAtlantis

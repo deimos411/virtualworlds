@@ -83,6 +83,26 @@ class World {
     openAtlantis: 'Open atlantis',
   }
 
+  ACTIONS_OPEN_BOOK = {
+    en : 'open golden book',
+    fr : 'ouvrir le livre d\'or',
+  }
+
+  ACTIONS_JUMP_ATLANTIS = {
+    en : 'jump to atlantis',
+    fr : 'découvrir atlantide',
+  }
+
+  ACTIONS_JUMP_HELL = {
+    en : 'jump to hell and paradise',
+    fr : 'découvrir enfer et paradis',
+  }
+
+  ACTIONS_PLAY_ORGAN = {
+    en : 'play organ',
+    fr : 'jouer de l\'orgue',
+  }
+
   ACTION_MESHES = [
     'organ',
     'goldenBook',
@@ -473,7 +493,7 @@ class World {
           ) {
             isGamePadActionVisible = true
             document.dispatchEvent(
-              new CustomEvent('showGamePadAction', { detail: 'play the organ' })
+              new CustomEvent('showGamePadAction', { detail: this.ACTIONS_PLAY_ORGAN[this._lang] })
             )
             this._currentAction = this.ACTIONS.touchOrgan
           }
@@ -485,7 +505,7 @@ class World {
             isGamePadActionVisible = true
             document.dispatchEvent(
               new CustomEvent('showGamePadAction', {
-                detail: 'open golden book',
+                detail: this.ACTIONS_OPEN_BOOK[this._lang],
               })
             )
             this._currentAction = this.ACTIONS.openGoldenBook
@@ -498,7 +518,7 @@ class World {
             isGamePadActionVisible = true
             document.dispatchEvent(
               new CustomEvent('showGamePadAction', {
-                detail: 'jump to hell and paradise',
+                detail: this.ACTIONS_JUMP_HELL[this._lang],
               })
             )
             this._currentAction = this.ACTIONS.openHellAndParadise
@@ -511,7 +531,7 @@ class World {
             isGamePadActionVisible = true
             document.dispatchEvent(
               new CustomEvent('showGamePadAction', {
-                detail: 'jump to atlantis',
+                detail: this.ACTIONS_JUMP_ATLANTIS[this._lang],
               })
             )
             this._currentAction = this.ACTIONS.openAtlantis

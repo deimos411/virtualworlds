@@ -94,7 +94,37 @@ class World {
     drinkBeer: 'Drink beer',
     openGoldenBook: 'Open golden book',
     openSavanna: 'Open hell & paradise',
-    openFloatingIslands: 'Open savanna',
+    openFloatingIslands: 'Open floating islands',
+  }
+
+  ACTIONS_OPEN_BOOK = {
+    en : 'open golden book',
+    fr : 'ouvrir le livre d\'or',
+  }
+
+  ACTIONS_JUMP_SAVANNA = {
+    en : 'jump to savanna',
+    fr : 'découvrir safari',
+  }
+
+  ACTIONS_JUMP_ISLANDS = {
+    en : 'jump to floating islands',
+    fr : 'découvrir iles flottantes',
+  }
+
+  ACTIONS_PLAY = {
+    en : 'play',
+    fr : 'jouer',
+  }
+
+  ACTIONS_STOP = {
+    en : 'stop',
+    fr : 'stop',
+  }
+
+  ACTIONS_DRINK = {
+    en : 'drink',
+    fr : 'boire',
   }
 
   ACTION_MESHES = [
@@ -502,7 +532,7 @@ class World {
           ) {
             isGamePadActionVisible = true
             document.dispatchEvent(
-              new CustomEvent('showGamePadAction', { detail: 'play' })
+              new CustomEvent('showGamePadAction', { detail: this.ACTIONS_PLAY[this._lang] })
             )
             this._currentAction = this.ACTIONS.playMusic
           }
@@ -513,7 +543,7 @@ class World {
           ) {
             isGamePadActionVisible = true
             document.dispatchEvent(
-              new CustomEvent('showGamePadAction', { detail: 'stop' })
+              new CustomEvent('showGamePadAction', { detail: this.ACTIONS_STOP[this._lang] })
             )
             this._currentAction = this.ACTIONS.stopMusic
           }
@@ -524,7 +554,7 @@ class World {
           ) {
             isGamePadActionVisible = true
             document.dispatchEvent(
-              new CustomEvent('showGamePadAction', { detail: 'drink beer' })
+              new CustomEvent('showGamePadAction', { detail: this.ACTIONS_DRINK[this._lang] })
             )
             this._currentAction = this.ACTIONS.drinkBeer
           }
@@ -536,7 +566,7 @@ class World {
             isGamePadActionVisible = true
             document.dispatchEvent(
               new CustomEvent('showGamePadAction', {
-                detail: 'open golden book',
+                detail: this.ACTIONS_OPEN_BOOK[this._lang],
               })
             )
             this._currentAction = this.ACTIONS.openGoldenBook
@@ -548,7 +578,7 @@ class World {
             isGamePadActionVisible = true
             document.dispatchEvent(
               new CustomEvent('showGamePadAction', {
-                detail: 'jump to floating islands',
+                detail: this.ACTIONS_JUMP_ISLANDS[this._lang],
               })
             )
             this._currentAction = this.ACTIONS.openFloatingIslands
@@ -560,7 +590,7 @@ class World {
             isGamePadActionVisible = true
             document.dispatchEvent(
               new CustomEvent('showGamePadAction', {
-                detail: 'jump to savanna',
+                detail: this.ACTIONS_JUMP_SAVANNA[this._lang],
               })
             )
             this._currentAction = this.ACTIONS.openSavanna

@@ -151,3 +151,56 @@
 }
 
 }
+
+.fade-out {
+  animation: fadeOut ease 1s both;
+  -webkit-animation: fadeOut ease 1s both;
+  -moz-animation: fadeOut ease 1s both;
+  -o-animation: fadeOut ease 1s both;
+  -ms-animation: fadeOut ease 1s both;
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-moz-keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-o-keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-ms-keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+

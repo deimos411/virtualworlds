@@ -80,6 +80,31 @@ class World {
     openCityOfTrees: 'Open city of trees',
   }
 
+  ACTIONS_OPEN_BOOK = {
+    en : 'open golden book',
+    fr : 'ouvrir le livre d\'or',
+  }
+
+  ACTIONS_JUMP_HALLOWEEN = {
+    en : 'jump to halloween',
+    fr : 'aller dans le monde halloween',
+  }
+
+  ACTIONS_JUMP_TREES = {
+    en : 'jump to city of trees',
+    fr : 'aller dans le monde cité des arbres',
+  }
+
+  ACTIONS_FOLLOW_WHALE = {
+    en : 'follow whale',
+    fr : 'suivre la baleine',
+  }
+
+  ACTIONS_FOLLOW_MANTA = {
+    en : 'follow manta ray',
+    fr : 'suivre la raie manta',
+  }
+
   ACTION_MESHES = [
     'whale',
     'mantaRay',
@@ -441,7 +466,7 @@ class World {
           ) {
             isGamePadActionVisible = true
             document.dispatchEvent(
-              new CustomEvent('showGamePadAction', { detail: 'follow whale' })
+              new CustomEvent('showGamePadAction', { detail:  this.ACTIONS_FOLLOW_WHALE[this._lang] })
             )
             this._currentAction = this.ACTIONS.followWhale
           }
@@ -453,7 +478,7 @@ class World {
             isGamePadActionVisible = true
             document.dispatchEvent(
               new CustomEvent('showGamePadAction', {
-                detail: 'follow manta ray',
+                detail:  this.ACTIONS_FOLLOW_MANTA[this._lang],
               })
             )
             this._currentAction = this.ACTIONS.followMantaRay
@@ -466,7 +491,7 @@ class World {
             isGamePadActionVisible = true
             document.dispatchEvent(
               new CustomEvent('showGamePadAction', {
-                detail: 'open golden book',
+                detail: this.ACTIONS_OPEN_BOOK[this._lang],
               })
             )
             this._currentAction = this.ACTIONS.openGoldenBook
@@ -479,7 +504,7 @@ class World {
             isGamePadActionVisible = true
             document.dispatchEvent(
               new CustomEvent('showGamePadAction', {
-                detail: 'jump to city of trees',
+                detail:  this.ACTIONS_JUMP_TREES[this._lang],
               })
             )
             this._currentAction = this.ACTIONS.openCityOfTrees
@@ -492,7 +517,7 @@ class World {
             isGamePadActionVisible = true
             document.dispatchEvent(
               new CustomEvent('showGamePadAction', {
-                detail: 'jump to halloween',
+                detail:  this.ACTIONS_JUMP_HALLOWEEN[this._lang],
               })
             )
             this._currentAction = this.ACTIONS.openHalloween

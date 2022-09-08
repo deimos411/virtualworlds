@@ -68,9 +68,7 @@ class World {
   /**
    *  Actions
    */
-  ACTIONS = {
-    playMusic: 'Play',
-    stopMusic: 'Stop',
+  ACTIONS = {    
     askSaintPeter: 'Ask Saint Peter',
     askImp: 'Ask imp',
     tormentRoom: 'Torment room',
@@ -80,6 +78,51 @@ class World {
     openGoldenBook: 'Open golden book',
     openHalloween: 'Open halloween',
     openSavanna: 'Open savanna',
+  }
+
+  ACTIONS_OPEN_BOOK = {
+    en : 'open golden book',
+    fr : 'ouvrir le livre d\'or',
+  }
+
+  ACTIONS_JUMP_HALLOWEEN = {
+    en : 'jump to halloween',
+    fr : 'découvrir halloween',
+  }
+
+  ACTIONS_JUMP_SAVANNA = {
+    en : 'jump to savanna',
+    fr : 'découvrir safari',
+  }
+
+  ACTIONS_GOTO_HELL = {
+    en : 'go to hell',
+    fr : 'aller en enfer',
+  }
+
+  ACTIONS_GOTO_PARADISE = {
+    en : 'go to paradise',
+    fr : 'aller au paradis',
+  }
+
+  ACTIONS_OPEN_PORTAL = {
+    en : 'open portal',
+    fr : 'ouvrir le portail',
+  }
+
+  ACTIONS_TORMENT_ROOM = {
+    en : 'listen',
+    fr : 'écouter',
+  }
+
+  ACTIONS_ASK_PETER = {
+    en : 'ask',
+    fr : 'demander',
+  }
+
+  ACTIONS_IMP = {
+    en : 'ask',
+    fr : 'demander',
   }
 
   ACTION_MESHES = [
@@ -528,7 +571,7 @@ class World {
             isGamePadActionVisible = true
             document.dispatchEvent(
               new CustomEvent('showGamePadAction', {
-                detail: 'ask Saint Peter',
+                detail: this.ACTIONS_ASK_PETER[this._lang],
               })
             )
             this._currentAction = this.ACTIONS.askSaintPeter
@@ -540,7 +583,7 @@ class World {
           ) {
             isGamePadActionVisible = true
             document.dispatchEvent(
-              new CustomEvent('showGamePadAction', { detail: 'ask imp' })
+              new CustomEvent('showGamePadAction', { detail: this.ACTIONS_IMP[this._lang] })
             )
             this._currentAction = this.ACTIONS.askImp
           }
@@ -551,7 +594,7 @@ class World {
           ) {
             isGamePadActionVisible = true
             document.dispatchEvent(
-              new CustomEvent('showGamePadAction', { detail: 'torment room' })
+              new CustomEvent('showGamePadAction', { detail: this.ACTIONS_TORMENT_ROOM[this._lang] })
             )
             this._currentAction = this.ACTIONS.tormentRoom
           }
@@ -562,7 +605,7 @@ class World {
           ) {
             isGamePadActionVisible = true
             document.dispatchEvent(
-              new CustomEvent('showGamePadAction', { detail: 'open portal' })
+              new CustomEvent('showGamePadAction', { detail: this.ACTIONS_OPEN_PORTAL[this._lang] })
             )
             this._currentAction = this.ACTIONS.openPortal
           }
@@ -573,7 +616,7 @@ class World {
           ) {
             isGamePadActionVisible = true
             document.dispatchEvent(
-              new CustomEvent('showGamePadAction', { detail: 'go to hell' })
+              new CustomEvent('showGamePadAction', { detail: this.ACTIONS_GOTO_HELL[this._lang] })
             )
             this._currentAction = this.ACTIONS.goToHell
           }
@@ -584,7 +627,7 @@ class World {
           ) {
             isGamePadActionVisible = true
             document.dispatchEvent(
-              new CustomEvent('showGamePadAction', { detail: 'go to paradise' })
+              new CustomEvent('showGamePadAction', { detail: this.ACTIONS_GOTO_PARADISE[this._lang]})
             )
             this._currentAction = this.ACTIONS.goToParadise
           }
@@ -596,7 +639,7 @@ class World {
             isGamePadActionVisible = true
             document.dispatchEvent(
               new CustomEvent('showGamePadAction', {
-                detail: 'open golden book',
+                detail: this.ACTIONS_OPEN_BOOK[this._lang],
               })
             )
             this._currentAction = this.ACTIONS.openGoldenBook
@@ -609,7 +652,7 @@ class World {
             isGamePadActionVisible = true
             document.dispatchEvent(
               new CustomEvent('showGamePadAction', {
-                detail: 'jump to savanna',
+                detail: this.ACTIONS_JUMP_SAVANNA[this._lang],
               })
             )
             this._currentAction = this.ACTIONS.openSavanna
@@ -622,7 +665,7 @@ class World {
             isGamePadActionVisible = true
             document.dispatchEvent(
               new CustomEvent('showGamePadAction', {
-                detail: 'jump to halloween',
+                detail: this.ACTIONS_JUMP_HALLOWEEN[this._lang],
               })
             )
             this._currentAction = this.ACTIONS.openHalloween
