@@ -2,6 +2,9 @@
 Virtual worlds I made in 1998 in VRML with Internet Space Builder 2.1 and Cosmo World. 
 Recently restaured using Blender 2.9 and BabylonJS.  
 
+December 2023
+New world added : Winter
+
 New!
 * Better XBox gamepad support.
 * Mobile navigation improvement.
@@ -15,6 +18,7 @@ Great Hall : (https://virtualworlds.fun/greathall/)
 Halloween : (https://virtualworlds.fun/halloween/)  
 Hell & Paradise : (https://virtualworlds.fun/hell/)    
 Savanna : (https://virtualworlds.fun/savanna/)  
+Winter : (https://virtualworlds.fun/winter/)  
   
 More infos : (https://virtualworlds.fun/)  
 Have fun!
