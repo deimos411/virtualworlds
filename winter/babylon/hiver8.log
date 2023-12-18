@@ -1,0 +1,483 @@
+Exporter version: 3.3.0, Blender version: 3.3.3
+========= Conversion from Blender to Babylon.js =========
+	Scene settings used :
+		Inline textures     :  false
+		Material Type       :  PBR
+		Positions Precision :  4
+		Normals Precision   :  3
+		UVs Precision       :  3
+		Vert Color Precision:  3
+		Mat Weight Precision:  2
+		Keep Z-up r-handed  :  no
+		Texture directory   :  C:\Users\josqu\Workspace\www\beta\winter\v8_panels\babylon\
+	Python World class constructor completed
+	processing begun of camera (UniversalCamera):  Camera
+	processing begun of mesh:  hiver
+		processing begun of material:  white
+		processing begun of material:  ground
+		processing begun of material:  material_2
+		processing begun of material:  material_3
+		processing begun of material:  leaves
+		processing begun of material:  bark
+		processing begun of material:  cache
+		processing begun of material:  sky
+		processing begun of material:  stars
+			processing texture neige
+			processing texture murhiver
+			processing texture mur
+			processing texture sapin
+			processing texture bois
+			processing texture cache
+			processing texture ciel
+			processing texture etoile
+		processing begun of multimaterial:  hiver8.Multimaterial#0
+		Custom split normals with tangents being used
+		num positions      :  37
+		num normals        :  37
+		num tangents       :  148
+		num uvs            :  74
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  66
+	processing begun of mesh:  ground
+		processing begun of material:  ground
+		registered as also a user of material:  ground
+		Custom split normals with tangents being used
+		num positions      :  4
+		num normals        :  4
+		num tangents       :  16
+		num uvs            :  8
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of mesh:  groundHorizon
+		processing begun of material:  black.001
+		Custom split normals with tangents being used
+		num positions      :  4
+		num normals        :  4
+		num tangents       :  16
+		num uvs            :  8
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of mesh:  tree1
+		processing begun of material:  leaves
+		processing begun of material:  bark
+		registered as also a user of material:  leaves
+		registered as also a user of material:  bark
+		processing begun of multimaterial:  hiver8.Multimaterial#1
+		Custom split normals with tangents being used
+		num positions      :  120
+		num normals        :  120
+		num tangents       :  480
+		num uvs            :  240
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  84
+		WARNING: # of 0 area faces found:  18
+	processing begun of mesh:  tree2
+		mesh is an instance of :  tree1.  Processing halted.
+	processing begun of mesh:  tree3
+		mesh is an instance of :  tree1.  Processing halted.
+	processing begun of mesh:  tree4
+		mesh is an instance of :  tree1.  Processing halted.
+	processing begun of mesh:  tree5
+		mesh is an instance of :  tree1.  Processing halted.
+	processing begun of mesh:  tree6
+		mesh is an instance of :  tree1.  Processing halted.
+	processing begun of mesh:  tree7
+		mesh is an instance of :  tree1.  Processing halted.
+	processing begun of mesh:  tree8
+		mesh is an instance of :  tree1.  Processing halted.
+	processing begun of mesh:  gift1
+		animation processing begun
+			processing action gift1Action:  in[0 - 160], out[0 - 160]
+		processing begun of material:  PaperRed
+		processing begun of material:  PaperGold
+		processing begun of multimaterial:  hiver8.Multimaterial#2
+		Custom split normals with tangents being used
+		num positions      :  109
+		num normals        :  109
+		num tangents       :  436
+		num uvs            :  218
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  52
+	processing begun of mesh:  gift2
+		animation processing begun
+			processing action gift2Action:  in[0 - 120], out[0 - 120]
+		processing begun of material:  PaperGold
+		processing begun of material:  GreenPaper
+		registered as also a user of material:  PaperGold
+		processing begun of multimaterial:  hiver8.Multimaterial#3
+		Custom split normals with tangents being used
+		num positions      :  109
+		num normals        :  109
+		num tangents       :  436
+		num uvs            :  218
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  52
+	processing begun of mesh:  gift3
+		animation processing begun
+			processing action gift3Action:  in[0 - 140], out[0 - 140]
+		processing begun of material:  PaperPurple
+		processing begun of material:  PaperGold
+		registered as also a user of material:  PaperGold
+		processing begun of multimaterial:  hiver8.Multimaterial#4
+		Custom split normals with tangents being used
+		num positions      :  109
+		num normals        :  109
+		num tangents       :  436
+		num uvs            :  218
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  52
+	processing begun of mesh:  gift4
+		animation processing begun
+			processing action gift4Action:  in[0 - 90], out[0 - 90]
+		processing begun of material:  PaperBlue
+		processing begun of material:  PaperGold
+		registered as also a user of material:  PaperGold
+		processing begun of multimaterial:  hiver8.Multimaterial#5
+		Custom split normals with tangents being used
+		num positions      :  109
+		num normals        :  109
+		num tangents       :  436
+		num uvs            :  218
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  52
+	processing begun of mesh:  gift_shadow2
+		animation processing begun
+			processing action gift_shadow2Action:  in[0 - 120], out[0 - 120]
+		processing begun of material:  Shadow
+		num positions      :  4
+		num normals        :  4
+		num tangents       :  0
+		num uvs            :  8
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of mesh:  Plane
+		animation processing begun
+			processing action PlaneAction:  in[0 - 140], out[0 - 140]
+		processing begun of material:  Shadow
+		registered as also a user of material:  Shadow
+		num positions      :  4
+		num normals        :  4
+		num tangents       :  0
+		num uvs            :  8
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of mesh:  Plane.001
+		animation processing begun
+			processing action Plane.001Action:  in[0 - 160], out[0 - 160]
+		processing begun of material:  Shadow
+		registered as also a user of material:  Shadow
+		num positions      :  4
+		num normals        :  4
+		num tangents       :  0
+		num uvs            :  8
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of mesh:  Plane.002
+		animation processing begun
+			processing action Plane.002Action:  in[0 - 90], out[0 - 90]
+		processing begun of material:  Shadow
+		registered as also a user of material:  Shadow
+		num positions      :  4
+		num normals        :  4
+		num tangents       :  0
+		num uvs            :  8
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of mesh:  reindeer.body.001
+		processing begun of material:  black
+		processing begun of material:  antler
+		processing begun of material:  coat
+		processing begun of multimaterial:  hiver8.Multimaterial#6
+		Custom split normals with tangents being used
+		num positions      :  138
+		num normals        :  138
+		num tangents       :  552
+		num uvs            :  276
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  54
+	processing begun of mesh:  reindeer.head.001
+		animation processing begun
+			processing action reindeer.head.001Action.001:  in[40 - 240], out[0 - 240]
+		processing begun of material:  black
+		processing begun of material:  antler
+		processing begun of material:  coat
+		registered as also a user of material:  black
+		registered as also a user of material:  antler
+		registered as also a user of material:  coat
+		processing begun of multimaterial:  hiver8.Multimaterial#7
+		Custom split normals with tangents being used
+		num positions      :  150
+		num normals        :  150
+		num tangents       :  600
+		num uvs            :  300
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  60
+	processing begun of mesh:  reindeer.body
+		processing begun of material:  black
+		processing begun of material:  antler
+		processing begun of material:  coat
+		registered as also a user of material:  black
+		registered as also a user of material:  antler
+		registered as also a user of material:  coat
+		processing begun of multimaterial:  hiver8.Multimaterial#8
+		Custom split normals with tangents being used
+		num positions      :  138
+		num normals        :  138
+		num tangents       :  552
+		num uvs            :  276
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  54
+	processing begun of mesh:  reindeer.head
+		animation processing begun
+			processing action reindeer.headAction.001:  in[0 - 240], out[0 - 240]
+		processing begun of material:  black
+		processing begun of material:  antler
+		processing begun of material:  coat
+		registered as also a user of material:  black
+		registered as also a user of material:  antler
+		registered as also a user of material:  coat
+		processing begun of multimaterial:  hiver8.Multimaterial#9
+		Custom split normals with tangents being used
+		num positions      :  153
+		num normals        :  153
+		num tangents       :  612
+		num uvs            :  306
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  60
+	processing begun of mesh:  house1
+		processing begun of material:  white
+		processing begun of material:  material_2
+		processing begun of material:  material_3
+		registered as also a user of material:  white
+		registered as also a user of material:  material_2
+		registered as also a user of material:  material_3
+		processing begun of multimaterial:  hiver8.Multimaterial#10
+		Custom split normals with tangents being used
+		num positions      :  94
+		num normals        :  94
+		num tangents       :  376
+		num uvs            :  188
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  96
+	processing begun of mesh:  house2
+		mesh is an instance of :  house1.  Processing halted.
+	processing begun of mesh:  house3
+		mesh is an instance of :  house1.  Processing halted.
+	processing begun of mesh:  smoke
+		processing begun of material:  smoke
+		num positions      :  88
+		num normals        :  88
+		num tangents       :  0
+		num uvs            :  176
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  80
+	processing begun of mesh:  smoke2
+		processing begun of material:  smoke
+		registered as also a user of material:  smoke
+		num positions      :  88
+		num normals        :  88
+		num tangents       :  0
+		num uvs            :  176
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  80
+	processing begun of mesh:  smoke3
+		processing begun of material:  smoke
+		registered as also a user of material:  smoke
+		num positions      :  88
+		num normals        :  88
+		num tangents       :  0
+		num uvs            :  176
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  80
+	processing begun of mesh:  sky
+		processing begun of material:  sky
+		registered as also a user of material:  sky
+		Custom split normals with tangents being used
+		num positions      :  32
+		num normals        :  32
+		num tangents       :  128
+		num uvs            :  64
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  stars_old
+		processing begun of material:  cache
+		processing begun of material:  sky
+		processing begun of material:  stars
+		registered as also a user of material:  cache
+		registered as also a user of material:  sky
+		registered as also a user of material:  stars
+		processing begun of multimaterial:  hiver8.Multimaterial#11
+		Custom split normals with tangents being used
+		num positions      :  31
+		num normals        :  31
+		num tangents       :  124
+		num uvs            :  62
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  cache
+		processing begun of material:  cache
+		registered as also a user of material:  cache
+		Custom split normals with tangents being used
+		num positions      :  32
+		num normals        :  32
+		num tangents       :  128
+		num uvs            :  64
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  12
+	processing begun of mesh:  stars
+		processing begun of material:  stars
+		registered as also a user of material:  stars
+		num positions      :  4
+		num normals        :  4
+		num tangents       :  0
+		num uvs            :  8
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of node:  Empty
+	processing begun of mesh:  snowMan
+		processing begun of material:  white
+		processing begun of material:  greenWhool
+		processing begun of material:  black
+		processing begun of material:  hay
+		processing begun of material:  wood
+		processing begun of material:  carrot
+		registered as also a user of material:  white
+		registered as also a user of material:  black
+		processing begun of multimaterial:  hiver8.Multimaterial#12
+		Custom split normals with tangents being used
+		num positions      :  467
+		num normals        :  467
+		num tangents       :  1868
+		num uvs            :  934
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  810
+	processing begun of mesh:  hat
+		processing begun of material:  leather
+		num positions      :  69
+		num normals        :  69
+		num tangents       :  0
+		num uvs            :  138
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  28
+	processing begun of mesh:  informationPanel
+		processing begun of material:  whitebeam
+		processing begun of material:  woodPlank
+		processing begun of material:  grey
+		processing begun of material:  stone
+			processing texture _00
+			processing texture _10
+			processing texture pierre01
+		processing begun of multimaterial:  hiver8.Multimaterial#13
+		Custom split normals with tangents being used
+		num positions      :  137
+		num normals        :  137
+		num tangents       :  548
+		num uvs            :  274
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  88
+	processing begun of mesh:  informationPanel1Url
+		processing begun of material:  halloween
+		processing begun of material:  atlantide
+			processing texture halloween
+		processing begun of multimaterial:  hiver8.Multimaterial#14
+		Custom split normals with tangents being used
+		num positions      :  4
+		num normals        :  4
+		num tangents       :  16
+		num uvs            :  8
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of mesh:  informationPanel2
+		mesh is an instance of :  informationPanel.  Processing halted.
+	processing begun of mesh:  informationPanel2Url
+		processing begun of material:  atlantis
+		processing begun of material:  atlantide.001
+			processing texture atlantide
+		processing begun of multimaterial:  hiver8.Multimaterial#15
+		Custom split normals with tangents being used
+		num positions      :  4
+		num normals        :  4
+		num tangents       :  16
+		num uvs            :  8
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  2
+	processing begun of mesh:  goldenBook
+		processing begun of material:  whitebeam.001
+		processing begun of material:  woodPlank.001
+		processing begun of material:  white.001
+		processing begun of material:  red
+		processing begun of material:  black.002
+			processing texture _00
+		processing begun of multimaterial:  hiver8.Multimaterial#16
+		Custom split normals with tangents being used
+		num positions      :  132
+		num normals        :  132
+		num tangents       :  528
+		num uvs            :  264
+		num uvs2           :  0
+		num colors         :  0
+		num triangles      :  60
+	processing begun of light (POINT):  Light
+========= Writing of JSON file started =========
+	writing mesh:  hiver
+	writing mesh:  ground
+	writing mesh:  groundHorizon
+	writing mesh:  tree1
+	writing mesh:  gift1
+	writing mesh:  gift2
+	writing mesh:  gift3
+	writing mesh:  gift4
+	writing mesh:  gift_shadow2
+	writing mesh:  Plane
+	writing mesh:  Plane.001
+	writing mesh:  Plane.002
+	writing mesh:  reindeer.body.001
+	writing mesh:  reindeer.head.001
+	writing mesh:  reindeer.body
+	writing mesh:  reindeer.head
+	writing mesh:  house1
+	writing mesh:  smoke
+	writing mesh:  smoke2
+	writing mesh:  smoke3
+	writing mesh:  sky
+	writing mesh:  stars_old
+	writing mesh:  cache
+	writing mesh:  stars
+	writing mesh:  snowMan
+	writing mesh:  hat
+	writing mesh:  informationPanel
+	writing mesh:  informationPanel1Url
+	writing mesh:  informationPanel2Url
+	writing mesh:  goldenBook
+========= Writing of JSON file completed =========
+========= end of processing =========
+elapsed time:  0 min, 0.2808 secs

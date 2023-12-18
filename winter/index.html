@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <meta name="author" content="Josquin BERNARD" />
+    <meta
+      name="description"
+      content="Discover winter in a virtual 3D world directly from your browser on Computer / Mobile / Xbox."
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@virtualworldsfr" />
+    <meta name="twitter:creator" content="@virtualworldsfr" />
+    <meta property="og:url" content="https://virtualworlds.fun/winter/" />
+    <meta property="og:title" content="Winter" />
+    <meta
+      property="og:description"
+      content="Discover winter in a virtual 3D world directly from your browser on Computer / Mobile / Xbox."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="https://virtualworlds.fun/winter/card/winter.jpg"
+    />
+
+    <title>Winter</title>
+
+    <link rel="stylesheet" href="css/loader.css" />
+    <link rel="stylesheet" href="css/world.css" />
+    <link rel="stylesheet" href="css/gui.css" />
+
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="images/favico_winter.png"
+    />
+
+    <!-- Google Analytics snippet added by Site Kit -->
+
+    <script
+      src="https://www.googletagmanager.com/gtag/js?id=UA-214534786-1"
+      id="google_gtagjs-js"
+      async
+    ></script>
+    <script id="google_gtagjs-js-after">
+      window.dataLayer = window.dataLayer || []
+      function gtag() {
+        dataLayer.push(arguments)
+      }
+      gtag('set', 'linker', { domains: ['virtualworlds.fun'] })
+      gtag('js', new Date())
+      gtag('set', 'developer_id.dZTNiMT', true)
+      gtag('config', 'UA-214534786-1', { anonymize_ip: true })
+      gtag('config', 'G-963287X5WE')
+    </script>
+  </head>
+  <body>
+    <!-- loading -->
+    <section id="loader" class="centered">
+      <div class="trigger"></div>
+      <span class="centered">Loading...</span>
+    </section>
+
+    <!-- gamepad screen pointer -->
+    <section id="screenTarget" class="centered hidden">
+      <div id="screenPoint" class="centered"></div>
+    </section>
+
+    <!-- gamepad action -->
+    <section id="gamepad" class="centered modal hidden">
+      <img src="images/button_xbox_x.png" />
+      <span></span>
+    </section>
+
+    <!-- gamepad status -->
+    <section id="gamepadStatus" class="centered modal hidden">
+      <!-- https://www.shareicon.net/author/yun-liu -->
+      <img src="images/gamepad.png" />
+      <span>GamePad connected!</span>
+    </section>
+
+    <!-- buttons -->
+    <section id="gui">
+      <div id="fps">0 fps</div>
+
+      <div id="fullscreen">
+        <input
+          type="image"
+          id="btnFullScreen"
+          alt="Full screen (X)"
+          title="Full screen (X)"
+          src="images/expand.png"
+        />
+      </div>
+
+      <div id="camera">
+        <input
+          type="image"
+          id="btnCamera"
+          alt="Change camera (C)"
+          title="Change camera (C)"
+          src="images/camera.png"
+        />
+      </div>
+
+      <div id="navigation">
+        <input
+          type="image"
+          id="btnNavigation"
+          alt="Fly (F)"
+          title="Fly (F)"
+          src="images/walk.png"
+        />
+      </div>
+
+      <div id="help">
+        <input
+          type="image"
+          id="btnHelp"
+          alt="Help (H)"
+          title="Help (H)"
+          src="images/help.png"
+        />
+      </div>
+    </section>
+
+    <!-- help -->
+    <section id="help">
+      <div id="helpComputer" class="centered modal hidden">
+        <img src="images/computer_help_en.png" />
+        <input
+          type="image"
+          class="btnHelpClose"
+          src="images/help_close_button_en.png"
+        />
+      </div>
+      <div id="helpMobile" class="centered modal hidden">
+        <img id="imgHelpMobile" src="images/mobile_help_en.png" />
+        <img class="btnHelpClose" src="images/help_close_button_en.png" />
+      </div>
+      <div id="helpGamePad" class="centered modal hidden">
+        <img src="images/gamepad_xbox_help_en.png" />
+      </div>
+    </section>
+
+    <!-- 3d canvas -->
+    <canvas id="renderCanvas"></canvas>
+
+    <!-- main script -->
+    <script src="js/main.js" type="module"></script>
+
+    <!-- virtual joystick -->
+    <script src="js/virtualstick.js" type="module"></script>
+
+    <!-- gamepad -->
+    <script src="js/gamepad.js" type="module"></script>
+
+    <!-- gui -->
+    <script src="js/gui.js" type="module"></script>
+
+    <!-- world -->
+    <script src="js/world.js" type="module"></script>
+
+    <!-- an now where the magic is possible... -->
+
+    <!-- BabylonJS 3D Framework ( babylonjs.com )-->
+    <!--BabylonJS 5.8.0, mobile virtual joystick not working after that revision -->
+    <!--<script src="https://cdn.jsdelivr.net/npm/babylonjs@5.8.0/babylon.js"></script>-->
+    <!--<script src="https://cdn.jsdelivr.net/npm/babylonjs-gui@5.8.0/babylon.gui.min.js"></script>-->
+    <!--<script src="https://cdn.jsdelivr.net/npm/babylonjs-materials@5.8.0/babylon.skyMaterial.js"></script>-->
+
+    <!-- Babylon.js latest -->
+    <script src="https://cdn.babylonjs.com/babylon.js"></script>
+    <script src="https://cdn.babylonjs.com/gui/babylon.gui.min.js"></script>
+    <script src="https://cdn.babylonjs.com/materialsLibrary/babylonjs.materials.min.js"></script>
+  </body>
+</html>
