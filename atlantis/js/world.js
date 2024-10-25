@@ -625,12 +625,12 @@ class World {
 
     if (World.WALK_MODE === navigationMode) {
       this.walk()
-      this._gui.showFlyMode()
+      this._gui.showWalkMode()
     }
 
     if (World.FLY_MODE === navigationMode) {
       this.fly()
-      this._gui.showWalkMode()
+      this._gui.showFlyMode()
     }
   }
 

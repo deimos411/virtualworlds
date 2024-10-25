@@ -198,12 +198,12 @@ class Gui extends Screen {
 
   showFlyMode() {
     this.$btnNavigation.setAttribute('src', 'images/fly.png')
-    this.$btnNavigation.setAttribute('title', this.FLY_MESSAGE[this._lang])
+    this.$btnNavigation.setAttribute('title', this.WALK_MESSAGE[this._lang])
   }
 
   showWalkMode() {
     this.$btnNavigation.setAttribute('src', 'images/walk.png')
-    this.$btnNavigation.setAttribute('title', this.WALK_MESSAGE[this._lang])
+    this.$btnNavigation.setAttribute('title', this.FLY_MESSAGE[this._lang])
   }
 
   hideLoadingScreen() {    
