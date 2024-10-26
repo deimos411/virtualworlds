@@ -62,7 +62,7 @@
 {"name":"material_0.001","id":"material_0.001","customType":"BABYLON.PBRMaterial","emissive":[0,0,0],"reflectivity":[1,1,1],"roughness":1,"alpha":1,"transparencyMode":0,"alphaCutOff":0.4,"metallic":0, 
 "albedoTexture":{"name":"00.jpg","level":1,"hasAlpha":true,"coordinatesMode":0,"uOffset":0,"vOffset":0,"uScale":1,"vScale":1,"uAng":0,"vAng":0,"wAng":0,"wrapU":1,"wrapV":1,"coordinatesIndex":0},"useAlphaFromAlbedoTexture":true},
 {"name":"material_12.001","id":"material_12.001","customType":"BABYLON.PBRMaterial","emissive":[0,0,0],"reflectivity":[1,1,1],"roughness":1,"alpha":1,"transparencyMode":0,"alphaCutOff":0.4,"metallic":0,"emissiveIntensity":0, 
-"albedoTexture":{"name":"iles.jpg","level":1,"hasAlpha":true,"coordinatesMode":0,"uOffset":0,"vOffset":0,"uScale":1,"vScale":1,"uAng":0,"vAng":0,"wAng":0,"wrapU":1,"wrapV":1,"coordinatesIndex":0},"useAlphaFromAlbedoTexture":true},
+"albedoTexture":{"name":"safari.jpg","level":1,"hasAlpha":true,"coordinatesMode":0,"uOffset":0,"vOffset":0,"uScale":1,"vScale":1,"uAng":0,"vAng":0,"wAng":0,"wrapU":1,"wrapV":1,"coordinatesIndex":0},"useAlphaFromAlbedoTexture":true},
 {"name":"material_2.001","id":"material_2.001","customType":"BABYLON.PBRMaterial","emissive":[0,0,0],"reflectivity":[1,1,1],"roughness":1,"alpha":1,"transparencyMode":0,"alphaCutOff":0.4,"metallic":0, 
 "albedoTexture":{"name":"03.jpg","level":1,"hasAlpha":true,"coordinatesMode":0,"uOffset":0,"vOffset":0,"uScale":1,"vScale":1,"uAng":0,"vAng":0,"wAng":0,"wrapU":1,"wrapV":1,"coordinatesIndex":0},"useAlphaFromAlbedoTexture":true},
 {"name":"material_3.001","id":"material_3.001","customType":"BABYLON.PBRMaterial","emissive":[0,0,0],"reflectivity":[1,1,1],"roughness":1,"alpha":1,"transparencyMode":0,"alphaCutOff":0.4,"metallic":0, 
