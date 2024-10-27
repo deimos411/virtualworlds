@@ -206,12 +206,12 @@ class Gui extends Screen {
     this.$btnNavigation.setAttribute('title', this.FLY_MESSAGE[this._lang])
   }
 
-  hideLoadingScreen() {    
+  hideLoadingScreen() {
     this.$loader.classList.add('fade-out')
     setTimeout(() => {
-      this.$loader.style.display = 'none'  
-    }, "1000")    
-    this.show()
+      this.$loader.style.display = 'none'
+      this.show()
+    }, '300')
   }
 
   exitHandler() {

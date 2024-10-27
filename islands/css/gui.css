@@ -22,8 +22,8 @@ html, body {
 
 .modal {   
     padding:20px;
-    background-color: #4185b7;
-    border-color: #8cc5ee;
+    background-color: #004a9e;
+    border-color: #3978c0;
     border-radius: 25px;
     border-width: 2px;
     border-style: solid;
@@ -60,7 +60,8 @@ html, body {
     bottom: 15px;
     right: 10px;       
     width: 32px;
-    height: 32px;         
+    height: 32px;   
+    user-select: none;
 }
 #btnCamera {
     position: absolute;
@@ -68,7 +69,8 @@ html, body {
     bottom: 55px;
     right: 10px;   
     width: 32px;
-    height: 32px;             
+    height: 32px;    
+    user-select: none;
 }
 #btnNavigation  {
     position: absolute;
@@ -76,7 +78,8 @@ html, body {
     bottom: 95px;
     right: 10px;  
     width: 32px;
-    height: 32px;              
+    height: 32px;     
+    user-select: none;
 }
 
 #btnHelp  {
@@ -85,7 +88,8 @@ html, body {
     bottom: 135px;
     right: 10px;  
     width: 32px;
-    height: 32px;              
+    height: 32px;     
+    user-select: none;
 }
 
 #navigationInfo {

@@ -210,8 +210,8 @@ class Gui extends Screen {
     this.$loader.classList.add('fade-out')
     setTimeout(() => {
       this.$loader.style.display = 'none'
-    }, '1000')
-    this.show()
+      this.show()
+    }, '300')
   }
 
   exitHandler() {
