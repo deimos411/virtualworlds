@@ -22,8 +22,8 @@ html, body {
 
 .modal {   
     padding:20px;
-    background-color: #004a9e;
-    border-color: #3978c0;
+    background-color: rgb(10, 74, 62);
+    border-color: rgb(74, 236, 117);
     border-radius: 25px;
     border-width: 2px;
     border-style: solid;
