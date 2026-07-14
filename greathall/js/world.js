@@ -19,7 +19,7 @@ class World {
 
   GRAVITY_FORCE = -0.55 // default -0.98
   ANGULAR_SENSIBILTY = 5000 // default 2000
-  TOUCH_ANGULAR_SENSIBILITY = 4000 // default 20000
+  TOUCH_ANGULAR_SENSIBILITY = 20000 // default 20000
   TOUCH_MOVE_SENSIBILITY = 250 // default 250
 
   /**
@@ -98,33 +98,33 @@ class World {
   }
 
   ACTIONS_OPEN_BOOK = {
-    en : 'open golden book',
-    fr : 'ouvrir le livre d\'or',
+    en: 'open golden book',
+    fr: "ouvrir le livre d'or",
   }
 
   ACTIONS_JUMP_SAVANNA = {
-    en : 'jump to savanna',
-    fr : 'découvrir safari',
+    en: 'jump to savanna',
+    fr: 'découvrir safari',
   }
 
   ACTIONS_JUMP_ISLANDS = {
-    en : 'jump to floating islands',
-    fr : 'découvrir iles flottantes',
+    en: 'jump to floating islands',
+    fr: 'découvrir iles flottantes',
   }
 
   ACTIONS_PLAY = {
-    en : 'play',
-    fr : 'jouer',
+    en: 'play',
+    fr: 'jouer',
   }
 
   ACTIONS_STOP = {
-    en : 'stop',
-    fr : 'stop',
+    en: 'stop',
+    fr: 'stop',
   }
 
   ACTIONS_DRINK = {
-    en : 'drink',
-    fr : 'boire',
+    en: 'drink',
+    fr: 'boire',
   }
 
   ACTION_MESHES = [
@@ -161,41 +161,13 @@ class World {
     this._followCamera = null
 
     // sounds
-    this._beerSound = new BABYLON.Sound('beer', 'sound/beer.wav', this._scene)
+    // audio engine (will be initialized in createScene with AudioV2)
+    this._audioEngine = null
+    this._beerSound = null
     this._musicSound = null
-
-    this._nearThunderSound = new BABYLON.Sound(
-      'nearThunder',
-      'sound/thunder.wav',
-      this._scene,
-      null,
-      {
-        playbackRate: 1,
-        volume: 1.2,
-      }
-    )
-
-    this._normalThunderSound = new BABYLON.Sound(
-      'normalThunder',
-      'sound/thunder.wav',
-      this._scene,
-      null,
-      {
-        playbackRate: 0.8,
-        volume: 1,
-      }
-    )
-
-    this._farThunderSound = new BABYLON.Sound(
-      'farThunder',
-      'sound/thunder.wav',
-      this._scene,
-      null,
-      {
-        playbackRate: 0.5,
-        volume: 0.5,
-      }
-    )
+    this._nearThunderSound = null
+    this._normalThunderSound = null
+    this._farThunderSound = null
 
     this._isThunder = false
     this._isLightning = false
@@ -218,12 +190,12 @@ class World {
     this._lightDown = new BABYLON.HemisphericLight(
       'lightDown',
       new BABYLON.Vector3(0, 1, 0),
-      this._scene
+      this._scene,
     )
     this._lightUp = new BABYLON.HemisphericLight(
       'lightUp',
       new BABYLON.Vector3(0, -1, 0),
-      this._scene
+      this._scene,
     )
 
     // Default intensity is 1.S
@@ -236,14 +208,14 @@ class World {
       new BABYLON.Vector3(
         this.CAMERA1_POSITION.x,
         this.CAMERA1_POSITION.y,
-        this.CAMERA1_POSITION.z
+        this.CAMERA1_POSITION.z,
       ),
-      this._scene
+      this._scene,
     )
     universalCamera.rotation = new BABYLON.Vector3(
       this.CAMERA1_ROTATION.x,
       this.CAMERA1_ROTATION.y,
-      this.CAMERA1_ROTATION.z
+      this.CAMERA1_ROTATION.z,
     )
 
     // Follow camera to follow zeppelin
@@ -252,11 +224,12 @@ class World {
       new BABYLON.Vector3(
         this.CAMERA1_POSITION.x,
         this.CAMERA1_POSITION.y,
-        this.CAMERA1_POSITION.z
+        this.CAMERA1_POSITION.z,
       ),
       this._scene,
-      null
+      null,
     )
+    this._followCamera.inputs.attached.pointers.warningEnable = false
     this._followCamera.attachControl(this._canvas, true)
 
     // Speed of camera ( 2 by default )
@@ -275,10 +248,10 @@ class World {
       null,
       '',
       this.WORLD_FILE,
-      this._scene
+      this._scene,
     )
 
-    // sheeps
+    // beers
     let beers = this._scene.getMeshesByTags('beer')
     for (let beer of beers) {
       beer.isPickable = true
@@ -288,8 +261,8 @@ class World {
           BABYLON.ActionManager.OnPickTrigger,
           () => {
             this.drinkBeer()
-          }
-        )
+          },
+        ),
       )
     }
 
@@ -316,11 +289,11 @@ class World {
         var particleSystem = new BABYLON.ParticleSystem(
           'particles',
           nbParticles,
-          this._scene
+          this._scene,
         )
         particleSystem.particleTexture = new BABYLON.Texture(
           'flare.png',
-          this._scene
+          this._scene,
         )
 
         particleSystem.minSize = 0.08
@@ -380,8 +353,8 @@ class World {
             BABYLON.ActionManager.OnPickTrigger,
             () => {
               this.playMusic()
-            }
-          )
+            },
+          ),
         )
       }
 
@@ -397,8 +370,8 @@ class World {
             BABYLON.ActionManager.OnPickTrigger,
             () => {
               this.stopMusic()
-            }
-          )
+            },
+          ),
         )
       }
 
@@ -414,8 +387,8 @@ class World {
             BABYLON.ActionManager.OnPickTrigger,
             () => {
               this.openGoldenBook()
-            }
-          )
+            },
+          ),
         )
       }
 
@@ -431,8 +404,8 @@ class World {
             BABYLON.ActionManager.OnPickTrigger,
             () => {
               this.openFloatingIslands()
-            }
-          )
+            },
+          ),
         )
       }
 
@@ -448,8 +421,8 @@ class World {
             BABYLON.ActionManager.OnPickTrigger,
             () => {
               this.openSavanna()
-            }
-          )
+            },
+          ),
         )
       }
     }
@@ -468,7 +441,7 @@ class World {
     universalCamera.ellipsoid = new BABYLON.Vector3(
       this.AVATAR_SIZE.x,
       this.AVATAR_SIZE.y,
-      this.AVATAR_SIZE.z
+      this.AVATAR_SIZE.z,
     )
 
     // Virtual Sticks for mobile navigation
@@ -532,7 +505,9 @@ class World {
           ) {
             isGamePadActionVisible = true
             document.dispatchEvent(
-              new CustomEvent('showGamePadAction', { detail: this.ACTIONS_PLAY[this._lang] })
+              new CustomEvent('showGamePadAction', {
+                detail: this.ACTIONS_PLAY[this._lang],
+              }),
             )
             this._currentAction = this.ACTIONS.playMusic
           }
@@ -543,7 +518,9 @@ class World {
           ) {
             isGamePadActionVisible = true
             document.dispatchEvent(
-              new CustomEvent('showGamePadAction', { detail: this.ACTIONS_STOP[this._lang] })
+              new CustomEvent('showGamePadAction', {
+                detail: this.ACTIONS_STOP[this._lang],
+              }),
             )
             this._currentAction = this.ACTIONS.stopMusic
           }
@@ -554,7 +531,9 @@ class World {
           ) {
             isGamePadActionVisible = true
             document.dispatchEvent(
-              new CustomEvent('showGamePadAction', { detail: this.ACTIONS_DRINK[this._lang] })
+              new CustomEvent('showGamePadAction', {
+                detail: this.ACTIONS_DRINK[this._lang],
+              }),
             )
             this._currentAction = this.ACTIONS.drinkBeer
           }
@@ -567,7 +546,7 @@ class World {
             document.dispatchEvent(
               new CustomEvent('showGamePadAction', {
                 detail: this.ACTIONS_OPEN_BOOK[this._lang],
-              })
+              }),
             )
             this._currentAction = this.ACTIONS.openGoldenBook
           }
@@ -579,7 +558,7 @@ class World {
             document.dispatchEvent(
               new CustomEvent('showGamePadAction', {
                 detail: this.ACTIONS_JUMP_ISLANDS[this._lang],
-              })
+              }),
             )
             this._currentAction = this.ACTIONS.openFloatingIslands
           }
@@ -591,7 +570,7 @@ class World {
             document.dispatchEvent(
               new CustomEvent('showGamePadAction', {
                 detail: this.ACTIONS_JUMP_SAVANNA[this._lang],
-              })
+              }),
             )
             this._currentAction = this.ACTIONS.openSavanna
           }
@@ -645,27 +624,25 @@ class World {
     }
   }
 
-  playMusic() {
-    let ready = this.checkAudioContext()
-
-    if (ready) {
-      // Music not loaded yet
-      if (this._musicSound == null) {
-        this._musicSound = new BABYLON.Sound(
-          'music',
-          'music/01.mp3',
-          this._scene,
-          () => {
-            // Sound has been downloaded & decoded
-            this._musicSound.loop = true
-            this._musicSound.play()
-          }
-        )
-      } else {
-        // stop and play
-        this._musicSound.stop()
-        this._musicSound.play()
-      }
+  async playMusic() {
+    // Music not loaded yet
+    if (this._musicSound == null) {
+      this._musicSound = await BABYLON.CreateSoundAsync(
+        'music',
+        'music/01.mp3',
+        () => {
+          // Sound has been downloaded & decoded
+          this._musicSound.loop = true
+          this._musicSound.play()
+        },
+        this._audioEngine,
+      )
+      this._musicSound.loop = true
+      this._musicSound.play()
+    } else {
+      // stop and play
+      this._musicSound.stop()
+      this._musicSound.play()
     }
   }
 
@@ -735,15 +712,13 @@ class World {
 
     // Thunder
     if (this._isThunder) {
-      let ready = this.checkAudioContext()
-
-      if (this._thunderType === this.THUNDER_TYPE.NEAR && ready) {
+      if (this._thunderType === this.THUNDER_TYPE.NEAR) {
         this._nearThunderSound.play()
       }
-      if (this._thunderType === this.THUNDER_TYPE.NORMAL && ready) {
+      if (this._thunderType === this.THUNDER_TYPE.NORMAL) {
         this._normalThunderSound.play()
       }
-      if (this._thunderType === this.THUNDER_TYPE.FAR && ready) {
+      if (this._thunderType === this.THUNDER_TYPE.FAR) {
         this._farThunderSound.play()
       }
 
@@ -752,12 +727,8 @@ class World {
   }
 
   drinkBeer() {
-    let ready = this.checkAudioContext()
-
-    if (ready) {
-      this._beerSound.stop()
-      this._beerSound.play()
-    }
+    this._beerSound.stop()
+    this._beerSound.play()
   }
 
   openGoldenBook() {
@@ -779,6 +750,9 @@ class World {
 
   userMakeGesture() {
     this._isUserGesture = true
+    if (!this._audioEngine) {
+      this._initializeAudioAsync()
+    }
   }
 
   /*
@@ -887,7 +861,7 @@ class World {
         camera.position.y.toFixed(3) +
         ',' +
         camera.position.z.toFixed(3) +
-        ')'
+        ')',
     )
     console.log(
       'camera rotation : const CAMERAX_ROTATION = new BABYLON.Vector3(' +
@@ -896,7 +870,7 @@ class World {
         camera.rotation.y.toFixed(3) +
         ',' +
         camera.rotation.z.toFixed(3) +
-        ')'
+        ')',
     )
   }
 
@@ -906,12 +880,12 @@ class World {
     camera.position = new BABYLON.Vector3(
       this.CAMERA1_POSITION.x,
       this.CAMERA1_POSITION.y,
-      this.CAMERA1_POSITION.z
+      this.CAMERA1_POSITION.z,
     )
     camera.rotation = new BABYLON.Vector3(
       this.CAMERA1_ROTATION.x,
       this.CAMERA1_ROTATION.y,
-      this.CAMERA1_ROTATION.z
+      this.CAMERA1_ROTATION.z,
     )
 
     this._scene.activeCamera = camera
@@ -923,12 +897,12 @@ class World {
     camera.position = new BABYLON.Vector3(
       this.CAMERA2_POSITION.x,
       this.CAMERA2_POSITION.y,
-      this.CAMERA2_POSITION.z
+      this.CAMERA2_POSITION.z,
     )
     camera.rotation = new BABYLON.Vector3(
       this.CAMERA2_ROTATION.x,
       this.CAMERA2_ROTATION.y,
-      this.CAMERA2_ROTATION.z
+      this.CAMERA2_ROTATION.z,
     )
 
     this._scene.activeCamera = camera
@@ -940,12 +914,12 @@ class World {
     camera.position = new BABYLON.Vector3(
       this.CAMERA3_POSITION.x,
       this.CAMERA3_POSITION.y,
-      this.CAMERA3_POSITION.z
+      this.CAMERA3_POSITION.z,
     )
     camera.rotation = new BABYLON.Vector3(
       this.CAMERA3_ROTATION.x,
       this.CAMERA3_ROTATION.y,
-      this.CAMERA3_ROTATION.z
+      this.CAMERA3_ROTATION.z,
     )
 
     this._scene.activeCamera = camera
@@ -957,12 +931,12 @@ class World {
     camera.position = new BABYLON.Vector3(
       this.CAMERA4_POSITION.x,
       this.CAMERA4_POSITION.y,
-      this.CAMERA4_POSITION.z
+      this.CAMERA4_POSITION.z,
     )
     camera.rotation = new BABYLON.Vector3(
       this.CAMERA4_ROTATION.x,
       this.CAMERA4_ROTATION.y,
-      this.CAMERA4_ROTATION.z
+      this.CAMERA4_ROTATION.z,
     )
 
     this._scene.activeCamera = camera
@@ -974,12 +948,12 @@ class World {
     camera.position = new BABYLON.Vector3(
       this.CAMERA5_POSITION.x,
       this.CAMERA5_POSITION.y,
-      this.CAMERA5_POSITION.z
+      this.CAMERA5_POSITION.z,
     )
     camera.rotation = new BABYLON.Vector3(
       this.CAMERA5_ROTATION.x,
       this.CAMERA5_ROTATION.y,
-      this.CAMERA5_ROTATION.z
+      this.CAMERA5_ROTATION.z,
     )
 
     this._scene.activeCamera = camera
@@ -988,27 +962,48 @@ class World {
   setGamePadStatus(status) {
     this._gamepadStatus = status
   }
+  async _initializeAudioAsync() {
+    try {
+      this._audioEngine = await BABYLON.CreateAudioEngineAsync()
 
-  /**
-   * Resume audio context if a gesture have been made by user
-   * https://github.com/BabylonJS/Babylon.js/issues/4354
-   * */
-  checkAudioContext() {
-    let ready = false
-    if (BABYLON.Engine.audioEngine.audioContext.state == 'running') {
-      ready = true
+      this._beerSound = await BABYLON.CreateSoundAsync(
+        'beer',
+        'sound/beer.wav',
+        {},
+        this._audioEngine,
+      )
+
+      this._nearThunderSound = await BABYLON.CreateSoundAsync(
+        'nearThunder',
+        'sound/thunder.wav',
+        {
+          playbackRate: 1,
+          volume: 1.2,
+        },
+        this._audioEngine,
+      )
+
+      this._normalThunderSound = await BABYLON.CreateSoundAsync(
+        'normalThunder',
+        'sound/thunder.wav',
+        {
+          playbackRate: 0.8,
+          volume: 1,
+        },
+      )
+
+      this._farThunderSound = await BABYLON.CreateSoundAsync(
+        'farThunder',
+        'sound/thunder.wav',
+        {
+          playbackRate: 0.5,
+          volume: 0.5,
+        },
+        this._audioEngine,
+      )
+    } catch (e) {
+      // Audio initialization failed — sound will be skipped
     }
-
-    // resume only if a gesture have been made
-    if (
-      BABYLON.Engine.audioEngine.audioContext.state != 'running' &&
-      this._isUserGesture
-    ) {
-      BABYLON.Engine.audioEngine.audioContext.resume()
-      ready = true
-    }
-
-    return ready
   }
 
   isMobile() {

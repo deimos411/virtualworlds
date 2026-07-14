@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -35,19 +35,25 @@
       href="images/favico_islands.png"
     />
 
-   <!-- Google Analytics snippet added by Site Kit -->
-   
-   <script src='https://www.googletagmanager.com/gtag/js?id=UA-16584131-1' id='google_gtagjs-js' async></script>
-		<script id='google_gtagjs-js-after'>
-			window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}
-			gtag('set', 'linker', {"domains":["mondesvirtuels.com"]} );
-			gtag("js", new Date());
-			gtag("set", "developer_id.dZTNiMT", true);
-			gtag("config", "UA-16584131-1", {"anonymize_ip":true});
-			gtag("config", "G-1P3CVXY9KX");
-		</script>	  
-		<!-- End Google Analytics snippet added by Site Kit -->
+    <!-- Google Analytics snippet added by Site Kit -->
 
+    <script
+      src="https://www.googletagmanager.com/gtag/js?id=UA-16584131-1"
+      id="google_gtagjs-js"
+      async
+    ></script>
+    <script id="google_gtagjs-js-after">
+      window.dataLayer = window.dataLayer || []
+      function gtag() {
+        dataLayer.push(arguments)
+      }
+      gtag('set', 'linker', { domains: ['mondesvirtuels.com'] })
+      gtag('js', new Date())
+      gtag('set', 'developer_id.dZTNiMT', true)
+      gtag('config', 'UA-16584131-1', { anonymize_ip: true })
+      gtag('config', 'G-1P3CVXY9KX')
+    </script>
+    <!-- End Google Analytics snippet added by Site Kit -->
   </head>
   <body>
     <!-- loading -->
@@ -159,14 +165,16 @@
     <!-- an now where the magic is possible... -->
 
     <!-- BabylonJS 3D Framework ( babylonjs.com )-->
-    <!--BabylonJS 5.8.0, mobile virtual joystick not working after that revision -->
-    <!--<script src="https://cdn.jsdelivr.net/npm/babylonjs@5.8.0/babylon.js"></script>-->
-    <!--<script src="https://cdn.jsdelivr.net/npm/babylonjs-gui@5.8.0/babylon.gui.min.js"></script>-->
-    <!--<script src="https://cdn.jsdelivr.net/npm/babylonjs-materials@5.8.0/babylon.skyMaterial.js"></script>-->
+    <!-- works on BabylonJS 9.13.0 -->
+    <script src="https://cdn.jsdelivr.net/npm/babylonjs@9.13.0/babylon.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/babylonjs-gui@9.13.0/babylon.gui.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/babylonjs-materials@9.13.0/babylon.skyMaterial.js"></script>
 
     <!-- Babylon.js latest -->
+
+    <!--
     <script src="https://cdn.babylonjs.com/babylon.js"></script>
     <script src="https://cdn.babylonjs.com/gui/babylon.gui.min.js"></script>
     <script src="https://cdn.babylonjs.com/materialsLibrary/babylonjs.materials.min.js"></script>
-  </body>
+  --></body>
 </html>

@@ -19,7 +19,7 @@ class World {
 
   GRAVITY_FORCE = -0.55 // default -0.98
   ANGULAR_SENSIBILTY = 5000 // default 2000
-  TOUCH_ANGULAR_SENSIBILITY = 4000 // default 20000
+  TOUCH_ANGULAR_SENSIBILITY = 20000 // default 20000
   TOUCH_MOVE_SENSIBILITY = 250 // default 250
 
   // helpers
@@ -78,18 +78,18 @@ class World {
   }
 
   ACTIONS_OPEN_BOOK = {
-    en : 'open golden book',
-    fr : 'ouvrir le livre d\'or',
+    en: 'open golden book',
+    fr: "ouvrir le livre d'or",
   }
 
   ACTIONS_JUMP_HELL = {
-    en : 'jump to hell and paradise',
-    fr : 'découvrir enfer et paradis',
+    en: 'jump to hell and paradise',
+    fr: 'découvrir enfer et paradis',
   }
 
   ACTIONS_JUMP_HALL = {
-    en : 'jump to great hall',
-    fr : 'découvrir grand hall',
+    en: 'jump to great hall',
+    fr: 'découvrir grand hall',
   }
 
   ACTION_MESHES = ['goldenBook', 'informationPanel1Url', 'informationPanel2Url']
@@ -116,48 +116,12 @@ class World {
     // camera
     this._followCamera = null
 
+    // audio engine (will be initialized in createScene with AudioV2)
+    this._audioEngine = null
+
     // music
     this._musicSound
     this._musicNumber = 1
-
-    // Spatial sounds
-
-    this._instrumentSound = new BABYLON.Sound(
-      'instrumentSound',
-      'sound/instrument.wav',
-      this._scene,
-      null,
-      {
-        loop: true,
-        autoplay: false,
-        spatialSound: true,
-        maxDistance: 35,
-        distanceModel: 'exponential',
-      }
-    )
-
-    this._birdSound = new BABYLON.Sound(
-      'birdSound',
-      'sound/bird.wav',
-      this._scene,
-      null,
-      { volume: 0.1 }
-    ) //, null, { loop: false, autoplay: false, spatialSound: true, maxDistance: 500 ,  distanceModel: "exponential" });
-
-    this._waterSound = new BABYLON.Sound(
-      'waterSound',
-      'sound/water.wav',
-      this._scene,
-      null,
-      {
-        loop: true,
-        autoplay: false,
-        spatialSound: true,
-        maxDistance: 100,
-        distanceModel: 'exponential',
-        playbackRate: 0.5,
-      }
-    )
 
     this._isSoundsPlayed = false
     this._delta = 0
@@ -182,12 +146,12 @@ class World {
     this._lightDown = new BABYLON.HemisphericLight(
       'light',
       new BABYLON.Vector3(0.3, 1, 0.3),
-      this._scene
+      this._scene,
     )
     this._lightUp = new BABYLON.HemisphericLight(
       'light',
       new BABYLON.Vector3(0, -1, 0),
-      this._scene
+      this._scene,
     )
 
     // Default intensity is 1.S
@@ -200,14 +164,14 @@ class World {
       new BABYLON.Vector3(
         this.CAMERA1_POSITION.x,
         this.CAMERA1_POSITION.y,
-        this.CAMERA1_POSITION.z
+        this.CAMERA1_POSITION.z,
       ),
-      this._scene
+      this._scene,
     )
     universalCamera.rotation = new BABYLON.Vector3(
       this.CAMERA1_ROTATION.x,
       this.CAMERA1_ROTATION.y,
-      this.CAMERA1_ROTATION.z
+      this.CAMERA1_ROTATION.z,
     )
 
     // Follow camera to follow mata ray or whale
@@ -216,11 +180,12 @@ class World {
       new BABYLON.Vector3(
         this.CAMERA1_POSITION.x,
         this.CAMERA1_POSITION.y,
-        this.CAMERA1_POSITION.z
+        this.CAMERA1_POSITION.z,
       ),
       this._scene,
-      null
+      null,
     )
+    this._followCamera.inputs.attached.pointers.warningEnable = false
     this._followCamera.attachControl(this._canvas, true)
 
     // Speed of camera ( 2 by default )
@@ -233,11 +198,6 @@ class World {
       this.TOUCH_ANGULAR_SENSIBILITY // 20000 by default
     universalCamera.inputs.attached.touch.touchMoveSensibility =
       this.TOUCH_MOVE_SENSIBILITY // 250 by default
-
-    // spatial sounds
-    this._instrumentSound.setPosition(new BABYLON.Vector3(10.18, 3.931, 26.548))
-    this._waterSound.setPosition(new BABYLON.Vector3(-19.729, 4.62, -246.148))
-    //birdSound.setPosition(new BABYLON.Vector3(10.180,3.931,26.548));
 
     // Sky material
     var skyboxMaterial = new BABYLON.SkyMaterial('skyMaterial', this._scene)
@@ -279,7 +239,7 @@ class World {
         property,
         100,
         BABYLON.Animation.ANIMATIONTYPE_FLOAT,
-        BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT
+        BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT,
       )
       animation.setKeys(keys)
 
@@ -299,7 +259,7 @@ class World {
       null,
       '',
       this.WORLD_FILE,
-      this._scene
+      this._scene,
     )
     // Materials
 
@@ -325,10 +285,10 @@ class World {
           BABYLON.ActionManager.OnPickTrigger,
           () => {
             window.open(
-              'https://web.archive.org/web/19990507052959/http://www.montparnasse.net/afrique/pagespeces/autruch.htm'
+              'https://web.archive.org/web/19990507052959/http://www.montparnasse.net/afrique/pagespeces/autruch.htm',
             )
-          }
-        )
+          },
+        ),
       )
     }
 
@@ -342,10 +302,10 @@ class World {
           BABYLON.ActionManager.OnPickTrigger,
           () => {
             window.open(
-              'https://web.archive.org/web/20010214062012/http://www.montparnasse.net/afrique/pagespeces/gnou.htm'
+              'https://web.archive.org/web/20010214062012/http://www.montparnasse.net/afrique/pagespeces/gnou.htm',
             )
-          }
-        )
+          },
+        ),
       )
     }
 
@@ -359,10 +319,10 @@ class World {
           BABYLON.ActionManager.OnPickTrigger,
           () => {
             window.open(
-              'https://web.archive.org/web/20010211130931/http://www.montparnasse.net/afrique/pagespeces/guepard.htm'
+              'https://web.archive.org/web/20010211130931/http://www.montparnasse.net/afrique/pagespeces/guepard.htm',
             )
-          }
-        )
+          },
+        ),
       )
     }
 
@@ -376,10 +336,10 @@ class World {
           BABYLON.ActionManager.OnPickTrigger,
           () => {
             window.open(
-              'https://web.archive.org/web/20010211124042/http://www.montparnasse.net/afrique/pagespeces/girafe.htm'
+              'https://web.archive.org/web/20010211124042/http://www.montparnasse.net/afrique/pagespeces/girafe.htm',
             )
-          }
-        )
+          },
+        ),
       )
     }
 
@@ -393,10 +353,10 @@ class World {
           BABYLON.ActionManager.OnPickTrigger,
           () => {
             window.open(
-              'https://web.archive.org/web/20010214072700/http://www.montparnasse.net/afrique/pagespeces/rhino.htm'
+              'https://web.archive.org/web/20010214072700/http://www.montparnasse.net/afrique/pagespeces/rhino.htm',
             )
-          }
-        )
+          },
+        ),
       )
     }
 
@@ -410,10 +370,10 @@ class World {
           BABYLON.ActionManager.OnPickTrigger,
           () => {
             window.open(
-              'https://web.archive.org/web/20010211122938/http://www.montparnasse.net/afrique/pagespeces/elephant.htm'
+              'https://web.archive.org/web/20010211122938/http://www.montparnasse.net/afrique/pagespeces/elephant.htm',
             )
-          }
-        )
+          },
+        ),
       )
     }
 
@@ -427,10 +387,10 @@ class World {
           BABYLON.ActionManager.OnPickTrigger,
           () => {
             window.open(
-              'https://web.archive.org/web/20010214061402/http://www.montparnasse.net/afrique/pagespeces/croco.htm'
+              'https://web.archive.org/web/20010214061402/http://www.montparnasse.net/afrique/pagespeces/croco.htm',
             )
-          }
-        )
+          },
+        ),
       )
     }
 
@@ -444,10 +404,10 @@ class World {
           BABYLON.ActionManager.OnPickTrigger,
           () => {
             window.open(
-              'https://web.archive.org/web/20010214065057/http://www.montparnasse.net/afrique/pagespeces/hippo.htm'
+              'https://web.archive.org/web/20010214065057/http://www.montparnasse.net/afrique/pagespeces/hippo.htm',
             )
-          }
-        )
+          },
+        ),
       )
     }
 
@@ -461,10 +421,10 @@ class World {
           BABYLON.ActionManager.OnPickTrigger,
           () => {
             window.open(
-              'https://web.archive.org/web/20010214071550/http://www.montparnasse.net/afrique/pagespeces/lion.htm'
+              'https://web.archive.org/web/20010214071550/http://www.montparnasse.net/afrique/pagespeces/lion.htm',
             )
-          }
-        )
+          },
+        ),
       )
     }
 
@@ -478,10 +438,10 @@ class World {
           BABYLON.ActionManager.OnPickTrigger,
           () => {
             window.open(
-              'https://web.archive.org/web/20010214070502/http://www.montparnasse.net/afrique/pagespeces/hyene.htm'
+              'https://web.archive.org/web/20010214070502/http://www.montparnasse.net/afrique/pagespeces/hyene.htm',
             )
-          }
-        )
+          },
+        ),
       )
     }
 
@@ -493,8 +453,8 @@ class World {
       vulture.actionManager.registerAction(
         new BABYLON.ExecuteCodeAction(
           BABYLON.ActionManager.OnPickTrigger,
-          () => {}
-        )
+          () => {},
+        ),
       )
     }
 
@@ -510,8 +470,8 @@ class World {
           BABYLON.ActionManager.OnPickTrigger,
           () => {
             this.openGoldenBook()
-          }
-        )
+          },
+        ),
       )
     }
     // browse all meshes
@@ -546,8 +506,8 @@ class World {
             BABYLON.ActionManager.OnPickTrigger,
             () => {
               this.openHellAndParadise()
-            }
-          )
+            },
+          ),
         )
       }
 
@@ -563,8 +523,8 @@ class World {
             BABYLON.ActionManager.OnPickTrigger,
             () => {
               this.openGreatHall()
-            }
-          )
+            },
+          ),
         )
       }
     }
@@ -583,7 +543,7 @@ class World {
     universalCamera.ellipsoid = new BABYLON.Vector3(
       this.AVATAR_SIZE.x,
       this.AVATAR_SIZE.y,
-      this.AVATAR_SIZE.z
+      this.AVATAR_SIZE.z,
     )
 
     // Virtual Sticks for mobile navigation
@@ -648,8 +608,8 @@ class World {
             isGamePadActionVisible = true
             document.dispatchEvent(
               new CustomEvent('showGamePadAction', {
-                detail:  this.ACTIONS_OPEN_BOOK[this._lang],
-              })
+                detail: this.ACTIONS_OPEN_BOOK[this._lang],
+              }),
             )
             this._currentAction = this.ACTIONS.openGoldenBook
           }
@@ -662,7 +622,7 @@ class World {
             document.dispatchEvent(
               new CustomEvent('showGamePadAction', {
                 detail: this.ACTIONS_JUMP_HELL[this._lang],
-              })
+              }),
             )
             this._currentAction = this.ACTIONS.openHellAndParadise
           }
@@ -675,7 +635,7 @@ class World {
             document.dispatchEvent(
               new CustomEvent('showGamePadAction', {
                 detail: this.ACTIONS_JUMP_HALL[this._lang],
-              })
+              }),
             )
             this._currentAction = this.ACTIONS.openGreatHall
           }
@@ -722,20 +682,14 @@ class World {
     this._delta++
 
     if (this._delta > 200 && !this._isSoundsPlayed) {
-      let ready = this.checkAudioContext()
+      this._instrumentSound.stop()
+      this._instrumentSound.play()
 
-      if (ready) {
-        this._instrumentSound.stop()
-        this._instrumentSound.play()
+      this._waterSound.stop()
+      this._waterSound.play()
 
-        this._waterSound.stop()
-        this._waterSound.play()
+      this._isSoundsPlayed = true
 
-        //birdSound.stop();
-        //birdSound.play();
-
-        this._isSoundsPlayed = true
-      }
       this._delta = 0
     }
 
@@ -746,12 +700,8 @@ class World {
       let r = this.randomNumber(1, 5)
 
       if (r === 3) {
-        let ready = this.checkAudioContext()
-
-        if (ready) {
-          this._birdSound.stop()
-          this._birdSound.play()
-        }
+        this._birdSound.stop()
+        this._birdSound.play()
       }
       this._alpha = 0
     }
@@ -788,6 +738,9 @@ class World {
 
   userMakeGesture() {
     this._isUserGesture = true
+    if (!this._audioEngine) {
+      this._initializeAudioAsync()
+    }
   }
 
   /*
@@ -893,7 +846,7 @@ class World {
         camera.position.y.toFixed(3) +
         ',' +
         camera.position.z.toFixed(3) +
-        ')'
+        ')',
     )
     console.log(
       'camera rotation : const CAMERAX_ROTATION = new BABYLON.Vector3(' +
@@ -902,7 +855,7 @@ class World {
         camera.rotation.y.toFixed(3) +
         ',' +
         camera.rotation.z.toFixed(3) +
-        ')'
+        ')',
     )
   }
 
@@ -912,12 +865,12 @@ class World {
     camera.position = new BABYLON.Vector3(
       this.CAMERA1_POSITION.x,
       this.CAMERA1_POSITION.y,
-      this.CAMERA1_POSITION.z
+      this.CAMERA1_POSITION.z,
     )
     camera.rotation = new BABYLON.Vector3(
       this.CAMERA1_ROTATION.x,
       this.CAMERA1_ROTATION.y,
-      this.CAMERA1_ROTATION.z
+      this.CAMERA1_ROTATION.z,
     )
 
     this._scene.activeCamera = camera
@@ -929,12 +882,12 @@ class World {
     camera.position = new BABYLON.Vector3(
       this.CAMERA2_POSITION.x,
       this.CAMERA2_POSITION.y,
-      this.CAMERA2_POSITION.z
+      this.CAMERA2_POSITION.z,
     )
     camera.rotation = new BABYLON.Vector3(
       this.CAMERA2_ROTATION.x,
       this.CAMERA2_ROTATION.y,
-      this.CAMERA2_ROTATION.z
+      this.CAMERA2_ROTATION.z,
     )
 
     this._scene.activeCamera = camera
@@ -946,12 +899,12 @@ class World {
     camera.position = new BABYLON.Vector3(
       this.CAMERA3_POSITION.x,
       this.CAMERA3_POSITION.y,
-      this.CAMERA3_POSITION.z
+      this.CAMERA3_POSITION.z,
     )
     camera.rotation = new BABYLON.Vector3(
       this.CAMERA3_ROTATION.x,
       this.CAMERA3_ROTATION.y,
-      this.CAMERA3_ROTATION.z
+      this.CAMERA3_ROTATION.z,
     )
 
     this._scene.activeCamera = camera
@@ -963,12 +916,12 @@ class World {
     camera.position = new BABYLON.Vector3(
       this.CAMERA4_POSITION.x,
       this.CAMERA4_POSITION.y,
-      this.CAMERA4_POSITION.z
+      this.CAMERA4_POSITION.z,
     )
     camera.rotation = new BABYLON.Vector3(
       this.CAMERA4_ROTATION.x,
       this.CAMERA4_ROTATION.y,
-      this.CAMERA4_ROTATION.z
+      this.CAMERA4_ROTATION.z,
     )
 
     this._scene.activeCamera = camera
@@ -978,26 +931,83 @@ class World {
     this._gamepadStatus = status
   }
 
-  /**
-   * Resume audio context if a gesture have been made by user
-   * https://github.com/BabylonJS/Babylon.js/issues/4354
-   * */
-  checkAudioContext() {
-    let ready = false
-    if (BABYLON.Engine.audioEngine.audioContext.state == 'running') {
-      ready = true
-    }
+  async _initializeAudioAsync() {
+    try {
+      this._audioEngine = await BABYLON.CreateAudioEngineAsync()
 
-    // resume only if a gesture have been made
-    if (
-      BABYLON.Engine.audioEngine.audioContext.state != 'running' &&
-      this._isUserGesture
-    ) {
-      BABYLON.Engine.audioEngine.audioContext.resume()
-      ready = true
-    }
+      // to remove no sounds icon on mobile
+      await this._audioEngine.unlockAsync()
 
-    return ready
+      // Spatial sounds
+      /*
+      this._instrumentSound = await BABYLON.CreateSoundAsync(
+        'instrumentSound',
+        'sound/instrument.wav',
+        {
+          loop: true,
+          autoplay: true,
+          spatialSound: true,
+          maxDistance: 35,
+          distanceModel: 'exponential',
+        },
+        this._audioEngine,
+      )
+        */
+
+      // Spatial sounds
+      this._instrumentSound = await BABYLON.CreateSoundAsync(
+        'instrumentSound',
+        'sound/instrument.wav',
+        {
+          loop: true,
+          volume: 1,
+          spatialEnabled: true, // Enables 3D spatial audio
+          spatialMaxDistance: 30,
+          spatialRolloffFactor: 5,
+        },
+        this._audioEngine,
+      )
+
+      this._birdSound = await BABYLON.CreateSoundAsync(
+        'birdSound',
+        'sound/bird.wav',
+        {
+          volume: 0.1,
+        },
+        this._audioEngine,
+      )
+
+      this._waterSound = await BABYLON.CreateSoundAsync(
+        'waterSound',
+        'sound/water.wav',
+        {
+          loop: true,
+          autoplay: false,
+          spatialSound: true,
+          maxDistance: 100,
+          distanceModel: 'exponential',
+          playbackRate: 0.5,
+        },
+        this._audioEngine,
+      )
+
+      // spatial sounds
+      this._instrumentSound.spatial.position = new BABYLON.Vector3(
+        10.18,
+        3.931,
+        26.548,
+      )
+      this._waterSound.spatial.position = new BABYLON.Vector3(
+        -19.729,
+        4.62,
+        -246.148,
+      )
+
+      //birdSound.setPosition(new BABYLON.Vector3(10.180,3.931,26.548));
+    } catch (e) {
+      // Audio initialization failed — sound will be skipped
+      console.log(e)
+    }
   }
 
   isMobile() {

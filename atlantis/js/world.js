@@ -19,7 +19,7 @@ class World {
 
   GRAVITY_FORCE = -0.55 // default -0.98
   ANGULAR_SENSIBILTY = 5000 // default 2000
-  TOUCH_ANGULAR_SENSIBILITY = 4000 // default 20000
+  TOUCH_ANGULAR_SENSIBILITY = 20000 // default 20000
   TOUCH_MOVE_SENSIBILITY = 250 // default 250
 
   /**
@@ -81,28 +81,28 @@ class World {
   }
 
   ACTIONS_OPEN_BOOK = {
-    en : 'open golden book',
-    fr : 'ouvrir le livre d\'or',
+    en: 'open golden book',
+    fr: "ouvrir le livre d'or",
   }
 
   ACTIONS_JUMP_HALLOWEEN = {
-    en : 'jump to halloween',
-    fr : 'aller dans le monde halloween',
+    en: 'jump to halloween',
+    fr: 'aller dans le monde halloween',
   }
 
   ACTIONS_JUMP_TREES = {
-    en : 'jump to city of trees',
-    fr : 'aller dans le monde cité des arbres',
+    en: 'jump to city of trees',
+    fr: 'aller dans le monde cité des arbres',
   }
 
   ACTIONS_FOLLOW_WHALE = {
-    en : 'follow whale',
-    fr : 'suivre la baleine',
+    en: 'follow whale',
+    fr: 'suivre la baleine',
   }
 
   ACTIONS_FOLLOW_MANTA = {
-    en : 'follow manta ray',
-    fr : 'suivre la raie manta',
+    en: 'follow manta ray',
+    fr: 'suivre la raie manta',
   }
 
   ACTION_MESHES = [
@@ -135,11 +135,9 @@ class World {
     this._followCamera = null
 
     // sounds
-    this._whaleSound = new BABYLON.Sound(
-      'whale',
-      'sound/whale.wav',
-      this._scene
-    )
+    // audio engine (will be initialized in createScene with AudioV2)
+    this._audioEngine = null
+    this._whaleSound = null
   }
 
   async createScene() {
@@ -155,7 +153,7 @@ class World {
     this._light = new BABYLON.HemisphericLight(
       'light',
       new BABYLON.Vector3(0, 1, 0),
-      this._scene
+      this._scene,
     )
 
     // Default intensity is 1.S
@@ -167,14 +165,14 @@ class World {
       new BABYLON.Vector3(
         this.CAMERA1_POSITION.x,
         this.CAMERA1_POSITION.y,
-        this.CAMERA1_POSITION.z
+        this.CAMERA1_POSITION.z,
       ),
-      this._scene
+      this._scene,
     )
     universalCamera.rotation = new BABYLON.Vector3(
       this.CAMERA1_ROTATION.x,
       this.CAMERA1_ROTATION.y,
-      this.CAMERA1_ROTATION.z
+      this.CAMERA1_ROTATION.z,
     )
 
     // Follow camera to follow mata ray or whale
@@ -183,11 +181,12 @@ class World {
       new BABYLON.Vector3(
         this.CAMERA1_POSITION.x,
         this.CAMERA1_POSITION.y,
-        this.CAMERA1_POSITION.z
+        this.CAMERA1_POSITION.z,
       ),
       this._scene,
-      null
+      null,
     )
+    this._followCamera.inputs.attached.pointers.warningEnable = false
     this._followCamera.attachControl(this._canvas, true)
 
     // Speed of camera ( 2 by default )
@@ -216,7 +215,7 @@ class World {
       'gradient',
       this._scene,
       'gradient',
-      {}
+      {},
     )
     shader.setFloat('offset', 10)
     shader.setColor3('topColor', BABYLON.Color3.FromInts(0, 119, 255))
@@ -232,7 +231,7 @@ class World {
       null,
       '',
       this.WORLD_FILE,
-      this._scene
+      this._scene,
     )
 
     // turn all meshes to be non clikable and elligible to collision check
@@ -246,7 +245,7 @@ class World {
 
     const material_bubble = new BABYLON.StandardMaterial(
       'bubblemat',
-      this._scene
+      this._scene,
     )
     material_bubble.diffuseTexture = new BABYLON.Texture('07.jpg', this._scene)
     material_bubble.diffuseTexture.hasAlpha = true
@@ -255,11 +254,11 @@ class World {
 
     const material_crystals = new BABYLON.StandardMaterial(
       'crystalmat',
-      this._scene
+      this._scene,
     )
     material_crystals.diffuseTexture = new BABYLON.Texture(
       '06.jpg',
-      this._scene
+      this._scene,
     )
     material_crystals.diffuseTexture.hasAlpha = true
     material_crystals.emissiveColor = new BABYLON.Color3(0.5, 0.5, 0.5)
@@ -267,7 +266,7 @@ class World {
 
     const material_windows = new BABYLON.StandardMaterial(
       'windowmat',
-      this._scene
+      this._scene,
     )
     material_windows.diffuseTexture = new BABYLON.Texture('05.jpg', this._scene)
     material_windows.diffuseTexture.hasAlpha = true
@@ -315,8 +314,8 @@ class World {
             BABYLON.ActionManager.OnPickTrigger,
             () => {
               this.followWhale()
-            }
-          )
+            },
+          ),
         )
       }
 
@@ -333,8 +332,8 @@ class World {
             BABYLON.ActionManager.OnPickTrigger,
             () => {
               this.followMantaRay()
-            }
-          )
+            },
+          ),
         )
       }
 
@@ -350,8 +349,8 @@ class World {
             BABYLON.ActionManager.OnPickTrigger,
             () => {
               this.openGoldenBook()
-            }
-          )
+            },
+          ),
         )
       }
 
@@ -367,8 +366,8 @@ class World {
             BABYLON.ActionManager.OnPickTrigger,
             () => {
               this.openCityOfTrees()
-            }
-          )
+            },
+          ),
         )
       }
 
@@ -384,8 +383,8 @@ class World {
             BABYLON.ActionManager.OnPickTrigger,
             () => {
               this.openHalloween()
-            }
-          )
+            },
+          ),
         )
       }
     }
@@ -404,7 +403,7 @@ class World {
     universalCamera.ellipsoid = new BABYLON.Vector3(
       this.AVATAR_SIZE.x,
       this.AVATAR_SIZE.y,
-      this.AVATAR_SIZE.z
+      this.AVATAR_SIZE.z,
     )
 
     // Virtual Sticks for mobile navigation
@@ -466,7 +465,9 @@ class World {
           ) {
             isGamePadActionVisible = true
             document.dispatchEvent(
-              new CustomEvent('showGamePadAction', { detail:  this.ACTIONS_FOLLOW_WHALE[this._lang] })
+              new CustomEvent('showGamePadAction', {
+                detail: this.ACTIONS_FOLLOW_WHALE[this._lang],
+              }),
             )
             this._currentAction = this.ACTIONS.followWhale
           }
@@ -478,8 +479,8 @@ class World {
             isGamePadActionVisible = true
             document.dispatchEvent(
               new CustomEvent('showGamePadAction', {
-                detail:  this.ACTIONS_FOLLOW_MANTA[this._lang],
-              })
+                detail: this.ACTIONS_FOLLOW_MANTA[this._lang],
+              }),
             )
             this._currentAction = this.ACTIONS.followMantaRay
           }
@@ -492,7 +493,7 @@ class World {
             document.dispatchEvent(
               new CustomEvent('showGamePadAction', {
                 detail: this.ACTIONS_OPEN_BOOK[this._lang],
-              })
+              }),
             )
             this._currentAction = this.ACTIONS.openGoldenBook
           }
@@ -504,8 +505,8 @@ class World {
             isGamePadActionVisible = true
             document.dispatchEvent(
               new CustomEvent('showGamePadAction', {
-                detail:  this.ACTIONS_JUMP_TREES[this._lang],
-              })
+                detail: this.ACTIONS_JUMP_TREES[this._lang],
+              }),
             )
             this._currentAction = this.ACTIONS.openCityOfTrees
           }
@@ -517,8 +518,8 @@ class World {
             isGamePadActionVisible = true
             document.dispatchEvent(
               new CustomEvent('showGamePadAction', {
-                detail:  this.ACTIONS_JUMP_HALLOWEEN[this._lang],
-              })
+                detail: this.ACTIONS_JUMP_HALLOWEEN[this._lang],
+              }),
             )
             this._currentAction = this.ACTIONS.openHalloween
           }
@@ -573,9 +574,7 @@ class World {
   }
 
   followWhale() {
-    let ready = this.checkAudioContext()
-
-    if (ready) {
+    if (this._whaleSound) {
       this._whaleSound.stop()
       this._whaleSound.play()
     }
@@ -606,8 +605,29 @@ class World {
     this._scene.debugLayer.show()
   }
 
+  async _initializeAudioAsync() {
+    try {
+      this._audioEngine = await BABYLON.CreateAudioEngineAsync()
+
+      // to remove no sounds icon on mobile
+      await this._audioEngine.unlockAsync()
+
+      this._whaleSound = await BABYLON.CreateSoundAsync(
+        'whale',
+        'sound/whale.wav',
+        {},
+        this._audioEngine,
+      )
+    } catch (e) {
+      // Audio initialization failed — sound will be skipped
+    }
+  }
+
   userMakeGesture() {
     this._isUserGesture = true
+    if (!this._audioEngine) {
+      this._initializeAudioAsync()
+    }
   }
 
   /*
@@ -722,7 +742,7 @@ class World {
         camera.position.y.toFixed(3) +
         ',' +
         camera.position.z.toFixed(3) +
-        ')'
+        ')',
     )
     console.log(
       'camera rotation : const CAMERAX_ROTATION = new BABYLON.Vector3(' +
@@ -731,7 +751,7 @@ class World {
         camera.rotation.y.toFixed(3) +
         ',' +
         camera.rotation.z.toFixed(3) +
-        ')'
+        ')',
     )
   }
 
@@ -741,12 +761,12 @@ class World {
     camera.position = new BABYLON.Vector3(
       this.CAMERA1_POSITION.x,
       this.CAMERA1_POSITION.y,
-      this.CAMERA1_POSITION.z
+      this.CAMERA1_POSITION.z,
     )
     camera.rotation = new BABYLON.Vector3(
       this.CAMERA1_ROTATION.x,
       this.CAMERA1_ROTATION.y,
-      this.CAMERA1_ROTATION.z
+      this.CAMERA1_ROTATION.z,
     )
 
     this._scene.activeCamera = camera
@@ -758,12 +778,12 @@ class World {
     camera.position = new BABYLON.Vector3(
       this.CAMERA2_POSITION.x,
       this.CAMERA2_POSITION.y,
-      this.CAMERA2_POSITION.z
+      this.CAMERA2_POSITION.z,
     )
     camera.rotation = new BABYLON.Vector3(
       this.CAMERA2_ROTATION.x,
       this.CAMERA2_ROTATION.y,
-      this.CAMERA2_ROTATION.z
+      this.CAMERA2_ROTATION.z,
     )
 
     this._scene.activeCamera = camera
@@ -775,12 +795,12 @@ class World {
     camera.position = new BABYLON.Vector3(
       this.CAMERA3_POSITION.x,
       this.CAMERA3_POSITION.y,
-      this.CAMERA3_POSITION.z
+      this.CAMERA3_POSITION.z,
     )
     camera.rotation = new BABYLON.Vector3(
       this.CAMERA3_ROTATION.x,
       this.CAMERA3_ROTATION.y,
-      this.CAMERA3_ROTATION.z
+      this.CAMERA3_ROTATION.z,
     )
 
     this._scene.activeCamera = camera
@@ -792,12 +812,12 @@ class World {
     camera.position = new BABYLON.Vector3(
       this.CAMERA4_POSITION.x,
       this.CAMERA4_POSITION.y,
-      this.CAMERA4_POSITION.z
+      this.CAMERA4_POSITION.z,
     )
     camera.rotation = new BABYLON.Vector3(
       this.CAMERA4_ROTATION.x,
       this.CAMERA4_ROTATION.y,
-      this.CAMERA4_ROTATION.z
+      this.CAMERA4_ROTATION.z,
     )
 
     this._scene.activeCamera = camera
@@ -809,12 +829,12 @@ class World {
     camera.position = new BABYLON.Vector3(
       this.CAMERA5_POSITION.x,
       this.CAMERA5_POSITION.y,
-      this.CAMERA5_POSITION.z
+      this.CAMERA5_POSITION.z,
     )
     camera.rotation = new BABYLON.Vector3(
       this.CAMERA5_ROTATION.x,
       this.CAMERA5_ROTATION.y,
-      this.CAMERA5_ROTATION.z
+      this.CAMERA5_ROTATION.z,
     )
 
     this._scene.activeCamera = camera
@@ -838,29 +858,6 @@ class World {
 
   setGamePadStatus(status) {
     this._gamepadStatus = status
-  }
-
-  /**
-   * Resume audio context if a gesture have been made by user
-   * https://github.com/BabylonJS/Babylon.js/issues/4354
-   * */
-  checkAudioContext() {
-    let ready = false
-
-    if (BABYLON.Engine.audioEngine.audioContext.state == 'running') {
-      ready = true
-    }
-
-    // resume only if a gesture have been made
-    if (
-      BABYLON.Engine.audioEngine.audioContext.state != 'running' &&
-      this._isUserGesture
-    ) {
-      BABYLON.Engine.audioEngine.audioContext.resume()
-      ready = true
-    }
-
-    return ready
   }
 
   isMobile() {

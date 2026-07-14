@@ -18,8 +18,8 @@ class World {
   }
 
   GRAVITY_FORCE = -0.55 // default -0.98
-  ANGULAR_SENSIBILTY = 5000 // default 2000
-  TOUCH_ANGULAR_SENSIBILITY = 4000 // default 20000
+  ANGULAR_SENSIBILTY = 2000 // default 2000
+  TOUCH_ANGULAR_SENSIBILITY = 20000 // default 20000
   TOUCH_MOVE_SENSIBILITY = 250 // default 250
 
   // helpers
@@ -139,12 +139,12 @@ class World {
     this._lightDown = new BABYLON.HemisphericLight(
       'light',
       new BABYLON.Vector3(0.3, 1, 0.3),
-      this._scene
+      this._scene,
     )
     this._lightUp = new BABYLON.HemisphericLight(
       'light',
       new BABYLON.Vector3(0, -1, 0),
-      this._scene
+      this._scene,
     )
 
     // Default intensity is 1.S
@@ -157,14 +157,14 @@ class World {
       new BABYLON.Vector3(
         this.CAMERA1_POSITION.x,
         this.CAMERA1_POSITION.y,
-        this.CAMERA1_POSITION.z
+        this.CAMERA1_POSITION.z,
       ),
-      this._scene
+      this._scene,
     )
     universalCamera.rotation = new BABYLON.Vector3(
       this.CAMERA1_ROTATION.x,
       this.CAMERA1_ROTATION.y,
-      this.CAMERA1_ROTATION.z
+      this.CAMERA1_ROTATION.z,
     )
 
     let arcRotateCamera = new BABYLON.ArcRotateCamera(
@@ -173,7 +173,7 @@ class World {
       this.CAMERA3_POSITION.y,
       this.CAMERA3_POSITION.z,
       new BABYLON.Vector3(0, 0, 0),
-      this._scene
+      this._scene,
     )
 
     // Speed of camera ( 2 by default )
@@ -192,7 +192,7 @@ class World {
       null,
       '',
       this.WORLD_FILE,
-      this._scene
+      this._scene,
     )
 
     /**
@@ -207,8 +207,8 @@ class World {
           BABYLON.ActionManager.OnPickTrigger,
           () => {
             this.openGoldenBook()
-          }
-        )
+          },
+        ),
       )
     }
 
@@ -228,8 +228,8 @@ class World {
           BABYLON.ActionManager.OnPickTrigger,
           (gift) => {
             this.openGift(gift.source.numGift)
-          }
-        )
+          },
+        ),
       )
       numGift++
     }
@@ -246,7 +246,7 @@ class World {
         'position.y',
         frameRate,
         BABYLON.Animation.ANIMATIONTYPE_FLOAT,
-        BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE
+        BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE,
       )
 
       const keyFramesP = []
@@ -274,7 +274,7 @@ class World {
         'scaling.x',
         frameRate,
         BABYLON.Animation.ANIMATIONTYPE_FLOAT,
-        BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE
+        BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE,
       )
 
       const yScaling = new BABYLON.Animation(
@@ -282,7 +282,7 @@ class World {
         'scaling.y',
         frameRate,
         BABYLON.Animation.ANIMATIONTYPE_FLOAT,
-        BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE
+        BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE,
       )
 
       const zScaling = new BABYLON.Animation(
@@ -290,7 +290,7 @@ class World {
         'scaling.z',
         frameRate,
         BABYLON.Animation.ANIMATIONTYPE_FLOAT,
-        BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE
+        BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE,
       )
 
       const keyFramesS = []
@@ -320,7 +320,7 @@ class World {
         'visibility',
         frameRate,
         BABYLON.Animation.ANIMATIONTYPE_FLOAT,
-        BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE
+        BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE,
       )
 
       const keyFramesV = []
@@ -347,7 +347,7 @@ class World {
         [ySlide, xScaling, yScaling, zScaling, allVisibility],
         0,
         randomTime * frameRate,
-        true
+        true,
       )
     }
 
@@ -372,8 +372,8 @@ class World {
             BABYLON.ActionManager.OnPickTrigger,
             () => {
               this.openHalloween()
-            }
-          )
+            },
+          ),
         )
       }
 
@@ -389,8 +389,8 @@ class World {
             BABYLON.ActionManager.OnPickTrigger,
             () => {
               this.openAtlantis()
-            }
-          )
+            },
+          ),
         )
       }
     }
@@ -409,7 +409,7 @@ class World {
     universalCamera.ellipsoid = new BABYLON.Vector3(
       this.AVATAR_SIZE.x,
       this.AVATAR_SIZE.y,
-      this.AVATAR_SIZE.z
+      this.AVATAR_SIZE.z,
     )
 
     // Virtual Sticks for mobile navigation
@@ -473,7 +473,7 @@ class World {
             document.dispatchEvent(
               new CustomEvent('showGamePadAction', {
                 detail: this.ACTIONS_OPEN_BOOK[this._lang],
-              })
+              }),
             )
             this._currentAction = this.ACTIONS.openGoldenBook
           }
@@ -486,7 +486,7 @@ class World {
             document.dispatchEvent(
               new CustomEvent('showGamePadAction', {
                 detail: this.ACTIONS_JUMP_HALLOWEEN[this._lang],
-              })
+              }),
             )
             this._currentAction = this.ACTIONS.openHalloween
           }
@@ -499,7 +499,7 @@ class World {
             document.dispatchEvent(
               new CustomEvent('showGamePadAction', {
                 detail: this.ACTIONS_JUMP_ATLANTIS[this._lang],
-              })
+              }),
             )
             this._currentAction = this.ACTIONS.openAtlantis
           }
@@ -680,7 +680,7 @@ class World {
         camera.position.y.toFixed(3) +
         ',' +
         camera.position.z.toFixed(3) +
-        ')'
+        ')',
     )
     console.log(
       'camera rotation : const CAMERAX_ROTATION = new BABYLON.Vector3(' +
@@ -689,7 +689,7 @@ class World {
         camera.rotation.y.toFixed(3) +
         ',' +
         camera.rotation.z.toFixed(3) +
-        ')'
+        ')',
     )
   }
 
@@ -699,12 +699,12 @@ class World {
     camera.position = new BABYLON.Vector3(
       this.CAMERA1_POSITION.x,
       this.CAMERA1_POSITION.y,
-      this.CAMERA1_POSITION.z
+      this.CAMERA1_POSITION.z,
     )
     camera.rotation = new BABYLON.Vector3(
       this.CAMERA1_ROTATION.x,
       this.CAMERA1_ROTATION.y,
-      this.CAMERA1_ROTATION.z
+      this.CAMERA1_ROTATION.z,
     )
 
     this._scene.activeCamera = camera
@@ -716,12 +716,12 @@ class World {
     camera.position = new BABYLON.Vector3(
       this.CAMERA2_POSITION.x,
       this.CAMERA2_POSITION.y,
-      this.CAMERA2_POSITION.z
+      this.CAMERA2_POSITION.z,
     )
     camera.rotation = new BABYLON.Vector3(
       this.CAMERA2_ROTATION.x,
       this.CAMERA2_ROTATION.y,
-      this.CAMERA2_ROTATION.z
+      this.CAMERA2_ROTATION.z,
     )
 
     this._scene.activeCamera = camera
@@ -733,12 +733,12 @@ class World {
     camera.position = new BABYLON.Vector3(
       this.CAMERA3_POSITION.x,
       this.CAMERA3_POSITION.y,
-      this.CAMERA3_POSITION.z
+      this.CAMERA3_POSITION.z,
     )
     camera.rotation = new BABYLON.Vector3(
       this.CAMERA3_ROTATION.x,
       this.CAMERA3_ROTATION.y,
-      this.CAMERA3_ROTATION.z
+      this.CAMERA3_ROTATION.z,
     )
 
     this._scene.activeCamera = camera

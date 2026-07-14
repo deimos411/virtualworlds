@@ -18,8 +18,8 @@ class World {
   }
 
   GRAVITY_FORCE = -0.05 // default -0.98
-  ANGULAR_SENSIBILTY = 5000 // default 2000
-  TOUCH_ANGULAR_SENSIBILITY = 4000 // default 20000
+  ANGULAR_SENSIBILTY = 2000 // default 2000
+  TOUCH_ANGULAR_SENSIBILITY = 20000 // default 20000
   TOUCH_MOVE_SENSIBILITY = 250 // default 250
 
   // helpers
@@ -84,23 +84,23 @@ class World {
   }
 
   ACTIONS_OPEN_BOOK = {
-    en : 'open golden book',
-    fr : 'ouvrir le livre d\'or',
+    en: 'open golden book',
+    fr: "ouvrir le livre d'or",
   }
 
   ACTIONS_JUMP_ATLANTIS = {
-    en : 'jump to atlantis',
-    fr : 'découvrir atlantide',
+    en: 'jump to atlantis',
+    fr: 'découvrir atlantide',
   }
 
   ACTIONS_JUMP_HELL = {
-    en : 'jump to hell and paradise',
-    fr : 'découvrir enfer et paradis',
+    en: 'jump to hell and paradise',
+    fr: 'découvrir enfer et paradis',
   }
 
   ACTIONS_PLAY_ORGAN = {
-    en : 'play organ',
-    fr : 'jouer de l\'orgue',
+    en: 'play organ',
+    fr: "jouer de l'orgue",
   }
 
   ACTION_MESHES = [
@@ -158,44 +158,16 @@ class World {
     this._followCamera = null
 
     // music
-    this._musicSound
+    this._musicSound = null
     this._musicNumber = 1
 
-    // Spatial sounds
-    this._doorOpenSound = new BABYLON.Sound(
-      'doorOpenSound',
-      'sound/door_open.mp3',
-      this._scene,
-      null,
-      {
-        loop: false,
-        autoplay: false,
-        spatialSound: true,
-        maxDistance: 35,
-        distanceModel: 'exponential',
-      }
-    )
-    this._doorSqueakSound = new BABYLON.Sound(
-      'doorSqueakSound',
-      'sound/door_squeak.mp3',
-      this._scene,
-      null,
-      {
-        loop: false,
-        autoplay: false,
-        spatialSound: true,
-        maxDistance: 35,
-        distanceModel: 'exponential',
-      }
-    )
+    // audio engine (will be initialized in createScene with AudioV2)
+    this._audioEngine = null
 
-    this._wolfSound = new BABYLON.Sound(
-      'wolfSound',
-      'sound/wolf.wav',
-      this._scene,
-      null,
-      { volume: 0.1 }
-    ) //, null, { loop: false, autoplay: false, spatialSound: true, maxDistance: 500 ,  distanceModel: "exponential" });
+    this._doorOpenSound = null
+    this._doorSqueakSound = null
+    this._wolfSound = null
+    this._musicSound = null
 
     this._isSoundsPlayed = false
     this._delta = 0
@@ -220,12 +192,12 @@ class World {
     this._lightDown = new BABYLON.HemisphericLight(
       'light',
       new BABYLON.Vector3(0.3, 1, 0.3),
-      this._scene
+      this._scene,
     )
     this._lightUp = new BABYLON.HemisphericLight(
       'light',
       new BABYLON.Vector3(0, -1, 0),
-      this._scene
+      this._scene,
     )
 
     // Default intensity is 1.S
@@ -238,14 +210,14 @@ class World {
       new BABYLON.Vector3(
         this.CAMERA1_POSITION.x,
         this.CAMERA1_POSITION.y,
-        this.CAMERA1_POSITION.z
+        this.CAMERA1_POSITION.z,
       ),
-      this._scene
+      this._scene,
     )
     universalCamera.rotation = new BABYLON.Vector3(
       this.CAMERA1_ROTATION.x,
       this.CAMERA1_ROTATION.y,
-      this.CAMERA1_ROTATION.z
+      this.CAMERA1_ROTATION.z,
     )
 
     // Follow camera to follow mata ray or whale
@@ -254,11 +226,12 @@ class World {
       new BABYLON.Vector3(
         this.CAMERA1_POSITION.x,
         this.CAMERA1_POSITION.y,
-        this.CAMERA1_POSITION.z
+        this.CAMERA1_POSITION.z,
       ),
       this._scene,
-      null
+      null,
     )
+    this._followCamera.inputs.attached.pointers.warningEnable = false
     this._followCamera.attachControl(this._canvas, true)
 
     // Speed of camera ( 2 by default )
@@ -276,18 +249,12 @@ class World {
       this.createMist()
     }
 
-    // spatial sounds
-    this._doorOpenSound.setPosition(new BABYLON.Vector3(16.741, 13.583, 28.629))
-    this._doorSqueakSound.setPosition(
-      new BABYLON.Vector3(16.741, 13.583, 28.629)
-    )
-
     // Load meshes
     let result = await BABYLON.SceneLoader.ImportMeshAsync(
       null,
       '',
       this.WORLD_FILE,
-      this._scene
+      this._scene,
     )
 
     // helpers ( help to avoid collision stuck on bridge )
@@ -335,8 +302,8 @@ class World {
           BABYLON.ActionManager.OnPickTrigger,
           (shelf) => {
             this.openBook(shelf.source.numBook)
-          }
-        )
+          },
+        ),
       )
       numBook++
     }
@@ -358,8 +325,8 @@ class World {
             BABYLON.ActionManager.OnPickTrigger,
             () => {
               this.touchOrgan()
-            }
-          )
+            },
+          ),
         )
       }
 
@@ -375,8 +342,8 @@ class World {
             BABYLON.ActionManager.OnPickTrigger,
             () => {
               this.openGoldenBook()
-            }
-          )
+            },
+          ),
         )
       }
 
@@ -392,8 +359,8 @@ class World {
             BABYLON.ActionManager.OnPickTrigger,
             () => {
               this.openHellAndParadise()
-            }
-          )
+            },
+          ),
         )
       }
 
@@ -409,11 +376,39 @@ class World {
             BABYLON.ActionManager.OnPickTrigger,
             () => {
               this.openAtlantis()
-            }
-          )
+            },
+          ),
         )
       }
     }
+
+    //  Make all solid meshes pickable to block clicks (except helpers, beams, etc.)
+    this._scene.meshes.forEach((mesh) => {
+      // Skip meshes that should never block (helpers, beams, particles, etc.)
+      if (mesh.tags && (mesh.hasTag('helper') || mesh.hasTag('beam'))) {
+        return
+      }
+      // Make everything else pickable to act as occlusion blockers
+      mesh.isPickable = true
+    })
+
+    // Override the default cursor behavior
+    this._scene.onPointerObservable.add((pointerInfo) => {
+      if (pointerInfo.type === BABYLON.PointerEventTypes.POINTERMOVE) {
+        const pick = pointerInfo.pickInfo
+        let showPointer = false
+
+        if (pick && pick.hit && pick.pickedMesh) {
+          const meshId = pick.pickedMesh.id
+          // Only show pointer hand for your action meshes
+          if (this.ACTION_MESHES.includes(meshId)) {
+            showPointer = true
+          }
+        }
+
+        this._canvas.style.cursor = showPointer ? 'pointer' : 'default'
+      }
+    })
 
     //Set gravity for the scene (G force like, on Y-axis)
     this._scene.gravity = new BABYLON.Vector3(0, this.GRAVITY_FORCE, 0)
@@ -429,7 +424,7 @@ class World {
     universalCamera.ellipsoid = new BABYLON.Vector3(
       this.AVATAR_SIZE.x,
       this.AVATAR_SIZE.y,
-      this.AVATAR_SIZE.z
+      this.AVATAR_SIZE.z,
     )
 
     // Virtual Sticks for mobile navigation
@@ -493,7 +488,9 @@ class World {
           ) {
             isGamePadActionVisible = true
             document.dispatchEvent(
-              new CustomEvent('showGamePadAction', { detail: this.ACTIONS_PLAY_ORGAN[this._lang] })
+              new CustomEvent('showGamePadAction', {
+                detail: this.ACTIONS_PLAY_ORGAN[this._lang],
+              }),
             )
             this._currentAction = this.ACTIONS.touchOrgan
           }
@@ -506,7 +503,7 @@ class World {
             document.dispatchEvent(
               new CustomEvent('showGamePadAction', {
                 detail: this.ACTIONS_OPEN_BOOK[this._lang],
-              })
+              }),
             )
             this._currentAction = this.ACTIONS.openGoldenBook
           }
@@ -519,7 +516,7 @@ class World {
             document.dispatchEvent(
               new CustomEvent('showGamePadAction', {
                 detail: this.ACTIONS_JUMP_HELL[this._lang],
-              })
+              }),
             )
             this._currentAction = this.ACTIONS.openHellAndParadise
           }
@@ -532,7 +529,7 @@ class World {
             document.dispatchEvent(
               new CustomEvent('showGamePadAction', {
                 detail: this.ACTIONS_JUMP_ATLANTIS[this._lang],
-              })
+              }),
             )
             this._currentAction = this.ACTIONS.openAtlantis
           }
@@ -581,14 +578,13 @@ class World {
   playAmbientSounds() {
     this._delta++
 
-    if (this._delta > 1000) {
+    if (this._delta > 1000 && this._isUserGesture) {
       let r = this.randomNumber(1, 5)
+      console.log('r : ' + r)
 
       // door open
       if (r === 2) {
-        let ready = this.checkAudioContext()
-
-        if (ready) {
+        if (this._doorOpenSound) {
           this._doorOpenSound.stop()
           this._doorOpenSound.play()
 
@@ -597,9 +593,7 @@ class World {
       }
 
       if (r === 3) {
-        let ready = this.checkAudioContext()
-
-        if (ready) {
+        if (this._doorSqueakSound) {
           this._doorSqueakSound.stop()
           this._doorSqueakSound.play()
 
@@ -613,13 +607,11 @@ class World {
     this._alpha++
 
     // wolf
-    if (this._alpha > 2500) {
+    if (this._alpha > 2500 && this._isUserGesture) {
       let r = this.randomNumber(1, 5)
 
       if (r === 3) {
-        let ready = this.checkAudioContext()
-
-        if (ready) {
+        if (this._wolfSound) {
           this._wolfSound.stop()
           this._wolfSound.play()
         }
@@ -629,35 +621,35 @@ class World {
   }
 
   touchOrgan() {
-    let ready = this.checkAudioContext()
-
-    if (ready) {
-      if (this._musicNumber > 11) {
-        this._musicNumber = 0
-      }
-
-      this.playMusic(this.TAB_MUSIC[this._musicNumber])
-      this._musicNumber++
+    console.log('touch organ')
+    if (this._musicNumber > 11) {
+      this._musicNumber = 0
     }
+
+    this.playMusic(this.TAB_MUSIC[this._musicNumber])
+    this._musicNumber++
   }
 
   /**
    * Play a music
    * */
-  playMusic(musicTitle) {
+  async playMusic(musicTitle) {
     if (this._musicSound != null) {
       this._musicSound.stop()
     }
-    this._musicSound = new BABYLON.Sound(
+
+    this._musicSound = await BABYLON.CreateSoundAsync(
       'music',
       'music/' + musicTitle + '.mp3',
-      this._scene,
       () => {
         // Sound has been downloaded & decoded
-        this._musicSound.loop = false
+        this._musicSound.loop = true
         this._musicSound.play()
-      }
+      },
+      this._audioEngine,
     )
+    this._musicSound.loop = true
+    this._musicSound.play()
   }
 
   createMist() {
@@ -680,14 +672,14 @@ class World {
         particleSystem = new BABYLON.GPUParticleSystem(
           'particles',
           { capacity: 500 },
-          this._scene
+          this._scene,
         )
         particleSystem.activeParticleCount = 250
       } else {
         particleSystem = new BABYLON.GPUParticleSystem(
           'particles',
           { capacity: 5000 },
-          this._scene
+          this._scene,
         )
         particleSystem.activeParticleCount = 1500
       }
@@ -737,23 +729,6 @@ class World {
     return Math.ceil(Math.random() * (max - min) + min)
   }
 
-  followWhale() {
-    let ready = this.checkAudioContext()
-
-    if (ready) {
-      this._whaleSound.stop()
-      this._whaleSound.play()
-    }
-
-    this._followCamera.lockedTarget = this._scene.getMeshByName('whale')
-    this._scene.activeCamera = this._followCamera
-  }
-
-  followMantaRay() {
-    this._followCamera.lockedTarget = this._scene.getMeshByName('mantaRay')
-    this._scene.activeCamera = this._followCamera
-  }
-
   openGoldenBook() {
     window.open(this.URL_WEBSITE[this._lang])
   }
@@ -772,7 +747,11 @@ class World {
   }
 
   userMakeGesture() {
-    this._isUserGesture = true
+    if (this._audioEngine == null && this._delta > 100) {
+      this._delta = 0
+      this._alpha = 0
+      this._initializeAudioAsync()
+    }
   }
 
   /*
@@ -881,7 +860,7 @@ class World {
         camera.position.y.toFixed(3) +
         ',' +
         camera.position.z.toFixed(3) +
-        ')'
+        ')',
     )
     console.log(
       'camera rotation : const CAMERAX_ROTATION = new BABYLON.Vector3(' +
@@ -890,7 +869,7 @@ class World {
         camera.rotation.y.toFixed(3) +
         ',' +
         camera.rotation.z.toFixed(3) +
-        ')'
+        ')',
     )
   }
 
@@ -900,12 +879,12 @@ class World {
     camera.position = new BABYLON.Vector3(
       this.CAMERA1_POSITION.x,
       this.CAMERA1_POSITION.y,
-      this.CAMERA1_POSITION.z
+      this.CAMERA1_POSITION.z,
     )
     camera.rotation = new BABYLON.Vector3(
       this.CAMERA1_ROTATION.x,
       this.CAMERA1_ROTATION.y,
-      this.CAMERA1_ROTATION.z
+      this.CAMERA1_ROTATION.z,
     )
 
     this._scene.activeCamera = camera
@@ -917,12 +896,12 @@ class World {
     camera.position = new BABYLON.Vector3(
       this.CAMERA2_POSITION.x,
       this.CAMERA2_POSITION.y,
-      this.CAMERA2_POSITION.z
+      this.CAMERA2_POSITION.z,
     )
     camera.rotation = new BABYLON.Vector3(
       this.CAMERA2_ROTATION.x,
       this.CAMERA2_ROTATION.y,
-      this.CAMERA2_ROTATION.z
+      this.CAMERA2_ROTATION.z,
     )
 
     this._scene.activeCamera = camera
@@ -934,12 +913,12 @@ class World {
     camera.position = new BABYLON.Vector3(
       this.CAMERA3_POSITION.x,
       this.CAMERA3_POSITION.y,
-      this.CAMERA3_POSITION.z
+      this.CAMERA3_POSITION.z,
     )
     camera.rotation = new BABYLON.Vector3(
       this.CAMERA3_ROTATION.x,
       this.CAMERA3_ROTATION.y,
-      this.CAMERA3_ROTATION.z
+      this.CAMERA3_ROTATION.z,
     )
 
     this._scene.activeCamera = camera
@@ -951,12 +930,12 @@ class World {
     camera.position = new BABYLON.Vector3(
       this.CAMERA4_POSITION.x,
       this.CAMERA4_POSITION.y,
-      this.CAMERA4_POSITION.z
+      this.CAMERA4_POSITION.z,
     )
     camera.rotation = new BABYLON.Vector3(
       this.CAMERA4_ROTATION.x,
       this.CAMERA4_ROTATION.y,
-      this.CAMERA4_ROTATION.z
+      this.CAMERA4_ROTATION.z,
     )
 
     this._scene.activeCamera = camera
@@ -968,12 +947,12 @@ class World {
     camera.position = new BABYLON.Vector3(
       this.CAMERA5_POSITION.x,
       this.CAMERA5_POSITION.y,
-      this.CAMERA5_POSITION.z
+      this.CAMERA5_POSITION.z,
     )
     camera.rotation = new BABYLON.Vector3(
       this.CAMERA5_ROTATION.x,
       this.CAMERA5_ROTATION.y,
-      this.CAMERA5_ROTATION.z
+      this.CAMERA5_ROTATION.z,
     )
 
     this._scene.activeCamera = camera
@@ -983,27 +962,62 @@ class World {
     this._gamepadStatus = status
   }
 
-  /**
-   * Resume audio context if a gesture have been made by user
-   * https://github.com/BabylonJS/Babylon.js/issues/4354
-   * */
-  checkAudioContext() {
-    let ready = false
+  async _initializeAudioAsync() {
+    try {
+      this._audioEngine = await BABYLON.CreateAudioEngineAsync()
 
-    if (BABYLON.Engine.audioEngine.audioContext.state == 'running') {
-      ready = true
+      // to remove no sounds icon on mobile
+      await this._audioEngine.unlockAsync()
+
+      // Spatial sounds
+
+      this._doorOpenSound = await BABYLON.CreateSoundAsync(
+        'doorOpenSound',
+        'sound/door_open.mp3',
+        {
+          loop: false,
+          autoplay: false,
+          spatialSound: true,
+          maxDistance: 35,
+          distanceModel: 'exponential',
+        },
+        this._audioEngine,
+      )
+
+      this._doorSqueakSound = await BABYLON.CreateSoundAsync(
+        'doorSqueakSound',
+        'sound/door_squeak.mp3',
+        {
+          loop: false,
+          autoplay: false,
+          spatialSound: true,
+          maxDistance: 35,
+          distanceModel: 'exponential',
+        },
+        this._audioEngine,
+      )
+
+      this._wolfSound = await BABYLON.CreateSoundAsync(
+        'wolfSound',
+        'sound/wolf.wav',
+        {
+          volume: 0.1,
+        },
+        this._audioEngine,
+      )
+
+      // spatial sounds
+
+      this._doorOpenSound.setPosition(
+        new BABYLON.Vector3(16.741, 13.583, 28.629),
+      )
+      this._doorSqueakSound.setPosition(
+        new BABYLON.Vector3(16.741, 13.583, 28.629),
+      )
+    } catch (e) {
+      console.log('error' + e)
+      // Audio initialization failed — sound will be skipped
     }
-
-    // resume only if a gesture have been made
-    if (
-      BABYLON.Engine.audioEngine.audioContext.state != 'running' &&
-      this._isUserGesture
-    ) {
-      BABYLON.Engine.audioEngine.audioContext.resume()
-      ready = true
-    }
-
-    return ready
   }
 
   isMobile() {

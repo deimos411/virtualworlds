@@ -18,8 +18,8 @@ class World {
   }
 
   GRAVITY_FORCE = -0.55 // default -0.98
-  ANGULAR_SENSIBILTY = 5000 // default 2000
-  TOUCH_ANGULAR_SENSIBILITY = 4000 // default 20000
+  ANGULAR_SENSIBILTY = 2000 // default 2000
+  TOUCH_ANGULAR_SENSIBILITY = 20000 // default 20000
   TOUCH_MOVE_SENSIBILITY = 250 // default 250
 
   /**
@@ -92,18 +92,18 @@ class World {
   }
 
   ACTIONS_OPEN_BOOK = {
-    en : 'open golden book',
-    fr : 'ouvrir le livre d\'or',
+    en: 'open golden book',
+    fr: "ouvrir le livre d'or",
   }
 
   ACTIONS_JUMP_ATLANTIS = {
-    en : 'jump to atlantis',
-    fr : 'découvrir atlantide',
+    en: 'jump to atlantis',
+    fr: 'découvrir atlantide',
   }
 
   ACTIONS_JUMP_ISLANDS = {
-    en : 'jump to floating islands',
-    fr : 'découvrir iles flottantes',
+    en: 'jump to floating islands',
+    fr: 'découvrir iles flottantes',
   }
 
   ACTION_MESHES = [
@@ -147,15 +147,9 @@ class World {
     this._scene.fogColor = this.FOG_COLOR
 
     // Sounds
-    let woodPeckerSound = new BABYLON.Sound(
-      'woodpecker',
-      'sound/woodpecker.mp3',
-      this._scene,
-      null,
-      {
-        volume: 0.5,
-      }
-    )
+    // audio engine (will be initialized in createScene with AudioV2)
+    this._audioEngine = null
+    this._woodPeckerSound = null
 
     // Lights
 
@@ -163,17 +157,17 @@ class World {
     let light_down = new BABYLON.HemisphericLight(
       'lightDown',
       new BABYLON.Vector3(0, 1, 0),
-      this._scene
+      this._scene,
     )
     let light_up = new BABYLON.HemisphericLight(
       'lightUp',
       new BABYLON.Vector3(0, -1, 0),
-      this._scene
+      this._scene,
     )
     let light = new BABYLON.PointLight(
       'pointLight',
       new BABYLON.Vector3(90, -10, 1),
-      this._scene
+      this._scene,
     )
 
     light.intensity = 5000
@@ -194,14 +188,14 @@ class World {
       new BABYLON.Vector3(
         this.CAMERA1_POSITION.x,
         this.CAMERA1_POSITION.y,
-        this.CAMERA1_POSITION.z
+        this.CAMERA1_POSITION.z,
       ),
-      this._scene
+      this._scene,
     )
     universalCamera.rotation = new BABYLON.Vector3(
       this.CAMERA1_ROTATION.x,
       this.CAMERA1_ROTATION.y,
-      this.CAMERA1_ROTATION.z
+      this.CAMERA1_ROTATION.z,
     )
 
     let arcRotateCamera = new BABYLON.ArcRotateCamera(
@@ -210,7 +204,7 @@ class World {
       this.CAMERA4_POSITION.y,
       this.CAMERA4_POSITION.z,
       new BABYLON.Vector3(0, 0, 0),
-      this._scene
+      this._scene,
     )
 
     // Speed of camera ( 2 by default )
@@ -242,12 +236,12 @@ class World {
           const rot = new BABYLON.Quaternion.RotationYawPitchRoll(
             randomNumber(0, 314) / 10,
             0,
-            0
+            0,
           )
           const trans = new BABYLON.Vector3(
             -this.FOREST_WIDTH / 4 + randomNumber(1, this.FOREST_WIDTH / 2),
             -1.1,
-            -this.FOREST_WIDTH / 4 + randomNumber(1, this.FOREST_WIDTH / 2)
+            -this.FOREST_WIDTH / 4 + randomNumber(1, this.FOREST_WIDTH / 2),
           )
 
           let matrix = BABYLON.Matrix.Compose(scale, rot, trans)
@@ -255,7 +249,7 @@ class World {
           // no big trees inside the forest clearing
           let distance = BABYLON.Vector3.Distance(
             trans,
-            new BABYLON.Vector3(0, -1.1, 0)
+            new BABYLON.Vector3(0, -1.1, 0),
           )
 
           if (distance > this.CLEARING_RAY) {
@@ -264,7 +258,7 @@ class World {
         }
 
         tree.thinInstanceAdd(treeArray)
-      }
+      },
     )
 
     /**
@@ -286,12 +280,12 @@ class World {
           const rot = new BABYLON.Quaternion.RotationYawPitchRoll(
             (Math.PI / 3) * randomNumber(1, 10),
             0,
-            0
+            0,
           )
           const trans = new BABYLON.Vector3(
             -this.FOREST_WIDTH + randomNumber(1, this.FOREST_WIDTH * 2),
             -100,
-            -this.FOREST_WIDTH + randomNumber(1, this.FOREST_WIDTH * 2)
+            -this.FOREST_WIDTH + randomNumber(1, this.FOREST_WIDTH * 2),
           )
 
           let matrix = BABYLON.Matrix.Compose(scale, rot, trans)
@@ -300,7 +294,7 @@ class World {
         }
 
         falling.thinInstanceAdd(fallingArray)
-      }
+      },
     )
 
     /**
@@ -321,11 +315,11 @@ class World {
           const trans = new BABYLON.Vector3(
             -this.FOREST_WIDTH + randomNumber(1, this.FOREST_WIDTH * 2),
             -65,
-            -this.FOREST_WIDTH + randomNumber(1, this.FOREST_WIDTH * 2)
+            -this.FOREST_WIDTH + randomNumber(1, this.FOREST_WIDTH * 2),
           )
           let distance = BABYLON.Vector3.Distance(
             trans,
-            new BABYLON.Vector3(0, -1.1, 0)
+            new BABYLON.Vector3(0, -1.1, 0),
           )
 
           // no big rock near city
@@ -339,7 +333,7 @@ class World {
           const rot = new BABYLON.Quaternion.RotationYawPitchRoll(
             (Math.PI / 3) * randomNumber(1, 10),
             0,
-            0
+            0,
           )
 
           let matrix = BABYLON.Matrix.Compose(scale, rot, trans)
@@ -348,7 +342,7 @@ class World {
         }
 
         rock.thinInstanceAdd(rockArray)
-      }
+      },
     )
 
     /**
@@ -368,13 +362,13 @@ class World {
           const trans = new BABYLON.Vector3(
             -this.FOREST_WIDTH / 4 + randomNumber(1, this.FOREST_WIDTH / 2),
             -1.1,
-            -this.FOREST_WIDTH / 4 + randomNumber(1, this.FOREST_WIDTH / 2)
+            -this.FOREST_WIDTH / 4 + randomNumber(1, this.FOREST_WIDTH / 2),
           )
           const scale = new BABYLON.Vector3(1, 1, 1)
           const rot = new BABYLON.Quaternion.RotationYawPitchRoll(
             (Math.PI / 3) * randomNumber(1, 10),
             0,
-            0
+            0,
           )
 
           let matrix = BABYLON.Matrix.Compose(scale, rot, trans)
@@ -383,7 +377,7 @@ class World {
         }
 
         stump.thinInstanceAdd(stumpArray)
-      }
+      },
     )
 
     /**
@@ -409,7 +403,7 @@ class World {
         const rot = new BABYLON.Quaternion.RotationYawPitchRoll(
           randomNumber(0, 314) / 10,
           0,
-          0
+          0,
         )
         const trans = new BABYLON.Vector3(-12, 10, 0)
 
@@ -417,7 +411,7 @@ class World {
 
         moonArray.push(matrix)
         moon.thinInstanceAdd(moonArray)
-      }
+      },
     )
 
     // Load meshes
@@ -425,7 +419,7 @@ class World {
       null,
       '',
       this.WORLD_FILE,
-      this._scene
+      this._scene,
     )
 
     // helpers ( help to avoid collision stuck on bridge )
@@ -447,8 +441,8 @@ class World {
           BABYLON.ActionManager.OnPickTrigger,
           () => {
             this.openGoldenBook()
-          }
-        )
+          },
+        ),
       )
     }
 
@@ -473,8 +467,8 @@ class World {
             BABYLON.ActionManager.OnPickTrigger,
             () => {
               this.openFloatingIslands()
-            }
-          )
+            },
+          ),
         )
       }
 
@@ -490,11 +484,39 @@ class World {
             BABYLON.ActionManager.OnPickTrigger,
             () => {
               this.openAtlantis()
-            }
-          )
+            },
+          ),
         )
       }
     }
+
+    //  Make all solid meshes pickable to block clicks (except helpers, beams, etc.)
+    this._scene.meshes.forEach((mesh) => {
+      // Skip meshes that should never block (helpers, beams, particles, etc.)
+      if (mesh.tags && (mesh.hasTag('helper') || mesh.hasTag('beam'))) {
+        return
+      }
+      // Make everything else pickable to act as occlusion blockers
+      mesh.isPickable = true
+    })
+
+    // Override the default cursor behavior
+    this._scene.onPointerObservable.add((pointerInfo) => {
+      if (pointerInfo.type === BABYLON.PointerEventTypes.POINTERMOVE) {
+        const pick = pointerInfo.pickInfo
+        let showPointer = false
+
+        if (pick && pick.hit && pick.pickedMesh) {
+          const meshId = pick.pickedMesh.id
+          // Only show pointer hand for your action meshes
+          if (this.ACTION_MESHES.includes(meshId)) {
+            showPointer = true
+          }
+        }
+
+        this._canvas.style.cursor = showPointer ? 'pointer' : 'default'
+      }
+    })
 
     //Set gravity for the scene (G force like, on Y-axis)
     this._scene.gravity = new BABYLON.Vector3(0, this.GRAVITY_FORCE, 0)
@@ -510,7 +532,7 @@ class World {
     universalCamera.ellipsoid = new BABYLON.Vector3(
       this.AVATAR_SIZE.x,
       this.AVATAR_SIZE.y,
-      this.AVATAR_SIZE.z
+      this.AVATAR_SIZE.z,
     )
 
     // Virtual Sticks for mobile navigation
@@ -538,7 +560,7 @@ class World {
 
     let material_firefly = new BABYLON.StandardMaterial(
       'crystalmat',
-      this._scene
+      this._scene,
     )
     material_firefly.emissiveColor = new BABYLON.Color3(1, 1, 0.5)
     material_firefly.alpha = 1
@@ -592,7 +614,7 @@ class World {
             document.dispatchEvent(
               new CustomEvent('showGamePadAction', {
                 detail: this.ACTIONS_OPEN_BOOK[this._lang],
-              })
+              }),
             )
             this._currentAction = this.ACTIONS.openGoldenBook
           }
@@ -604,7 +626,7 @@ class World {
             document.dispatchEvent(
               new CustomEvent('showGamePadAction', {
                 detail: this.ACTIONS_JUMP_ISLANDS[this._lang],
-              })
+              }),
             )
             this._currentAction = this.ACTIONS.openFloatingIslands
           }
@@ -616,7 +638,7 @@ class World {
             document.dispatchEvent(
               new CustomEvent('showGamePadAction', {
                 detail: this.ACTIONS_JUMP_ATLANTIS[this._lang],
-              })
+              }),
             )
             this._currentAction = this.ACTIONS.openAtlantis
           }
@@ -641,12 +663,8 @@ class World {
         let r = randomNumber(1, 20)
 
         if (r === 5) {
-          let ready = this.checkAudioContext()
-
-          if (ready) {
-            woodPeckerSound.stop()
-            woodPeckerSound.play()
-          }
+          this._woodPeckerSound.stop()
+          this._woodPeckerSound.play()
         }
         alpha = 0
       }
@@ -730,6 +748,9 @@ class World {
 
   userMakeGesture() {
     this._isUserGesture = true
+    if (!this._audioEngine) {
+      this._initializeAudioAsync()
+    }
   }
 
   /*
@@ -835,7 +856,7 @@ class World {
         camera.position.y.toFixed(3) +
         ',' +
         camera.position.z.toFixed(3) +
-        ')'
+        ')',
     )
     console.log(
       'camera rotation : const CAMERAX_ROTATION = new BABYLON.Vector3(' +
@@ -844,7 +865,7 @@ class World {
         camera.rotation.y.toFixed(3) +
         ',' +
         camera.rotation.z.toFixed(3) +
-        ')'
+        ')',
     )
   }
 
@@ -854,12 +875,12 @@ class World {
     camera.position = new BABYLON.Vector3(
       this.CAMERA1_POSITION.x,
       this.CAMERA1_POSITION.y,
-      this.CAMERA1_POSITION.z
+      this.CAMERA1_POSITION.z,
     )
     camera.rotation = new BABYLON.Vector3(
       this.CAMERA1_ROTATION.x,
       this.CAMERA1_ROTATION.y,
-      this.CAMERA1_ROTATION.z
+      this.CAMERA1_ROTATION.z,
     )
 
     this._scene.activeCamera = camera
@@ -871,12 +892,12 @@ class World {
     camera.position = new BABYLON.Vector3(
       this.CAMERA2_POSITION.x,
       this.CAMERA2_POSITION.y,
-      this.CAMERA2_POSITION.z
+      this.CAMERA2_POSITION.z,
     )
     camera.rotation = new BABYLON.Vector3(
       this.CAMERA2_ROTATION.x,
       this.CAMERA2_ROTATION.y,
-      this.CAMERA2_ROTATION.z
+      this.CAMERA2_ROTATION.z,
     )
 
     this._scene.activeCamera = camera
@@ -888,12 +909,12 @@ class World {
     camera.position = new BABYLON.Vector3(
       this.CAMERA3_POSITION.x,
       this.CAMERA3_POSITION.y,
-      this.CAMERA3_POSITION.z
+      this.CAMERA3_POSITION.z,
     )
     camera.rotation = new BABYLON.Vector3(
       this.CAMERA3_ROTATION.x,
       this.CAMERA3_ROTATION.y,
-      this.CAMERA3_ROTATION.z
+      this.CAMERA3_ROTATION.z,
     )
 
     this._scene.activeCamera = camera
@@ -905,12 +926,12 @@ class World {
     camera.position = new BABYLON.Vector3(
       this.CAMERA4_POSITION.x,
       this.CAMERA4_POSITION.y,
-      this.CAMERA4_POSITION.z
+      this.CAMERA4_POSITION.z,
     )
     camera.rotation = new BABYLON.Vector3(
       this.CAMERA4_ROTATION.x,
       this.CAMERA4_ROTATION.y,
-      this.CAMERA4_ROTATION.z
+      this.CAMERA4_ROTATION.z,
     )
 
     this._scene.activeCamera = camera
@@ -920,26 +941,24 @@ class World {
     this._gamepadStatus = status
   }
 
-  /**
-   * Resume audio context if a gesture have been made by user
-   * https://github.com/BabylonJS/Babylon.js/issues/4354
-   * */
-  checkAudioContext() {
-    let ready = false
-    if (BABYLON.Engine.audioEngine.audioContext.state == 'running') {
-      ready = true
-    }
+  async _initializeAudioAsync() {
+    try {
+      this._audioEngine = await BABYLON.CreateAudioEngineAsync()
 
-    // resume only if a gesture have been made
-    if (
-      BABYLON.Engine.audioEngine.audioContext.state != 'running' &&
-      this._isUserGesture
-    ) {
-      BABYLON.Engine.audioEngine.audioContext.resume()
-      ready = true
-    }
+      // to remove no sounds icon on mobile
+      await this._audioEngine.unlockAsync()
 
-    return ready
+      this._woodPeckerSound = await BABYLON.CreateSoundAsync(
+        'woodpecker',
+        'sound/woodpecker.mp3',
+        {
+          volume: 0.5,
+        },
+        this._audioEngine,
+      )
+    } catch (e) {
+      // Audio initialization failed — sound will be skipped
+    }
   }
 
   isMobile() {

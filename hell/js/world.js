@@ -19,7 +19,7 @@ class World {
 
   GRAVITY_FORCE = -0.55 // default -0.98
   ANGULAR_SENSIBILTY = 5000 // default 2000
-  TOUCH_ANGULAR_SENSIBILITY = 4000 // default 20000
+  TOUCH_ANGULAR_SENSIBILITY = 40000 // default 20000
   TOUCH_MOVE_SENSIBILITY = 250 // default 250
 
   /**
@@ -68,7 +68,7 @@ class World {
   /**
    *  Actions
    */
-  ACTIONS = {    
+  ACTIONS = {
     askSaintPeter: 'Ask Saint Peter',
     askImp: 'Ask imp',
     tormentRoom: 'Torment room',
@@ -81,48 +81,48 @@ class World {
   }
 
   ACTIONS_OPEN_BOOK = {
-    en : 'open golden book',
-    fr : 'ouvrir le livre d\'or',
+    en: 'open golden book',
+    fr: "ouvrir le livre d'or",
   }
 
   ACTIONS_JUMP_HALLOWEEN = {
-    en : 'jump to halloween',
-    fr : 'découvrir halloween',
+    en: 'jump to halloween',
+    fr: 'découvrir halloween',
   }
 
   ACTIONS_JUMP_SAVANNA = {
-    en : 'jump to savanna',
-    fr : 'découvrir safari',
+    en: 'jump to savanna',
+    fr: 'découvrir safari',
   }
 
   ACTIONS_GOTO_HELL = {
-    en : 'go to hell',
-    fr : 'aller en enfer',
+    en: 'go to hell',
+    fr: 'aller en enfer',
   }
 
   ACTIONS_GOTO_PARADISE = {
-    en : 'go to paradise',
-    fr : 'aller au paradis',
+    en: 'go to paradise',
+    fr: 'aller au paradis',
   }
 
   ACTIONS_OPEN_PORTAL = {
-    en : 'open portal',
-    fr : 'ouvrir le portail',
+    en: 'open portal',
+    fr: 'ouvrir le portail',
   }
 
   ACTIONS_TORMENT_ROOM = {
-    en : 'listen',
-    fr : 'écouter',
+    en: 'listen',
+    fr: 'écouter',
   }
 
   ACTIONS_ASK_PETER = {
-    en : 'ask',
-    fr : 'demander',
+    en: 'ask',
+    fr: 'demander',
   }
 
   ACTIONS_IMP = {
-    en : 'ask',
-    fr : 'demander',
+    en: 'ask',
+    fr: 'demander',
   }
 
   ACTION_MESHES = [
@@ -167,37 +167,15 @@ class World {
     this._followCamera = null
 
     // sounds
-    this._impSound = new BABYLON.Sound('beer', 'sound/imp.wav', this._scene)
-    this._scream1Sound = new BABYLON.Sound(
-      'scream1',
-      'sound/scream1.wav',
-      this._scene
-    )
-    this._scream2Sound = new BABYLON.Sound(
-      'scream1',
-      'sound/scream2.wav',
-      this._scene
-    )
-    this._scream3Sound = new BABYLON.Sound(
-      'scream1',
-      'sound/scream3.wav',
-      this._scene
-    )
-    this._saintPeterSound = new BABYLON.Sound(
-      'saintPeter',
-      'sound/stpeter.wav',
-      this._scene
-    )
-    this._portalSound = new BABYLON.Sound(
-      'portal',
-      'sound/portal.wav',
-      this._scene
-    )
-    this._teleportSound = new BABYLON.Sound(
-      'teleport',
-      'sound/teleport.wav',
-      this._scene
-    )
+    // audio engine (will be initialized in createScene with AudioV2)
+    this._audioEngine = null
+    this._impSound = null
+    this._scream1Sound = null
+    this._scream2Sound = null
+    this._scream3Sound = null
+    this._saintPeterSound = null
+    this._portalSound = null
+    this._teleportSound = null
   }
 
   async createScene() {
@@ -213,7 +191,7 @@ class World {
     this._light = new BABYLON.HemisphericLight(
       'light',
       new BABYLON.Vector3(0, 1, 0),
-      this._scene
+      this._scene,
     )
 
     // Default intensity is 1.S
@@ -225,14 +203,14 @@ class World {
       new BABYLON.Vector3(
         this.CAMERA1_POSITION.x,
         this.CAMERA1_POSITION.y,
-        this.CAMERA1_POSITION.z
+        this.CAMERA1_POSITION.z,
       ),
-      this._scene
+      this._scene,
     )
     universalCamera.rotation = new BABYLON.Vector3(
       this.CAMERA1_ROTATION.x,
       this.CAMERA1_ROTATION.y,
-      this.CAMERA1_ROTATION.z
+      this.CAMERA1_ROTATION.z,
     )
 
     // Follow camera to follow zeppelin
@@ -241,11 +219,12 @@ class World {
       new BABYLON.Vector3(
         this.CAMERA1_POSITION.x,
         this.CAMERA1_POSITION.y,
-        this.CAMERA1_POSITION.z
+        this.CAMERA1_POSITION.z,
       ),
       this._scene,
-      null
+      null,
     )
+    this._followCamera.inputs.attached.pointers.warningEnable = false
     this._followCamera.attachControl(this._canvas, true)
 
     // Speed of camera ( 2 by default )
@@ -274,7 +253,7 @@ class World {
       'gradient',
       this._scene,
       'gradient',
-      {}
+      {},
     )
     shader.setFloat('offset', -320)
     shader.setColor3('topColor', BABYLON.Color3.FromInts(0, 119, 255))
@@ -290,7 +269,7 @@ class World {
       null,
       '',
       this.WORLD_FILE,
-      this._scene
+      this._scene,
     )
 
     // Materials
@@ -298,7 +277,7 @@ class World {
     let material_water = new BABYLON.StandardMaterial('watermat', this._scene)
     material_water.diffuseTexture = new BABYLON.Texture(
       'water.jpg',
-      this._scene
+      this._scene,
     )
     material_water.diffuseTexture.hasAlpha = true
     //material_water.emissiveColor = new BABYLON.Color3(0.5,0.5,0.5)
@@ -320,8 +299,8 @@ class World {
           BABYLON.ActionManager.OnPickTrigger,
           () => {
             this.playImpSound()
-          }
-        )
+          },
+        ),
       )
     }
 
@@ -335,8 +314,8 @@ class World {
           BABYLON.ActionManager.OnPickTrigger,
           () => {
             this.playScream()
-          }
-        )
+          },
+        ),
       )
     }
 
@@ -359,7 +338,7 @@ class World {
           0,
           250,
           true,
-          0.125
+          0.125,
         )
       }
 
@@ -373,8 +352,8 @@ class World {
             BABYLON.ActionManager.OnPickTrigger,
             () => {
               this.playSainPeterSound()
-            }
-          )
+            },
+          ),
         )
       }
 
@@ -389,8 +368,8 @@ class World {
             () => {
               this.animatePortal()
               this.playPortalSound()
-            }
-          )
+            },
+          ),
         )
       }
 
@@ -405,8 +384,8 @@ class World {
             () => {
               this.animatePortal()
               this.playPortalSound()
-            }
-          )
+            },
+          ),
         )
       }
 
@@ -421,8 +400,8 @@ class World {
             () => {
               this.playTeleportSound()
               this.goToCamera2()
-            }
-          )
+            },
+          ),
         )
       }
 
@@ -437,8 +416,8 @@ class World {
             () => {
               this.playTeleportSound()
               this.goToCamera1()
-            }
-          )
+            },
+          ),
         )
       }
 
@@ -454,8 +433,8 @@ class World {
             BABYLON.ActionManager.OnPickTrigger,
             () => {
               this.openGoldenBook()
-            }
-          )
+            },
+          ),
         )
       }
 
@@ -471,8 +450,8 @@ class World {
             BABYLON.ActionManager.OnPickTrigger,
             () => {
               this.openSavanna()
-            }
-          )
+            },
+          ),
         )
       }
 
@@ -488,11 +467,39 @@ class World {
             BABYLON.ActionManager.OnPickTrigger,
             () => {
               this.openHalloween()
-            }
-          )
+            },
+          ),
         )
       }
     }
+
+    //  Make all solid meshes pickable to block clicks (except helpers, beams, etc.)
+    this._scene.meshes.forEach((mesh) => {
+      // Skip meshes that should never block (helpers, beams, particles, etc.)
+      if (mesh.tags && (mesh.hasTag('helper') || mesh.hasTag('beam'))) {
+        return
+      }
+      // Make everything else pickable to act as occlusion blockers
+      mesh.isPickable = true
+    })
+
+    // Override the default cursor behavior
+    this._scene.onPointerObservable.add((pointerInfo) => {
+      if (pointerInfo.type === BABYLON.PointerEventTypes.POINTERMOVE) {
+        const pick = pointerInfo.pickInfo
+        let showPointer = false
+
+        if (pick && pick.hit && pick.pickedMesh) {
+          const meshId = pick.pickedMesh.id
+          // Only show pointer hand for your action meshes
+          if (this.ACTION_MESHES.includes(meshId)) {
+            showPointer = true
+          }
+        }
+
+        this._canvas.style.cursor = showPointer ? 'pointer' : 'default'
+      }
+    })
 
     //Set gravity for the scene (G force like, on Y-axis)
     this._scene.gravity = new BABYLON.Vector3(0, this.GRAVITY_FORCE, 0)
@@ -508,7 +515,7 @@ class World {
     universalCamera.ellipsoid = new BABYLON.Vector3(
       this.AVATAR_SIZE.x,
       this.AVATAR_SIZE.y,
-      this.AVATAR_SIZE.z
+      this.AVATAR_SIZE.z,
     )
 
     // Virtual Sticks for mobile navigation
@@ -572,7 +579,7 @@ class World {
             document.dispatchEvent(
               new CustomEvent('showGamePadAction', {
                 detail: this.ACTIONS_ASK_PETER[this._lang],
-              })
+              }),
             )
             this._currentAction = this.ACTIONS.askSaintPeter
           }
@@ -583,7 +590,9 @@ class World {
           ) {
             isGamePadActionVisible = true
             document.dispatchEvent(
-              new CustomEvent('showGamePadAction', { detail: this.ACTIONS_IMP[this._lang] })
+              new CustomEvent('showGamePadAction', {
+                detail: this.ACTIONS_IMP[this._lang],
+              }),
             )
             this._currentAction = this.ACTIONS.askImp
           }
@@ -594,7 +603,9 @@ class World {
           ) {
             isGamePadActionVisible = true
             document.dispatchEvent(
-              new CustomEvent('showGamePadAction', { detail: this.ACTIONS_TORMENT_ROOM[this._lang] })
+              new CustomEvent('showGamePadAction', {
+                detail: this.ACTIONS_TORMENT_ROOM[this._lang],
+              }),
             )
             this._currentAction = this.ACTIONS.tormentRoom
           }
@@ -605,7 +616,9 @@ class World {
           ) {
             isGamePadActionVisible = true
             document.dispatchEvent(
-              new CustomEvent('showGamePadAction', { detail: this.ACTIONS_OPEN_PORTAL[this._lang] })
+              new CustomEvent('showGamePadAction', {
+                detail: this.ACTIONS_OPEN_PORTAL[this._lang],
+              }),
             )
             this._currentAction = this.ACTIONS.openPortal
           }
@@ -616,7 +629,9 @@ class World {
           ) {
             isGamePadActionVisible = true
             document.dispatchEvent(
-              new CustomEvent('showGamePadAction', { detail: this.ACTIONS_GOTO_HELL[this._lang] })
+              new CustomEvent('showGamePadAction', {
+                detail: this.ACTIONS_GOTO_HELL[this._lang],
+              }),
             )
             this._currentAction = this.ACTIONS.goToHell
           }
@@ -627,7 +642,9 @@ class World {
           ) {
             isGamePadActionVisible = true
             document.dispatchEvent(
-              new CustomEvent('showGamePadAction', { detail: this.ACTIONS_GOTO_PARADISE[this._lang]})
+              new CustomEvent('showGamePadAction', {
+                detail: this.ACTIONS_GOTO_PARADISE[this._lang],
+              }),
             )
             this._currentAction = this.ACTIONS.goToParadise
           }
@@ -640,7 +657,7 @@ class World {
             document.dispatchEvent(
               new CustomEvent('showGamePadAction', {
                 detail: this.ACTIONS_OPEN_BOOK[this._lang],
-              })
+              }),
             )
             this._currentAction = this.ACTIONS.openGoldenBook
           }
@@ -653,7 +670,7 @@ class World {
             document.dispatchEvent(
               new CustomEvent('showGamePadAction', {
                 detail: this.ACTIONS_JUMP_SAVANNA[this._lang],
-              })
+              }),
             )
             this._currentAction = this.ACTIONS.openSavanna
           }
@@ -666,7 +683,7 @@ class World {
             document.dispatchEvent(
               new CustomEvent('showGamePadAction', {
                 detail: this.ACTIONS_JUMP_HALLOWEEN[this._lang],
-              })
+              }),
             )
             this._currentAction = this.ACTIONS.openHalloween
           }
@@ -737,72 +754,52 @@ class World {
       0,
       250,
       false,
-      2
+      2,
     )
     this._scene.beginAnimation(
       this._scene.getMeshByName('portalRight'),
       0,
       250,
       false,
-      2
+      2,
     )
   }
 
   playTeleportSound() {
-    let ready = this.checkAudioContext()
-
-    if (ready) {
-      this._teleportSound.stop()
-      this._teleportSound.play()
-    }
+    this._teleportSound.stop()
+    this._teleportSound.play()
   }
 
   playSainPeterSound() {
-    let ready = this.checkAudioContext()
-
-    if (ready) {
-      this._saintPeterSound.stop()
-      this._saintPeterSound.play()
-    }
+    this._saintPeterSound.stop()
+    this._saintPeterSound.play()
   }
 
   playImpSound() {
-    let ready = this.checkAudioContext()
-
-    if (ready) {
-      this._impSound.stop()
-      this._impSound.play()
-    }
+    this._impSound.stop()
+    this._impSound.play()
   }
 
   playPortalSound() {
-    let ready = this.checkAudioContext()
-
-    if (ready) {
-      this._portalSound.stop()
-      this._portalSound.play()
-    }
+    this._portalSound.stop()
+    this._portalSound.play()
   }
   playScream() {
-    let ready = this.checkAudioContext()
-
-    if (ready) {
-      // play randomly one of three torment sound
-      let rand = this.randomNumber(0, 3)
-      switch (rand) {
-        case 1:
-          this._scream1Sound.stop()
-          this._scream1Sound.play()
-          break
-        case 2:
-          this._scream2Sound.stop()
-          this._scream2Sound.play()
-          break
-        case 3:
-          this._scream3Sound.stop()
-          this._scream3Sound.play()
-          break
-      }
+    // play randomly one of three torment sound
+    let rand = this.randomNumber(0, 3)
+    switch (rand) {
+      case 1:
+        this._scream1Sound.stop()
+        this._scream1Sound.play()
+        break
+      case 2:
+        this._scream2Sound.stop()
+        this._scream2Sound.play()
+        break
+      case 3:
+        this._scream3Sound.stop()
+        this._scream3Sound.play()
+        break
     }
   }
 
@@ -830,6 +827,9 @@ class World {
 
   userMakeGesture() {
     this._isUserGesture = true
+    if (!this._audioEngine) {
+      this._initializeAudioAsync()
+    }
   }
 
   /*
@@ -935,7 +935,7 @@ class World {
         camera.position.y.toFixed(3) +
         ',' +
         camera.position.z.toFixed(3) +
-        ')'
+        ')',
     )
     console.log(
       'camera rotation : const CAMERAX_ROTATION = new BABYLON.Vector3(' +
@@ -944,7 +944,7 @@ class World {
         camera.rotation.y.toFixed(3) +
         ',' +
         camera.rotation.z.toFixed(3) +
-        ')'
+        ')',
     )
   }
 
@@ -954,12 +954,12 @@ class World {
     camera.position = new BABYLON.Vector3(
       this.CAMERA1_POSITION.x,
       this.CAMERA1_POSITION.y,
-      this.CAMERA1_POSITION.z
+      this.CAMERA1_POSITION.z,
     )
     camera.rotation = new BABYLON.Vector3(
       this.CAMERA1_ROTATION.x,
       this.CAMERA1_ROTATION.y,
-      this.CAMERA1_ROTATION.z
+      this.CAMERA1_ROTATION.z,
     )
 
     this._scene.activeCamera = camera
@@ -972,12 +972,12 @@ class World {
     camera.position = new BABYLON.Vector3(
       this.CAMERA2_POSITION.x,
       this.CAMERA2_POSITION.y,
-      this.CAMERA2_POSITION.z
+      this.CAMERA2_POSITION.z,
     )
     camera.rotation = new BABYLON.Vector3(
       this.CAMERA2_ROTATION.x,
       this.CAMERA2_ROTATION.y,
-      this.CAMERA2_ROTATION.z
+      this.CAMERA2_ROTATION.z,
     )
 
     this._scene.activeCamera = camera
@@ -990,12 +990,12 @@ class World {
     camera.position = new BABYLON.Vector3(
       this.CAMERA3_POSITION.x,
       this.CAMERA3_POSITION.y,
-      this.CAMERA3_POSITION.z
+      this.CAMERA3_POSITION.z,
     )
     camera.rotation = new BABYLON.Vector3(
       this.CAMERA3_ROTATION.x,
       this.CAMERA3_ROTATION.y,
-      this.CAMERA3_ROTATION.z
+      this.CAMERA3_ROTATION.z,
     )
 
     this._scene.activeCamera = camera
@@ -1008,12 +1008,12 @@ class World {
     camera.position = new BABYLON.Vector3(
       this.CAMERA4_POSITION.x,
       this.CAMERA4_POSITION.y,
-      this.CAMERA4_POSITION.z
+      this.CAMERA4_POSITION.z,
     )
     camera.rotation = new BABYLON.Vector3(
       this.CAMERA4_ROTATION.x,
       this.CAMERA4_ROTATION.y,
-      this.CAMERA4_ROTATION.z
+      this.CAMERA4_ROTATION.z,
     )
 
     this._scene.activeCamera = camera
@@ -1023,27 +1023,69 @@ class World {
     this._gamepadStatus = status
   }
 
-  /**
-   * Resume audio context if a gesture have been made by user
-   * https://github.com/BabylonJS/Babylon.js/issues/4354
-   * */
-  checkAudioContext() {
-    let ready = false
-    if (BABYLON.Engine.audioEngine.audioContext.state == 'running') {
-      ready = true
-    }
+  async _initializeAudioAsync() {
+    try {
+      // 1. Create the V2 audio engine
+      this._audioEngine = await BABYLON.CreateAudioEngineAsync()
 
-    // resume only if a gesture have been made
-    if (
-      BABYLON.Engine.audioEngine.audioContext.state != 'running' &&
-      this._isUserGesture
-    ) {
-      BABYLON.Engine.audioEngine.audioContext.resume()
-      ready = true
-    }
+      // to remove no sounds icon on mobile
+      await this._audioEngine.unlockAsync()
 
-    return ready
+      this._impSound = await BABYLON.CreateSoundAsync(
+        'imp',
+        'sound/imp.wav',
+        {},
+        this._audioEngine,
+      )
+
+      this._scream1Sound = await BABYLON.CreateSoundAsync(
+        'scream1',
+        'sound/scream1.wav',
+        {},
+        this._audioEngine,
+      )
+
+      this._scream2Sound = await BABYLON.CreateSoundAsync(
+        'scream2',
+        'sound/scream2.wav',
+        {},
+        this._audioEngine,
+      )
+
+      this._scream3Sound = await BABYLON.CreateSoundAsync(
+        'scream3',
+        'sound/scream3.wav',
+        {},
+        this._audioEngine,
+      )
+
+      this._saintPeterSound = await BABYLON.CreateSoundAsync(
+        'saintPeter',
+        'sound/stpeter.wav',
+        {},
+        this._audioEngine,
+      )
+
+      this._portalSound = await BABYLON.CreateSoundAsync(
+        'portal',
+        'sound/portal.wav',
+        {},
+        this._audioEngine,
+      )
+
+      this._teleportSound = await BABYLON.CreateSoundAsync(
+        'teleport',
+        'sound/teleport.wav',
+        {},
+        this._audioEngine,
+      )
+    } catch (e) {
+      // Audio initialization failed — sound will be skipped
+      console.warn('Audio init failed:', e)
+    }
   }
+
+  async loadSounds() {}
 
   isMobile() {
     return this._isMobile
